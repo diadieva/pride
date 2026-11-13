@@ -64,7 +64,6 @@
     .personas { display: grid; gap: 14px; }
     @media (min-width: 900px) { .personas { grid-template-columns: 1fr 1fr; } .persona.primary { grid-column: 1 / -1; } }
     .persona { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; }
-    .persona.primary { border-color: var(--accent-line); }
     .persona-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; margin-bottom: 6px; }
     .persona-head h3 { margin: 0; font-size: 24px; letter-spacing: -.01em; }
     .status { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; border: 1px solid var(--line); color: var(--muted); }
@@ -78,13 +77,15 @@
     .block li { margin: 5px 0; }
     .block li.muted { color: var(--muted); }
     .trust { display: grid; gap: 10px; }
-    .trust .t { border-radius: 10px; padding: 12px 14px; }
+    .trust .t { border-radius: 14px; padding: 12px 14px; }
+    .trust-row { margin-top: 4px; }
+    @media (min-width: 760px) { .trust-row .trust { grid-template-columns: 1fr 1fr; align-items: start; } }
     .trust .t.calm { background: var(--good-soft); }
     .trust .t.alarm { background: var(--bad-soft); }
     .trust .t b { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 2px; }
     .trust .t.calm b { color: var(--good); }
     .trust .t.alarm b { color: var(--bad); }
-    blockquote { margin: 0; padding: 12px 16px; border-left: 3px solid var(--accent); background: var(--surface-2); border-radius: 0 10px 10px 0; font-size: 15px; }
+    blockquote { margin: 0; padding: 12px 16px; background: var(--surface-2); border-radius: 14px; font-size: 15px; }
     blockquote + p { color: var(--muted); font-size: 12.5px; margin: 6px 0 0; }
 
     .cards { display: grid; gap: 12px; }
@@ -147,7 +148,7 @@
     td.cmp b { color: var(--text); font-weight: 600; }
     .scale { display: grid; gap: 6px; margin: 0 0 16px; font-size: 13px; color: var(--muted); }
     @media (min-width: 760px) { .scale { grid-template-columns: repeat(3, 1fr); } }
-    .scale div { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; }
+    .scale div { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 10px 12px; }
 
     ol.clean, ul.clean { margin: 0; padding-left: 20px; }
     ol.clean li, ul.clean li { margin: 6px 0; }
@@ -231,7 +232,9 @@
               <li>Бачити, як живе «своя» тварина після оплати. 🗣 «Сподівалась, що за це хоча б будуть якісь фото кроликів- але ні.» <a class="c" href="#src-DV4">DV4</a>; «very gratifying to get updates on how your borrower is doing» <a class="c" href="#src-KV6">KV6</a>.</li>
               <li>Керувати регулярною опікою: змінити суму чи скасувати. 🗣 Просять «редагувати кураторство - наприклад збільшити місячний внесок», скаржаться, що не можуть припинити списання <a class="c" href="#src-DV4">DV4</a>.</li>
             </ul>
+          </div>
 
+          <div class="block">
             <h4>Болі в теперішніх способах</h4>
             <ul>
               <li><b>Стіна логіну перед опікою:</b> «Вхід» і рекламний поп-ап <a class="c" href="#src-HP4">HP4</a>; обов'язкова реєстрація <a class="c" href="#src-HP2">HP2</a>.</li>
@@ -241,37 +244,36 @@
               <li><b>Регулярну опіку важко зупинити:</b> лише листом <a class="c" href="#src-HP5">HP5</a>; 🗣 «навіть якщо вихожу з аккаунту гроші всеодно списуються» <a class="c" href="#src-DV4">DV4</a>.</li>
               <li class="muted">Котра біль найсильніша <span class="q">[?]</span> — частоти скарг немає.</li>
             </ul>
-          </div>
-
-          <div class="block">
-            <h4>Тригери довіри щодо видимого результату</h4>
-            <div class="trust">
-              <div class="t calm">
-                <b>Заспокоює</b> <span class="fix">виправлено 30.10</span>
-                <ul>
-                  <li>🗣 Видно, кому допомагаєш і куди йдуть гроші: «With Kiva, you can actually choose and see who you are helping.» <a class="c" href="#src-KV5">KV5</a></li>
-                  <li>🗣 Видно прогрес збору: «скільки вже допомоги для тваринки закрито» <a class="c" href="#src-DV4">DV4</a> <a class="c" href="#src-KV6">KV6</a></li>
-                  <li>🗣 Немає тиску: «they do not keep on at you for more money» <a class="c" href="#src-DS5">DS5</a></li>
-                  <li>🗣 Профіль з інформацією і фото <a class="c" href="#src-DV4">DV4</a></li>
-                  <li class="muted"><span class="q">[?]</span> Характер, друзі, вебкамера, ціна в каталозі, екран від імені тварини: є в продуктах <a class="c" href="#src-DS2">DS2</a> <a class="c" href="#src-DS3">DS3</a> <a class="c" href="#src-DV1">DV1</a>, відгуків про них немає.</li>
-                  <li class="muted"><span class="hyp">гіпотеза</span> <span class="q">[?]</span> Етапи «що зроблено», як трекер посилки <a class="c" href="#src-CW1">CW1</a> <a class="c" href="#src-DM1">DM1</a>.</li>
-                </ul>
-              </div>
-              <div class="t alarm">
-                <b>Насторожує</b> <span class="fix">виправлено 30.10</span>
-                <ul>
-                  <li>🗣 Мовчання про важливе: «we have not been informed where our sponsored Donkey is?» <a class="c" href="#src-DS5">DS5</a></li>
-                  <li>🗣 Тварина зникла з «Мої тварини», підтримка мовчить <a class="c" href="#src-DV4">DV4</a></li>
-                  <li>🗣 Не вдається скасувати списання <a class="c" href="#src-DV4">DV4</a> <a class="c" href="#src-HP5">HP5</a></li>
-                  <li>🗣 Реклама спонсорства, поки організація мовчить про кризу <a class="c" href="#src-DS5">DS5</a></li>
-                  <li class="muted"><span class="q">[?]</span> Рідкі рутинні оновлення <a class="c" href="#src-HP2">HP2</a> <a class="c" href="#src-DS3">DS3</a> — скарг саме на частоту не знайшли.</li>
-                </ul>
-              </div>
-            </div>
 
             <h4>Цитата</h4>
             <blockquote>«Підписалась на кураторство 2 кроликів, за 2 місяці це мало вийти 181•2•2=724 грн, а в мене зняло 2534 грн. Сподівалась, що за це хоча б будуть якісь фото кроликів- але ні.»</blockquote>
             <p>Відгук опікунки, App Store, Домівка, 3★, 17.07.2025 · <a class="c" href="#src-DV4">DV4</a></p>
+          </div>
+        </div>
+        <div class="block trust-row">
+          <h4>Тригери довіри щодо видимого результату</h4>
+          <div class="trust">
+            <div class="t calm">
+              <b>Заспокоює</b> <span class="fix">виправлено 30.10</span>
+              <ul>
+                <li>🗣 Видно, кому допомагаєш і куди йдуть гроші: «With Kiva, you can actually choose and see who you are helping.» <a class="c" href="#src-KV5">KV5</a></li>
+                <li>🗣 Видно прогрес збору: «скільки вже допомоги для тваринки закрито» <a class="c" href="#src-DV4">DV4</a> <a class="c" href="#src-KV6">KV6</a></li>
+                <li>🗣 Немає тиску: «they do not keep on at you for more money» <a class="c" href="#src-DS5">DS5</a></li>
+                <li>🗣 Профіль з інформацією і фото <a class="c" href="#src-DV4">DV4</a></li>
+                <li class="muted"><span class="q">[?]</span> Характер, друзі, вебкамера, ціна в каталозі, екран від імені тварини: є в продуктах <a class="c" href="#src-DS2">DS2</a> <a class="c" href="#src-DS3">DS3</a> <a class="c" href="#src-DV1">DV1</a>, відгуків про них немає.</li>
+                <li class="muted"><span class="hyp">гіпотеза</span> <span class="q">[?]</span> Етапи «що зроблено», як трекер посилки <a class="c" href="#src-CW1">CW1</a> <a class="c" href="#src-DM1">DM1</a>.</li>
+              </ul>
+            </div>
+            <div class="t alarm">
+              <b>Насторожує</b> <span class="fix">виправлено 30.10</span>
+              <ul>
+                <li>🗣 Мовчання про важливе: «we have not been informed where our sponsored Donkey is?» <a class="c" href="#src-DS5">DS5</a></li>
+                <li>🗣 Тварина зникла з «Мої тварини», підтримка мовчить <a class="c" href="#src-DV4">DV4</a></li>
+                <li>🗣 Не вдається скасувати списання <a class="c" href="#src-DV4">DV4</a> <a class="c" href="#src-HP5">HP5</a></li>
+                <li>🗣 Реклама спонсорства, поки організація мовчить про кризу <a class="c" href="#src-DS5">DS5</a></li>
+                <li class="muted"><span class="q">[?]</span> Рідкі рутинні оновлення <a class="c" href="#src-HP2">HP2</a> <a class="c" href="#src-DS3">DS3</a> — скарг саме на частоту не знайшли.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </article>
@@ -305,6 +307,8 @@
               <li><b>Там, де є конкретна тварина, — стіна логіну</b> <a class="c" href="#src-HP4">HP4</a>.</li>
               <li class="muted">Чи це болі для самих людей <span class="q">[?]</span> — відгуків про Банку немає.</li>
             </ul>
+            <h4>Цитата</h4>
+            <p class="note"><span class="q">[?]</span> Реальних відгуків разових донорів у ресерчі немає.</p>
             <h4>Тригери довіри</h4>
             <div class="trust">
               <div class="t calm"><b>Заспокоює</b>
@@ -320,8 +324,6 @@
                 </ul>
               </div>
             </div>
-            <h4>Цитата</h4>
-            <p class="note"><span class="q">[?]</span> Реальних відгуків разових донорів у ресерчі немає.</p>
           </div>
         </div>
       </article>
@@ -356,6 +358,8 @@
               <li><b>Приклад оновлення до оплати не показує ніхто</b> <a class="c" href="#src-HP2">HP2</a> <a class="c" href="#src-DS3">DS3</a> <a class="c" href="#src-KV2">KV2</a> <a class="c" href="#src-MB1">MB1</a>.</li>
               <li class="muted">Чи відчувають це як біль <span class="q">[?]</span> — це прогалини інтерфейсів, не скарги.</li>
             </ul>
+            <h4>Цитата</h4>
+            <p class="note"><span class="q">[?]</span> Відгуків людей, які стежать без оплати, у ресерчі немає.</p>
             <h4>Тригери довіри</h4>
             <div class="trust">
               <div class="t calm"><b>Заспокоює</b>
@@ -371,8 +375,6 @@
                 </ul>
               </div>
             </div>
-            <h4>Цитата</h4>
-            <p class="note"><span class="q">[?]</span> Відгуків людей, які стежать без оплати, у ресерчі немає.</p>
           </div>
         </div>
       </article>
