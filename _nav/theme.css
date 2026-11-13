@@ -1,0 +1,78 @@
+/* Тема сторінок репо — службова, не дизайн-система продукту (та буде в design-system/tokens.css).
+   Палітра — з ілюстрації собак Semi Geum: крем, корал, гірчиця, сіро-блакитний, кобальт, персик, графіт.
+   Світла тема — кремова, темна — графітова; перемикається за prefers-color-scheme. */
+
+:root {
+  /* Палітра ілюстрації — сирі кольори, для заливок і декору */
+  --dog-cream: #f2e8d2;
+  --dog-coral: #ed7251;
+  --dog-mustard: #f3b761;
+  --dog-dusty: #577aa0;
+  --dog-cobalt: #235098;
+  --dog-peach: #f0be8b;
+  --dog-sky: #c4dce8;
+  --dog-ink: #202020;
+
+  /* Ролі — світла тема. Кольори тексту затемнено до контрасту AA на кремовому */
+  color-scheme: light;
+  --bg: var(--dog-cream);
+  --surface: #f9f3e6;
+  --surface-2: #ebdfc5;
+  --line: #dccfb2;
+  --text: var(--dog-ink);
+  --muted: #6b6152;
+  --accent: #a93f24;
+  --accent-fill: var(--dog-coral);
+  --accent-soft: rgba(237, 114, 81, .14);
+  --accent-line: rgba(237, 114, 81, .55);
+  --on-accent: var(--dog-ink);
+  --good: #3e5f84;
+  --warn: #855a12;
+  --warn-soft: rgba(243, 183, 97, .28);
+  --warn-line: rgba(176, 122, 30, .5);
+  --bad: #a93f24;
+  --bad-line: rgba(169, 63, 36, .45);
+  --hyp: var(--dog-cobalt);
+  --hyp-soft: rgba(35, 80, 152, .1);
+  --hyp-line: rgba(35, 80, 152, .4);
+  --radius: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: #1a1918;
+    --surface: #232220;
+    --surface-2: #2c2a27;
+    --line: #3a3834;
+    --text: var(--dog-cream);
+    --muted: #b3aa98;
+    --accent: var(--dog-coral);
+    --accent-fill: var(--dog-coral);
+    --accent-soft: rgba(237, 114, 81, .14);
+    --accent-line: rgba(237, 114, 81, .55);
+    --on-accent: var(--dog-ink);
+    --good: var(--dog-sky);
+    --warn: var(--dog-mustard);
+    --warn-soft: rgba(243, 183, 97, .12);
+    --warn-line: rgba(243, 183, 97, .45);
+    --bad: #f2937a;
+    --bad-line: rgba(242, 147, 122, .45);
+    --hyp: #8fb0d8;
+    --hyp-soft: rgba(143, 176, 216, .12);
+    --hyp-line: rgba(143, 176, 216, .45);
+  }
+}
+
+/* Смужка з кольорів ілюстрації — «підпис» репо в шапці сторінки й навігатора */
+.dog-stripe {
+  display: block;
+  width: 112px;
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(90deg,
+    var(--dog-coral) 0 16.6%, var(--dog-mustard) 0 33.3%, var(--dog-dusty) 0 50%,
+    var(--dog-cobalt) 0 66.6%, var(--dog-peach) 0 83.3%, var(--text) 0);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+.hero .dog-stripe { margin: 0 0 18px; }

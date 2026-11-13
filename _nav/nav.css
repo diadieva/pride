@@ -1,13 +1,13 @@
-/* Навігатор репо — службовий інструмент, не частина продукту. Нейтральний стиль, префікс pn-. */
+/* Навігатор репо — службовий інструмент, не частина продукту. Кольори — з _nav/theme.css (палітра ілюстрації), префікс pn-. */
 .pn {
   --pn-w: 240px;
-  --pn-bg: #f6f6f5;
-  --pn-fg: #2b2b2b;
-  --pn-muted: #8a8a86;
-  --pn-line: #e2e2df;
-  --pn-hover: #ebebe8;
-  --pn-current-bg: #2b2b2b;
-  --pn-current-fg: #ffffff;
+  --pn-bg: #ebdfc5;
+  --pn-fg: #202020;
+  --pn-muted: #6b6152;
+  --pn-line: #dccfb2;
+  --pn-hover: #e2d4b6;
+  --pn-current-bg: #ed7251;
+  --pn-current-fg: #202020;
 
   position: fixed;
   inset: 0 auto 0 0;
@@ -25,13 +25,13 @@
 
 @media (prefers-color-scheme: dark) {
   .pn {
-    --pn-bg: #1c1c1b;
-    --pn-fg: #e6e6e3;
-    --pn-muted: #8d8d88;
-    --pn-line: #333331;
-    --pn-hover: #2a2a28;
-    --pn-current-bg: #e6e6e3;
-    --pn-current-fg: #1c1c1b;
+    --pn-bg: #141413;
+    --pn-fg: #f2e8d2;
+    --pn-muted: #b3aa98;
+    --pn-line: #2f2d2a;
+    --pn-hover: #262421;
+    --pn-current-bg: #ed7251;
+    --pn-current-fg: #202020;
   }
 }
 
@@ -44,6 +44,17 @@
   font-weight: 600;
   letter-spacing: .06em;
   text-transform: uppercase;
+}
+.pn-head::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 4px;
+  margin-top: 8px;
+  border-radius: 2px;
+  background: linear-gradient(90deg,
+    #ed7251 0 16.6%, #f3b761 0 33.3%, #577aa0 0 50%,
+    #235098 0 66.6%, #f0be8b 0 83.3%, var(--pn-fg) 0);
 }
 
 .pn ul { list-style: none; margin: 0; padding: 0; }
@@ -58,6 +69,7 @@
   text-decoration: none;
 }
 .pn-page:hover { background: var(--pn-hover); }
+.pn-current { font-weight: 600; }
 .pn-page:focus-visible { outline: 2px solid var(--pn-fg); outline-offset: -2px; }
 .pn-branch {
   margin-top: 10px;
@@ -84,10 +96,10 @@ html.pn-on body { padding-left: 240px; }
     bottom: 8px;
     z-index: 2147483001;
     padding: 6px 10px;
-    border: 1px solid #d0d0cc;
+    border: 1px solid var(--line, #dccfb2);
     border-radius: 4px;
-    background: #f6f6f5;
-    color: #2b2b2b;
+    background: var(--surface-2, #ebdfc5);
+    color: var(--text, #202020);
     font: 12px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     cursor: pointer;
   }
