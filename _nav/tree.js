@@ -1,24 +1,19 @@
 // Дерево сторінок репо — єдине джерело для навігатора (_nav/nav.js).
 // Елемент із href — сторінка; без href — гілка. children — вкладені сторінки (наприклад, стани екрана).
-// href — шлях від кореня репо. У дереві лише сторінки, які вже існують;
-// гілка з'являється разом зі своєю першою сторінкою.
+// href — шлях від кореня репо. У дереві лише сторінки, які вже існують.
+// icon — ім'я іконки з _nav/icons.css (без «i-»); вона ж лишається в згорнутому навігаторі, тож обов'язкова.
+// Гілку заводимо, лише коли в ній дві й більше сторінок: гілка з однією сторінкою дублює її назву.
 //
 // Приклад гілки:
-// { title: "Research", children: [
-//   { title: "Екран", href: "research/screens/screen.html", children: [
-//     { title: "Порожній стан", href: "research/screens/screen-empty.html" }
+// { title: "Екрани", icon: "…", children: [
+//   { title: "Екран", href: "screens/screen.html", icon: "…", children: [
+//     { title: "Порожній стан", href: "screens/screen-empty.html", icon: "…" }
 //   ] }
 // ] }
 
 window.NAV_TREE = [
-  { title: "Старт", href: "index.html" },
-  { title: "Ресерч", children: [
-    { title: "Підсумок дослідження", href: "research/research.html" }
-  ] },
-  { title: "Персони", children: [
-    { title: "Персони і JTBD", href: "personas.html" }
-  ] },
-  { title: "Структура", children: [
-    { title: "Інформаційна архітектура", href: "ia.html" }
-  ] }
+  { title: "Огляд продукту", href: "index.html", icon: "house" },
+  { title: "Дослідження", href: "research/research.html", icon: "search-text" },
+  { title: "Персони і JTBD", href: "personas.html", icon: "users" },
+  { title: "Інформаційна архітектура", href: "ia.html", icon: "sitemap" }
 ];

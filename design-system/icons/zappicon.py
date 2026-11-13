@@ -30,6 +30,8 @@ ICONS = [
     "minus", "plus",  # масштаб діаграм
     "arrows-out",     # вмістити діаграму в ширину
     "expand",         # діаграма на весь екран
+    "house", "search-text", "users", "sitemap",  # пункти навігатора
+    "angles-left", "angles-right",               # згорнути / розгорнути навігатор
 ]
 
 

@@ -19,7 +19,7 @@
 
 | Артефакт | Що це |
 |---|---|
-| [Стартова сторінка](https://diadieva.github.io/pride/) ([файл](index.html)) | Опис продукту і навігатор |
+| [Огляд продукту](https://diadieva.github.io/pride/) ([файл](index.html)) | Опис продукту і навігатор |
 | [CLAUDE.md](CLAUDE.md) | Повний бриф, правила навігатора й імен |
 | [_nav/tree.js](_nav/tree.js) | Дерево сторінок для навігатора |
 | [research/research.md](research/research.md) | **Підсумок дослідження**: конкуренти, бенчмарк, патерни, гіпотези |

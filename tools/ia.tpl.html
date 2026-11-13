@@ -379,7 +379,10 @@
     d.addEventListener("pointerup", endDrag);
     d.addEventListener("pointercancel", endDrag);
 
-    window.addEventListener("resize", function () { if (mode === "fit") act("fit"); });
+    // Ширина діаграми змінюється і від вікна, і від згортання навігатора
+    var refit = function () { if (mode === "fit") act("fit"); };
+    if (window.ResizeObserver) new ResizeObserver(refit).observe(d);
+    else window.addEventListener("resize", refit);
     bar.hidden = false;
     act("fit");
   }

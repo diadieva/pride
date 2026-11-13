@@ -13,37 +13,48 @@
 
   var here = normalize(location.href);
 
-  function renderItems(items) {
-    var ul = document.createElement("ul");
-    items.forEach(function (item) {
-      var li = document.createElement("li");
-      var label;
-      if (item.href) {
-        label = document.createElement("a");
-        label.href = root + item.href;
-        label.className = "pn-page";
-        if (normalize(label.href) === here) {
-          label.className += " pn-current";
-          label.setAttribute("aria-current", "page");
-        }
-      } else {
-        label = document.createElement("span");
-        label.className = "pn-branch";
-      }
-      label.textContent = item.title;
-      li.appendChild(label);
-      if (item.children && item.children.length) li.appendChild(renderItems(item.children));
-      ul.appendChild(li);
-    });
-    return ul;
-  }
-
   // Іконка з _nav/icons.css; поруч завжди є текст, тож для скрінрідера вона декоративна
   function icon(name) {
     var i = document.createElement("span");
     i.className = "i i-" + name;
     i.setAttribute("aria-hidden", "true");
     return i;
+  }
+
+  // Підпис пункту. У згорнутому навігаторі він візуально схований, але лишається іменем для скрінрідера
+  // і текстом підказки (data-label)
+  function label(el, text) {
+    var span = document.createElement("span");
+    span.className = "pn-label";
+    span.textContent = text;
+    el.appendChild(span);
+    el.setAttribute("data-label", text);
+  }
+
+  function renderItems(items) {
+    var ul = document.createElement("ul");
+    items.forEach(function (item) {
+      var li = document.createElement("li");
+      var el;
+      if (item.href) {
+        el = document.createElement("a");
+        el.href = root + item.href;
+        el.className = "pn-page";
+        if (normalize(el.href) === here) {
+          el.className += " pn-current";
+          el.setAttribute("aria-current", "page");
+        }
+      } else {
+        el = document.createElement("span");
+        el.className = "pn-branch";
+      }
+      if (item.icon) el.appendChild(icon(item.icon));
+      label(el, item.title);
+      li.appendChild(el);
+      if (item.children && item.children.length) li.appendChild(renderItems(item.children));
+      ul.appendChild(li);
+    });
+    return ul;
   }
 
   // Перемикач теми: дві кнопки, натиснута — поточна тема (_nav/theme.js).
@@ -56,7 +67,7 @@
       var b = document.createElement("button");
       b.type = "button";
       b.appendChild(icon(opt[1]));
-      b.appendChild(document.createTextNode(opt[2]));
+      label(b, opt[2]);
       b.addEventListener("click", function () { theme.set(opt[0]); sync(); });
       group.appendChild(b);
       return [opt[0], b];
@@ -69,6 +80,58 @@
     theme.onSystemChange(sync);
     return group;
   }
+
+  // Згортання навігатора (лише на ширині понад 760px): стрілка з'являється, коли курсор над навігатором
+  // або фокус у ньому; клавіша [ теж перемикає. Стан пам'ятаємо між сторінками.
+  var COLLAPSED = "pn-collapsed";
+  function savedCollapsed() { try { return localStorage.getItem(COLLAPSED) === "1"; } catch (e) { return false; } }
+  if (savedCollapsed()) document.documentElement.classList.add(COLLAPSED);
+
+  function renderCollapseButton() {
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "pn-collapse";
+    b.setAttribute("aria-controls", "pn");
+    var ic = icon("angles-left");
+    b.appendChild(ic);
+    function sync() {
+      var collapsed = document.documentElement.classList.contains(COLLAPSED);
+      var text = collapsed ? "Розгорнути навігатор" : "Згорнути навігатор";
+      ic.className = "i i-" + (collapsed ? "angles-right" : "angles-left");
+      b.setAttribute("aria-expanded", String(!collapsed));
+      b.setAttribute("aria-label", text);
+      b.title = text + " ([)";
+    }
+    function toggle() {
+      var collapsed = document.documentElement.classList.toggle(COLLAPSED);
+      try { localStorage.setItem(COLLAPSED, collapsed ? "1" : "0"); } catch (e) {}
+      hideTip();
+      sync();
+    }
+    b.addEventListener("click", toggle);
+    document.addEventListener("keydown", function (e) {
+      if (e.code !== "BracketLeft" || e.ctrlKey || e.metaKey || e.altKey) return;
+      var t = e.target;
+      if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
+      if (window.matchMedia("(max-width: 760px)").matches) return;
+      e.preventDefault();
+      toggle();
+    });
+    sync();
+    return b;
+  }
+
+  // Підказка з назвою пункту в згорнутому навігаторі. Окремий елемент поза .pn, бо .pn обрізає все, що за його краєм
+  var tip = null;
+  function showTip(el) {
+    if (!document.documentElement.classList.contains(COLLAPSED) || window.matchMedia("(max-width: 760px)").matches) return;
+    var r = el.getBoundingClientRect();
+    tip.textContent = el.getAttribute("data-label");
+    tip.style.top = r.top + r.height / 2 + "px";
+    tip.style.left = r.right + 10 + "px";
+    tip.hidden = false;
+  }
+  function hideTip() { if (tip) tip.hidden = true; }
 
   function build() {
     var nav = document.createElement("nav");
@@ -95,9 +158,27 @@
       toggle.setAttribute("aria-expanded", String(open));
     });
 
+    tip = document.createElement("div");
+    tip.className = "pn-tip";
+    tip.setAttribute("aria-hidden", "true");
+    tip.hidden = true;
+    nav.querySelectorAll("[data-label]").forEach(function (el) {
+      el.addEventListener("pointerenter", function () { showTip(el); });
+      el.addEventListener("pointerleave", hideTip);
+      el.addEventListener("focus", function () { showTip(el); });
+      el.addEventListener("blur", hideTip);
+    });
+    nav.addEventListener("scroll", hideTip);
+
     document.body.insertBefore(nav, document.body.firstChild);
     document.body.insertBefore(toggle, nav);
+    nav.insertAdjacentElement("afterend", renderCollapseButton());
+    document.body.appendChild(tip);
     document.documentElement.classList.add("pn-on");
+    // Анімацію ширини вмикаємо після першого кадру, щоб збережений стан не «проїжджав» при завантаженні
+    requestAnimationFrame(function () { requestAnimationFrame(function () {
+      document.documentElement.classList.add("pn-ready");
+    }); });
   }
 
   if (document.body) build();
