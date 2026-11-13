@@ -197,8 +197,19 @@ def flow_html(fl):
     deadc = len(re.findall(r'\(\"тупик', fl['code']))
     return (f'<article class="flow" id="{fid(fl["title"])}"><h3><span class="fnum">{esc(num)}</span> {esc(name)}</h3>'
             f'<div class="fmeta">{meta}</div>'
-            f'<div class="dtools"><button type="button" class="fit" aria-pressed="false">Вмістити в ширину</button><span>Справжній розмір — гортайте діаграму</span></div>'
-            f'<div class="diagram" tabindex="0" role="region" aria-label="Діаграма flow {esc(num)}"><pre class="mermaid">{esc(fl["code"])}</pre></div>'
+            f'<div class="viewer"><div class="dtools" role="toolbar" aria-label="Масштаб діаграми flow {esc(num)}" hidden>'
+            '<div class="zgroup">'
+            '<button type="button" class="tb" data-act="out" aria-label="Зменшити" title="Зменшити (−)"><span class="i i-minus" aria-hidden="true"></span></button>'
+            '<output class="zval" aria-live="polite">100%</output>'
+            '<button type="button" class="tb" data-act="in" aria-label="Збільшити" title="Збільшити (+)"><span class="i i-plus" aria-hidden="true"></span></button>'
+            '</div>'
+            '<button type="button" class="tb" data-act="fit" aria-pressed="true" title="Вмістити в ширину (0)"><span class="i i-arrows-out" aria-hidden="true"></span>Вмістити</button>'
+            '<button type="button" class="tb" data-act="real" aria-pressed="false" title="Справжній розмір (1)">100%</button>'
+            '<button type="button" class="tb" data-act="full" title="На весь екран (F)"><span class="i i-expand" aria-hidden="true"></span><span class="lbl">На весь екран</span></button>'
+            '<span class="hint">Тягніть, щоб гортати · Ctrl/⌘ + коліщатко — масштаб</span>'
+            '<a class="tolist" href="#flows">До списку flows</a>'
+            '</div>'
+            f'<div class="diagram" tabindex="0" role="region" aria-label="Діаграма flow {esc(num)}"><pre class="mermaid">{esc(fl["code"])}</pre></div></div>'
             f'<details class="fdet"><summary>Розвилки і стани словами</summary><div class="dgrid">{det}</div></details></article>')
 
 def why():
