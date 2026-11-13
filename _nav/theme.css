@@ -32,6 +32,8 @@
   --warn-line: rgba(176, 122, 30, .5);
   --bad: #a93f24;
   --bad-line: rgba(169, 63, 36, .45);
+  --good-soft: rgba(196, 220, 232, .7);
+  --bad-soft: rgba(237, 114, 81, .12);
   --hyp: var(--dog-cobalt);
   --hyp-soft: rgba(35, 80, 152, .1);
   --hyp-line: rgba(35, 80, 152, .4);
@@ -59,6 +61,8 @@
     --warn-line: rgba(243, 183, 97, .45);
     --bad: #f2937a;
     --bad-line: rgba(242, 147, 122, .45);
+    --good-soft: rgba(196, 220, 232, .08);
+    --bad-soft: rgba(242, 147, 122, .1);
     --hyp: #8fb0d8;
     --hyp-soft: rgba(143, 176, 216, .12);
     --hyp-line: rgba(143, 176, 216, .45);
@@ -84,6 +88,8 @@
   --warn-line: rgba(243, 183, 97, .45);
   --bad: #f2937a;
   --bad-line: rgba(242, 147, 122, .45);
+  --good-soft: rgba(196, 220, 232, .08);
+  --bad-soft: rgba(242, 147, 122, .1);
   --hyp: #8fb0d8;
   --hyp-soft: rgba(143, 176, 216, .12);
   --hyp-line: rgba(143, 176, 216, .45);
