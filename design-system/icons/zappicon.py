@@ -15,7 +15,7 @@ import zstandard
 HERE = os.path.dirname(os.path.abspath(__file__))
 FIG = os.path.join(HERE, "Zappicon v1.1.fig")
 OUT = os.path.join(HERE, "..", "..", "_nav", "icons.css")
-STYLE = "Regular"
+STYLE = "Filled"
 ICONS = [
     "comment-text",   # слова людей (було 🗣)
     "puzzle-piece",   # сигнал продукту (🧩)
