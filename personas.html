@@ -37,9 +37,9 @@
     .provenance { display: grid; gap: 8px; margin: 28px 0 0; }
     @media (min-width: 720px) { .provenance { grid-template-columns: repeat(3, 1fr); } }
     .prov { background: var(--surface); border-radius: var(--radius); padding: 14px 16px; }
-    .prov b { display: flex; align-items: center; gap: 12px; font-size: 13px; margin-bottom: 8px; }
+    .prov b { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; font-size: 13px; margin-bottom: 8px; }
     .prov-ic { display: grid; place-items: center; flex: none; width: 56px; height: 56px; border-radius: 50%; background: var(--surface-raised); color: var(--text); }
-    .prov-ic .i { width: 24px; height: 24px; vertical-align: 0; }
+    .prov-ic .i { width: 18px; height: 18px; vertical-align: 0; }
     .prov > span { color: var(--muted); font-size: 13px; }
 
     .legend { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 20px 0 0; padding: 14px 16px; background: var(--surface); border-radius: var(--radius); font-size: 13px; color: var(--muted); }
