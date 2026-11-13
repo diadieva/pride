@@ -38,6 +38,29 @@
     return ul;
   }
 
+  // Перемикач теми: дві кнопки, натиснута — поточна тема (_nav/theme.js).
+  function renderThemeSwitch(theme) {
+    var group = document.createElement("div");
+    group.className = "pn-theme";
+    group.setAttribute("role", "group");
+    group.setAttribute("aria-label", "Тема");
+    var buttons = [["light", "☀ Світла"], ["dark", "☾ Темна"]].map(function (opt) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.textContent = opt[1];
+      b.addEventListener("click", function () { theme.set(opt[0]); sync(); });
+      group.appendChild(b);
+      return [opt[0], b];
+    });
+    function sync() {
+      var current = theme.current();
+      buttons.forEach(function (pair) { pair[1].setAttribute("aria-pressed", String(pair[0] === current)); });
+    }
+    sync();
+    theme.onSystemChange(sync);
+    return group;
+  }
+
   function build() {
     var nav = document.createElement("nav");
     nav.className = "pn";
@@ -48,6 +71,7 @@
     head.className = "pn-head";
     head.textContent = "Прайд · репо";
     nav.appendChild(head);
+    if (window.prideTheme) nav.appendChild(renderThemeSwitch(window.prideTheme));
     nav.appendChild(renderItems(window.NAV_TREE || []));
 
     var toggle = document.createElement("button");

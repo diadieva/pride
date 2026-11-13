@@ -1,6 +1,6 @@
 /* Тема сторінок репо — службова, не дизайн-система продукту (та буде в design-system/tokens.css).
    Палітра — з ілюстрації собак Semi Geum: крем, корал, гірчиця, сіро-блакитний, кобальт, персик, графіт.
-   Світла тема — кремова, темна — графітова; перемикається за prefers-color-scheme. */
+   Світла тема — кремова, темна — графітова. За замовчуванням — як у системі; вибір перемикача (_nav/theme.js) — атрибут data-theme на <html>. */
 
 :root {
   /* Палітра ілюстрації — сирі кольори, для заливок і декору */
@@ -38,8 +38,9 @@
   --radius: 12px;
 }
 
+/* Темна тема: за системою, якщо людина не обрала світлу, або явно обрана перемикачем */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     color-scheme: dark;
     --bg: #1a1918;
     --surface: #232220;
@@ -62,6 +63,30 @@
     --hyp-soft: rgba(143, 176, 216, .12);
     --hyp-line: rgba(143, 176, 216, .45);
   }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #1a1918;
+  --surface: #232220;
+  --surface-2: #2c2a27;
+  --line: #3a3834;
+  --text: var(--dog-cream);
+  --muted: #b3aa98;
+  --accent: var(--dog-coral);
+  --accent-fill: var(--dog-coral);
+  --accent-soft: rgba(237, 114, 81, .14);
+  --accent-line: rgba(237, 114, 81, .55);
+  --on-accent: var(--dog-ink);
+  --good: var(--dog-sky);
+  --warn: var(--dog-mustard);
+  --warn-soft: rgba(243, 183, 97, .12);
+  --warn-line: rgba(243, 183, 97, .45);
+  --bad: #f2937a;
+  --bad-line: rgba(242, 147, 122, .45);
+  --hyp: #8fb0d8;
+  --hyp-soft: rgba(143, 176, 216, .12);
+  --hyp-line: rgba(143, 176, 216, .45);
 }
 
 /* Смужка з кольорів ілюстрації — «підпис» репо в шапці сторінки й навігатора */
