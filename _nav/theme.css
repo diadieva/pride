@@ -18,6 +18,7 @@
   --bg: var(--dog-cream);
   --surface: #f9f3e6;
   --surface-2: #ebdfc5;
+  --surface-raised: #ffffff;
   --line: #dccfb2;
   --text: var(--dog-ink);
   --muted: #6b6152;
@@ -47,6 +48,7 @@
     --bg: #1a1918;
     --surface: #232220;
     --surface-2: #2c2a27;
+    --surface-raised: #2c2a27;
     --line: #3a3834;
     --text: var(--dog-cream);
     --muted: #b3aa98;
@@ -74,6 +76,7 @@
   --bg: #1a1918;
   --surface: #232220;
   --surface-2: #2c2a27;
+  --surface-raised: #2c2a27;
   --line: #3a3834;
   --text: var(--dog-cream);
   --muted: #b3aa98;
