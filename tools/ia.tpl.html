@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="uk" data-root="./">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Інформаційна архітектура</title>
+  <script src="./_nav/theme.js"></script>
+  <link rel="stylesheet" href="./_nav/theme.css">
+  <link rel="stylesheet" href="./_nav/icons.css">
+  <link rel="stylesheet" href="./_nav/nav.css">
+  <script defer src="./_nav/tree.js"></script>
+  <script defer src="./_nav/nav.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 15px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-underline-offset: 2px; }
+    a:focus-visible, summary:focus-visible, .diagram:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+    code { font: 12.5px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; }
+    main { max-width: 1120px; margin: 0 auto; padding: 32px 16px 96px; }
+    @media (min-width: 900px) { main { padding: 48px 40px 120px; } }
+
+    header.hero { margin-bottom: 32px; }
+    .eyebrow { color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; margin: 0 0 8px; }
+    h1 { font-size: clamp(30px, 6vw, 48px); line-height: 1.08; letter-spacing: -.02em; margin: 0 0 12px; }
+    .lead { color: var(--muted); max-width: 720px; margin: 0; font-size: 16px; }
+    .toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 0; padding: 0; list-style: none; }
+    .toc a { display: inline-block; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; color: var(--text); text-decoration: none; font-size: 13px; }
+    .toc a:hover { border-color: var(--accent); }
+    .provenance { display: grid; gap: 8px; margin: 28px 0 0; }
+    @media (min-width: 720px) { .provenance { grid-template-columns: repeat(3, 1fr); } }
+    .prov { background: var(--surface); border-radius: var(--radius); padding: 14px 16px; }
+    .prov b { display: block; font-size: 13px; margin-bottom: 4px; }
+    .prov span { color: var(--muted); font-size: 13px; }
+    .prov .big { display: block; color: var(--text); font-size: 26px; font-weight: 800; letter-spacing: -.02em; line-height: 1.2; }
+    .legend { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 20px 0 0; padding: 14px 16px; background: var(--surface); border-radius: var(--radius); font-size: 13px; color: var(--muted); }
+    .legend .item { display: inline-flex; align-items: center; gap: 6px; }
+
+    section { padding-top: 56px; }
+    section > h2 { font-size: clamp(22px, 4vw, 30px); letter-spacing: -.01em; margin: 0 0 6px; display: flex; align-items: baseline; gap: 12px; }
+    section > h2 .num { color: var(--accent); font-size: .6em; font-weight: 700; letter-spacing: .08em; }
+    .sub { color: var(--muted); margin: 0 0 20px; max-width: 760px; }
+    h3 { font-size: 17px; margin: 32px 0 12px; }
+    .callout { background: var(--surface); padding: 14px 18px; border-radius: var(--radius); margin: 0 0 20px; }
+    .callout p { margin: 0; }
+    .callout ul, .callout ol { margin: 6px 0 0; padding-left: 20px; }
+    .callout li { margin: 4px 0; }
+    .callout ul ul { margin: 2px 0; }
+
+    /* Позначки */
+    .q { display: inline-block; padding: 0 6px; border-radius: 4px; background: var(--warn-soft); border: 1px solid var(--warn-line); color: var(--warn); font-size: .85em; font-weight: 700; line-height: 1.5; white-space: nowrap; }
+    .job { display: inline-block; padding: 0 7px; border-radius: 999px; background: var(--accent-soft); border: 1px solid var(--accent-line); color: var(--accent); font-size: 11px; font-weight: 700; line-height: 1.6; white-space: nowrap; cursor: help; }
+    .job.hyp-job { background: var(--hyp-soft); border-color: var(--hyp-line); color: var(--hyp); }
+    .mk { display: inline-block; padding: 0 7px; border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; line-height: 1.6; white-space: nowrap; border: 1px solid var(--line); }
+    .mk-law { background: var(--warn-soft); border-color: var(--warn-line); color: var(--warn); }
+    .mk-team { background: var(--good-soft); color: var(--good); }
+    .mk-orph { background: var(--bad-soft); border-color: var(--bad-line); color: var(--bad); }
+    .badge { display: inline-block; padding: 0 8px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); font-size: 11px; line-height: 1.7; white-space: nowrap; }
+    .badge.main { background: var(--accent-fill); border-color: var(--accent-fill); color: var(--on-accent); font-weight: 700; }
+    .badge.tab { color: var(--text); }
+    code.file { color: var(--muted); background: var(--surface-2); padding: 1px 6px; border-radius: 6px; font-size: 12px; }
+
+    /* Глобальна навігація */
+    .navstrip { display: grid; gap: 8px; margin: 0 0 16px; }
+    @media (min-width: 720px) { .navstrip { grid-template-columns: repeat(4, 1fr); } }
+    .navcard { background: var(--surface); border-radius: 14px; padding: 12px 14px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
+    .navcard b { font-size: 15px; }
+    .navcard .nnum { color: var(--accent); font-weight: 800; font-size: 12px; }
+    .navcard .jobs { width: 100%; display: flex; flex-wrap: wrap; gap: 4px; }
+
+    /* Дерево */
+    .tree, .tree ul { list-style: none; margin: 0; padding: 0; }
+    .tree ul { margin-left: 9px; padding-left: 18px; border-left: 1px solid var(--line); }
+    .tree ul > li { position: relative; }
+    .tree ul > li::before { content: ""; position: absolute; left: -18px; top: 21px; width: 14px; border-top: 1px solid var(--line); }
+    .root-name { font-weight: 800; font-size: 20px; letter-spacing: -.01em; }
+    .root-meta { color: var(--muted); font-size: 13px; margin-left: 10px; }
+    .group { padding-top: 10px; }
+    .gname { font-weight: 700; font-size: 15px; padding: 8px 0 4px; }
+    .gname .ent { display: block; color: var(--muted); font-weight: 400; font-size: 12.5px; }
+    @media (min-width: 720px) { .gname .ent { display: inline; margin-left: 6px; } }
+    .screen details { background: var(--surface); border-radius: 14px; margin: 6px 0; }
+    .screen.is-main details { box-shadow: inset 3px 0 0 var(--accent-fill); }
+    .screen summary { cursor: pointer; padding: 10px 14px 10px 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; list-style: none; position: relative; }
+    .screen summary::-webkit-details-marker { display: none; }
+    .screen summary::before { content: ""; position: absolute; left: 14px; top: 17px; border: 5px solid transparent; border-left-color: var(--muted); }
+    .screen details[open] summary::before { transform: rotate(90deg); transform-origin: 2px 5px; }
+    .sname { font-weight: 650; font-size: 15px; }
+    .jobs { display: inline-flex; flex-wrap: wrap; gap: 4px; }
+    .screen details p { margin: 0; padding: 0 16px 14px 32px; color: var(--muted); font-size: 13.5px; }
+
+    /* Таблиці */
+    .table-wrap { overflow-x: auto; border-radius: var(--radius); background: var(--surface); }
+    table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+    th, td { text-align: left; vertical-align: top; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+    thead th { background: var(--surface-2); color: var(--muted); font-size: 12px; font-weight: 600; letter-spacing: .02em; }
+    tbody tr:last-child td, tbody tr:last-child th { border-bottom: 0; }
+    table.why td:first-child { min-width: 260px; }
+
+    /* Матриця */
+    .matrix table { min-width: 1180px; }
+    .matrix thead th { text-align: center; white-space: nowrap; padding: 10px 6px; vertical-align: bottom; }
+    .matrix thead th.jobcol { text-align: left; }
+    .matrix th small { display: block; font-size: 10.5px; font-weight: 700; letter-spacing: .02em; }
+    .matrix tbody th { font-weight: 500; min-width: 260px; max-width: 320px; }
+    .matrix tbody th small { display: block; color: var(--bad); font-size: 11px; font-weight: 700; }
+    .matrix .jobcol, .matrix tbody th { position: sticky; left: 0; z-index: 1; background: var(--surface); }
+    .matrix thead .jobcol { background: var(--surface-2); }
+    .matrix td { text-align: center; padding: 10px 6px; }
+    .matrix .x { color: var(--accent); font-weight: 800; font-size: 16px; }
+    .matrix td.orph, .matrix thead th.orph { background: var(--bad-soft); }
+    .matrix thead th.orph { color: var(--bad); }
+    .matrix td.near, .matrix thead th.near { background: var(--warn-soft); }
+    .matrix thead th.near { color: var(--warn); }
+    .matrix tr.orph td { background: var(--bad-soft); }
+    .matrix tr.orph th { box-shadow: inset 3px 0 0 var(--bad); }
+    .matrix tr.hyp-row th { color: var(--muted); }
+    .sw { display: inline-block; width: 14px; height: 14px; border-radius: 4px; border: 1px solid var(--line); vertical-align: -2px; }
+    .sw.orph { background: var(--bad-soft); border-color: var(--bad-line); }
+    .sw.near { background: var(--warn-soft); border-color: var(--warn-line); }
+
+    /* Flows */
+    .flow { margin-top: 48px; }
+    .flow h3 { font-size: 20px; margin: 0 0 8px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; letter-spacing: -.01em; }
+    .fnum { color: var(--accent); font-size: 12px; font-weight: 800; letter-spacing: .06em; padding: 1px 9px; border: 1px solid var(--accent-line); border-radius: 999px; }
+    .fmeta p { margin: 0 0 6px; color: var(--muted); max-width: 820px; font-size: 14px; }
+    .fmeta b { color: var(--text); }
+    .diagram { background: var(--surface); border-radius: var(--radius); padding: 16px; overflow: auto; margin: 8px 0 10px; max-height: 88vh; }
+    .dtools { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin: 14px 0 0; color: var(--muted); font-size: 12.5px; }
+    .dtools .fit { font: inherit; font-weight: 600; color: var(--text); background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; cursor: pointer; }
+    .dtools .fit:hover { border-color: var(--accent); }
+    .dtools .fit:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .dtools .fit[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent-line); }
+    .diagram.is-fit svg { width: 100% !important; height: auto !important; }
+    .diagram pre.mermaid { margin: 0; color: var(--muted); font: 11.5px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; white-space: pre; }
+    .diagram svg { max-width: none !important; height: auto; display: block; margin: 0 auto; }
+    .fdet { background: var(--surface); border-radius: 14px; padding: 10px 16px; }
+    .fdet summary { cursor: pointer; color: var(--accent); font-weight: 600; font-size: 14px; }
+    .dgrid { display: grid; gap: 4px 32px; margin-top: 8px; }
+    @media (min-width: 900px) { .dgrid { grid-template-columns: 1fr 1fr; } }
+    .dcol h4 { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin: 10px 0 6px; }
+    .dcol ol, .dcol ul { margin: 0; padding-left: 20px; font-size: 13.5px; }
+    .dcol li { margin: 4px 0; }
+    .dcol ul ul { margin: 2px 0; }
+
+    /* Mermaid: тема dark, кольори вузлів — з ролей теми сторінки, щоб діаграми читались і в світлій темі */
+    .diagram .node :is(rect, polygon, path, circle, ellipse) { fill: var(--surface-2) !important; stroke: var(--line) !important; stroke-width: 1px !important; }
+    .diagram .node .nodeLabel, .diagram .node .label, .diagram .node foreignObject div { color: var(--text) !important; fill: var(--text) !important; }
+    .diagram .node.screen :is(rect, polygon, path) { fill: var(--surface-raised) !important; stroke: var(--accent) !important; stroke-width: 2px !important; }
+    .diagram .node.loading :is(rect, polygon, path) { fill: var(--surface) !important; stroke: var(--muted) !important; stroke-dasharray: 4 3; }
+    .diagram .node.empty :is(rect, polygon, path) { fill: var(--hyp-soft) !important; stroke: var(--hyp-line) !important; stroke-dasharray: 4 3; }
+    .diagram .node.error :is(rect, polygon, path) { fill: var(--bad-soft) !important; stroke: var(--bad-line) !important; }
+    .diagram .node.state :is(rect, polygon, path) { fill: var(--surface) !important; stroke: var(--good) !important; }
+    .diagram .node.ok :is(rect, polygon, path) { fill: var(--good-soft) !important; stroke: var(--good) !important; stroke-width: 2px !important; }
+    .diagram .node.exit :is(rect, polygon, path) { fill: var(--surface-2) !important; stroke: var(--muted) !important; }
+    .diagram .node.dead :is(rect, polygon, path) { fill: var(--text) !important; stroke: var(--text) !important; }
+    .diagram .node.dead .nodeLabel, .diagram .node.dead foreignObject div { color: var(--bg) !important; }
+    .diagram .node.ext :is(rect, polygon, path) { fill: var(--bg) !important; stroke: var(--muted) !important; stroke-dasharray: 2 2; }
+    .diagram .flowchart-link { stroke: var(--muted) !important; }
+    .diagram marker path, .diagram .marker, .diagram .arrowheadPath { fill: var(--muted) !important; stroke: var(--muted) !important; }
+    .diagram .edgeLabel, .diagram .edgeLabel p, .diagram .edgeLabel span, .diagram .labelBkg { background-color: var(--surface) !important; color: var(--muted) !important; }
+    .diagram .edgeLabel rect { fill: var(--surface) !important; }
+    .nl { display: inline-block; padding: 0 8px; border-radius: 6px; font-size: 12px; border: 1px solid var(--line); background: var(--surface-2); color: var(--text); }
+    .nl.screen { background: var(--surface-raised); border: 2px solid var(--accent); }
+    .nl.loading { background: var(--surface); border: 1px dashed var(--muted); }
+    .nl.empty { background: var(--hyp-soft); border: 1px dashed var(--hyp-line); }
+    .nl.error { background: var(--bad-soft); border-color: var(--bad-line); }
+    .nl.state { background: var(--surface); border-color: var(--good); }
+    .nl.ok { background: var(--good-soft); border: 2px solid var(--good); border-radius: 999px; }
+    .nl.exit { border-color: var(--muted); }
+    .nl.dead { background: var(--text); color: var(--bg); border-color: var(--text); }
+    .nl.ext { background: var(--bg); border: 1px dashed var(--muted); }
+
+    footer { margin-top: 64px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); padding-top: 16px; }
+  </style>
+</head>
+<body>
+<main>
+  <header class="hero">
+    <p class="eyebrow">Прайд · структура · знімок 13.11.2026</p>
+    <h1>Інформаційна архітектура</h1>
+    <p class="lead">Карта екранів, усі user flows і матриця трасування однією сторінкою. Це знімок для перегляду: джерело правди — <a href="https://github.com/diadieva/pride/blob/main/sitemap.md">sitemap.md</a> і <a href="https://github.com/diadieva/pride/blob/main/flows.md">flows.md</a>. Персони й jobs — на сторінці <a href="personas.html">«Персони і JTBD»</a>.</p>
+    <ul class="toc">
+      <li><a href="#sitemap">1 · Карта екранів</a></li>
+      <li><a href="#flows">2 · User flows</a></li>
+      <li><a href="#trace">3 · Трасування</a></li>
+    </ul>
+    <div class="provenance">
+      <div class="prov"><b>Карта екранів</b><span><span class="big">{{N_SCREENS}}</span>екранів у {{N_GROUPS}} групах; головний — «Мої улюбленці».</span></div>
+      <div class="prov"><b>User flows</b><span><span class="big">{{N_FLOWS}}</span>flows; тупиків, що чекають на відповідь центру <span class="q">[?]</span>: {{N_DEAD}}.</span></div>
+      <div class="prov"><b>Трасування</b><span><span class="big">{{N_ROWS}}</span>рядків jobs і гіпотез; активних сиріт: {{N_ORPH}}. S1 — у backlog.</span></div>
+    </div>
+    <div class="legend" aria-label="Позначки">
+      <span class="item"><span class="job">R4</span> job з jtbd.md (наведіть — назва)</span>
+      <span class="item"><span class="job hyp-job">Г2</span> гіпотеза без даних</span>
+      <span class="item"><span class="q">[?]</span> припущення</span>
+      <span class="item"><span class="mk mk-law">закон</span> вимога закону, не job</span>
+      <span class="item"><span class="mk mk-team">команда</span> екран команди центру</span>
+      <span class="item"><span class="badge main">головний</span> перший після входу</span>
+    </div>
+  </header>
+
+  <section id="sitemap">
+    <h2><span class="num">01</span> Карта екранів</h2>
+    <p class="sub">Групи — за сутностями і наміром людини, не за розділами сайту. Біля кожного екрана — файл, jobs і тип у навігації. Відкрийте екран, щоб побачити, що на ньому.</p>
+    <h3>Глобальна навігація: таб-бар на телефоні, сайдбар на десктопі</h3>
+    {{NAV}}
+    <div class="callout"><p><b>Глибина.</b> Результат: {{RESULT}}</p></div>
+    {{TREE}}
+  </section>
+
+  <section id="flows">
+    <h2><span class="num">02</span> User flows</h2>
+    <p class="sub">Кожен flow підписано job, який він закриває. Вузли-екрани — дослівно з реєстру. Діаграму можна гортати вбік; розвилки й стани словами — під нею.</p>
+    {{WHY}}
+    <div class="legend" aria-label="Вузли діаграм">
+      <span class="item"><span class="nl screen">Екран · файл</span></span>
+      <span class="item"><span class="nl">розвилка?</span></span>
+      <span class="item"><span class="nl loading">loading</span></span>
+      <span class="item"><span class="nl empty">empty</span></span>
+      <span class="item"><span class="nl error">error</span></span>
+      <span class="item"><span class="nl state">інший стан</span></span>
+      <span class="item"><span class="nl ok">успіх</span></span>
+      <span class="item"><span class="nl exit">вихід</span></span>
+      <span class="item"><span class="nl dead">тупик [?]</span></span>
+      <span class="item"><span class="nl ext">провайдер, зовнішній</span></span>
+    </div>
+    {{FLOWS}}
+    <h3>Що flows показали для продукту</h3>
+    <div class="callout">{{LESSONS}}</div>
+  </section>
+
+  <section id="trace">
+    <h2><span class="num">03</span> Матриця трасування</h2>
+    <p class="sub">Рядки — jobs і гіпотези, на які посилається реєстр. Колонки — екрани. «×» — екран є кроком job хоча б в одному flow.</p>
+    <div class="callout"><p><b>Коли ставимо «×».</b></p>{{RULE}}</div>
+    <div class="legend" aria-label="Підсвітка">
+      <span class="item"><span class="sw orph"></span> сирота: жодної позначки</span>
+      <span class="item"><span class="sw near"></span> майже сирота: одна позначка</span>
+      <span class="item"><s>закреслено</s> прибрано після трасування</span>
+    </div>
+    <p></p>
+    {{MATRIX}}
+    <h3>Екрани-сироти</h3>
+    {{ORPH_SCREENS}}
+    <h3>Jobs-сироти</h3>
+    {{ORPH_JOBS}}
+    <h3>Майже сироти</h3>
+    <div class="callout">{{NEAR}}</div>
+    <h3>Після дій</h3>
+    <div class="callout">{{AFTER}}</div>
+  </section>
+
+  <footer>Зібрано з <a href="https://github.com/diadieva/pride/blob/main/sitemap.md">sitemap.md</a> і <a href="https://github.com/diadieva/pride/blob/main/flows.md">flows.md</a> · jobs — <a href="https://github.com/diadieva/pride/blob/main/jtbd.md">jtbd.md</a> · персони — <a href="https://github.com/diadieva/pride/blob/main/personas.md">personas.md</a> · <a href="https://github.com/diadieva/pride/blob/main/CLAUDE.md">CLAUDE.md</a></footer>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script>
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: "dark",
+      securityLevel: "strict",
+      fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+      flowchart: { useMaxWidth: false, htmlLabels: true, padding: 10, nodeSpacing: 28, rankSpacing: 36 }
+    });
+    mermaid.run({ querySelector: ".diagram .mermaid" }).then(function () {
+      // Діаграми широкі: показуємо верх по центру, де починається flow
+      document.querySelectorAll(".diagram").forEach(function (d) {
+        d.scrollLeft = (d.scrollWidth - d.clientWidth) / 2;
+      });
+    }).catch(function (e) { console.error(e); });
+  }
+  document.querySelectorAll(".dtools .fit").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var d = b.closest(".flow").querySelector(".diagram");
+      var on = d.classList.toggle("is-fit");
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+      b.textContent = on ? "Справжній розмір" : "Вмістити в ширину";
+      if (!on) d.scrollLeft = (d.scrollWidth - d.clientWidth) / 2;
+    });
+  });
+</script>
+</body>
+</html>

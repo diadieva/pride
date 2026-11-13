@@ -33,4 +33,7 @@
 | [personas.md](personas.md) | Реєстр персон: Опікун (primary), Терміновий донатор, Спостерігач |
 | [jtbd.md](jtbd.md) | Jobs to be done: ієрархія jobs, гіпотези, JTBD-матриця і висновок для ядра MVP |
 | [Персони і JTBD на сайті](https://diadieva.github.io/pride/personas.html) ([personas.html](personas.html)) | Персони, ієрархія jobs і JTBD-матриця однією сторінкою |
+| [sitemap.md](sitemap.md) | **Карта екранів**: сутності, реєстр екранів, стани, навігація, матриця трасування |
+| [flows.md](flows.md) | **Маршрути**: 8 user flows у Mermaid з розвилками, станами й тупиками |
+| [IA на сайті](https://diadieva.github.io/pride/ia.html) ([ia.html](ia.html)) | Карта екранів, flows і матриця трасування однією сторінкою (знімок, збирається [tools/build_ia.py](tools/build_ia.py)) |
 | [research/screens/](research/screens/) | Скріни конкурентів (Happy Paw, Домівка, Monobank, Kiva, Donkey Sanctuary) |

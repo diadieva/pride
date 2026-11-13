@@ -18,16 +18,16 @@
 
 ---
 
-## Що змінилося після доресерчу (30.10.2026)
+## Що змінилося після доресерчу (30.10.2026; перевірено 13.11.2026)
 
 Перевірено питання П1 з [research/notes/personas-review.md](research/notes/personas-review.md): що опікуни пишуть про оновлення після оплати. Дані — research.md, [«Доресерч після персон»](research/research.md#доресерч-після-персон).
 
 **Опікун:**
-- **Підтверджено:** опікун хоче бачити свою тварину після оплати. Тепер це слова людей, а не лише обіцянки компаній ([DV4](https://itunes.apple.com/ua/rss/customerreviews/id=6470241195/sortBy=mostRecent/json), [DS5](https://www.trustpilot.com/review/www.thedonkeysanctuary.org.uk), [KV5](https://itunes.apple.com/us/rss/customerreviews/id=1453093374/sortBy=mostRecent/json), [KV6](https://www.trustpilot.com/review/kiva.org)).
-- **Спростовано:** «після оплати майже нічого не видно». Проблема інша: тварина зникає з «Мої тварини», немає обіцяних фото, мовчать про важливі зміни з «моєю» твариною.
-- **Підтверджено ширше:** регулярну опіку важко зупинити не лише в Happy Paw, а й у Домівці ([DV4](https://itunes.apple.com/ua/rss/customerreviews/id=6470241195/sortBy=mostRecent/json)).
-- **Виправлено:** «заспокоює» тепер спирається на відгуки: видно, кому допомагаєш; видно прогрес збору; немає тиску; є профіль з фото. Характер, вебкамера, ціна в каталозі й екран від імені тварини — [?].
-- **Виправлено:** «насторожує» тепер спирається на відгуки. «Рідкі оновлення» — [?]: скарг на частоту не знайшли.
+- **Підтверджено для частини опікунів:** після оформлення важливо бачити підопічного й знати про важливі зміни. Це повторювані слова людей; Kiva — лише аналог із позик ([DV4](https://itunes.apple.com/ua/rss/customerreviews/id=6470241195/sortBy=mostRecent/json), [DS5](https://www.trustpilot.com/review/www.thedonkeysanctuary.org.uk), [KV5](https://itunes.apple.com/us/rss/customerreviews/id=1453093374/sortBy=mostRecent/json), [KV6](https://www.trustpilot.com/review/kiva.org)).
+- **Виправлено непідтверджене узагальнення:** «після оплати майже нічого не видно» замінено конкретними скаргами: тварина зникає з переліку, не повідомляють про важливі зміни. Виправлено 5 → **4** відгуки про невидиму тварину; фото були **очікуваними**, обіцянку не встановлено. Загальна вимога фото — [?].
+- **Уточнено керування опікою:** у Домівці двоє не знаходять скасування, третя авторка побоюється, що не зможе скасувати через невидимих підопічних; це не три невдалі спроби ([DV4](https://itunes.apple.com/ua/rss/customerreviews/id=6470241195/sortBy=mostRecent/json)).
+- **Уточнено тригери:** відгуки описують позитивний досвід і недовіру, але не доводять емоційний ефект «заспокоює». Такий ефект, характер, вебкамера, ціна й екран від імені тварини — [?].
+- **Позначено [?]:** бажана частота, скасування саме через брак рутинних новин і зростання повторних внесків від частіших новин. Є один намір не продовжувати після кількох проблем Donkey Sanctuary; виконане скасування не встановлено. [Журнал доказів](research/notes/p1-evidence.md).
 - **Позначено [?]:** «найчастіше регулярно» — даних немає.
 - **Виправлено:** «кому терміново» — не дослівна цитата. Люди просять показати, кому ще бракує грошей на опіку.
 - **Нова цитата** — від опікунки, про оновлення.
@@ -40,7 +40,7 @@
 
 ## Опікун — primary
 
-**Поведінка:** обирає одну конкретну тварину, оформлює опіку (повну або часткову) і хоче бачити, як вона живе після оплати. Останнє підтверджено відгуками: [DV4](https://itunes.apple.com/ua/rss/customerreviews/id=6470241195/sortBy=mostRecent/json), [DS5](https://www.trustpilot.com/review/www.thedonkeysanctuary.org.uk), [KV5](https://itunes.apple.com/us/rss/customerreviews/id=1453093374/sortBy=mostRecent/json), [KV6](https://www.trustpilot.com/review/kiva.org).
+**Поведінка:** обирає конкретного підопічного, оформлює опіку (повну або часткову) і хоче бачити його після оформлення та знати про важливі зміни. Ця потреба повторюється у відгуках Домівки й Donkey Sanctuary; Kiva — аналог із позик: [DV4](https://itunes.apple.com/ua/rss/customerreviews/id=6470241195/sortBy=mostRecent/json), [DS5](https://www.trustpilot.com/review/www.thedonkeysanctuary.org.uk), [KV5](https://itunes.apple.com/us/rss/customerreviews/id=1453093374/sortBy=mostRecent/json), [KV6](https://www.trustpilot.com/review/kiva.org).
 
 ### Контекст
 - Приходить, щоб знайти «свою» тварину в каталозі: список Happy Paw з ID, віком і ціною ([HP2](research/screens/happy-paw/guardianship-mobile-full.jpg)), сітка Домівки з пошуком ([DV1](research/screens/domivka/appstore-desktop.jpg)), «Choose your favourite donkey» з фільтром за характером ([DS2](research/screens/donkey-sanctuary/adopt-mobile.jpg)).
@@ -49,22 +49,22 @@
 
 ### Jobs
 - Обрати одну тварину, з якою виникне зв'язок, і взяти опіку повну або часткову: Домівка — повна місячна або часткова разова опіка від 50 грн ([DV1](research/screens/domivka/appstore-desktop.jpg), [DV3](https://rubryka.com/2026/01/14/diyeva-onlajn-dopomoga-tvarynam-yak-spratsyuvav-mobilnyj-zastosunok-lvivskogo-prytulku-dlya-krylatyh-ta-chotyrylapyh/)); Donkey — £4 на місяць або £48 разово ([DS3](research/screens/donkey-sanctuary/profile-ashley-mobile-full.jpg)).
-- Бачити, як живе «своя» тварина після оплати: «Мої тварини» в Домівці ([DV1](research/screens/domivka/appstore-desktop.jpg)), «пухнасті листи» в Happy Paw ([HP2](research/screens/happy-paw/guardianship-mobile-full.jpg)). 🗣 Люди самі про це пишуть: «Сподівалась, що за це хоча б будуть якісь фото кроликів- але ні.» ([DV4](https://itunes.apple.com/ua/rss/customerreviews/id=6470241195/sortBy=mostRecent/json)); «It is also very gratifying to get updates on how your borrower is doing» ([KV6](https://www.trustpilot.com/review/kiva.org)).
-- Керувати регулярною опікою: змінити суму чи скасувати. Скасування в Домівці з'явилося у версії 1.5.1 ([DV1](research/screens/domivka/appstore-desktop.jpg)). 🗣 Люди просять «редагувати кураторство - наприклад збільшити місячний внесок» і скаржаться, що не можуть припинити списання ([DV4](https://itunes.apple.com/ua/rss/customerreviews/id=6470241195/sortBy=mostRecent/json)).
+- Бачити підопічного після оформлення і знати, де він та що з ним відбувається: чотири скарги на невидиму тварину в Домівці ([DV4](https://itunes.apple.com/ua/rss/customerreviews/id=6470241195/sortBy=mostRecent/json)), дві — на неповідомлене місце перебування в Donkey Sanctuary ([DS5](https://www.trustpilot.com/review/www.thedonkeysanctuary.org.uk)). 🗣 Фото після оплати — одиничне очікування; бажана частота та деталізація витрат — [?].
+- Керувати регулярною опікою: змінити суму чи скасувати. Скасування в Домівці з'явилося у версії 1.5.1 ([DV1](research/screens/domivka/appstore-desktop.jpg)). 🗣 Один автор просить збільшити внесок, двоє не знаходять скасування; ще одна авторка побоюється, що воно недоступне через невидиму тварину ([DV4](https://itunes.apple.com/ua/rss/customerreviews/id=6470241195/sortBy=mostRecent/json)).
 
 ### Болі в теперішніх способах
 - **Стіна логіну перед опікою.** «Візьми мене під опіку» в Happy Paw відкриває вікно «Вхід», а поверх нього рекламний поп-ап ([HP4](research/screens/happy-paw/guardianship-click-mobile.jpg)). Реєстрація обов'язкова: «Зареєструватися (30 секунд)…» ([HP2](research/screens/happy-paw/guardianship-mobile-full.jpg)).
 - **Реєстрація ламається на підтвердженні email.** Відгуки Домівки: «не приходить лист з підтвердженням» ([DV2](https://apps.apple.com/ua/app/id6470241195)).
 - **Шукати незручно.** Happy Paw: 537 тварин списком з ID і ціною ([HP2](research/screens/happy-paw/guardianship-mobile-full.jpg)). 🗣 У Домівці 4 відгуки просять показати, «яким тваринкам необхідна допомога», щоб не «листати купу анкет з повним кураторством» ([DV4](https://itunes.apple.com/ua/rss/customerreviews/id=6470241195/sortBy=mostRecent/json)).
-- **Після оплати не видно навіть саму тварину, а про важливе мовчать.** *(Виправлено 30.10.2026: раніше тут було «після оплати майже нічого не видно».)*
-  - Домівка, 5 із 67 відгуків: тварина не з'являється в «Мої тварини» або зникає звідти; одна опікунка не отримала обіцяних фото ([DV4](https://itunes.apple.com/ua/rss/customerreviews/id=6470241195/sortBy=mostRecent/json)). 🗣
-  - Donkey Sanctuary, 2024: опікунам не повідомили, куди перевели «їхнього» віслюка після закриття центру ([DS5](https://www.trustpilot.com/review/www.thedonkeysanctuary.org.uk)). 🗣
-  - Обіцяна частота: «не рідше, ніж раз на 2 місяці» в Happy Paw ([HP2](research/screens/happy-paw/guardianship-mobile-full.jpg)), «два оновлення на рік» у Donkey ([DS3](research/screens/donkey-sanctuary/profile-ashley-mobile-full.jpg)). Скарг саме на частоту не знайшли.
-- **Регулярну опіку важко зупинити.** Happy Paw: відписка від місячного донату лише листом на email ([HP5](research/screens/happy-paw/contribution-desktop.jpg)). 🗣 Домівка, 3 відгуки: «навіть якщо вихожу з аккаунту гроші всеодно списуються» ([DV4](https://itunes.apple.com/ua/rss/customerreviews/id=6470241195/sortBy=mostRecent/json)).
-- Котра з цих болей найсильніша для людей [?]. Частоти скарг немає.
+- **У частини опікунів підопічний не відображається або немає важливих новин.** *(Уточнено 13.11.2026 замість узагальнення «після оплати майже нічого не видно».)*
+  - Домівка: **4 із 67** доступних відгуків про тварин, які не з'являються або зникають після оформлення; в окремому відгуку авторка не отримала очікуваних фото. Обіцянку фото не встановлено ([DV4](https://itunes.apple.com/ua/rss/customerreviews/id=6470241195/sortBy=mostRecent/json)). 🗣
+  - Donkey Sanctuary: двоє авторів не знають, де їхні підопічні після закриття центрів; іншому автору лист про скасований візит надіслали. Це конкретні збої комунікації, не повна відсутність новин ([DS5](https://www.trustpilot.com/review/www.thedonkeysanctuary.org.uk)). 🗣
+  - Бажана частота новин — [?]. Обіцянки Happy Paw раз на 2 місяці ([HP2](research/screens/happy-paw/guardianship-mobile-full.jpg)) і Donkey двічі на рік ([DS3](research/screens/donkey-sanctuary/profile-ashley-mobile-full.jpg)) не доводять, що людям цього мало.
+- **Скасування опіки не завжди знаходять.** Happy Paw: відписка листом ([HP5](research/screens/happy-paw/contribution-desktop.jpg)) — властивість процесу. У Домівці двоє авторів не знаходять скасування, третя побоюється, що воно недоступне через невидиму тварину ([DV4](https://itunes.apple.com/ua/rss/customerreviews/id=6470241195/sortBy=mostRecent/json)). 🗣 Скасування саме через брак оновлень — [?].
+- Котра з цих болей найсильніша для людей [?]. Підрахунок відгуків не вимірює поширеність болю серед опікунів.
 
 ### Тригери довіри щодо видимого результату допомоги
-**Заспокоює** *(виправлено 30.10.2026 за відгуками)*:
+**Позитивний досвід у відгуках** *(ефект «заспокоює» — [?], уточнено 13.11.2026)*:
 - 🗣 Бачити, кому саме допомагаєш і куди йдуть гроші: «We also worry that we don't know where our money is going… With Kiva, you can actually choose and see who you are helping.» ([KV5](https://itunes.apple.com/us/rss/customerreviews/id=1453093374/sortBy=mostRecent/json)).
 - 🗣 Бачити прогрес збору: «Раніше відображалось скільки вже допомоги для тваринки закрито, щоб можна було зрозуміти, кому ще чогось не вистачає.» ([DV4](https://itunes.apple.com/ua/rss/customerreviews/id=6470241195/sortBy=mostRecent/json)); прогрес позичальника до мети ([KV6](https://www.trustpilot.com/review/kiva.org)).
 - 🗣 Відсутність тиску: «they do not keep on at you for more money» ([DS5](https://www.trustpilot.com/review/www.thedonkeysanctuary.org.uk)).
@@ -75,14 +75,14 @@
 **Насторожує** *(виправлено 30.10.2026 за відгуками)*:
 - 🗣 Мовчання про важливе з «моєю» твариною: «we have not been informed where our sponsored Donkey is?»; «This debacle has very much undermined our trust…» ([DS5](https://www.trustpilot.com/review/www.thedonkeysanctuary.org.uk)).
 - 🗣 Тварина зникла з «Мої тварини», а підтримка мовчить ([DV4](https://itunes.apple.com/ua/rss/customerreviews/id=6470241195/sortBy=mostRecent/json)).
-- 🗣 Не вдається скасувати регулярне списання ([DV4](https://itunes.apple.com/ua/rss/customerreviews/id=6470241195/sortBy=mostRecent/json)); скасування лише листом ([HP5](research/screens/happy-paw/contribution-desktop.jpg)).
+- 🗣 Не знаходять, як скасувати регулярне списання ([DV4](https://itunes.apple.com/ua/rss/customerreviews/id=6470241195/sortBy=mostRecent/json)); скасування лише листом ([HP5](research/screens/happy-paw/contribution-desktop.jpg)).
 - 🗣 Реклама спонсорства, коли організація мовчить про кризу ([DS5](https://www.trustpilot.com/review/www.thedonkeysanctuary.org.uk)).
 - [?] Рідкі рутинні оновлення ([HP2](research/screens/happy-paw/guardianship-mobile-full.jpg), [DS3](research/screens/donkey-sanctuary/profile-ashley-mobile-full.jpg)): скарг саме на частоту не знайшли.
 
 ### Цитата
-> «Підписалась на кураторство 2 кроликів, за 2 місяці це мало вийти 181•2•2=724 грн, а в мене зняло 2534 грн. Сподівалась, що за це хоча б будуть якісь фото кроликів- але ні.»
+> «Сподівалась, що за це хоча б будуть якісь фото кроликів- але ні.»
 
-Повний відгук опікунки про застосунок Домівки в App Store, 3★, 17.07.2025 ([DV4](https://itunes.apple.com/ua/rss/customerreviews/id=6470241195/sortBy=mostRecent/json)).
+Фрагмент відгуку опікунки про Домівку, 3★, 17.07.2025 ([DV4](https://itunes.apple.com/ua/rss/customerreviews/id=6470241195/sortBy=mostRecent/json), ID 12902194100). Фото — очікування авторки, не підтверджена обіцянка сервісу.
 
 > «не приходить лист з підтвердженням»
 

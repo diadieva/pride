@@ -17,5 +17,8 @@ window.NAV_TREE = [
   ] },
   { title: "Персони", children: [
     { title: "Персони і JTBD", href: "personas.html" }
+  ] },
+  { title: "Структура", children: [
+    { title: "Інформаційна архітектура", href: "ia.html" }
   ] }
 ];
