@@ -11,6 +11,8 @@ html { --pn-space: 264px; }
   --pn-current-bg: #ed7251;
   --pn-current-fg: #202020;
 
+  display: flex;
+  flex-direction: column;
   position: fixed;
   inset: 0 auto 0 0;
   z-index: 2147483000;
@@ -61,8 +63,9 @@ html { --pn-space: 264px; }
 .pn-theme {
   display: flex;
   gap: 4px;
+  flex: none;
   width: max-content;
-  margin: 0 12px 18px;
+  margin: auto 12px 0;
   padding: 4px;
   border: 1px solid var(--pn-line);
   border-radius: 999px;
@@ -85,6 +88,7 @@ html { --pn-space: 264px; }
 .pn-theme button:focus-visible { outline: 2px solid var(--pn-fg); outline-offset: 1px; }
 
 .pn ul { list-style: none; margin: 0; padding: 0; }
+.pn > ul { margin-bottom: 18px; }
 .pn ul ul { margin-left: 12px; padding-left: 8px; border-left: 1px solid var(--pn-line); }
 .pn li { margin: 2px 0; }
 
@@ -152,7 +156,7 @@ html.pn-on body { padding-left: var(--pn-space); }
     position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
     overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
   }
-  html.pn-collapsed .pn-theme { flex-direction: column; margin: 0 auto 14px; }
+  html.pn-collapsed .pn-theme { flex-direction: column; margin: auto auto 0; }
   html.pn-collapsed .pn-theme button { justify-content: center; padding: 8px; }
   html.pn-collapsed .pn-page { justify-content: center; padding: 12px 0; }
   html.pn-collapsed .pn-branch { display: none; }

@@ -143,8 +143,9 @@
     head.className = "pn-head";
     head.textContent = "Прайд · репо";
     nav.appendChild(head);
-    if (window.prideTheme) nav.appendChild(renderThemeSwitch(window.prideTheme));
     nav.appendChild(renderItems(window.NAV_TREE || []));
+    // Перемикач теми — внизу навігатора: це налаштування, а не навігація
+    if (window.prideTheme) nav.appendChild(renderThemeSwitch(window.prideTheme));
 
     var toggle = document.createElement("button");
     toggle.className = "pn-toggle";
