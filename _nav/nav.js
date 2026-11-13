@@ -124,7 +124,9 @@
   // Підказка з назвою пункту в згорнутому навігаторі. Окремий елемент поза .pn, бо .pn обрізає все, що за його краєм
   var tip = null;
   function showTip(el) {
-    if (!document.documentElement.classList.contains(COLLAPSED) || window.matchMedia("(max-width: 760px)").matches) return;
+    // Підказка потрібна там, де підпису не видно: у згорнутому навігаторі та на кнопках теми
+    var hidden = document.documentElement.classList.contains(COLLAPSED) || el.closest(".pn-theme");
+    if (!hidden || window.matchMedia("(max-width: 760px)").matches) return;
     var r = el.getBoundingClientRect();
     tip.textContent = el.getAttribute("data-label");
     tip.style.top = r.top + r.height / 2 + "px";
