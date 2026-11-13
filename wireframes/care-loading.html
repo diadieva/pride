@@ -1,0 +1,134 @@
+<!doctype html>
+<!--
+  Опіка над твариною · care-loading.html — стан завантаження (sitemap.md, колонка «Стани»).
+  Базова сторінка — care.html; шапка, зони й таббар ті самі.
+
+  Крок main flow — flows.md, flow M → CARE, оплата як у R2: розвилка 8 «Оплата пройшла?» — так →
+  L1 «loading: перевіряємо оплату» → 10 «Провайдер підтвердив за хвилину?». Продукт чекає вебхук від провайдера.
+  Довше за хвилину → ST4 «стан: оплата обробляється, напишемо листом».
+
+  Job (sitemap.md): R2, M, E2, E1. Екран дії: людина сплачує.
+  Правила — wireframes/_conventions.md.
+-->
+<html lang="uk" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Вайрфрейм · Опіка над твариною · завантаження</title>
+  <script src="../_nav/theme.js"></script>
+  <link rel="stylesheet" href="../_nav/theme.css">
+  <link rel="stylesheet" href="../_nav/icons.css">
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script defer src="../_nav/tree.js"></script>
+  <script defer src="../_nav/nav.js"></script>
+  <link rel="stylesheet" href="_frame.css">
+</head>
+<body>
+<div class="wf-page">
+
+  <nav class="wf-states" aria-label="Стани екрана «Опіка над твариною»">
+    <a href="care.html">Базова сторінка</a>
+    <a href="care-error.html">Помилка</a>
+    <a href="care-loading.html" aria-current="page">Завантаження</a>
+    <a href="care-success.html">Успіх</a>
+    <span>Порожнього немає: людина завжди приходить з обраною твариною</span>
+  </nav>
+
+  <div class="device">
+
+    <header class="app-header" data-zone="1">
+      <a class="brand" href="board.html">Прайд</a>
+      <details class="service">
+        <summary><span class="i i-gear" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
+        <nav aria-label="Службова зона">
+          <ul>
+            <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
+            <li><a href="my-subscriptions.html"><span class="i i-envelope" aria-hidden="true"></span>Мої підписки</a></li>
+            <li><a><span class="i i-globe" aria-hidden="true"></span>Мова: українська · English</a></li>
+          </ul>
+        </nav>
+      </details>
+    </header>
+
+    <main>
+      <a class="back" href="animal.html"><span class="i i-angle-left" aria-hidden="true"></span> <span class="ph">[ім'я коня]</span></a>
+      <h1>Опіка над твариною</h1>
+
+      <section aria-labelledby="whom" data-zone="2">
+        <h2 id="whom">Кому</h2>
+        <span class="img avatar" role="img" aria-label="Фото: [ім'я тварини]">фото</span>
+        <p><b><span class="ph">[ім'я коня]</span></b> · кінь · у центрі</p>
+        <dl>
+          <dt>Моя опіка</dt>
+          <dd>активна · 1 000 грн щомісяця</dd>
+          <dt>Наступне списання</dt>
+          <dd><time datetime="2026-12-01">1 грудня</time></dd>
+        </dl>
+        <a class="btn" href="my-support.html">Змінити суму опіки</a>
+      </section>
+
+      <section aria-labelledby="pay-title" data-zone="3" aria-busy="true">
+        <h2 id="pay-title" role="status"><span class="i i-hourglass" aria-hidden="true"></span> Перевіряємо оплату…</h2>
+        <p>Чекаємо, поки WayForPay [?] підтвердить платіж. Зазвичай це до хвилини.</p>
+        <dl>
+          <dt>Сума</dt>
+          <dd>500 грн разово для <span class="ph">[ім'я коня]</span></dd>
+          <dt>Спосіб</dt>
+          <dd>картка в гривні</dd>
+          <dt>Чек прийде на</dt>
+          <dd>kateryna@example.com</dd>
+        </dl>
+        <span class="skeleton button"></span>
+        <p class="meta">Повторну оплату заблоковано, поки ця обробляється, — щоб не заплатити двічі.</p>
+        <p class="meta">Сторінку можна закрити: коли оплату підтвердять, чек прийде на kateryna@example.com.</p>
+        <a class="btn" href="my-animals.html">До «Моїх улюбленців»</a>
+      </section>
+    </main>
+
+    <nav class="tabbar" aria-label="Головна навігація" data-zone="4">
+      <ul>
+        <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+        <li><a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+        <li><a href="donate.html" aria-current="page"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+        <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+      </ul>
+    </nav>
+
+  </div>
+
+  <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
+    <h2>Опіка над твариною · завантаження</h2>
+    <ul>
+      <li>Людина заплатила в провайдера й повернулася. Продукт чекає підтвердження платежу (вебхук).</li>
+      <li>R2, L1 «перевіряємо оплату» → розвилка 10. У рамці — цей варіант: тут продукт справді чекає, а людина вже віддала гроші (E1).</li>
+    </ul>
+
+    <h2>Job</h2>
+    <ul>
+      <li>E1 · Спокій замість тривоги очікування</li>
+      <li>R2 · Почати допомагати, поки рішення ще «гаряче»</li>
+    </ul>
+
+    <h2>Зони в цьому стані</h2>
+    <ul>
+      <li><span class="wf-zone">3</span> «Перевіряємо оплату» — що саме оплачено і куди прийде чек. Кнопку оплати заблоковано (заглушка). Вихід — «До „Моїх улюбленців“»: чек прийде листом.</li>
+      <li><span class="wf-zone">1</span>, <span class="wf-zone">2</span>, <span class="wf-zone">4</span> — як на базовій сторінці.</li>
+    </ul>
+
+    <h2>Інші варіанти завантаження</h2>
+    <ul>
+      <li><b>Переходимо до провайдера</b> (R2, L0) — «Відкриваємо сторінку оплати…»; вихід — назад до форми, введене збережено.</li>
+      <li><b>Оплата обробляється</b> (довше за хвилину, ST4) — «Напишемо листом на kateryna@example.com, щойно підтвердиться».</li>
+    </ul>
+
+    <h2>Переходи flow</h2>
+    <ul class="wf-flow">
+      <li>Сюди — з <a href="care.html">форми</a> чи <a href="care-error.html">помилки</a>: оплата пройшла в провайдера (розвилка 8 — так).</li>
+      <li>Розвилка 10 «Провайдер підтвердив за хвилину?»: так — <a href="care-success.html">успіх</a>; ні — «оплата обробляється, напишемо листом» (варіант цієї сторінки) → розвилка 11 «Протягом доби?»: так — <a href="care-success.html">успіх</a>, ні — <a href="care-error.html">помилка «не вдалося підтвердити»</a>.</li>
+      <li>Вихід, не чекаючи, — «До „Моїх улюбленців“» → <a href="my-animals.html">Мої улюбленці</a>.</li>
+    </ul>
+  </aside>
+
+</div>
+</body>
+</html>

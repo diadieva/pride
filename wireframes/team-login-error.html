@@ -1,0 +1,83 @@
+<!doctype html>
+<!--
+  Вхід для команди · team-login-error.html — стан помилки (sitemap.md, колонка «Стани»). [КОМАНДА]
+  Крок flow — flows.md, R4 · сторона команди → підflow як у M: розвилка 8 «Посилання ще дійсне?» — ні →
+  E2 «error: посилання прострочене чи вже використане» → LOGIN. Вихід — надіслати нове посилання.
+  Правила — wireframes/_conventions.md.
+-->
+<html lang="uk" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Вайрфрейм · Вхід для команди · помилка</title>
+  <script src="../_nav/theme.js"></script>
+  <link rel="stylesheet" href="../_nav/theme.css">
+  <link rel="stylesheet" href="../_nav/icons.css">
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script defer src="../_nav/tree.js"></script>
+  <script defer src="../_nav/nav.js"></script>
+  <link rel="stylesheet" href="_frame.css">
+</head>
+<body>
+<div class="wf-page">
+
+  <nav class="wf-states" aria-label="Стани екрана «Вхід для команди»">
+    <a href="team-login.html">Базова сторінка</a>
+    <a href="team-login-error.html" aria-current="page">Помилка</a>
+    <a href="team-login-loading.html">Завантаження</a>
+    <a href="team-login-success.html">Успіх</a>
+    <span>Порожнього немає: сторінка не показує даних</span>
+  </nav>
+
+  <div class="device">
+
+    <header class="app-header" data-zone="1">
+      <a class="brand" href="board.html">Прайд</a>
+    </header>
+
+    <main>
+      <h1>Вхід для команди</h1>
+
+      <form aria-labelledby="login-title" data-zone="2" action="team-login-loading.html" method="get">
+        <h2 id="login-title"><span class="i i-exclamation-circle" aria-hidden="true"></span> Посилання вже не діє</h2>
+        <p role="alert">Посилання з листа від <time datetime="2026-11-13T08:05">13 листопада, 08:05</time> прострочене або ним уже скористалися. Надішлемо нове — це хвилина.</p>
+        <label>Email
+          <input type="email" name="email" autocomplete="email" value="maksym@example.com" required aria-describedby="email-hint">
+        </label>
+        <p class="meta" id="email-hint">Адреса, з якою центр додав вас до команди [?]. Посилання прийде лише на неї.</p>
+        <button class="primary" type="submit">Надіслати нове посилання</button>
+        <p class="meta">Не виходить? Зверніться до <span class="ph">[хто в команді відповідає за сайт]</span> [?].</p>
+      </form>
+    </main>
+
+  </div>
+
+  <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
+    <h2>Вхід для команди · помилка</h2>
+    <ul>
+      <li><code>team-login.html</code>. Група «Команда центру». <b>[КОМАНДА]</b> — донорам не показується.</li>
+      <li>Рішення 13.11.2026: окремий інтерфейс входу для волонтерів, але та сама авторизація за посиланням із листа, що й <a href="login.html">Вхід</a>. Без службової зони й таббару донора.</li>
+    </ul>
+
+    <h2>Job</h2>
+    <ul>
+      <li>R4 · Знати, як живе підопічний після підтримки — job донора, який забезпечує команда; jobs волонтерів ще не зібрано</li>
+    </ul>
+
+    <h2>Зони і головна дія кожної</h2>
+    <ul>
+      <li><span class="wf-zone">2</span> «Посилання вже не діє» — <b>«Надіслати нове посилання»</b>; адреса вже заповнена [?]. Куди звернутися — відповідальний за сайт у команді [?].</li>
+      <li><span class="wf-zone">1</span> — як на базовій сторінці.</li>
+    </ul>
+
+    <h2>Переходи flow</h2>
+    <ul class="wf-flow">
+      <li>Сюди — з листа: розвилка 8 «Посилання ще дійсне?» — ні (E2); а також з <a href="team-login-loading.html">завантаження</a>, розвилка 4 — ні.</li>
+      <li>Вихід — «Надіслати нове посилання» → <a href="team-login-loading.html">завантаження</a>.</li>
+      <li>Інші помилки — як на <a href="login-error.html">Вході</a>: хибний формат адреси (розвилка 3), не вдалося надіслати (розвилка 4).</li>
+    </ul>
+  </aside>
+
+</div>
+</body>
+</html>

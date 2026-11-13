@@ -1,0 +1,203 @@
+<!doctype html>
+<!--
+  Мої підписки · my-subscriptions-loading.html — стан завантаження (sitemap.md, колонка «Стани»).
+  Базова сторінка — my-subscriptions.html; шапка, зони й таббар ті самі, змінюється лише картка в зоні 2.
+
+  Крок flow — flows.md, flow Г2: розвилка 6 «Що змінити?» — «відписатися від тварини» → L1 «loading: відписуємо» →
+  3 «Відписка пройшла?». Сюди ж — «відписатися» в листі (розвилки 1–2), повтор з E1 і решта завантажень flow:
+  L2 «мої підписки», L3 «зберігаємо», L4 «видаляємо дані» — у нотатках.
+
+  Job (sitemap.md): R4, Г2 [?]. Правила — wireframes/_conventions.md.
+-->
+<html lang="uk" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Вайрфрейм · Мої підписки · завантаження</title>
+  <script src="../_nav/theme.js"></script>
+  <link rel="stylesheet" href="../_nav/theme.css">
+  <link rel="stylesheet" href="../_nav/icons.css">
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script defer src="../_nav/tree.js"></script>
+  <script defer src="../_nav/nav.js"></script>
+  <link rel="stylesheet" href="_frame.css">
+</head>
+<body>
+<div class="wf-page">
+
+  <nav class="wf-states" aria-label="Стани екрана «Мої підписки»">
+    <a href="my-subscriptions.html">Базова сторінка</a>
+    <a href="my-subscriptions-empty.html">Порожній</a>
+    <a href="my-subscriptions-error.html">Помилка</a>
+    <a href="my-subscriptions-loading.html" aria-current="page">Завантаження</a>
+    <a href="my-subscriptions-success.html">Успіх</a>
+  </nav>
+
+  <div class="device">
+
+    <header class="app-header" data-zone="1">
+      <a class="brand" href="board.html">Прайд</a>
+      <details class="service">
+        <summary><span class="i i-gear" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
+        <nav aria-label="Службова зона">
+          <ul>
+            <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
+            <li><a href="my-subscriptions.html"><span class="i i-envelope" aria-hidden="true"></span>Мої підписки</a></li>
+            <li><a><span class="i i-globe" aria-hidden="true"></span>Мова: українська · English</a></li>
+          </ul>
+        </nav>
+      </details>
+    </header>
+
+    <main>
+      <a class="back" href="my-animals.html"><span class="i i-angle-left" aria-hidden="true"></span> Мої улюбленці</a>
+      <h1>Мої підписки</h1>
+
+      <!-- За ким я стежу: кожна Підписка з даними і відпискою -->
+      <section aria-labelledby="following" data-zone="2">
+        <h2 id="following">За ким я стежу</h2>
+
+        <article aria-labelledby="sub-1">
+          <span class="img avatar" role="img" aria-label="Фото: [ім'я тварини]">фото</span>
+          <h3 id="sub-1"><span class="ph">[ім'я коня]</span></h3>
+          <dl>
+            <dt>Підписка</dt>
+            <dd><span class="i i-check-circle" aria-hidden="true"></span> активна · з опіки</dd>
+            <dt>Канал</dt>
+            <dd>email</dd>
+            <dt>Як часто</dt>
+            <dd>раз на тиждень <span class="meta">[?]</span></dd>
+            <dt>Мова</dt>
+            <dd>українська</dd>
+          </dl>
+          <form aria-label="Відписатися від новин про [ім'я коня]" action="my-subscriptions-loading.html" method="get">
+            <input type="hidden" name="unsubscribe" value="sub-1">
+            <p class="meta">Опіка від цього не зміниться: чеки приходитимуть і далі.</p>
+            <button type="submit">Відписатися від новин</button>
+          </form>
+        </article>
+
+        <article aria-labelledby="sub-2" aria-busy="true">
+          <span class="img avatar" role="img" aria-label="Фото: [ім'я тварини]">фото</span>
+          <h3 id="sub-2"><span class="ph">[ім'я собаки]</span></h3>
+          <p role="status"><span class="i i-hourglass" aria-hidden="true"></span> <b>Відписуємо від новин про <span class="ph">[ім'я собаки]</span>…</b></p>
+          <span class="skeleton"></span>
+          <span class="skeleton short"></span>
+          <span class="skeleton button"></span>
+        </article>
+      </section>
+
+      <!-- Канал, періодичність і мова — для всіх тварин одразу -->
+      <form aria-labelledby="how-title" data-zone="3" action="my-subscriptions-loading.html" method="get">
+        <h2 id="how-title">Як приходять новини</h2>
+        <p class="meta">Для всіх тварин, за якими ви стежите.</p>
+        <fieldset>
+          <legend>Канал</legend>
+          <label class="choice"><input type="checkbox" name="channel" value="email" checked> Email · kateryna@example.com</label>
+          <label class="choice"><input type="checkbox" name="channel" value="telegram"> Telegram-бот <span class="meta">[?]</span></label>
+        </fieldset>
+        <fieldset>
+          <legend>Як часто <span class="meta">[?]</span></legend>
+          <label class="choice"><input type="radio" name="frequency" value="each"> Щойно з'являється новина</label>
+          <label class="choice"><input type="radio" name="frequency" value="week" checked> Раз на тиждень</label>
+          <label class="choice"><input type="radio" name="frequency" value="month"> Раз на місяць</label>
+        </fieldset>
+        <p class="meta">Важливі зміни приходять одразу, хоч яку періодичність обрано.</p>
+        <label>Мова новин
+          <select name="lang">
+            <option selected>Українська</option>
+            <option>English</option>
+          </select>
+        </label>
+        <button class="primary" type="submit">Зберегти</button>
+      </form>
+
+      <!-- Акаунт: email — це і канал новин, і вхід -->
+      <section aria-labelledby="account" data-zone="4">
+        <h2 id="account">Акаунт</h2>
+        <dl>
+          <dt>Email</dt>
+          <dd>kateryna@example.com</dd>
+          <dt>Вхід</dt>
+          <dd>без пароля, за посиланням у листі</dd>
+        </dl>
+        <p class="meta">Сюди приходять новини, чеки й посилання для входу.</p>
+      </section>
+
+      <!-- [ЗАКОН] Видалення даних (GDPR): є регулярна підтримка → спершу скасувати її (Г2, розвилка 8 — так, ST1) -->
+      <section aria-labelledby="delete-title" data-zone="5">
+        <h2 id="delete-title">Видалити всі мої дані</h2>
+        <p>Спершу скасуйте регулярну підтримку: опіку над <span class="ph">[ім'я коня]</span> (1 000 грн щомісяця) і донат центру (200 грн щомісяця). Без акаунта зупинити ці списання було б ніде.</p>
+        <a class="btn" href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span> Скасувати в «Моїй підтримці»</a>
+        <details>
+          <summary>Що зникне, а що лишиться</summary>
+          <h3>Зникне</h3>
+          <ul>
+            <li>адреса kateryna@example.com і вхід за нею;</li>
+            <li>усі підписки й налаштування новин;</li>
+            <li>«Мої улюбленці» й «Моя підтримка»;</li>
+            <li>прив'язка Telegram-бота <span class="meta">[?]</span>.</li>
+          </ul>
+          <h3>Лишиться</h3>
+          <ul>
+            <li>записи про платежі — дата, сума, провайдер — у журналі транзакцій, бо їх вимагає закон <span class="meta">[?] скільки років і чи без вашої адреси</span>.</li>
+          </ul>
+        </details>
+        <form aria-label="Підтвердити видалення всіх даних" action="my-subscriptions-loading.html" method="get">
+          <input type="hidden" name="delete" value="all">
+          <button type="submit" disabled aria-describedby="delete-hint">Видалити всі мої дані</button>
+          <p class="meta" id="delete-hint">Кнопка стане активною, коли регулярної підтримки не буде.</p>
+        </form>
+      </section>
+    </main>
+
+    <nav class="tabbar" aria-label="Головна навігація" data-zone="6">
+      <ul>
+        <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+        <li><a href="my-animals.html" aria-current="page"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+        <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+        <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+      </ul>
+    </nav>
+
+  </div>
+
+  <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
+    <h2>Мої підписки · завантаження</h2>
+    <ul>
+      <li>Людина натиснула «Відписатися від новин» біля собаки. Продукт відписує.</li>
+      <li>Г2, L1 «відписуємо» → розвилка 3. У рамці — цей варіант: відписка в один клік — головна обіцянка Г2 і вимога брифу («відписка в один клік»), і та сама L1 обслуговує «відписатися» з кожного листа.</li>
+    </ul>
+
+    <h2>Job</h2>
+    <ul>
+      <li>Г2 [?] · Отримувати новини там, де я буваю, і так часто, як зручно</li>
+    </ul>
+
+    <h2>Зони в цьому стані</h2>
+    <ul>
+      <li><span class="wf-zone">2</span> Картка [ім'я собаки] — <code>aria-busy</code>, текст «Відписуємо…», заглушки на місці даних і кнопки. Картка коня — як була.</li>
+      <li><span class="wf-zone">1</span>, <span class="wf-zone">3</span>–<span class="wf-zone">6</span> — як на базовій сторінці.</li>
+    </ul>
+
+    <h2>Інші варіанти завантаження</h2>
+    <ul>
+      <li><b>Мої підписки</b> (L2) — заглушки на місці зон 2–4, «Завантажуємо ваші підписки…».</li>
+      <li><b>Зберігаємо</b> (L3) — у зоні 3 кнопка «Зберегти» стає заглушкою, «Зберігаємо…»; вибір лишається видно.</li>
+      <li><b>Видаляємо дані</b> (L4) — зона 5: «Видаляємо всі ваші дані…». Інші зони без дій.</li>
+      <li><b>З листа, без входу</b> — лише картка тварини, від якої відписуємо; інших зон немає: сесії немає, і чужих даних не показуємо.</li>
+    </ul>
+
+    <h2>Переходи flow</h2>
+    <ul class="wf-flow">
+      <li>Сюди — з <a href="my-subscriptions.html">базової сторінки</a> («Відписатися від новин»; «Зберегти» — L3; видалення — L4); з листа, якщо посилання ціле (розвилка 2 — так); з <a href="my-subscriptions-error.html">помилки</a> — «Спробувати ще».</li>
+      <li>Розвилка 3 «Відписка пройшла?»: так → <a href="my-subscriptions-success.html">успіх</a> (OK1); ні → <a href="my-subscriptions-error.html">помилка «не вдалося відписати»</a> (E1).</li>
+      <li>L2 → розвилка 4 «Дані прийшли?»: так → <a href="my-subscriptions.html">базова сторінка</a> чи <a href="my-subscriptions-empty.html">порожній стан</a> (розвилка 5); ні → <a href="my-subscriptions-error.html">помилка</a> (E2).</li>
+      <li>L3 → розвилка 7 «Збережено?»: так → <a href="my-subscriptions-success.html">успіх</a> (OK2); ні → <a href="my-subscriptions-error.html">помилка</a> (E3).</li>
+      <li>L4 → розвилка 10 «Видалено?»: так → <a href="my-subscriptions-success.html">успіх</a> (OK3); ні → <a href="my-subscriptions-error.html">помилка</a> (E4).</li>
+    </ul>
+  </aside>
+
+</div>
+</body>
+</html>

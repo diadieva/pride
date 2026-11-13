@@ -1,0 +1,112 @@
+<!doctype html>
+<!--
+  Вхід · login-error.html — стан помилки (sitemap.md, колонка «Стани»).
+  Базова сторінка — login.html; шапка, зони й таббар ті самі.
+
+  Крок main flow — flows.md, flow M: W1 → розвилка 5 «Лист дійшов?» — так → 8 «Посилання ще дійсне?» — ні →
+  E2 «error: посилання прострочене чи вже використане» → LOGIN. Вихід — надіслати нове посилання; контакти центру.
+
+  Job (sitemap.md): M, R4, R5. Екран дії: людина вносить адресу.
+  Правила — wireframes/_conventions.md.
+-->
+<html lang="uk" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Вайрфрейм · Вхід · помилка</title>
+  <script src="../_nav/theme.js"></script>
+  <link rel="stylesheet" href="../_nav/theme.css">
+  <link rel="stylesheet" href="../_nav/icons.css">
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script defer src="../_nav/tree.js"></script>
+  <script defer src="../_nav/nav.js"></script>
+  <link rel="stylesheet" href="_frame.css">
+</head>
+<body>
+<div class="wf-page">
+
+  <nav class="wf-states" aria-label="Стани екрана «Вхід»">
+    <a href="login.html">Базова сторінка</a>
+    <a href="login-error.html" aria-current="page">Помилка</a>
+    <a href="login-loading.html">Завантаження</a>
+    <a href="login-success.html">Успіх</a>
+    <span>Порожнього немає: сторінка не показує даних</span>
+  </nav>
+
+  <div class="device">
+
+    <header class="app-header" data-zone="1">
+      <a class="brand" href="board.html">Прайд</a>
+      <details class="service">
+        <summary><span class="i i-gear" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
+        <nav aria-label="Службова зона">
+          <ul>
+            <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
+            <li><a href="my-subscriptions.html"><span class="i i-envelope" aria-hidden="true"></span>Мої підписки</a></li>
+            <li><a><span class="i i-globe" aria-hidden="true"></span>Мова: українська · English</a></li>
+          </ul>
+        </nav>
+      </details>
+    </header>
+
+    <main>
+      <h1>Вхід</h1>
+
+      <form aria-labelledby="login-title" data-zone="2" action="login-loading.html" method="get">
+        <h2 id="login-title"><span class="i i-exclamation-circle" aria-hidden="true"></span> Посилання вже не діє</h2>
+        <p role="alert">Посилання з листа від <time datetime="2026-11-13T09:12">13 листопада, 09:12</time> прострочене або ним уже скористалися. Надішлемо нове — це хвилина.</p>
+        <label>Email
+          <input type="email" name="email" autocomplete="email" value="kateryna@example.com" required aria-describedby="email-hint">
+        </label>
+        <p class="meta" id="email-hint">Та сама адреса, на яку ви оформили опіку чи підписку і куди приходять листи про тварин.</p>
+        <button class="primary" type="submit">Надіслати нове посилання</button>
+        <p class="meta">Не виходить? Команда центру на зв'язку пн–пт, 09:00–19:00: <a href="tel:+380665826817">+380 66 582 68 17</a>, <a href="mailto:info@bestofthepride.info">info@bestofthepride.info</a>.</p>
+      </form>
+    </main>
+
+    <nav class="tabbar" aria-label="Головна навігація" data-zone="3">
+      <ul>
+        <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+        <li><a href="my-animals.html" aria-current="page"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+        <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+        <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+      </ul>
+    </nav>
+
+  </div>
+
+  <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
+    <h2>Вхід · помилка</h2>
+    <ul>
+      <li>Людина натиснула посилання з листа, а воно прострочене чи вже використане.</li>
+      <li>Flow M, розвилка 8 «Посилання ще дійсне?» — ні → E2 → LOGIN. У рамці — цей варіант: так зазвичай і повертаються на «Вхід».</li>
+    </ul>
+
+    <h2>Job</h2>
+    <ul>
+      <li>M · Допомогти конкретній тварині й бачити, що це змінює її життя</li>
+      <li>R4 · Знати, як живе підопічний після підтримки</li>
+    </ul>
+
+    <h2>Зони в цьому стані</h2>
+    <ul>
+      <li><span class="wf-zone">2</span> «Посилання вже не діє» — коли надіслано старе посилання і <b>«Надіслати нове посилання»</b>; адреса вже заповнена [?], якщо її можна взяти зі старого посилання. Контакти центру.</li>
+      <li><span class="wf-zone">1</span>, <span class="wf-zone">3</span> — як на базовій сторінці.</li>
+    </ul>
+
+    <h2>Інші помилки — та сама сторінка, інший текст</h2>
+    <ul>
+      <li><b>Хибний формат адреси</b> (розвилка 3) — біля поля: «Перевірте адресу: має бути @ і домен, наприклад kateryna@example.com».</li>
+      <li><b>Не вдалося надіслати</b> (розвилка 4: пошта недоступна чи забагато спроб) — «Не вдалося надіслати лист. Спробуйте за хвилину».</li>
+    </ul>
+
+    <h2>Переходи flow</h2>
+    <ul class="wf-flow">
+      <li>Сюди — з листа: розвилка 8 «Посилання ще дійсне?» — ні (E2); а також з <a href="login-loading.html">завантаження</a>, розвилка 4 — ні.</li>
+      <li>Вихід — «Надіслати нове посилання» → <a href="login-loading.html">завантаження</a> (E2 → LOGIN → L0). Не виходить — телефон і email центру.</li>
+    </ul>
+  </aside>
+
+</div>
+</body>
+</html>

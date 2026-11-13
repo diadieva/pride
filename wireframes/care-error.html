@@ -1,0 +1,165 @@
+<!doctype html>
+<!--
+  Опіка над твариною · care-error.html — стан помилки (sitemap.md, колонка «Стани»).
+  Базова сторінка — care.html; шапка, зони й таббар ті самі, форма заповнена тим, що людина обрала.
+
+  Крок main flow — flows.md, flow M → CARE, оплата як у R2: провайдер → розвилка 7 «Повернувся з результатом?» — так →
+  8 «Оплата пройшла?» — ні → E2 «error: оплату відхилено, спробуйте інший спосіб» → 9 «Спробує ще?»:
+  так → care.html; ні → X1 «вихід: назад до тварини, введене збережено».
+
+  Job (sitemap.md): R2, M, E2, E1. Екран дії: людина сплачує.
+  Правила — wireframes/_conventions.md.
+-->
+<html lang="uk" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Вайрфрейм · Опіка над твариною · помилка</title>
+  <script src="../_nav/theme.js"></script>
+  <link rel="stylesheet" href="../_nav/theme.css">
+  <link rel="stylesheet" href="../_nav/icons.css">
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script defer src="../_nav/tree.js"></script>
+  <script defer src="../_nav/nav.js"></script>
+  <link rel="stylesheet" href="_frame.css">
+</head>
+<body>
+<div class="wf-page">
+
+  <nav class="wf-states" aria-label="Стани екрана «Опіка над твариною»">
+    <a href="care.html">Базова сторінка</a>
+    <a href="care-error.html" aria-current="page">Помилка</a>
+    <a href="care-loading.html">Завантаження</a>
+    <a href="care-success.html">Успіх</a>
+    <span>Порожнього немає: людина завжди приходить з обраною твариною</span>
+  </nav>
+
+  <div class="device">
+
+    <header class="app-header" data-zone="1">
+      <a class="brand" href="board.html">Прайд</a>
+      <details class="service">
+        <summary><span class="i i-gear" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
+        <nav aria-label="Службова зона">
+          <ul>
+            <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
+            <li><a href="my-subscriptions.html"><span class="i i-envelope" aria-hidden="true"></span>Мої підписки</a></li>
+            <li><a><span class="i i-globe" aria-hidden="true"></span>Мова: українська · English</a></li>
+          </ul>
+        </nav>
+      </details>
+    </header>
+
+    <main>
+      <a class="back" href="animal.html"><span class="i i-angle-left" aria-hidden="true"></span> <span class="ph">[ім'я коня]</span></a>
+      <h1>Опіка над твариною</h1>
+
+      <section aria-labelledby="whom" data-zone="2">
+        <h2 id="whom">Кому</h2>
+        <span class="img avatar" role="img" aria-label="Фото: [ім'я тварини]">фото</span>
+        <p><b><span class="ph">[ім'я коня]</span></b> · кінь · у центрі</p>
+        <dl>
+          <dt>Моя опіка</dt>
+          <dd>активна · 1 000 грн щомісяця</dd>
+          <dt>Наступне списання</dt>
+          <dd><time datetime="2026-12-01">1 грудня</time></dd>
+        </dl>
+        <a class="btn" href="my-support.html">Змінити суму опіки</a>
+      </section>
+
+      <form aria-labelledby="pay-title" data-zone="3" action="care-loading.html" method="get">
+        <h2 id="pay-title"><span class="i i-exclamation-circle" aria-hidden="true"></span> Оплату відхилено</h2>
+        <p role="alert">WayForPay [?] не прийняв платіж, тож внесок не оформлено. Спробуйте іншу картку чи спосіб оплати — усе, що ви обрали, збережено.</p>
+        <fieldset>
+          <legend>Як часто</legend>
+          <label class="choice"><input type="radio" name="mode" value="once" checked> Разово</label>
+          <label class="choice"><input type="radio" name="mode" value="monthly" disabled aria-describedby="monthly-hint"> Щомісяця</label>
+          <p class="meta" id="monthly-hint">Щомісячна опіка вже є — її суму змінюють у «<a href="my-support.html">Моїй підтримці</a>».</p>
+        </fieldset>
+        <fieldset class="row">
+          <legend>Сума, грн</legend>
+          <label class="choice"><input type="radio" name="amount" value="300"> 300</label>
+          <label class="choice"><input type="radio" name="amount" value="500" checked> 500</label>
+          <label class="choice"><input type="radio" name="amount" value="1000"> 1 000</label>
+        </fieldset>
+        <label>Інша сума
+          <input type="text" inputmode="numeric" name="amount-other" placeholder="Наприклад, 750">
+        </label>
+        <label>Валюта
+          <select name="currency">
+            <option selected>UAH — гривня</option>
+            <option>USD — долар</option>
+            <option>EUR — євро</option>
+          </select>
+        </label>
+        <fieldset>
+          <legend>Спосіб оплати</legend>
+          <label class="choice"><input type="radio" name="method" value="uah" checked> Картка в гривні, Apple Pay чи Google Pay</label>
+          <label class="choice"><input type="radio" name="method" value="foreign"> Іноземна картка, USD чи EUR</label>
+        </fieldset>
+        <p class="meta">Платите на сторінці WayForPay чи LiqPay [?], іноземною карткою — Stripe. Даних картки ми не бачимо й не зберігаємо.</p>
+        <dl>
+          <dt>Разом</dt>
+          <dd><b>500 грн разово</b> для <span class="ph">[ім'я коня]</span></dd>
+          <dt>Чек прийде на</dt>
+          <dd>kateryna@example.com</dd>
+        </dl>
+        <label class="choice"><input type="checkbox" name="consent" checked required> Погоджуюся з умовами пожертви</label>
+        <details>
+          <summary>Умови пожертви</summary>
+          <p><span class="ph">[текст умов пожертви — розділ «Документи» на «Про центр»]</span></p>
+        </details>
+        <button class="primary" type="submit">Спробувати ще — оплатити 500 грн</button>
+        <a class="btn" href="animal.html">Назад до <span class="ph">[ім'я коня]</span></a>
+        <p class="meta">Не виходить? Команда центру на зв'язку пн–пт, 09:00–19:00: <a href="tel:+380665826817">+380 66 582 68 17</a>, <a href="mailto:info@bestofthepride.info">info@bestofthepride.info</a> чи «<a href="center.html">Про центр</a>».</p>
+      </form>
+    </main>
+
+    <nav class="tabbar" aria-label="Головна навігація" data-zone="4">
+      <ul>
+        <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+        <li><a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+        <li><a href="donate.html" aria-current="page"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+        <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+      </ul>
+    </nav>
+
+  </div>
+
+  <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
+    <h2>Опіка над твариною · помилка</h2>
+    <ul>
+      <li>Людина повернулася від провайдера, а платіж не пройшов.</li>
+      <li>R2, розвилка 8 «Оплата пройшла?» — ні → E2 → 9 «Спробує ще?».</li>
+      <li>У рамці — цей варіант, бо він єдиний зупиняє вже розпочату оплату. Решта — нижче.</li>
+    </ul>
+
+    <h2>Job</h2>
+    <ul>
+      <li>R2 · Почати допомагати, поки рішення ще «гаряче»</li>
+      <li>E1 · Спокій замість тривоги очікування</li>
+    </ul>
+
+    <h2>Зони в цьому стані</h2>
+    <ul>
+      <li><span class="wf-zone">3</span> «Оплату відхилено» — <b>«Спробувати ще»</b>: форма заповнена, згода стоїть, можна змінити спосіб. Вихід — «Назад до [ім'я коня]» (X1) і контакти центру.</li>
+      <li><span class="wf-zone">1</span>, <span class="wf-zone">2</span>, <span class="wf-zone">4</span> — як на базовій сторінці.</li>
+    </ul>
+
+    <h2>Інші помилки — та сама сторінка, інший текст</h2>
+    <ul>
+      <li><b>Хибне поле</b> (R2, розвилка 3) — підказка біля поля, введене збережено. Наприклад, біля «Інша сума»: «Вкажіть суму цифрами, наприклад 750».</li>
+      <li><b>Оплату не завершено</b> (розвилка 7 — людина закрила сторінку провайдера) — «Оплату не завершено. Усе, що ви обрали, збережено» і та сама форма.</li>
+      <li><b>Не підтверджено за добу [?]</b> (розвилка 11) — «Не вдалося підтвердити оплату. Якщо гроші списано — повернемо [?]» і контакти центру.</li>
+    </ul>
+
+    <h2>Переходи flow</h2>
+    <ul class="wf-flow">
+      <li>Сюди — після провайдера: розвилка 7 чи 8 — ні; або з <a href="care-loading.html">завантаження</a>, розвилка 11 — ні.</li>
+      <li>Розвилка 9 «Спробує ще?»: так — форма надсилається знову → <a href="care-loading.html">завантаження</a>; ні — «Назад до [ім'я коня]» → <a href="animal.html">профіль</a> (X1).</li>
+    </ul>
+  </aside>
+
+</div>
+</body>
+</html>

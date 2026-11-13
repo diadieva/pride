@@ -1,0 +1,107 @@
+<!doctype html>
+<!--
+  Вхід · login.html — базова сторінка, форма (sitemap.md, «Екрани», група «Повернутися до своїх»).
+
+  Крок main flow — flows.md, flow M: Опікун повертається із закладки → розвилка 2 «Вхід ще дійсний? Сесія 90 днів [?]» — ні →
+  LOGIN «Вхід · login.html» → 3 «Адреса в правильному форматі?» → L0 «loading: надсилаємо лист» →
+  4 «Лист відправлено?» → W1 «лист надіслано на вказану адресу». Після посилання з листа — L1 → «Мої улюбленці».
+
+  Job (sitemap.md): M, R4, R5. Екран дії: людина вносить адресу.
+  Правила — wireframes/_conventions.md.
+-->
+<html lang="uk" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Вайрфрейм · Вхід</title>
+  <script src="../_nav/theme.js"></script>
+  <link rel="stylesheet" href="../_nav/theme.css">
+  <link rel="stylesheet" href="../_nav/icons.css">
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script defer src="../_nav/tree.js"></script>
+  <script defer src="../_nav/nav.js"></script>
+  <link rel="stylesheet" href="_frame.css">
+</head>
+<body>
+<div class="wf-page">
+
+  <nav class="wf-states" aria-label="Стани екрана «Вхід»">
+    <a href="login.html" aria-current="page">Базова сторінка</a>
+    <a href="login-error.html">Помилка</a>
+    <a href="login-loading.html">Завантаження</a>
+    <a href="login-success.html">Успіх</a>
+    <span>Порожнього немає: сторінка не показує даних</span>
+  </nav>
+
+  <div class="device">
+
+    <header class="app-header" data-zone="1">
+      <a class="brand" href="board.html">Прайд</a>
+      <details class="service">
+        <summary><span class="i i-gear" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
+        <nav aria-label="Службова зона">
+          <ul>
+            <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
+            <li><a href="my-subscriptions.html"><span class="i i-envelope" aria-hidden="true"></span>Мої підписки</a></li>
+            <li><a><span class="i i-globe" aria-hidden="true"></span>Мова: українська · English</a></li>
+          </ul>
+        </nav>
+      </details>
+    </header>
+
+    <main>
+      <h1>Вхід</h1>
+
+      <form aria-labelledby="login-title" data-zone="2" action="login-loading.html" method="get">
+        <h2 id="login-title">Повернутися до своїх тварин</h2>
+        <p>Без пароля: надішлемо на пошту посилання для входу.</p>
+        <label>Email
+          <input type="email" name="email" autocomplete="email" required aria-describedby="email-hint">
+        </label>
+        <p class="meta" id="email-hint">Та сама адреса, на яку ви оформили опіку чи підписку і куди приходять листи про тварин.</p>
+        <button class="primary" type="submit">Надіслати посилання</button>
+      </form>
+    </main>
+
+    <nav class="tabbar" aria-label="Головна навігація" data-zone="3">
+      <ul>
+        <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+        <li><a href="my-animals.html" aria-current="page"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+        <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+        <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+      </ul>
+    </nav>
+
+  </div>
+
+  <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
+    <h2>Вхід · базова сторінка (форма)</h2>
+    <ul>
+      <li><code>login.html</code>. Група «Повернутися до своїх». Тип — контекстний: «Мої улюбленці» без входу, прострочене посилання з листа.</li>
+      <li>Flow M: лише коли вхід прострочено — раз на 90 днів [?].</li>
+    </ul>
+
+    <h2>Job</h2>
+    <ul>
+      <li>M · Допомогти конкретній тварині й бачити, що це змінює її життя</li>
+      <li>R4 · Знати, як живе підопічний після підтримки</li>
+      <li>R5 · Змінити чи зупинити регулярну допомогу</li>
+    </ul>
+
+    <h2>Зони і головна дія кожної</h2>
+    <ul>
+      <li><span class="wf-zone">1</span> Шапка — службова зона.</li>
+      <li><span class="wf-zone">2</span> Форма — <b>«Надіслати посилання»</b>. Біля поля — з чим звірити адресу: та, на яку оформлено опіку чи підписку.</li>
+      <li><span class="wf-zone">3</span> Таббар — поточний «Мої улюбленці»: саме сюди він веде без входу.</li>
+    </ul>
+
+    <h2>Переходи flow</h2>
+    <ul class="wf-flow">
+      <li>Сюди — коли вхід прострочено (flow M, розвилка 2 — ні), з <a href="login-success.html">успіху</a> — «Виправити» і з <a href="login-loading.html">завантаження</a> — «Змінити адресу».</li>
+      <li>Розвилка 3 «Адреса в правильному форматі?»: ні — браузер не надішле форму й покаже підказку біля поля, варіант <a href="login-error.html">помилки</a>; так — «Надіслати посилання» → <a href="login-loading.html">завантаження</a>.</li>
+    </ul>
+  </aside>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,312 @@
+/* Рамка і каркас вайрфреймів «Прайду». Правила — wireframes/_conventions.md.
+   Лише структура, ієрархія і зони в сірому. Сірі тони змішано з ролей _nav/theme.css,
+   власних hex немає: вайрфрейм не має кольору ні продукту, ні репо. */
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.5 system-ui, sans-serif;
+}
+
+/* Сторінка репо: рамка екрана і нотатки поруч */
+.wf-page {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 32px;
+  padding: 32px 16px 64px;
+}
+.wf-notes {
+  width: min(360px, 100%);
+  color: var(--muted);
+  font-size: 14px;
+}
+.wf-notes h2 { margin: 0 0 8px; font-size: 14px; color: var(--text); }
+.wf-notes ul { margin: 0; padding-left: 18px; }
+.wf-notes ul + h2 { margin-top: 20px; }
+.wf-notes li { margin: 4px 0; }
+
+/* Перемикач станів екрана — над рамкою, поза продуктом */
+.wf-states { flex-basis: 100%; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px; font-size: 14px; }
+.wf-states a { padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; color: var(--text); text-decoration: none; }
+.wf-states a[aria-current="page"] { background: var(--text); color: var(--bg); border-color: var(--text); }
+.wf-states span { padding: 6px 4px; color: var(--muted); }
+
+/* Рамка: головна ширина — телефон (бриф: mobile-first) */
+.device {
+  --wf-bg: var(--surface-raised);
+  --wf-ink: var(--text);
+  --wf-muted: color-mix(in oklab, var(--text) 62%, var(--surface-raised));
+  --wf-line: color-mix(in oklab, var(--text) 28%, var(--surface-raised));
+  --wf-fill: color-mix(in oklab, var(--text) 8%, var(--surface-raised));
+  --wf-fill-2: color-mix(in oklab, var(--text) 16%, var(--surface-raised));
+  box-sizing: border-box;
+  width: min(390px, 100%);
+  min-height: 844px;
+  display: flex;
+  flex-direction: column;
+  background: var(--wf-bg);
+  color: var(--wf-ink);
+  border: 1px solid var(--wf-line);
+  border-radius: 28px;
+  overflow: hidden;
+  font: 15px/1.45 system-ui, sans-serif;
+}
+.device *, .device *::before, .device *::after { box-sizing: border-box; }
+.device :is(h1, h2, h3, h4, p, ul, ol, dl, dd, figure, fieldset) { margin: 0; }
+.device :is(ul, ol) { padding-left: 18px; }
+.device h1 { font-size: 24px; line-height: 1.2; }
+.device h2 { font-size: 18px; line-height: 1.25; }
+.device h3 { font-size: 15px; }
+.device a { color: inherit; }
+.device small, .device .meta { color: var(--wf-muted); font-size: 13px; }
+.device :focus-visible { outline: 2px solid var(--wf-ink); outline-offset: 2px; }
+
+/* Шапка — однакова на кожному екрані */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--wf-line);
+}
+.brand { font-weight: 700; text-decoration: none; }
+.service { position: relative; }
+.service > summary {
+  list-style: none;
+  cursor: pointer;
+  min-width: 44px;
+  min-height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--wf-line);
+  border-radius: 10px;
+}
+.service > summary::-webkit-details-marker { display: none; }
+.service > nav {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 4px);
+  z-index: 1;
+  min-width: 200px;
+  padding: 8px;
+  background: var(--wf-bg);
+  border: 1px solid var(--wf-line);
+  border-radius: 10px;
+}
+.service ul { list-style: none; padding: 0; display: grid; gap: 4px; }
+.service a { display: flex; align-items: center; gap: 8px; padding: 8px; min-height: 44px; }
+
+/* Робоча зона */
+.device > main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+}
+.back { align-self: flex-start; font-size: 14px; }
+
+/* Зони: кожен смисловий блок видно пунктирною рамкою */
+.device main :is(section, article, aside, form, nav) {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border: 1px dashed var(--wf-line);
+  border-radius: 12px;
+}
+
+/* Номер зони — позначка вайрфрейма, не частина продукту. Розшифровка — у .wf-notes */
+[data-zone] { position: relative; }
+[data-zone]::before {
+  content: attr(data-zone);
+  position: absolute;
+  top: -9px;
+  left: 10px;
+  z-index: 1;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 9px;
+  background: var(--wf-ink);
+  color: var(--wf-bg);
+  font: 600 11px/18px system-ui, sans-serif;
+  text-align: center;
+}
+.app-header[data-zone]::before, .tabbar[data-zone]::before { top: 2px; left: 2px; }
+.wf-zone {
+  display: inline-block;
+  min-width: 18px;
+  padding: 0 5px;
+  border-radius: 9px;
+  background: var(--text);
+  color: var(--bg);
+  font: 600 11px/18px system-ui, sans-serif;
+  text-align: center;
+}
+
+/* Іконки — лише з _nav/icons.css, колір — currentColor */
+.device .i { width: 20px; height: 20px; vertical-align: -4px; }
+
+/* Керування */
+.device :is(button, .btn) {
+  font: inherit;
+  color: inherit;
+  text-decoration: none;
+  text-align: center;
+  min-height: 44px;
+  padding: 10px 14px;
+  background: var(--wf-fill-2);
+  border: 1px solid var(--wf-line);
+  border-radius: 10px;
+  cursor: pointer;
+}
+.device :is(button, .btn).primary { background: var(--wf-ink); color: var(--wf-bg); border-color: var(--wf-ink); }
+.device :is(button, .btn):disabled,
+.device .btn[aria-disabled="true"] { opacity: .5; cursor: not-allowed; }
+.device label { display: grid; gap: 4px; font-size: 14px; }
+.device :is(input, select, textarea) {
+  font: inherit;
+  color: inherit;
+  min-height: 44px;
+  padding: 8px 10px;
+  background: var(--wf-bg);
+  border: 1px solid var(--wf-line);
+  border-radius: 8px;
+}
+.device fieldset { border: 0; padding: 0; display: grid; gap: 8px; }
+.device legend { padding: 0; margin-bottom: 4px; font-size: 14px; }
+.device fieldset.row { grid-template-columns: repeat(3, 1fr); }
+/* Варіант вибору: радіокнопка чи прапорець разом із підписом, уся рамка клікабельна */
+.device label.choice { display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 12px; border: 1px solid var(--wf-line); border-radius: 10px; }
+.device .choice input { min-height: 0; width: 20px; height: 20px; margin: 0; flex: none; }
+.device fieldset.row .choice { padding: 8px; gap: 6px; }
+.device :is(input, select) { accent-color: var(--wf-ink); }
+.device details > summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; }
+.device table { border-collapse: collapse; width: 100%; font-size: 14px; }
+.device :is(th, td) { text-align: left; padding: 6px 4px; border-bottom: 1px solid var(--wf-line); }
+
+/* Медіа й дані, яких ще немає */
+.img {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 3;
+  background: var(--wf-fill-2);
+  border-radius: 10px;
+  color: var(--wf-muted);
+  font-size: 13px;
+}
+.img.wide { aspect-ratio: 2 / 1; }
+.img.avatar { width: 48px; aspect-ratio: 1; border-radius: 50%; font-size: 11px; }
+
+/* Горизонтальний список (перемикач тварин): аватарка над підписом */
+.hlist { list-style: none; padding: 0; display: flex; gap: 12px; overflow-x: auto; }
+.hlist a { display: grid; justify-items: center; gap: 4px; min-width: 64px; font-size: 13px; text-decoration: none; }
+.hlist a[aria-current="true"] { font-weight: 700; }
+
+/* Пари «назва — значення» */
+.device dl { display: grid; grid-template-columns: auto 1fr; gap: 2px 12px; font-size: 14px; }
+.device dt { color: var(--wf-muted); }
+
+/* Ряд дій: кнопки ділять ширину порівну */
+.actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.actions > * { flex: 1 1 0; }
+
+.ph {
+  padding: 0 4px;
+  background: var(--wf-fill);
+  border-radius: 4px;
+  outline: 1px dashed var(--wf-line);
+}
+
+/* Стани */
+.skeleton { display: block; min-height: 1em; background: var(--wf-fill-2); border-radius: 6px; }
+.skeleton.photo { aspect-ratio: 2 / 1; border-radius: 10px; }
+.skeleton.avatar { width: 48px; height: 48px; border-radius: 50%; }
+.skeleton.title { min-height: 22px; }
+.skeleton.short { width: 45%; }
+.skeleton.button { min-height: 44px; border-radius: 10px; }
+.notice { padding: 12px; border: 2px solid var(--wf-ink); border-radius: 12px; display: grid; gap: 8px; }
+.field-error { font-size: 13px; font-weight: 600; }
+
+/* «Пропустити стрічку»: на екрані видно лише у фокусі (sitemap.md, «Навігація») */
+.device .skip:not(:focus) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.device .skip:focus { align-self: flex-start; min-height: 44px; display: flex; align-items: center; }
+
+/* Список-рядки: фото, текст, стрілка. Рядок — одне посилання; людина порівнює рядки між собою */
+.device .rows { list-style: none; padding: 0; display: grid; }
+.device .rows a {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  min-height: 64px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--wf-line);
+  text-decoration: none;
+}
+.device .rows a > span:not(.img):not(.i) { display: grid; gap: 2px; }
+
+/* Прогрес завантаження файлу — на всю ширину і в сірому */
+.device progress { width: 100%; height: 8px; accent-color: var(--wf-ink); }
+
+/* Глобальна навігація — таббар внизу рамки */
+.tabbar {
+  position: sticky;
+  bottom: 0;
+  background: var(--wf-bg);
+  border-top: 1px solid var(--wf-line);
+}
+.tabbar ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); }
+.tabbar a {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 2px;
+  min-height: 56px;
+  padding: 6px 4px;
+  font-size: 12px;
+  text-align: center;
+  text-decoration: none;
+}
+.tabbar a[aria-current="page"] { font-weight: 700; background: var(--wf-fill); }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Навігатор репо — зліва від рамки, поза нею. На вузькому вікні його кнопка
+   стоїть над рамкою, а не внизу поверх таббару продукту (nav.css ставить її fixed унизу) */
+@media (max-width: 760px) {
+  .wf-page { padding-top: 56px; }
+  .pn-toggle { position: absolute; top: 12px; bottom: auto; }
+}
+
+/* Посилання на екран, якого ще немає у wireframes/: <a> без href.
+   Видно, куди поведе, але не клікається; href з'явиться разом зі сторінкою */
+.device a:not([href]) { cursor: not-allowed; text-decoration: underline dashed; }
+.device .btn:not([href]), .tabbar a:not([href]), .service a:not([href]) { opacity: .5; text-decoration: none; }
+.device .brand:not([href]) { cursor: default; opacity: 1; text-decoration: none; }
+
+/* «Оплата неактивна без згоди» без JS: кнопка тьмяна й не натискається, доки згоду не позначено;
+   required на прапорці не дає надіслати форму й з клавіатури */
+.device form:has(input[name="consent"]:not(:checked)) button[type="submit"] { opacity: .5; pointer-events: none; }
+
+/* Переходи flow у нотатках */
+.wf-notes .wf-flow a { color: var(--text); }

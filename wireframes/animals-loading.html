@@ -1,0 +1,142 @@
+<!doctype html>
+<!--
+  Усі тварини · animals-loading.html — стан завантаження (sitemap.md, колонка «Стани»: «список; результати пошуку»).
+  Базова сторінка — animals.html; шапка, зони й таббар ті самі, на місці рядків — сірі заглушки.
+
+  Крок flow — flows.md, flow R3: вхід у ALL з дошки (розвилки 2, 3, 4) чи з помилки дошки (E1 «шукати за ім'ям») →
+  завантаження списку → розвилка 5 «Хтось знайшовся за пошуком чи фільтром?».
+  У flow R3 це L3 «loading: список; результати пошуку» → розвилка 4а «Список прийшов?».
+
+  Job (sitemap.md): R1, R3.
+  Правила — wireframes/_conventions.md.
+-->
+<html lang="uk" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Вайрфрейм · Усі тварини · завантаження</title>
+  <script src="../_nav/theme.js"></script>
+  <link rel="stylesheet" href="../_nav/theme.css">
+  <link rel="stylesheet" href="../_nav/icons.css">
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script defer src="../_nav/tree.js"></script>
+  <script defer src="../_nav/nav.js"></script>
+  <link rel="stylesheet" href="_frame.css">
+</head>
+<body>
+<div class="wf-page">
+
+  <nav class="wf-states" aria-label="Стани екрана «Усі тварини»">
+    <a href="animals.html">Базова сторінка</a>
+    <a href="animals-empty.html">Порожній</a>
+    <a href="animals-error.html">Помилка</a>
+    <a href="animals-loading.html" aria-current="page">Завантаження</a>
+    <span>Успіху немає: це не екран дії — тут шукають і фільтрують</span>
+  </nav>
+
+  <div class="device">
+
+    <header class="app-header" data-zone="1">
+      <a class="brand" href="board.html">Прайд</a>
+      <details class="service">
+        <summary><span class="i i-gear" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
+        <nav aria-label="Службова зона">
+          <ul>
+            <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
+            <li><a href="my-subscriptions.html"><span class="i i-envelope" aria-hidden="true"></span>Мої підписки</a></li>
+            <li><a><span class="i i-globe" aria-hidden="true"></span>Мова: українська · English</a></li>
+          </ul>
+        </nav>
+      </details>
+    </header>
+
+    <main>
+      <a class="back" href="board.html"><span class="i i-angle-left" aria-hidden="true"></span> Дошка</a>
+
+      <h1>Усі тварини</h1>
+
+      <!-- Форма на місці: можна уточнити пошук, не чекаючи списку -->
+      <form role="search" aria-label="Пошук і фільтри" data-zone="2" action="animals-loading.html" method="get">
+        <label>Ім'я тварини
+          <input type="search" name="q" autocomplete="off">
+        </label>
+        <label class="choice"><input type="checkbox" name="need" value="lacking"> Лише ті, кому ще бракує допомоги</label>
+        <details>
+          <summary>Вид і характер · нічого не обрано</summary>
+          <fieldset class="row">
+            <legend>Вид</legend>
+            <label class="choice"><input type="checkbox" name="kind" value="horse"> Коні</label>
+            <label class="choice"><input type="checkbox" name="kind" value="dog"> Собаки</label>
+            <label class="choice"><input type="checkbox" name="kind" value="other"> Інші</label>
+          </fieldset>
+          <fieldset class="row">
+            <legend>Характер</legend>
+            <label class="choice"><input type="checkbox" name="trait" value="1"> <span class="ph">[риса]</span></label>
+            <label class="choice"><input type="checkbox" name="trait" value="2"> <span class="ph">[риса]</span></label>
+            <label class="choice"><input type="checkbox" name="trait" value="3"> <span class="ph">[риса]</span></label>
+          </fieldset>
+        </details>
+        <button class="primary" type="submit"><span class="i i-search-text" aria-hidden="true"></span> Показати</button>
+      </form>
+
+      <section aria-labelledby="list" data-zone="3" aria-busy="true">
+        <h2 id="list">Тварини центру</h2>
+        <p class="meta" role="status"><span class="i i-hourglass" aria-hidden="true"></span> Завантажуємо тварин…</p>
+        <span class="skeleton avatar"></span>
+        <span class="skeleton title short"></span>
+        <span class="skeleton short"></span>
+        <span class="skeleton avatar"></span>
+        <span class="skeleton title short"></span>
+        <span class="skeleton short"></span>
+        <span class="skeleton avatar"></span>
+        <span class="skeleton title short"></span>
+        <span class="skeleton short"></span>
+      </section>
+    </main>
+
+    <nav class="tabbar" aria-label="Головна навігація" data-zone="4">
+      <ul>
+        <li><a href="board.html" aria-current="page"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+        <li><a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+        <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+        <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+      </ul>
+    </nav>
+
+  </div>
+
+  <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
+    <h2>Усі тварини · завантаження</h2>
+    <ul>
+      <li>Чекаємо на список тварин: фото, імена, вид, риси, «бракує» чи «покрито».</li>
+      <li>Flow R3: вхід у ALL → розвилка 5 «Хтось знайшовся за пошуком чи фільтром?».</li>
+    </ul>
+
+    <h2>Job</h2>
+    <ul>
+      <li>R1 · Зрозуміти, з ким із тварин виникне зв'язок</li>
+      <li>R3 · Познайомитися з твариною, перш ніж давати гроші</li>
+    </ul>
+
+    <h2>Зони в цьому стані</h2>
+    <ul>
+      <li><span class="wf-zone">3</span> Тварини центру — заголовок на місці, рядки — сірими заглушками: фото, ім'я, рядок даних. Текст процесу — «Завантажуємо тварин…».</li>
+      <li><span class="wf-zone">2</span> Пошук і фільтри — працюють: уточнити запит можна, не чекаючи.</li>
+      <li>Вихід — «Дошка» вгорі, шапка і таббар.</li>
+    </ul>
+
+    <h2>Інший варіант — та сама сторінка</h2>
+    <ul>
+      <li><b>Результати пошуку</b> — після «Знайти» на дошці чи «Показати» тут: у полі — запит, обрані фільтри позначено, текст процесу — «Шукаємо „<span class="ph">[запит]</span>“…».</li>
+    </ul>
+
+    <h2>Переходи flow</h2>
+    <ul class="wf-flow">
+      <li>Сюди — з <a href="board.html">дошки</a> (пошук, «Усі тварини» в кінці стрічки), з <a href="board-empty.html">порожньої дошки</a>, з <a href="board-error.html">помилки дошки</a> — «Шукати за ім'ям», з <a href="animals-empty.html">порожнього стану</a> — «Скинути фільтри», з <a href="animals-error.html">помилки</a> — «Спробувати ще», і з власної форми — «Показати».</li>
+      <li>Розвилка 5 «Хтось знайшовся?»: так — <a href="animals.html">базова сторінка</a>; ні — <a href="animals-empty.html">порожній стан</a>; збій — <a href="animals-error.html">помилка</a>.</li>
+    </ul>
+  </aside>
+
+</div>
+</body>
+</html>

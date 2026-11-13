@@ -1,0 +1,173 @@
+<!doctype html>
+<!--
+  Донат центру · donate-empty.html — порожній стан (sitemap.md, колонка «Стани»).
+  Базова сторінка — donate.html; шапка, зони й таббар ті самі, на місці збору — пояснення.
+
+  Крок flow — flows.md, flow «R2 · … — Терміновий донатор»: DON → розвилка 2 «Є відкритий збір? [?]» —
+  ні чи збір закрито → EM1 «empty: відкритих зборів немає — донат центру загалом; звіт закритого збору» →
+  3 «Хоче перевірити, хто такі „Прайд“?» → далі та сама форма, розвилки 4–6.
+
+  Job (sitemap.md): R2, E1, E3. Екран дії: людина сплачує.
+  Правила — wireframes/_conventions.md.
+-->
+<html lang="uk" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Вайрфрейм · Донат центру · порожній стан</title>
+  <script src="../_nav/theme.js"></script>
+  <link rel="stylesheet" href="../_nav/theme.css">
+  <link rel="stylesheet" href="../_nav/icons.css">
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script defer src="../_nav/tree.js"></script>
+  <script defer src="../_nav/nav.js"></script>
+  <link rel="stylesheet" href="_frame.css">
+</head>
+<body>
+<div class="wf-page">
+
+  <nav class="wf-states" aria-label="Стани екрана «Донат центру»">
+    <a href="donate.html">Базова сторінка</a>
+    <a href="donate-empty.html" aria-current="page">Порожній</a>
+    <a href="donate-error.html">Помилка</a>
+    <a href="donate-loading.html">Завантаження</a>
+    <a href="donate-success.html">Успіх</a>
+  </nav>
+
+  <div class="device">
+
+    <header class="app-header" data-zone="1">
+      <a class="brand" href="board.html">Прайд</a>
+      <details class="service">
+        <summary><span class="i i-gear" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
+        <nav aria-label="Службова зона">
+          <ul>
+            <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
+            <li><a href="my-subscriptions.html"><span class="i i-envelope" aria-hidden="true"></span>Мої підписки</a></li>
+            <li><a><span class="i i-globe" aria-hidden="true"></span>Мова: українська · English</a></li>
+          </ul>
+        </nav>
+      </details>
+    </header>
+
+    <main>
+      <h1>Донат центру</h1>
+
+      <!-- Відкритого збору немає: пояснення і донат центру загалом (EM1) -->
+      <section aria-labelledby="fund-title" data-zone="2">
+        <h2 id="fund-title"><span class="i i-inbox" aria-hidden="true"></span> Зараз відкритих зборів немає</h2>
+        <p>Донат піде на щоденну роботу центру: тварини, яких евакуювали й лікують, і ті, що вже працюють з дітьми.</p>
+        <h3>На що йдуть кошти</h3>
+        <ul>
+          <li>Корм — <span class="ph">[сума] грн на місяць</span></li>
+          <li>Лікування — <span class="ph">[сума] грн на місяць</span></li>
+          <li>Утримання — <span class="ph">[сума] грн на місяць</span></li>
+        </ul>
+        <a href="center.html"><span class="i i-building" aria-hidden="true"></span> Хто ми — центр «Прайд», с. Кандибине</a>
+      </section>
+
+      <!-- Та сама форма: донат центру загалом -->
+      <form aria-labelledby="pay-title" data-zone="3" action="donate-loading.html" method="get">
+        <h2 id="pay-title">Ваш донат</h2>
+        <fieldset>
+          <legend>Як часто</legend>
+          <label class="choice"><input type="radio" name="mode" value="once" checked> Разово</label>
+          <label class="choice"><input type="radio" name="mode" value="monthly"> Щомісяця</label>
+        </fieldset>
+        <fieldset class="row">
+          <legend>Сума, грн <span class="meta">[?]</span></legend>
+          <label class="choice"><input type="radio" name="amount" value="200"> 200</label>
+          <label class="choice"><input type="radio" name="amount" value="500" checked> 500</label>
+          <label class="choice"><input type="radio" name="amount" value="1000"> 1 000</label>
+        </fieldset>
+        <label>Інша сума
+          <input type="text" inputmode="numeric" name="amount-other" placeholder="Наприклад, 750">
+        </label>
+        <label>Валюта
+          <select name="currency">
+            <option selected>UAH — гривня</option>
+            <option>USD — долар</option>
+            <option>EUR — євро</option>
+          </select>
+        </label>
+        <label>Адреса для чека
+          <input type="email" name="email" value="kateryna@example.com" required autocomplete="email" aria-describedby="email-hint">
+        </label>
+        <p class="meta" id="email-hint">Лише для чека. Акаунт і пароль не потрібні.</p>
+        <fieldset>
+          <legend>Спосіб оплати</legend>
+          <label class="choice"><input type="radio" name="method" value="uah" checked> Картка в гривні, Apple Pay чи Google Pay</label>
+          <label class="choice"><input type="radio" name="method" value="foreign"> Іноземна картка, USD чи EUR</label>
+        </fieldset>
+        <p class="meta">Платите на сторінці WayForPay чи LiqPay [?], іноземною карткою — Stripe. Даних картки ми не бачимо й не зберігаємо.</p>
+        <label class="choice"><input type="checkbox" name="consent" required> Погоджуюся з умовами пожертви</label>
+        <details>
+          <summary>Умови пожертви</summary>
+          <p><span class="ph">[текст умов пожертви — розділ «Документи» на «Про центр»]</span></p>
+        </details>
+        <dl>
+          <dt>Разом</dt>
+          <dd><b>500 грн разово</b> центру «Прайд» на щоденну роботу</dd>
+          <dt>Чек прийде на</dt>
+          <dd>kateryna@example.com</dd>
+        </dl>
+        <button class="primary" type="submit" aria-describedby="consent-hint">Оплатити 500 грн</button>
+        <p class="meta" id="consent-hint">Кнопка стане активною, коли позначите згоду з умовами.</p>
+        <p>Або разово через <a>Monobank-банку <span class="meta">[?]</span></a> — чек надішле Monobank.</p>
+      </form>
+
+      <nav aria-label="Опіка над твариною" data-zone="4">
+        <p class="meta">Хочете допомагати комусь конкретному?</p>
+        <a href="board.html">або візьміть опіку над твариною <span class="i i-angle-right" aria-hidden="true"></span></a>
+      </nav>
+    </main>
+
+    <nav class="tabbar" aria-label="Головна навігація" data-zone="5">
+      <ul>
+        <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+        <li><a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+        <li><a href="donate.html" aria-current="page"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+        <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+      </ul>
+    </nav>
+
+  </div>
+
+  <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
+    <h2>Донат центру · порожній стан</h2>
+    <ul>
+      <li>Відкритого збору немає — порожній лише збір, а не екран: донат центру загалом дати можна тут же.</li>
+      <li>R2 · Терміновий донатор, розвилка 2 «Є відкритий збір? [?]» — ні → EM1. У рамці — «відкритих зборів немає»: так людина бачить екран із пункту «Підтримати», і цей варіант не залежить від звіту [?].</li>
+    </ul>
+
+    <h2>Job</h2>
+    <ul>
+      <li>R2 · Почати допомагати, поки рішення ще «гаряче»</li>
+      <li>E3 · Вірити, що мені показують правду</li>
+    </ul>
+
+    <h2>Зони в цьому стані</h2>
+    <ul>
+      <li><span class="wf-zone">2</span> «Зараз відкритих зборів немає» — куди піде донат і на що йдуть кошти центру. «Зібрано / Ціль» немає: немає збору. Дія — «Хто ми».</li>
+      <li><span class="wf-zone">3</span> Форма — та сама, <b>«Оплатити 500 грн»</b>: це і є вихід із порожнього стану. «Разом» каже, що донат — на щоденну роботу центру.</li>
+      <li><span class="wf-zone">1</span>, <span class="wf-zone">4</span>, <span class="wf-zone">5</span> — як на базовій сторінці.</li>
+    </ul>
+
+    <h2>Інший варіант — та сама сторінка</h2>
+    <ul>
+      <li><b>Збір закрито</b> (розвилка 2 — людина прийшла за старим посиланням на збір) — у зоні <span class="wf-zone">2</span>: «Збір „<span class="ph">[назва збору]</span>“ закрито <span class="ph">[дата] листопада</span>. Зібрано <span class="ph">[сума] грн</span> — дякуємо!» і звіт закритого збору: на що пішли кошти <span class="meta">[?]</span>. Нижче — та сама форма: донат центру загалом.</li>
+      <li>Звіт закритого збору — [?]: чи він буде і в якому вигляді, вирішує центр.</li>
+    </ul>
+
+    <h2>Переходи flow</h2>
+    <ul class="wf-flow">
+      <li>Сюди — з <a href="donate-loading.html">завантаження прогресу збору</a>: дані прийшли, а відкритого збору немає чи його закрито (розвилка 2 — ні). Інакше — <a href="donate.html">базова сторінка</a>.</li>
+      <li>Розвилка 3: «Хто ми» → <a href="center.html">Про центр</a> і назад, введене збережено.</li>
+      <li>«Оплатити» → провайдер → оплата пройшла — <a href="donate-loading.html">завантаження «перевіряємо оплату»</a>; не завершено чи відхилено — <a href="donate-error.html">помилка</a>.</li>
+      <li>«або візьміть опіку над твариною» → <a href="board.html">Дошка</a>.</li>
+    </ul>
+  </aside>
+
+</div>
+</body>
+</html>

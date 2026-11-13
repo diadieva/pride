@@ -1,0 +1,129 @@
+<!doctype html>
+<!--
+  Нове оновлення · post-loading.html — стан завантаження (sitemap.md, колонка «Стани»: «список тварин; фото й відео з прогресом; публікуємо»).
+  Базова сторінка — post.html; шапка без службової зони, зони ті самі, таббару немає.
+
+  Крок flow — flows.md, «R4 · … — сторона команди»: після «Опублікувати» → L2 «loading: завантажуємо фото й відео, видно прогрес» →
+  розвилка 4 «Завантажилось?» (ні → ST2 «чернетку збережено на телефоні, догрузимо зі зв'язком» → L2) →
+  так → L3 «loading: публікуємо» → розвилка 7 «Опубліковано?»: так → post-success.html; ні → post-error.html.
+  У рамці — L2 з прогресом: на слабкому зв'язку волонтер чекає саме тут. L1 і L3 — у нотатках.
+
+  Job (sitemap.md): R3, R4, E3. Правила — wireframes/_conventions.md.
+-->
+<html lang="uk" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Вайрфрейм · Нове оновлення · завантаження</title>
+  <script src="../_nav/theme.js"></script>
+  <link rel="stylesheet" href="../_nav/theme.css">
+  <link rel="stylesheet" href="../_nav/icons.css">
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script defer src="../_nav/tree.js"></script>
+  <script defer src="../_nav/nav.js"></script>
+  <link rel="stylesheet" href="_frame.css">
+</head>
+<body>
+<div class="wf-page">
+
+  <nav class="wf-states" aria-label="Стани екрана «Нове оновлення»">
+    <a href="post.html">Базова сторінка</a>
+    <a href="post-error.html">Помилка</a>
+    <a href="post-loading.html" aria-current="page">Завантаження</a>
+    <a href="post-success.html">Успіх</a>
+    <span>Порожнього немає: тварини без новин стоять зверху списку</span>
+  </nav>
+
+  <div class="device">
+
+    <header class="app-header" data-zone="1">
+      <a class="brand" href="board.html">Прайд</a>
+    </header>
+
+    <main>
+      <h1>Нове оновлення</h1>
+      <p class="meta"><span class="i i-users" aria-hidden="true"></span> Команда центру · <span class="ph">[ім'я волонтера]</span></p>
+
+      <section aria-labelledby="animal-title" data-zone="2">
+        <h2 id="animal-title">1. Про кого</h2>
+        <p>
+          <span class="img avatar" role="img" aria-label="Фото: [ім'я тварини]">фото</span>
+          <span class="ph">[ім'я коня]</span> · кінь · <span class="meta"><time datetime="2026-10-23">21 день без новин</time></span>
+        </p>
+      </section>
+
+      <section aria-labelledby="media-title" data-zone="3" aria-busy="true">
+        <h2 id="media-title" role="status"><span class="i i-hourglass" aria-hidden="true"></span> Завантажуємо фото й відео — 2 з 3</h2>
+        <label>Фото 1 · 2,4 МБ · готово
+          <progress max="100" value="100">100%</progress>
+        </label>
+        <label>Фото 2 · 3,1 МБ · готово
+          <progress max="100" value="100">100%</progress>
+        </label>
+        <label>Відео · 48 МБ · 64%
+          <progress max="100" value="64">64%</progress>
+        </label>
+        <p class="meta">Зв'язок слабкий — відео йде повільніше. Якщо обірветься, чернетка лишиться на телефоні, і ми догрузимо, щойно зв'язок з'явиться.</p>
+      </section>
+
+      <section aria-labelledby="text-title" data-zone="4">
+        <h2 id="text-title">3. Що сталося</h2>
+        <p><span class="ph">[текст оновлення від команди центру]</span></p>
+        <p class="meta">Англійською — порожньо [?]</p>
+      </section>
+
+      <section aria-labelledby="type-title" data-zone="5">
+        <h2 id="type-title">4. Яка це новина</h2>
+        <p>Момент — прийде підписникам так часто, як вони обрали.</p>
+      </section>
+
+      <section aria-labelledby="publish-title" data-zone="6">
+        <h2 id="publish-title">5. Публікація</h2>
+        <p>Опублікуємо, щойно дійде відео. Повторно натискати не треба.</p>
+        <span class="skeleton button"></span>
+        <p class="meta">Телефон можна відкласти: чернетку збережено, публікація закінчиться сама [?].</p>
+        <a class="btn" href="post.html">Повернутися до чернетки</a>
+      </section>
+    </main>
+
+  </div>
+
+  <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
+    <h2>Нове оновлення · завантаження</h2>
+    <ul>
+      <li>Волонтер натиснув «Опублікувати». Фото й відео ще йдуть.</li>
+      <li>Flow R4 команди, L2 «завантажуємо фото й відео, видно прогрес» → розвилка 4 → L3 «публікуємо».</li>
+      <li>У рамці — L2. На нестабільному зв'язку найдовше чекають саме тут, і саме тут найлегше загубити відео. Решта варіантів — нижче.</li>
+    </ul>
+
+    <h2>Job</h2>
+    <ul>
+      <li>R4 · Знати, як живе підопічний після підтримки — сторона команди.</li>
+    </ul>
+
+    <h2>Зони в цьому стані</h2>
+    <ul>
+      <li><span class="wf-zone">3</span> Фото й відео — прогрес кожного файла, скільки з скількох (<code>aria-busy</code>, заголовок — <code>role="status"</code>).</li>
+      <li><span class="wf-zone">6</span> Публікація — замість кнопки сірий блок: повтор заблоковано, щоб оновлення не вийшло двічі. Вихід — «Повернутися до чернетки» (<code>post.html</code>), введене збережено.</li>
+      <li><span class="wf-zone">2</span>, <span class="wf-zone">4</span>, <span class="wf-zone">5</span> — що саме публікуємо, для звірки. <span class="wf-zone">1</span> — як на базовій сторінці.</li>
+    </ul>
+
+    <h2>Інші варіанти завантаження — та сама сторінка</h2>
+    <ul>
+      <li><b>L1 · список тварин</b> (після розвилки 1 — так): у зоні 2 — сірі аватарки й рядки <code>.skeleton</code>, текст «Завантажуємо список тварин». Зони 3–5 уже можна заповнювати: текст і фото не чекають списку.</li>
+      <li><b>ST2 · чернетку збережено на телефоні</b> (розвилка 4 — ні): «Зв'язок обірвався. Чернетку збережено на телефоні — догрузимо, щойно зв'язок з'явиться». Прогрес стоїть на місці, вихід той самий.</li>
+      <li><b>L3 · публікуємо</b> (розвилка 4 — так): усі файли готові, заголовок зони 6 — «Публікуємо…», сірий блок замість кнопки.</li>
+    </ul>
+
+    <h2>Переходи flow</h2>
+    <ul class="wf-flow">
+      <li>Сюди — з <a href="post.html">форми</a> («Опублікувати»; для важливої зміни — після ST3) і з <a href="post-error.html">помилки</a> («Спробувати ще»).</li>
+      <li>Розвилка 4 «Завантажилось?»: так — L3 «публікуємо»; ні — ST2, чернетка на телефоні, догружаємо зі зв'язком і повертаємося в L2.</li>
+      <li>Розвилка 7 «Опубліковано?»: так — <a href="post-success.html">успіх</a>; ні — <a href="post-error.html">помилка «не опубліковано, чернетку збережено»</a>. Розвилку вирішує система, у рамці вона не клікається.</li>
+      <li>Живий вихід у рамці — «Повернутися до чернетки» → <a href="post.html">форма</a>.</li>
+    </ul>
+  </aside>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!doctype html>
+<!--
+  Донат центру · donate-success.html — успіх після оплати (sitemap.md, колонка «Стани»).
+  Базова сторінка — donate.html; шапка, зони й таббар ті самі, на місці форми — підтвердження.
+
+  Крок flow — flows.md, flow «R2 · … — Терміновий донатор»: L2 «перевіряємо оплату» →
+  розвилка 10 «Підтвердження прийшло за хвилину?» — так (чи 11 «протягом доби» — так) →
+  OK1 «успіх: дякуємо, чек на email, без акаунта». Регулярний донат: OK1 ⇢ «керування з посилання в чеку» →
+  Моя підтримка · my-support.html. Monobank-банка (розвилка 6) — свій успіх OKB у Банці, не тут.
+
+  Job (sitemap.md): R2, E1, E3. Екран дії: людина сплачує.
+  Правила — wireframes/_conventions.md.
+-->
+<html lang="uk" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Вайрфрейм · Донат центру · успіх</title>
+  <script src="../_nav/theme.js"></script>
+  <link rel="stylesheet" href="../_nav/theme.css">
+  <link rel="stylesheet" href="../_nav/icons.css">
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script defer src="../_nav/tree.js"></script>
+  <script defer src="../_nav/nav.js"></script>
+  <link rel="stylesheet" href="_frame.css">
+</head>
+<body>
+<div class="wf-page">
+
+  <nav class="wf-states" aria-label="Стани екрана «Донат центру»">
+    <a href="donate.html">Базова сторінка</a>
+    <a href="donate-empty.html">Порожній</a>
+    <a href="donate-error.html">Помилка</a>
+    <a href="donate-loading.html">Завантаження</a>
+    <a href="donate-success.html" aria-current="page">Успіх</a>
+  </nav>
+
+  <div class="device">
+
+    <header class="app-header" data-zone="1">
+      <a class="brand" href="board.html">Прайд</a>
+      <details class="service">
+        <summary><span class="i i-gear" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
+        <nav aria-label="Службова зона">
+          <ul>
+            <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
+            <li><a href="my-subscriptions.html"><span class="i i-envelope" aria-hidden="true"></span>Мої підписки</a></li>
+            <li><a><span class="i i-globe" aria-hidden="true"></span>Мова: українська · English</a></li>
+          </ul>
+        </nav>
+      </details>
+    </header>
+
+    <main>
+      <h1>Донат центру</h1>
+
+      <section aria-labelledby="fund-title" data-zone="2">
+        <h2 id="fund-title"><span class="ph">[назва збору]</span></h2>
+        <dl>
+          <dt>Зібрано</dt>
+          <dd><span class="ph">[сума] грн</span> — разом із вашими 500 грн</dd>
+          <dt>Ціль</dt>
+          <dd><span class="ph">[сума] грн</span></dd>
+        </dl>
+        <a href="center.html"><span class="i i-building" aria-hidden="true"></span> Хто ми — центр «Прайд», с. Кандибине</a>
+      </section>
+
+      <!-- На місці форми: що, кому, коли, яким способом, куди пішов чек -->
+      <section aria-labelledby="ok-title" data-zone="3">
+        <h2 id="ok-title" role="status"><span class="i i-check-circle" aria-hidden="true"></span> Дякуємо! Донат отримали</h2>
+        <dl>
+          <dt>Сума</dt>
+          <dd>500 грн, разово</dd>
+          <dt>Кому</dt>
+          <dd>центр «Прайд» · <span class="ph">[назва збору]</span></dd>
+          <dt>Коли</dt>
+          <dd><time datetime="2026-11-13T14:35">13 листопада 2026, 14:35</time></dd>
+          <dt>Спосіб</dt>
+          <dd>картка в гривні · WayForPay [?]</dd>
+          <dt>Чек</dt>
+          <dd>надіслано на kateryna@example.com</dd>
+        </dl>
+        <p>Акаунт не потрібен — чек уже в пошті. На що пішли кошти збору, покажемо у звіті [?].</p>
+      </section>
+
+      <!-- Тихий шлях для Опікуна — тут він і є головною дією «що далі» -->
+      <nav aria-label="Опіка над твариною" data-zone="4">
+        <p class="meta">Хочете допомагати комусь конкретному?</p>
+        <a href="board.html">або візьміть опіку над твариною <span class="i i-angle-right" aria-hidden="true"></span></a>
+      </nav>
+    </main>
+
+    <nav class="tabbar" aria-label="Головна навігація" data-zone="5">
+      <ul>
+        <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+        <li><a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+        <li><a href="donate.html" aria-current="page"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+        <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+      </ul>
+    </nav>
+
+  </div>
+
+  <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
+    <h2>Донат центру · успіх</h2>
+    <ul>
+      <li>Провайдер підтвердив платіж. Донат зараховано, чек надіслано на адресу з форми.</li>
+      <li>R2 · Терміновий донатор, OK1 «дякуємо, чек на email, без акаунта» — job R2 закрито на одному екрані.</li>
+      <li>У рамці — разовий донат: Терміновий донатор найімовірніше дає разово (personas.md). Регулярний — нижче.</li>
+    </ul>
+
+    <h2>Job</h2>
+    <ul>
+      <li>R2 · Почати допомагати, поки рішення ще «гаряче»</li>
+      <li>E1 · Спокій замість тривоги очікування</li>
+      <li>E3 · Вірити, що мені показують правду</li>
+    </ul>
+
+    <h2>Зони в цьому стані</h2>
+    <ul>
+      <li><span class="wf-zone">2</span> Збір — «Зібрано» вже з цим донатом: видно, що гроші дійшли (E1).</li>
+      <li><span class="wf-zone">3</span> «Дякуємо! Донат отримали» — що, кому, коли, яким способом, куди пішов чек. Без закликів дати ще і без вимоги створити акаунт. Головної дії немає: job закрито.</li>
+      <li><span class="wf-zone">4</span> Шлях для Опікуна — «або візьміть опіку над твариною» → дошка. Єдиний «що далі», і той тихий.</li>
+      <li><span class="wf-zone">1</span>, <span class="wf-zone">5</span> — як на базовій сторінці.</li>
+    </ul>
+
+    <h2>Інші варіанти успіху</h2>
+    <ul>
+      <li><b>Регулярний донат</b> (режим «Щомісяця») — «Дякуємо! Щомісячний донат оформлено», рядки «Наступне списання: <time datetime="2026-12-13">13 грудня</time>» і «Змінити суму, призупинити чи скасувати — за посиланням у чеку». Посилання — у листі, не на цій сторінці: акаунта немає (OK1 ⇢ <a href="my-support.html">Моя підтримка</a>).</li>
+      <li><b>Monobank-банка</b> (розвилка 6, OKB) — успіх і чек показує Monobank у себе [?]. До нас людина не повертається, і платежу ми не бачимо [?], тож сторінки в продукті немає.</li>
+      <li><b>Без збору</b> (після <a href="donate-empty.html">порожнього стану</a>) — «Кому: центр „Прайд“, щоденна робота», рядка «Зібрано / Ціль» немає.</li>
+    </ul>
+
+    <h2>Переходи flow</h2>
+    <ul class="wf-flow">
+      <li>Сюди — з <a href="donate-loading.html">завантаження</a>: розвилка 10 «за хвилину» — так чи 11 «протягом доби [?]» — так.</li>
+      <li>Регулярний донат: керування — з посилання в чеку → <a href="my-support.html">Моя підтримка</a> (OK1 → SUP, flow R5).</li>
+      <li>Далі за бажанням — «або візьміть опіку над твариною» → <a href="board.html">Дошка</a>; «Хто ми» → <a href="center.html">Про центр</a>.</li>
+    </ul>
+  </aside>
+
+</div>
+</body>
+</html>

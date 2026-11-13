@@ -1,0 +1,157 @@
+<!doctype html>
+<!--
+  Профіль тварини · animal-empty.html — порожній стан (sitemap.md, колонка «Стани»).
+  Базова сторінка — animal.html; шапка, зони й таббар ті самі.
+
+  Крок main flow — flows.md, flow M: PROF → розвилка 15 «Тварина ще в центрі?» — так →
+  16 «Є звіт, що зроблено завдяки підтримці? [?]» — ні → EM3 «empty: звіт за місяць ще готується, оновлення вже є» → OK2.
+  Порожня лише зона звіту; новини на місці. Вихід — «До новин».
+
+  Job (sitemap.md): R3, R1, E2, E3, R4, M, R2, Г2 [?], Г9 [?]. У головному flow працюють M, R4, E2, E3.
+  Правила — wireframes/_conventions.md.
+-->
+<html lang="uk" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Вайрфрейм · Профіль тварини · порожній стан</title>
+  <script src="../_nav/theme.js"></script>
+  <link rel="stylesheet" href="../_nav/theme.css">
+  <link rel="stylesheet" href="../_nav/icons.css">
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script defer src="../_nav/tree.js"></script>
+  <script defer src="../_nav/nav.js"></script>
+  <link rel="stylesheet" href="_frame.css">
+</head>
+<body>
+<div class="wf-page">
+
+  <nav class="wf-states" aria-label="Стани екрана «Профіль тварини»">
+    <a href="animal.html">Базова сторінка</a>
+    <a href="animal-empty.html" aria-current="page">Порожній</a>
+    <a href="animal-error.html">Помилка</a>
+    <a href="animal-loading.html">Завантаження</a>
+    <a href="animal-success.html">Успіх</a>
+  </nav>
+
+  <div class="device">
+
+    <header class="app-header" data-zone="1">
+      <a class="brand" href="board.html">Прайд</a>
+      <details class="service">
+        <summary><span class="i i-gear" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
+        <nav aria-label="Службова зона">
+          <ul>
+            <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
+            <li><a href="my-subscriptions.html"><span class="i i-envelope" aria-hidden="true"></span>Мої підписки</a></li>
+            <li><a><span class="i i-globe" aria-hidden="true"></span>Мова: українська · English</a></li>
+          </ul>
+        </nav>
+      </details>
+    </header>
+
+    <main>
+      <a class="back" href="my-animals.html"><span class="i i-angle-left" aria-hidden="true"></span> Мої улюбленці</a>
+
+      <section aria-labelledby="pet" data-zone="2">
+        <div class="img wide" role="img" aria-label="Фото: [ім'я тварини]">фото</div>
+        <h1 id="pet"><span class="ph">[ім'я коня]</span></h1>
+        <p class="meta">Кінь · у центрі · <span class="ph">[вік]</span> [?]</p>
+      </section>
+
+      <section aria-labelledby="my-care" data-zone="3">
+        <h2 id="my-care">Моя опіка</h2>
+        <dl>
+          <dt>Опіка</dt>
+          <dd><span class="i i-check-circle" aria-hidden="true"></span> активна · 1 000 грн щомісяця</dd>
+          <dt>Наступне списання</dt>
+          <dd><time datetime="2026-12-01">1 грудня</time></dd>
+        </dl>
+        <a class="btn primary" href="care.html">Підтримати ще</a>
+        <a class="btn" href="my-support-loading.html">Керувати опікою</a>
+        <p class="meta">Ви стежите за історією: новини приходять на kateryna@example.com. <a href="my-subscriptions-loading.html">Змінити</a></p>
+      </section>
+
+      <section aria-labelledby="updates" data-zone="4">
+        <h2 id="updates" tabindex="-1">Новини</h2>
+        <article aria-labelledby="u1">
+          <h3 id="u1">Момент · <time datetime="2026-11-11">11 листопада</time></h3>
+          <div class="img wide" role="img" aria-label="Фото до новини">фото</div>
+          <p><span class="ph">[текст оновлення від команди центру]</span></p>
+        </article>
+        <article aria-labelledby="u2">
+          <h3 id="u2">Момент · <time datetime="2026-11-02">2 листопада</time></h3>
+          <p><span class="ph">[текст оновлення від команди центру]</span></p>
+        </article>
+        <button type="button">Показати старіші</button>
+      </section>
+
+      <section aria-labelledby="done" data-zone="5">
+        <h2 id="done"><span class="i i-inbox" aria-hidden="true"></span> Звіт за листопад ще готується</h2>
+        <p>Команда центру збирає, що купили й зробили для <span class="ph">[ім'я коня]</span> цього місяця. Звіт з'явиться тут на початку грудня [?].</p>
+        <p>А новини вже є — вони вище.</p>
+        <a class="btn primary" href="#updates">До новин</a>
+      </section>
+
+      <section aria-labelledby="story" data-zone="6">
+        <h2 id="story">Історія і характер</h2>
+        <p>Характер: <span class="ph">[риса]</span>, <span class="ph">[риса]</span>, <span class="ph">[риса]</span></p>
+        <p><span class="ph">[історія порятунку — перші рядки]</span></p>
+        <details>
+          <summary>Читати історію повністю</summary>
+          <p><span class="ph">[історія порятунку — повністю]</span></p>
+        </details>
+        <p class="meta">Можете дати <span class="ph">[ім'я коня]</span> дім? <a href="adopt.html">Хочу забрати додому</a></p>
+      </section>
+    </main>
+
+    <nav class="tabbar" aria-label="Головна навігація" data-zone="7">
+      <ul>
+        <li><a href="board.html" aria-current="page"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+        <li><a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+        <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+        <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+      </ul>
+    </nav>
+
+  </div>
+
+  <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
+    <h2>Профіль тварини · порожній стан</h2>
+    <ul>
+      <li>Опікун відкрив профіль, а звіту «що зроблено завдяки підтримці» ще немає: місяць не скінчився чи тварина нова.</li>
+      <li>Flow M, розвилка 16 — ні → EM3. Звіт — гіпотеза [?]: чи веде центр облік на рівні тварини, питання до центру 3.</li>
+    </ul>
+
+    <h2>Job</h2>
+    <ul>
+      <li>M · Допомогти конкретній тварині й бачити, що це змінює її життя</li>
+      <li>R4 · Знати, як живе підопічний після підтримки</li>
+      <li>E1 · Спокій замість тривоги очікування</li>
+      <li>E3 · Вірити, що мені показують правду</li>
+    </ul>
+
+    <h2>Зони в цьому стані</h2>
+    <ul>
+      <li><span class="wf-zone">1</span>–<span class="wf-zone">4</span>, <span class="wf-zone">6</span>, <span class="wf-zone">7</span> — як на базовій сторінці.</li>
+      <li><span class="wf-zone">5</span> «Звіт за листопад ще готується» — коли чекати, і <b>«До новин»</b>: вихід до того, що вже є.</li>
+    </ul>
+
+    <h2>Інші порожні стани — flow R3, та сама сторінка</h2>
+    <ul>
+      <li><b>Історія тільки починається</b> (R3, розвилка 7 «Є оновлення в профілі?» — ні → EM3) — тварина нова, новин ще немає. Порожня зона <span class="wf-zone">4</span> «Новини»: «Історія <span class="ph">[ім'я тварини]</span> тільки починається. Перша новина з'явиться тут». Профіль, історія порятунку й характер — на місці. Вихід — далі по flow, до розвилки 8: «Стежити за історією» — перша новина прийде листом.</li>
+      <li><b>Профілю немає</b> (R3, розвилка 6 «Профіль доступний?» — ні: знято чи приховано → NF) — порожня вся сторінка, крім шапки й таббару. Без пояснень про причину: «Цього профілю зараз немає. Інші тварини — на дошці». Вихід — «Інші тварини на дошці» → дошка (NF → BOARD).</li>
+    </ul>
+
+    <h2>Переходи flow</h2>
+    <ul class="wf-flow">
+      <li>Сюди — з <a href="animal-loading.html">завантаження</a>: розвилка 16 «Є звіт?» — ні (EM3).</li>
+      <li>Вихід — «До новин» (якір на цій сторінці). Далі як на базовій: «Підтримати ще» → <a href="care.html">Опіка над твариною</a> (розвилка 17).</li>
+      <li>R3, розвилка 7 — ні (історія тільки починається): «Стежити за історією» → <a href="animal-success.html">успіх «перевірте пошту»</a>.</li>
+      <li>R3, розвилка 6 — ні: знято чи приховано (профілю немає): «Інші тварини на дошці» → <a href="board.html">Дошка</a>.</li>
+    </ul>
+  </aside>
+
+</div>
+</body>
+</html>

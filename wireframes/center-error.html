@@ -1,0 +1,164 @@
+<!doctype html>
+<!--
+  Про центр · center-error.html — стан помилки (sitemap.md, колонка «Стани»: «не вдалося завантажити → спробувати ще;
+  контакти й документи видно навіть тоді [?]»). Базова сторінка — center.html; шапка, зони й таббар ті самі.
+
+  Кроки flows.md: окремого вузла error для center.html у flows немає. Екран бере участь у вузлах
+  CENTER (R2 · Терміновий донатор, розвилка 3; Г9, розвилка 1) і CONTACT (виходи «контакти центру» в M, R2, R3, R5, Г2, Г9).
+  Саме тому контакти тут повні: людина часто приходить сюди з помилки іншого екрана, і друга помилка не має стати тупиком.
+  Вихід: «Спробувати ще» → center-loading.html.
+
+  Job (sitemap.md): E3 [?]. Правила — wireframes/_conventions.md.
+-->
+<html lang="uk" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Вайрфрейм · Про центр · помилка</title>
+  <script src="../_nav/theme.js"></script>
+  <link rel="stylesheet" href="../_nav/theme.css">
+  <link rel="stylesheet" href="../_nav/icons.css">
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script defer src="../_nav/tree.js"></script>
+  <script defer src="../_nav/nav.js"></script>
+  <link rel="stylesheet" href="_frame.css">
+</head>
+<body>
+<div class="wf-page">
+
+  <nav class="wf-states" aria-label="Стани екрана «Про центр»">
+    <a href="center.html">Базова сторінка</a>
+    <span>Порожнього немає: зміст статичний</span>
+    <a href="center-error.html" aria-current="page">Помилка</a>
+    <a href="center-loading.html">Завантаження</a>
+    <span>Успіху немає: це не екран дії</span>
+  </nav>
+
+  <div class="device">
+
+    <header class="app-header" data-zone="1">
+      <a class="brand" href="board.html">Прайд</a>
+      <details class="service">
+        <summary><span class="i i-gear" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
+        <nav aria-label="Службова зона">
+          <ul>
+            <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
+            <li><a href="my-subscriptions.html"><span class="i i-envelope" aria-hidden="true"></span>Мої підписки</a></li>
+            <li><a><span class="i i-globe" aria-hidden="true"></span>Мова: українська · English</a></li>
+          </ul>
+        </nav>
+      </details>
+    </header>
+
+    <main>
+      <!-- Що сталося і дія відновлення -->
+      <section aria-labelledby="who" data-zone="2">
+        <h1 id="who"><span class="i i-exclamation-circle" aria-hidden="true"></span> Не вдалося завантажити сторінку центру</h1>
+        <p class="notice" role="alert">Текст про центр, команду й часті питання не завантажився — схоже, перервався зв'язок. Контакти й документи нижче працюють.</p>
+        <a class="btn primary" href="center-loading.html"><span class="i i-arrows-rotate" aria-hidden="true"></span> Спробувати ще</a>
+      </section>
+
+      <!-- Статичний блок: контакти видно навіть у помилці (sitemap.md [?]) -->
+      <section aria-labelledby="contacts" data-zone="3">
+        <h2 id="contacts">Контакти</h2>
+        <dl>
+          <dt>Телефон</dt>
+          <dd><a href="tel:+380665826817">+380 66 582 68 17</a></dd>
+          <dt>Email</dt>
+          <dd><a href="mailto:info@bestofthepride.info">info@bestofthepride.info</a></dd>
+          <dt>Години</dt>
+          <dd>пн–пт, 09:00–19:00</dd>
+          <dt>Instagram</dt>
+          <dd><a>@pride__rehabilitation_center</a></dd>
+          <dt>Facebook</dt>
+          <dd><a>Центр реабілітації Прайд</a></dd>
+        </dl>
+        <a class="btn primary" href="tel:+380665826817"><span class="i i-phone" aria-hidden="true"></span> Зателефонувати</a>
+        <a class="btn" href="mailto:info@bestofthepride.info"><span class="i i-envelope" aria-hidden="true"></span> Написати листом</a>
+      </section>
+
+      <section aria-labelledby="what" data-zone="4">
+        <h2 id="what">Що ми робимо</h2>
+        <p class="meta">Не завантажилося.</p>
+      </section>
+
+      <section aria-labelledby="team" data-zone="5">
+        <h2 id="team"><span class="i i-users" aria-hidden="true"></span> Команда</h2>
+        <p class="meta">Не завантажилася.</p>
+      </section>
+
+      <section aria-labelledby="faq" data-zone="6">
+        <h2 id="faq">Часті питання</h2>
+        <p class="meta">Не завантажилися.</p>
+      </section>
+
+      <section aria-labelledby="adopt" data-zone="7">
+        <h2 id="adopt"><span class="i i-house" aria-hidden="true"></span> Забрати тварину додому</h2>
+        <p class="meta">Не завантажилося.</p>
+      </section>
+
+      <!-- [ЗАКОН] Статичний блок: документи видно навіть у помилці (sitemap.md [?]) -->
+      <section id="documents" aria-labelledby="documents-title" data-zone="8">
+        <h2 id="documents-title"><span class="i i-lock" aria-hidden="true"></span> Документи</h2>
+        <details>
+          <summary>Умови пожертви</summary>
+          <p><span class="ph">[текст умов пожертви (оферта) — юридичний текст ще не написано]</span></p>
+          <p class="meta">Редакція від <span class="ph">[дата]</span></p>
+        </details>
+        <details>
+          <summary>Політика конфіденційності</summary>
+          <p><span class="ph">[текст політики конфіденційності, зокрема GDPR — юридичний текст ще не написано]</span></p>
+          <p class="meta">Редакція від <span class="ph">[дата]</span></p>
+        </details>
+      </section>
+    </main>
+
+    <nav class="tabbar" aria-label="Головна навігація" data-zone="9">
+      <ul>
+        <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+        <li><a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+        <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+        <li><a href="center.html" aria-current="page"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+      </ul>
+    </nav>
+
+  </div>
+
+  <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
+    <h2>Про центр · помилка</h2>
+    <ul>
+      <li>Сторінка не завантажилася: збій зв'язку чи сервера.</li>
+      <li>Варіант один — «не вдалося завантажити» (sitemap.md, колонка «Стани»). Окремого вузла error для <code>center.html</code> у flows.md немає.</li>
+    </ul>
+
+    <h2>Job</h2>
+    <ul>
+      <li>E3 [?] · Вірити, що мені показують правду — навіть коли текст не прийшов, видно телефон, адресу пошти й документи.</li>
+    </ul>
+
+    <h2>Зони в цьому стані</h2>
+    <ul>
+      <li><span class="wf-zone">2</span> Що сталося — <b>«Спробувати ще»</b> → <code>center-loading.html</code>. Причина конкретна: не прийшов текст, а контакти й документи на місці.</li>
+      <li><span class="wf-zone">3</span> Контакти — повні, <b>«Зателефонувати»</b>: сюди часто приходять з помилки іншого екрана по контакти, тож це другий живий вихід.</li>
+      <li><span class="wf-zone">4</span>–<span class="wf-zone">7</span> — «не завантажилося», без дій. «Хочу забрати додому» (Г9) з'явиться після повтору.</li>
+      <li><span class="wf-zone">8</span> <b>[ЗАКОН]</b> Документи — повні, <code>id="documents"</code>: шторка з <code>care.html</code> і <code>donate.html</code> не ламається.</li>
+      <li><span class="wf-zone">1</span>, <span class="wf-zone">9</span> — шапка і таббар працюють.</li>
+    </ul>
+
+    <h2>Звірка з flows.md</h2>
+    <ul>
+      <li>«Спробувати ще» і контакти — зі стану в sitemap.md; вузла error для <code>center.html</code> у flows.md немає.</li>
+      <li>«Контакти й документи видно навіть тоді» — у sitemap.md з [?]: це припущення, що вони статичні.</li>
+    </ul>
+
+    <h2>Переходи flow</h2>
+    <ul class="wf-flow">
+      <li>Сюди — з <a href="center-loading.html">завантаження</a>, коли сторінка не прийшла.</li>
+      <li>«Спробувати ще» → <a href="center-loading.html">завантаження</a>: вдалося — <a href="center.html">базова сторінка</a>, ні — знову помилка, контакти лишаються.</li>
+      <li>Терміновий донатор (R2, розвилка 3) повертається на <a href="donate.html">Донат центру</a> «назад, введене збережено» — так само, як із базової сторінки.</li>
+    </ul>
+  </aside>
+
+</div>
+</body>
+</html>

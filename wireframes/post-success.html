@@ -1,0 +1,123 @@
+<!doctype html>
+<!--
+  Нове оновлення · post-success.html — стан успіху (sitemap.md, колонка «Стани»: «опубліковано — оновлення на дошці,
+  у профілі й у листах підписникам; важлива зміна пішла всім одразу»).
+  Базова сторінка — post.html; шапка без службової зони, таббару немає. Підтвердження стоїть на місці форми.
+
+  Крок flow — flows.md, «R4 · … — сторона команди»: L3 «loading: публікуємо» → розвилка 7 «Опубліковано?» — так →
+  OK1 «успіх: оновлення на дошці, у профілі й у листах підписникам». Кінець flow.
+
+  Job (sitemap.md): R3, R4, E3. Правила — wireframes/_conventions.md.
+-->
+<html lang="uk" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Вайрфрейм · Нове оновлення · успіх</title>
+  <script src="../_nav/theme.js"></script>
+  <link rel="stylesheet" href="../_nav/theme.css">
+  <link rel="stylesheet" href="../_nav/icons.css">
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script defer src="../_nav/tree.js"></script>
+  <script defer src="../_nav/nav.js"></script>
+  <link rel="stylesheet" href="_frame.css">
+</head>
+<body>
+<div class="wf-page">
+
+  <nav class="wf-states" aria-label="Стани екрана «Нове оновлення»">
+    <a href="post.html">Базова сторінка</a>
+    <a href="post-error.html">Помилка</a>
+    <a href="post-loading.html">Завантаження</a>
+    <a href="post-success.html" aria-current="page">Успіх</a>
+    <span>Порожнього немає: тварини без новин стоять зверху списку</span>
+  </nav>
+
+  <div class="device">
+
+    <header class="app-header" data-zone="1">
+      <a class="brand" href="board.html">Прайд</a>
+    </header>
+
+    <main>
+      <h1>Нове оновлення</h1>
+      <p class="meta"><span class="i i-users" aria-hidden="true"></span> Команда центру · <span class="ph">[ім'я волонтера]</span></p>
+
+      <section aria-labelledby="animal-title" data-zone="2">
+        <h2 id="animal-title">1. Про кого</h2>
+        <span class="img avatar" role="img" aria-label="Фото: [ім'я тварини]">фото</span>
+        <p><b><span class="ph">[ім'я коня]</span></b> · кінь · у центрі</p>
+      </section>
+
+      <section aria-labelledby="media-title" data-zone="3">
+        <h2 id="media-title">2. Фото чи відео</h2>
+        <p><span class="i i-check-circle" aria-hidden="true"></span> 3 файли завантажено</p>
+      </section>
+
+      <section aria-labelledby="text-title" data-zone="4">
+        <h2 id="text-title">3. Що сталося</h2>
+        <p><span class="ph">[текст оновлення, як його побачать підписники]</span></p>
+      </section>
+
+      <section aria-labelledby="type-title" data-zone="5">
+        <h2 id="type-title">4. Яка це новина</h2>
+        <p>Момент</p>
+      </section>
+
+      <section aria-labelledby="ok-title" data-zone="6">
+        <h2 id="ok-title" role="status"><span class="i i-check-circle" aria-hidden="true"></span> Опубліковано — дякуємо!</h2>
+        <dl>
+          <dt>Коли</dt>
+          <dd><time datetime="2026-11-13T14:36">13 листопада 2026, 14:36</time></dd>
+          <dt>Лист</dt>
+          <dd>37 підписників [?] отримають його так часто, як обрали</dd>
+        </dl>
+        <a class="btn primary" href="post.html"><span class="i i-plus" aria-hidden="true"></span> Ще одне оновлення</a>
+        <p class="meta">Наступна в списку — <span class="ph">[ім'я собаки]</span>, <time datetime="2026-11-01">12 днів без новин</time>.</p>
+        <p>Де його вже видно:</p>
+        <footer class="actions">
+          <a class="btn" href="animal-loading.html"><span class="i i-paw" aria-hidden="true"></span> У профілі</a>
+          <a class="btn" href="board.html"><span class="i i-newspaper" aria-hidden="true"></span> На дошці</a>
+        </footer>
+      </section>
+    </main>
+
+  </div>
+
+  <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
+    <h2>Нове оновлення · успіх</h2>
+    <ul>
+      <li>Оновлення опубліковано: воно на дошці, у профілі тварини й у черзі листів підписникам.</li>
+      <li>Flow R4 команди, розвилка 7 — так → OK1. Кінець flow.</li>
+    </ul>
+
+    <h2>Job</h2>
+    <ul>
+      <li>R4 · Знати, як живе підопічний після підтримки — для донора тут починається новина в «Моїх улюбленцях».</li>
+      <li>R3 · Познайомитися з твариною, перш ніж давати гроші — оновлення вже на публічній дошці.</li>
+      <li>E3 · Вірити, що мені показують правду — важлива зміна пішла всім одразу.</li>
+    </ul>
+
+    <h2>Зони в цьому стані</h2>
+    <ul>
+      <li><span class="wf-zone">2</span>–<span class="wf-zone">5</span> — ті самі кроки, що у формі, але вже опубліковані: про кого, 3 файли, текст, тип.</li>
+      <li><span class="wf-zone">6</span> «Опубліковано» — коли і скільки людей отримає лист. <b>«Ще одне оновлення»</b> → <code>post.html</code>: волонтер часто пише кілька поспіль, а зверху вже наступна тварина без новин. Поруч — де видно: «У профілі» (<code>animal-loading.html</code>) і «На дошці» (<code>board.html</code>).</li>
+      <li><span class="wf-zone">1</span> — як на базовій сторінці.</li>
+    </ul>
+
+    <h2>Варіант успіху — та сама сторінка</h2>
+    <ul>
+      <li><b>Важлива зміна</b> (розвилка 6 — так, після ST3): рядок «Лист» — «пішов усім 37 підписникам [?] одразу, хоч яку періодичність вони обрали»; у профілі вона стоїть зверху стрічки.</li>
+      <li><b>Нова тварина чернеткою</b> (розвилка 3 — ні): «Профіль <span class="ph">[ім'я тварини]</span> — чернетка: донори побачать його, коли команда допише історію [?]». Тоді «У профілі» і «На дошці» ще не ведуть до донорського вигляду [?].</li>
+    </ul>
+
+    <h2>Переходи flow</h2>
+    <ul class="wf-flow">
+      <li>Сюди — із <a href="post-loading.html">публікуємо</a> (L3): розвилка 7 «Опубліковано?» — так (OK1).</li>
+      <li>Далі — «Ще одне оновлення» → <a href="post.html">форма</a>; «У профілі» → <a href="animal-loading.html">Профіль тварини · завантаження</a>; «На дошці» → <a href="board.html">дошка</a>.</li>
+    </ul>
+  </aside>
+
+</div>
+</body>
+</html>

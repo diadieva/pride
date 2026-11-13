@@ -1,0 +1,140 @@
+<!doctype html>
+<!--
+  Донат центру · donate-loading.html — стан завантаження (sitemap.md, колонка «Стани»).
+  Базова сторінка — donate.html; шапка, зони й таббар ті самі, на місці форми — очікування.
+
+  Крок flow — flows.md, flow «R2 · … — Терміновий донатор»: провайдер → 7 «Повернувся з результатом?» — так →
+  8 «Оплата пройшла?» — так → L2 «loading: перевіряємо оплату» → 10 «Підтвердження прийшло за хвилину?».
+  Продукт чекає вебхук від провайдера. Довше за хвилину → ST3 «оплата обробляється, чек прийде листом» →
+  11 «Підтвердилось протягом доби? [?]».
+
+  Job (sitemap.md): R2, E1, E3. Екран дії: людина сплачує.
+  Правила — wireframes/_conventions.md.
+-->
+<html lang="uk" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Вайрфрейм · Донат центру · завантаження</title>
+  <script src="../_nav/theme.js"></script>
+  <link rel="stylesheet" href="../_nav/theme.css">
+  <link rel="stylesheet" href="../_nav/icons.css">
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script defer src="../_nav/tree.js"></script>
+  <script defer src="../_nav/nav.js"></script>
+  <link rel="stylesheet" href="_frame.css">
+</head>
+<body>
+<div class="wf-page">
+
+  <nav class="wf-states" aria-label="Стани екрана «Донат центру»">
+    <a href="donate.html">Базова сторінка</a>
+    <a href="donate-empty.html">Порожній</a>
+    <a href="donate-error.html">Помилка</a>
+    <a href="donate-loading.html" aria-current="page">Завантаження</a>
+    <a href="donate-success.html">Успіх</a>
+  </nav>
+
+  <div class="device">
+
+    <header class="app-header" data-zone="1">
+      <a class="brand" href="board.html">Прайд</a>
+      <details class="service">
+        <summary><span class="i i-gear" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
+        <nav aria-label="Службова зона">
+          <ul>
+            <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
+            <li><a href="my-subscriptions.html"><span class="i i-envelope" aria-hidden="true"></span>Мої підписки</a></li>
+            <li><a><span class="i i-globe" aria-hidden="true"></span>Мова: українська · English</a></li>
+          </ul>
+        </nav>
+      </details>
+    </header>
+
+    <main>
+      <h1>Донат центру</h1>
+
+      <section aria-labelledby="fund-title" data-zone="2">
+        <h2 id="fund-title"><span class="ph">[назва збору]</span></h2>
+        <dl>
+          <dt>Зібрано</dt>
+          <dd><span class="ph">[сума] грн</span></dd>
+          <dt>Ціль</dt>
+          <dd><span class="ph">[сума] грн</span></dd>
+        </dl>
+        <p class="meta">Ваш донат з'явиться в «Зібрано», щойно оплату підтвердять.</p>
+        <a href="center.html"><span class="i i-building" aria-hidden="true"></span> Хто ми — центр «Прайд», с. Кандибине</a>
+      </section>
+
+      <!-- На місці форми: що саме оплачено й куди прийде чек (E1) -->
+      <section aria-labelledby="pay-title" data-zone="3" aria-busy="true">
+        <h2 id="pay-title" role="status"><span class="i i-hourglass" aria-hidden="true"></span> Перевіряємо оплату…</h2>
+        <p>Чекаємо, поки WayForPay [?] підтвердить платіж. Зазвичай це до хвилини.</p>
+        <dl>
+          <dt>Сума</dt>
+          <dd>500 грн разово центру «Прайд»</dd>
+          <dt>Спосіб</dt>
+          <dd>картка в гривні</dd>
+          <dt>Чек прийде на</dt>
+          <dd>kateryna@example.com</dd>
+        </dl>
+        <span class="skeleton button"></span>
+        <p class="meta">Повторну оплату заблоковано, поки ця обробляється, — щоб не заплатити двічі.</p>
+        <p class="meta">Сторінку можна закрити: коли оплату підтвердять, чек прийде на kateryna@example.com.</p>
+      </section>
+
+      <nav aria-label="Опіка над твариною" data-zone="4">
+        <p class="meta">Хочете допомагати комусь конкретному?</p>
+        <a href="board.html">або візьміть опіку над твариною <span class="i i-angle-right" aria-hidden="true"></span></a>
+      </nav>
+    </main>
+
+    <nav class="tabbar" aria-label="Головна навігація" data-zone="5">
+      <ul>
+        <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+        <li><a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+        <li><a href="donate.html" aria-current="page"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+        <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+      </ul>
+    </nav>
+
+  </div>
+
+  <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
+    <h2>Донат центру · завантаження</h2>
+    <ul>
+      <li>Людина заплатила в провайдера й повернулася. Продукт чекає підтвердження платежу (вебхук).</li>
+      <li>R2 · Терміновий донатор, L2 «перевіряємо оплату» → розвилка 10. У рамці — цей варіант: тут людина вже віддала гроші, а акаунта, де можна перевірити платіж, у неї немає (E1). Сюди ж веде кнопка форми.</li>
+    </ul>
+
+    <h2>Job</h2>
+    <ul>
+      <li>E1 · Спокій замість тривоги очікування</li>
+      <li>R2 · Почати допомагати, поки рішення ще «гаряче»</li>
+    </ul>
+
+    <h2>Зони в цьому стані</h2>
+    <ul>
+      <li><span class="wf-zone">2</span> Збір — «Зібрано / Ціль» без опису; ваш донат додасться після підтвердження. Дія — «Хто ми».</li>
+      <li><span class="wf-zone">3</span> «Перевіряємо оплату» — що оплачено, яким способом, куди прийде чек. Кнопку оплати заблоковано (заглушка). Головної дії немає: людина чекає або закриває сторінку — чек прийде листом.</li>
+      <li><span class="wf-zone">1</span>, <span class="wf-zone">4</span>, <span class="wf-zone">5</span> — як на базовій сторінці.</li>
+    </ul>
+
+    <h2>Інші варіанти завантаження — та сама сторінка</h2>
+    <ul>
+      <li><b>Прогрес збору</b> (L1, розвилка 1 — вхід на екран) — у зоні <span class="wf-zone">2</span> сірі блоки на місці назви й «Зібрано / Ціль», <code>aria-busy</code>, «Завантажуємо збір…». Форма під ним уже працює: збій збору не блокує оплату.</li>
+      <li><b>Переходимо до провайдера</b> — «Відкриваємо сторінку оплати…»; вихід — назад до форми, сума збережена. У flow R2 · Терміновий донатор — L0, після розвилки 5а.</li>
+      <li><b>Оплата обробляється</b> (довше за хвилину, ST3) — «Оплата обробляється. Чек прийде листом на kateryna@example.com, щойно підтвердиться».</li>
+    </ul>
+
+    <h2>Переходи flow</h2>
+    <ul class="wf-flow">
+      <li>Сюди — з <a href="donate.html">форми</a> чи <a href="donate-error.html">помилки</a>: оплата пройшла в провайдера (розвилка 8 — так).</li>
+      <li>Розвилка 10 «Підтвердження прийшло за хвилину?»: так — <a href="donate-success.html">успіх</a>; ні — «оплата обробляється, чек прийде листом» (варіант цієї сторінки) → розвилка 11 «Протягом доби? [?]»: так — <a href="donate-success.html">успіх</a>; ні — <a href="donate-error.html">помилка «не вдалося підтвердити»</a> → контакти, <a href="center.html">Про центр</a>.</li>
+      <li>Вихід, не чекаючи, — закрити сторінку, «Хто ми» → <a href="center.html">Про центр</a> чи «або візьміть опіку» → <a href="board.html">Дошка</a>.</li>
+    </ul>
+  </aside>
+
+</div>
+</body>
+</html>

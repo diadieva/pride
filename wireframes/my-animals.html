@@ -1,0 +1,210 @@
+<!doctype html>
+<!--
+  Мої улюбленці · my-animals.html — базова сторінка, головний екран (sitemap.md, «Екрани»).
+
+  Крок main flow — flows.md, flow M «Допомогти конкретній тварині й бачити, що це змінює її життя»:
+  вузол MAIN «Мої улюбленці · my-animals.html · головний». Опікун повертається із закладки чи з входу,
+  дані прийшли (розвилка 9), є активні опіки чи підписки (10), невдалого списання немає (11),
+  є нове оновлення (12) → «стан картки: свіже оновлення, опіка активна» →
+  успіх «бачу, що зараз із моєю твариною · 0 кліків». Далі «відкрити картку» → Профіль тварини · animal.html, 1 клік.
+  Звідси ж починається flow R5: «Керувати опікою» → Моя підтримка · my-support.html.
+
+  Стани (-loading, -empty, -error) — окремими сторінками пізніше. Успіху немає: тут нічого не вносять і не сплачують.
+  Правила — wireframes/_conventions.md.
+-->
+<html lang="uk" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Вайрфрейм · Мої улюбленці</title>
+  <script src="../_nav/theme.js"></script>
+  <link rel="stylesheet" href="../_nav/theme.css">
+  <link rel="stylesheet" href="../_nav/icons.css">
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script defer src="../_nav/tree.js"></script>
+  <script defer src="../_nav/nav.js"></script>
+  <link rel="stylesheet" href="_frame.css">
+</head>
+<body>
+<div class="wf-page">
+
+  <nav class="wf-states" aria-label="Стани екрана «Мої улюбленці»">
+    <a href="my-animals.html" aria-current="page">Базова сторінка</a>
+    <a href="my-animals-empty.html">Порожній</a>
+    <a href="my-animals-error.html">Помилка</a>
+    <a href="my-animals-loading.html">Завантаження</a>
+    <span>Успіху немає: це не екран дії</span>
+  </nav>
+
+  <div class="device">
+
+    <header class="app-header" data-zone="1">
+      <a class="brand" href="board.html">Прайд</a>
+      <details class="service">
+        <summary><span class="i i-gear" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
+        <nav aria-label="Службова зона">
+          <ul>
+            <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
+            <li><a href="my-subscriptions.html"><span class="i i-envelope" aria-hidden="true"></span>Мої підписки</a></li>
+            <li><a><span class="i i-globe" aria-hidden="true"></span>Мова: українська · English</a></li>
+          </ul>
+        </nav>
+      </details>
+    </header>
+
+    <main>
+      <h1>Мої улюбленці</h1>
+
+      <!-- Перемикач: з'являється, коли тварин дві й більше (sitemap.md, «Перемикач») -->
+      <nav aria-label="Мої тварини" data-zone="2">
+        <ul class="hlist">
+          <li>
+            <a href="animal-loading.html" aria-current="true">
+              <span class="img avatar" role="img" aria-label="Фото: [ім'я тварини]">фото</span>
+              <span class="ph">[ім'я коня]</span>
+            </a>
+          </li>
+          <li>
+            <a href="animal-loading.html">
+              <span class="img avatar" role="img" aria-label="Фото: [ім'я тварини]">фото</span>
+              <span class="ph">[ім'я собаки]</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Картка тварини, над якою я опікуюся: стан main job без жодного кліку -->
+      <article aria-labelledby="pet-1" data-zone="3">
+        <div class="img wide" role="img" aria-label="Фото: [ім'я тварини]">фото</div>
+        <h2 id="pet-1"><span class="ph">[ім'я коня]</span></h2>
+        <p class="meta">Кінь · у центрі</p>
+
+        <p class="meta">Остання новина · момент · <time datetime="2026-11-11">11 листопада</time></p>
+        <p><span class="ph">[текст оновлення від команди центру]</span></p>
+
+        <dl>
+          <dt>Моя опіка</dt>
+          <dd><span class="i i-check-circle" aria-hidden="true"></span> активна · 1 000 грн щомісяця</dd>
+          <dt>Наступне списання</dt>
+          <dd><time datetime="2026-12-01">1 грудня</time></dd>
+          <dt>На що йде</dt>
+          <dd>корм, лікування, утримання <span class="meta">[?]</span></dd>
+        </dl>
+
+        <a class="btn primary" href="animal-loading.html">Відкрити історію <span class="i i-angle-right" aria-hidden="true"></span></a>
+        <footer class="actions">
+          <a class="btn" href="care.html">Підтримати</a>
+          <a class="btn" href="my-support-loading.html">Керувати опікою</a>
+        </footer>
+      </article>
+
+      <!-- Картка тварини, за якою я лише стежу: Підписка без Опіки -->
+      <article aria-labelledby="pet-2" data-zone="4">
+        <div class="img wide" role="img" aria-label="Фото: [ім'я тварини]">фото</div>
+        <h2 id="pet-2"><span class="ph">[ім'я собаки]</span></h2>
+        <p class="meta">Собака · у центрі · працює з дітьми <span class="meta">[?]</span></p>
+
+        <p class="meta">Остання новина · момент · <time datetime="2026-11-08">8 листопада</time></p>
+        <p><span class="ph">[текст оновлення від команди центру]</span></p>
+
+        <dl>
+          <dt>Я</dt>
+          <dd>стежу за історією, без опіки</dd>
+        </dl>
+
+        <a class="btn primary" href="animal-loading.html">Відкрити історію <span class="i i-angle-right" aria-hidden="true"></span></a>
+        <footer class="actions">
+          <a class="btn" href="care.html">Підтримати</a>
+        </footer>
+      </article>
+
+      <!-- Блок «Моя підтримка центру» — лише якщо є донат центру (sitemap.md, «Екрани») -->
+      <section aria-labelledby="center-support" data-zone="5">
+        <h2 id="center-support">Моя підтримка центру</h2>
+        <dl>
+          <dt>Донат центру</dt>
+          <dd>активний · 200 грн щомісяця</dd>
+          <dt>Наступне списання</dt>
+          <dd><time datetime="2026-12-05">5 грудня</time></dd>
+        </dl>
+        <a class="btn" href="my-support-loading.html">Керувати</a>
+      </section>
+
+      <!-- Посилання на «Мої підписки» з головного (sitemap.md, «3. Типи екранів») -->
+      <section aria-labelledby="news" data-zone="6">
+        <h2 id="news">Як приходять новини</h2>
+        <p>Email · kateryna@example.com · періодичність <span class="meta">[?]</span></p>
+        <p class="meta">Важливі зміни приходять одразу, хоч яку періодичність обрано.</p>
+        <a class="btn" href="my-subscriptions-loading.html">Змінити в «Моїх підписках»</a>
+      </section>
+    </main>
+
+    <nav class="tabbar" aria-label="Головна навігація" data-zone="7">
+      <ul>
+        <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+        <li><a href="my-animals.html" aria-current="page"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+        <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+        <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+      </ul>
+    </nav>
+
+  </div>
+
+  <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
+    <h2>Мої улюбленці · базова сторінка</h2>
+    <ul>
+      <li><code>my-animals.html</code> — <b>головний</b>. Група «Мої улюбленці». Jobs: M, R4, R5, E1, E2, E3.</li>
+      <li>Flow M, вузол «Мої улюбленці»: стан тварини — 0 кліків, повна історія — 1 клік.</li>
+      <li>Персона — Опікун (primary). Він опікується конем і стежить за собакою, тож перемикач видно.</li>
+    </ul>
+
+    <h2>Зони і головна дія кожної</h2>
+    <ul>
+      <li><span class="wf-zone">1</span> Шапка — службова зона: Моя підтримка, Мої підписки, мова.</li>
+      <li><span class="wf-zone">2</span> Перемикач «Мої тварини» — перейти до іншої своєї тварини.</li>
+      <li><span class="wf-zone">3</span> Картка тварини з опікою — <b>«Відкрити історію»</b>: перша дія main job, 1 клік до <code>animal.html</code>. Поруч «Підтримати» (<code>care.html</code>) і «Керувати опікою» (<code>my-support.html</code>, flow R5).</li>
+      <li><span class="wf-zone">4</span> Картка тварини, за якою я стежу, — «Відкрити історію».</li>
+      <li><span class="wf-zone">5</span> Моя підтримка центру, якщо є донат, — «Керувати».</li>
+      <li><span class="wf-zone">6</span> Як приходять новини — «Змінити в „Моїх підписках“».</li>
+      <li><span class="wf-zone">7</span> Глобальна навігація — 4 пункти з sitemap.md, поточний — «Мої улюбленці».</li>
+    </ul>
+
+    <h2>Тригери довіри Опікуна без прокрутки</h2>
+    <ul>
+      <li><b>Кому саме допомагаю і куди йдуть гроші</b> (KV5) — фото, ім'я, «Моя опіка», «На що йде».</li>
+      <li><b>Профіль з інформацією і фото</b> (DV4) — фото й «Відкрити історію».</li>
+      <li><b>Без тиску</b> (DS5) — «Підтримати» другорядна; закликів і лічильників немає.</li>
+      <li><b>Не мовчати про важливе</b> (DS5) — дата останньої новини видна; важлива зміна стала б над карткою.</li>
+      <li><b>Тварина не зникає</b> (DV4) — картка лишається, навіть коли опіку призупинено чи тварина вибула.</li>
+      <li><b>Скасування можна знайти</b> (DV4) — «Керувати опікою» на самій картці.</li>
+    </ul>
+
+    <h2>Варіанти картки — та сама сторінка</h2>
+    <ul>
+      <li>важлива зміна зверху;</li>
+      <li>останнє оновлення від дати;</li>
+      <li>опіку призупинено;</li>
+      <li>тварина вибула;</li>
+      <li>банер «не вдалося списати» — це стан <code>-error</code>, окрема сторінка.</li>
+    </ul>
+
+    <h2>Дані</h2>
+    <ul>
+      <li><code>[ім'я коня]</code>, текст оновлення — плейсхолдери: реальних даних тварин у репо немає.</li>
+      <li>Суми, дати, статуси й адреса kateryna@example.com — реалістичні значення: це дані самого Опікуна, а не факти центру. Домен example.com — для прикладів.</li>
+      <li>[?] — значення, яких центр ще не дав.</li>
+    </ul>
+
+    <h2>Переходи flow</h2>
+    <ul class="wf-flow">
+      <li>Сюди — з <a href="my-animals-loading.html">завантаження</a>, коли дані прийшли (розвилка 9), і з <a href="my-animals-error.html">помилки</a> — «Показати збережену версію».</li>
+      <li>Розвилка 10 «Є активні опіки чи підписки?»: так — ця сторінка; ні — <a href="my-animals-empty.html">порожній стан</a>.</li>
+      <li>«Відкрити історію» і перемикач → <a href="animal-loading.html">Профіль тварини · завантаження</a> (OK1 → L2). «Підтримати» на картці → <a href="care.html">Опіка над твариною</a> (OK1 → CARE).</li>
+      <li>Розвилка 11 «Є невдале списання?»: так — банер → <a href="my-support-loading.html">Моя підтримка · завантаження</a>, flow R5; ні — картка як тут.</li>
+      <li>«Керувати опікою» і «Керувати» в «Моїй підтримці центру» → <a href="my-support-loading.html">Моя підтримка · завантаження</a> (R5: MAIN → L1). «Змінити в „Моїх підписках“» → <a href="my-subscriptions-loading.html">Мої підписки · завантаження</a> (Г2 → L2).</li>
+    </ul>
+  </aside>
+
+</div>
+</body>
+</html>

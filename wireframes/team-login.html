@@ -1,0 +1,84 @@
+<!doctype html>
+<!--
+  Вхід для команди · team-login.html — базова сторінка, форма (sitemap.md, «Екрани», група «Команда центру»). [КОМАНДА]
+  Той самий вхід за посиланням із листа, що й login.html, але без донорської навігації: без службової зони й таббару.
+
+  Крок flow — flows.md, flow R4 · сторона команди: розвилка 1 «Вхід дійсний?» — ні → LOGIN «Вхід для команди · team-login.html ·
+  підflow як у M» → розвилка 3 M «Адреса в правильному форматі?» → L0 «loading: надсилаємо лист» → W1 «лист надіслано».
+  Посилання з листа → post.html через L1 «loading: список тварин».
+  Правила — wireframes/_conventions.md.
+-->
+<html lang="uk" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Вайрфрейм · Вхід для команди</title>
+  <script src="../_nav/theme.js"></script>
+  <link rel="stylesheet" href="../_nav/theme.css">
+  <link rel="stylesheet" href="../_nav/icons.css">
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script defer src="../_nav/tree.js"></script>
+  <script defer src="../_nav/nav.js"></script>
+  <link rel="stylesheet" href="_frame.css">
+</head>
+<body>
+<div class="wf-page">
+
+  <nav class="wf-states" aria-label="Стани екрана «Вхід для команди»">
+    <a href="team-login.html" aria-current="page">Базова сторінка</a>
+    <a href="team-login-error.html">Помилка</a>
+    <a href="team-login-loading.html">Завантаження</a>
+    <a href="team-login-success.html">Успіх</a>
+    <span>Порожнього немає: сторінка не показує даних</span>
+  </nav>
+
+  <div class="device">
+
+    <header class="app-header" data-zone="1">
+      <a class="brand" href="board.html">Прайд</a>
+    </header>
+
+    <main>
+      <h1>Вхід для команди</h1>
+
+      <form aria-labelledby="login-title" data-zone="2" action="team-login-loading.html" method="get">
+        <h2 id="login-title">Увійти, щоб публікувати оновлення</h2>
+        <p>Без пароля: надішлемо на пошту посилання для входу.</p>
+        <label>Email
+          <input type="email" name="email" autocomplete="email" required aria-describedby="email-hint">
+        </label>
+        <p class="meta" id="email-hint">Адреса, з якою центр додав вас до команди [?]. Посилання прийде лише на неї.</p>
+        <button class="primary" type="submit">Надіслати посилання</button>
+      </form>
+    </main>
+
+  </div>
+
+  <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
+    <h2>Вхід для команди · базова сторінка (форма)</h2>
+    <ul>
+      <li><code>team-login.html</code>. Група «Команда центру». <b>[КОМАНДА]</b> — донорам не показується.</li>
+      <li>Рішення 13.11.2026: окремий інтерфейс входу для волонтерів, але та сама авторизація за посиланням із листа, що й <a href="login.html">Вхід</a>. Без службової зони й таббару донора.</li>
+    </ul>
+
+    <h2>Job</h2>
+    <ul>
+      <li>R4 · Знати, як живе підопічний після підтримки — job донора, який забезпечує команда; jobs волонтерів ще не зібрано</li>
+    </ul>
+
+    <h2>Зони і головна дія кожної</h2>
+    <ul>
+      <li><span class="wf-zone">1</span> Шапка — лише «Прайд», без службової зони.</li>
+      <li><span class="wf-zone">2</span> Форма — <b>«Надіслати посилання»</b>. Біля поля — з чим звірити адресу: та, з якою центр додав волонтера до команди [?].</li>
+    </ul>
+
+    <h2>Переходи flow</h2>
+    <ul class="wf-flow">
+      <li>Сюди — з <a href="post.html">Нового оновлення</a>, коли вхід прострочено (R4, розвилка 1 — ні), з <a href="team-login-success.html">успіху</a> — «Виправити» і з <a href="team-login-loading.html">завантаження</a> — «Змінити адресу».</li>
+      <li>Розвилка 3 M «Адреса в правильному форматі?»: ні — браузер не надішле форму й покаже підказку біля поля, варіант <a href="team-login-error.html">помилки</a>; так — <a href="team-login-loading.html">завантаження</a>.</li>
+    </ul>
+  </aside>
+
+</div>
+</body>
+</html>

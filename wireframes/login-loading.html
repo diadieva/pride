@@ -1,0 +1,105 @@
+<!doctype html>
+<!--
+  Вхід · login-loading.html — стан завантаження (sitemap.md, колонка «Стани»).
+  Базова сторінка — login.html; шапка, зони й таббар ті самі.
+
+  Крок main flow — flows.md, flow M: LOGIN → розвилка 3 «Адреса в правильному форматі?» — так →
+  L0 «loading: надсилаємо лист» → 4 «Лист відправлено?». Продукт чекає, поки поштовий сервіс прийме лист.
+
+  Job (sitemap.md): M, R4, R5. Екран дії: людина вносить адресу.
+  Правила — wireframes/_conventions.md.
+-->
+<html lang="uk" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Вайрфрейм · Вхід · завантаження</title>
+  <script src="../_nav/theme.js"></script>
+  <link rel="stylesheet" href="../_nav/theme.css">
+  <link rel="stylesheet" href="../_nav/icons.css">
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script defer src="../_nav/tree.js"></script>
+  <script defer src="../_nav/nav.js"></script>
+  <link rel="stylesheet" href="_frame.css">
+</head>
+<body>
+<div class="wf-page">
+
+  <nav class="wf-states" aria-label="Стани екрана «Вхід»">
+    <a href="login.html">Базова сторінка</a>
+    <a href="login-error.html">Помилка</a>
+    <a href="login-loading.html" aria-current="page">Завантаження</a>
+    <a href="login-success.html">Успіх</a>
+    <span>Порожнього немає: сторінка не показує даних</span>
+  </nav>
+
+  <div class="device">
+
+    <header class="app-header" data-zone="1">
+      <a class="brand" href="board.html">Прайд</a>
+      <details class="service">
+        <summary><span class="i i-gear" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
+        <nav aria-label="Службова зона">
+          <ul>
+            <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
+            <li><a href="my-subscriptions.html"><span class="i i-envelope" aria-hidden="true"></span>Мої підписки</a></li>
+            <li><a><span class="i i-globe" aria-hidden="true"></span>Мова: українська · English</a></li>
+          </ul>
+        </nav>
+      </details>
+    </header>
+
+    <main>
+      <h1>Вхід</h1>
+
+      <form aria-labelledby="login-title" data-zone="2" aria-busy="true">
+        <h2 id="login-title" role="status"><span class="i i-hourglass" aria-hidden="true"></span> Надсилаємо лист…</h2>
+        <label>Email
+          <input type="email" name="email" value="kateryna@example.com" disabled aria-describedby="email-hint">
+        </label>
+        <p class="meta" id="email-hint">Та сама адреса, на яку ви оформили опіку чи підписку і куди приходять листи про тварин.</p>
+        <span class="skeleton button"></span>
+        <a class="btn" href="login.html">Змінити адресу</a>
+      </form>
+    </main>
+
+    <nav class="tabbar" aria-label="Головна навігація" data-zone="3">
+      <ul>
+        <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+        <li><a href="my-animals.html" aria-current="page"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+        <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+        <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+      </ul>
+    </nav>
+
+  </div>
+
+  <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
+    <h2>Вхід · завантаження</h2>
+    <ul>
+      <li>Адреса правильна, лист із посиланням відправляється.</li>
+      <li>Flow M, L0 → розвилка 4: так — успіх «лист надіслано», ні — помилка «не вдалося надіслати».</li>
+    </ul>
+
+    <h2>Job</h2>
+    <ul>
+      <li>M · Допомогти конкретній тварині й бачити, що це змінює її життя</li>
+    </ul>
+
+    <h2>Зони в цьому стані</h2>
+    <ul>
+      <li><span class="wf-zone">2</span> «Надсилаємо лист…» — адресу видно, поле заблоковано, кнопка — заглушка. Вихід — «Змінити адресу».</li>
+      <li><span class="wf-zone">1</span>, <span class="wf-zone">3</span> — як на базовій сторінці.</li>
+    </ul>
+
+    <h2>Переходи flow</h2>
+    <ul class="wf-flow">
+      <li>Сюди — з <a href="login.html">форми</a>, <a href="login-error.html">помилки</a> чи <a href="login-success.html">успіху</a> — «Надіслати ще раз».</li>
+      <li>Розвилка 4 «Лист відправлено?»: так — <a href="login-success.html">успіх</a>; ні — <a href="login-error.html">помилка «не вдалося надіслати»</a>.</li>
+      <li>«Змінити адресу» → <a href="login.html">форма</a>.</li>
+    </ul>
+  </aside>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!doctype html>
+<!--
+  Нове оновлення · post-error.html — стан помилки (sitemap.md, колонка «Стани»: «немає зв'язку — можна писати чернетку;
+  хибне поле — підказка біля поля; не опубліковано — чернетку збережено → спробувати ще»).
+  Базова сторінка — post.html; шапка без службової зони, зони ті самі, таббару немає, форма заповнена тим, що ввів волонтер.
+
+  Крок flow — flows.md, «R4 · … — сторона команди»: L3 «loading: публікуємо» → розвилка 7 «Опубліковано?» — ні →
+  E3 «error: не опубліковано, чернетку збережено» → «спробувати ще» → L3 (post-loading.html).
+  Інші варіанти — E1 (розвилка 2 «Список прийшов?» — ні) і E2 (розвилка 5 «Текст і тип заповнено?» — ні) — у нотатках.
+
+  Job (sitemap.md): R3, R4, E3. Правила — wireframes/_conventions.md.
+-->
+<html lang="uk" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Вайрфрейм · Нове оновлення · помилка</title>
+  <script src="../_nav/theme.js"></script>
+  <link rel="stylesheet" href="../_nav/theme.css">
+  <link rel="stylesheet" href="../_nav/icons.css">
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script defer src="../_nav/tree.js"></script>
+  <script defer src="../_nav/nav.js"></script>
+  <link rel="stylesheet" href="_frame.css">
+</head>
+<body>
+<div class="wf-page">
+
+  <nav class="wf-states" aria-label="Стани екрана «Нове оновлення»">
+    <a href="post.html">Базова сторінка</a>
+    <a href="post-error.html" aria-current="page">Помилка</a>
+    <a href="post-loading.html">Завантаження</a>
+    <a href="post-success.html">Успіх</a>
+    <span>Порожнього немає: тварини без новин стоять зверху списку</span>
+  </nav>
+
+  <div class="device">
+
+    <header class="app-header" data-zone="1">
+      <a class="brand" href="board.html">Прайд</a>
+    </header>
+
+    <main>
+      <h1>Нове оновлення</h1>
+      <p class="meta"><span class="i i-users" aria-hidden="true"></span> Команда центру · <span class="ph">[ім'я волонтера]</span></p>
+
+      <p class="notice" role="alert"><span><span class="i i-exclamation-circle" aria-hidden="true"></span> <b>Не опубліковано.</b> Зв'язок обірвався під час публікації. Чернетку збережено на телефоні — тварина, текст, тип і всі 3 файли. Нічого вводити заново не треба.</span></p>
+
+      <section aria-labelledby="animal-title" data-zone="2">
+        <h2 id="animal-title">1. Про кого</h2>
+        <p class="meta" id="animal-hint">Зверху — ті, про кого давно не писали.</p>
+        <fieldset aria-describedby="animal-hint">
+          <legend class="sr-only">Тварина</legend>
+          <label class="choice">
+            <input type="radio" name="animal" value="1" form="post-form" required checked>
+            <span class="img avatar" role="img" aria-label="Фото: [ім'я тварини]">фото</span>
+            <span><span class="ph">[ім'я коня]</span> · кінь<br><span class="meta"><time datetime="2026-10-23">21 день без новин</time></span></span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="animal" value="2" form="post-form">
+            <span class="img avatar" role="img" aria-label="Фото: [ім'я тварини]">фото</span>
+            <span><span class="ph">[ім'я собаки]</span> · собака<br><span class="meta"><time datetime="2026-11-01">12 днів без новин</time></span></span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="animal" value="3" form="post-form">
+            <span class="img avatar" role="img" aria-label="Фото: [ім'я тварини]">фото</span>
+            <span><span class="ph">[ім'я коня]</span> · кінь<br><span class="meta"><time datetime="2026-11-04">9 днів без новин</time></span></span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="animal" value="4" form="post-form">
+            <span class="img avatar" role="img" aria-label="Фото: [ім'я тварини]">фото</span>
+            <span><span class="ph">[ім'я собаки]</span> · собака<br><span class="meta">остання новина <time datetime="2026-11-10">3 дні тому</time></span></span>
+          </label>
+        </fieldset>
+        <details>
+          <summary>Усі тварини · <span class="ph">[кількість]</span></summary>
+          <p class="meta">Решта списку в тому самому порядку: від найдовшої тиші до найсвіжішої новини.</p>
+        </details>
+      </section>
+
+      <section aria-labelledby="media-title" data-zone="3">
+        <h2 id="media-title">2. Фото чи відео</h2>
+        <p><span class="i i-check-circle" aria-hidden="true"></span> 3 файли вже завантажено — повторно не вантажимо.</p>
+        <label>Додати ще
+          <input type="file" name="media" form="post-form" accept="image/*,video/*" multiple capture>
+        </label>
+      </section>
+
+      <section aria-labelledby="text-title" data-zone="4">
+        <h2 id="text-title">3. Що сталося</h2>
+        <label>Текст українською
+          <textarea name="text-uk" form="post-form" rows="5" required>[текст оновлення від команди центру]</textarea>
+        </label>
+        <details>
+          <summary>Англійською <span class="meta">[?]</span></summary>
+          <label>Текст англійською
+            <textarea name="text-en" form="post-form" rows="4"></textarea>
+          </label>
+        </details>
+      </section>
+
+      <section aria-labelledby="type-title" data-zone="5">
+        <h2 id="type-title">4. Яка це новина</h2>
+        <fieldset>
+          <legend class="sr-only">Тип оновлення</legend>
+          <label class="choice"><input type="radio" name="type" value="moment" form="post-form" required checked> Момент</label>
+          <label class="choice"><input type="radio" name="type" value="important" form="post-form" aria-describedby="type-important-hint"> Важлива зміна</label>
+          <p class="meta" id="type-important-hint">Піде всім підписникам одразу, хоч яку періодичність вони обрали.</p>
+          <label class="choice"><input type="radio" name="type" value="hard" form="post-form"> Непроста новина <span class="meta">[?]</span></label>
+        </fieldset>
+      </section>
+
+      <form id="post-form" aria-labelledby="publish-title" data-zone="6" action="post-loading.html" method="get">
+        <h2 id="publish-title">5. Перевірте й опублікуйте</h2>
+        <dl>
+          <dt>Про кого</dt>
+          <dd><span class="ph">[ім'я коня]</span> · кінь</dd>
+          <dt>Тип</dt>
+          <dd>момент</dd>
+          <dt>Фото й відео</dt>
+          <dd>3 файли, завантажено</dd>
+          <dt>Лист отримають</dt>
+          <dd>37 підписників [?] — так часто, як вони обрали</dd>
+        </dl>
+        <button class="primary" type="submit"><span class="i i-arrows-rotate" aria-hidden="true"></span> Спробувати ще</button>
+        <p class="meta">Зв'язку немає зовсім? Закрийте сторінку — чернетка лишиться на телефоні. Не виходить кілька разів — напишіть <span class="ph">[хто в команді відповідає за сайт]</span> [?].</p>
+      </form>
+    </main>
+
+  </div>
+
+  <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
+    <h2>Нове оновлення · помилка</h2>
+    <ul>
+      <li>Файли дійшли, але сама публікація не пройшла.</li>
+      <li>Flow R4 команди, розвилка 7 «Опубліковано?» — ні → E3 «не опубліковано, чернетку збережено» → «спробувати ще» → L3.</li>
+      <li>У рамці — цей варіант: він єдиний зупиняє вже готове оновлення, і волонтер боїться саме втратити написане. Решта — нижче.</li>
+    </ul>
+
+    <h2>Job</h2>
+    <ul>
+      <li>R4 · Знати, як живе підопічний після підтримки — сторона команди.</li>
+    </ul>
+
+    <h2>Зони в цьому стані</h2>
+    <ul>
+      <li>Повідомлення <code>.notice</code> над зонами — причина й що збережено. Видно одразу, без прокрутки.</li>
+      <li><span class="wf-zone">2</span>–<span class="wf-zone">5</span> — усе, що ввів волонтер, на місці. Файли повторно не вантажимо.</li>
+      <li><span class="wf-zone">6</span> — <b>«Спробувати ще»</b> → <code>post-loading.html</code>. Поруч — що робити без зв'язку і до кого звернутися: людину в команді назве центр [?].</li>
+      <li><span class="wf-zone">1</span> — як на базовій сторінці.</li>
+    </ul>
+
+    <h2>Інші помилки — та сама сторінка, інший текст</h2>
+    <ul>
+      <li><b>E1 · немає зв'язку</b> (розвилка 2 «Список прийшов?» — ні): «Немає зв'язку — список тварин не завантажився. Можна писати чернетку: текст і фото збережемо на телефоні». У зоні 2 — останній збережений список з датою [?] чи порожньо; зони 3–5 працюють. Вихід — «Спробувати ще» → <code>post-loading.html</code> (L1).</li>
+      <li><b>E2 · хибне поле</b> (розвилка 5 «Текст і тип заповнено?» — ні): браузер не надішле форму, підказка біля поля через <code>required</code> — «Напишіть кілька слів про те, що сталося» біля тексту, «Оберіть, яка це новина» біля типу. Введене збережено.</li>
+    </ul>
+
+    <h2>Переходи flow</h2>
+    <ul class="wf-flow">
+      <li>Сюди — із <a href="post-loading.html">завантаження</a>: розвилка 7 — ні (E3); або розвилка 2 — ні (E1).</li>
+      <li>«Спробувати ще» → <a href="post-loading.html">публікуємо</a> (L3) → розвилка 7: так — <a href="post-success.html">успіх</a>; ні — знову ця сторінка, чернетка ціла.</li>
+      <li>E2 повертає на розвилку 5 на тій самій <a href="post.html">формі</a>.</li>
+    </ul>
+  </aside>
+
+</div>
+</body>
+</html>

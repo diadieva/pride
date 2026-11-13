@@ -1,0 +1,141 @@
+<!doctype html>
+<!--
+  Мої улюбленці · my-animals-loading.html — стан завантаження головного екрана (sitemap.md, колонка «Стани»).
+  Базова сторінка — my-animals.html; шапка, зони й таббар ті самі, на місці даних — сірі заглушки.
+
+  Крок main flow — flows.md, flow M: розвилка 2 «Вхід ще дійсний?» — так (або посилання з листа дійсне) →
+  L1 «loading: завантажуємо моїх тварин» → розвилка 9 «Дані прийшли?».
+  Шапка, заголовки зон і таббар уже на місці: людина бачить, куди потрапила, і може піти, не чекаючи.
+  Правила — wireframes/_conventions.md.
+-->
+<html lang="uk" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Вайрфрейм · Мої улюбленці · завантаження</title>
+  <script src="../_nav/theme.js"></script>
+  <link rel="stylesheet" href="../_nav/theme.css">
+  <link rel="stylesheet" href="../_nav/icons.css">
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script defer src="../_nav/tree.js"></script>
+  <script defer src="../_nav/nav.js"></script>
+  <link rel="stylesheet" href="_frame.css">
+</head>
+<body>
+<div class="wf-page">
+
+  <nav class="wf-states" aria-label="Стани екрана «Мої улюбленці»">
+    <a href="my-animals.html">Базова сторінка</a>
+    <a href="my-animals-empty.html">Порожній</a>
+    <a href="my-animals-error.html">Помилка</a>
+    <a href="my-animals-loading.html" aria-current="page">Завантаження</a>
+    <span>Успіху немає: це не екран дії</span>
+  </nav>
+
+  <div class="device">
+
+    <header class="app-header" data-zone="1">
+      <a class="brand" href="board.html">Прайд</a>
+      <details class="service">
+        <summary><span class="i i-gear" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
+        <nav aria-label="Службова зона">
+          <ul>
+            <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
+            <li><a href="my-subscriptions.html"><span class="i i-envelope" aria-hidden="true"></span>Мої підписки</a></li>
+            <li><a><span class="i i-globe" aria-hidden="true"></span>Мова: українська · English</a></li>
+          </ul>
+        </nav>
+      </details>
+    </header>
+
+    <main>
+      <h1>Мої улюбленці</h1>
+
+      <!-- Перемикач: аватарки ще вантажаться -->
+      <nav aria-label="Мої тварини" data-zone="2" aria-busy="true">
+        <ul class="hlist">
+          <li><span class="skeleton avatar"></span></li>
+          <li><span class="skeleton avatar"></span></li>
+        </ul>
+      </nav>
+
+      <!-- Картка тварини: заглушки на місці фото, імені, новини, опіки й дій -->
+      <article aria-labelledby="loading-title" data-zone="3" aria-busy="true">
+        <span class="skeleton photo"></span>
+        <h2 id="loading-title" class="meta" role="status"><span class="i i-hourglass" aria-hidden="true"></span> Завантажуємо ваших тварин…</h2>
+        <span class="skeleton title short"></span>
+        <span class="skeleton"></span>
+        <span class="skeleton"></span>
+        <span class="skeleton"></span>
+        <span class="skeleton button"></span>
+        <footer class="actions">
+          <span class="skeleton button"></span>
+          <span class="skeleton button"></span>
+        </footer>
+      </article>
+
+      <article aria-label="Друга тварина завантажується" data-zone="4" aria-busy="true">
+        <span class="skeleton photo"></span>
+        <span class="skeleton title short"></span>
+        <span class="skeleton"></span>
+        <span class="skeleton button"></span>
+      </article>
+
+      <section aria-labelledby="center-support" data-zone="5" aria-busy="true">
+        <h2 id="center-support">Моя підтримка центру</h2>
+        <span class="skeleton"></span>
+        <span class="skeleton short"></span>
+      </section>
+
+      <section aria-labelledby="news" data-zone="6" aria-busy="true">
+        <h2 id="news">Як приходять новини</h2>
+        <span class="skeleton"></span>
+        <a class="btn" href="my-subscriptions-loading.html">Змінити в «Моїх підписках»</a>
+      </section>
+    </main>
+
+    <nav class="tabbar" aria-label="Головна навігація" data-zone="7">
+      <ul>
+        <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+        <li><a href="my-animals.html" aria-current="page"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+        <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+        <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+      </ul>
+    </nav>
+
+  </div>
+
+  <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
+    <h2>Мої улюбленці · завантаження</h2>
+    <ul>
+      <li>Вхід дійсний, дані про тварин ще йдуть.</li>
+      <li>Flow M, L1 «завантажуємо моїх тварин» → розвилка 9: так — базова сторінка, ні — помилка.</li>
+    </ul>
+
+    <h2>Зони в цьому стані</h2>
+    <ul>
+      <li><span class="wf-zone">1</span> Шапка — без змін, працює.</li>
+      <li><span class="wf-zone">2</span> Перемикач — дві круглі заглушки.</li>
+      <li><span class="wf-zone">3</span> Картка тварини — заглушки фото, імені, новини, опіки і трьох кнопок. Текст процесу — «Завантажуємо ваших тварин…».</li>
+      <li><span class="wf-zone">4</span> Друга картка — коротша заглушка.</li>
+      <li><span class="wf-zone">5</span> Моя підтримка центру — заголовок і заглушки. Чи є донат, ще невідомо: якщо немає, зона зникне.</li>
+      <li><span class="wf-zone">6</span> Як приходять новини — заголовок і посилання вже працюють.</li>
+      <li><span class="wf-zone">7</span> Таббар — без змін, працює.</li>
+    </ul>
+
+    <h2>Поведінка</h2>
+    <ul>
+      <li>Заглушки повторюють розміри справжніх зон, тож вміст не стрибає.</li>
+      <li>Анімація заглушок — пізніше, і лише без <code>prefers-reduced-motion</code>.</li>
+    </ul>
+
+    <h2>Переходи flow</h2>
+    <ul class="wf-flow">
+      <li>Сюди — з <a href="login-success.html">Вхід · успіх</a> (посилання з листа дійсне, розвилка 8), коли вхід ще дійсний (розвилка 2), і з <a href="my-animals-error.html">помилки</a> — «Спробувати ще».</li>
+      <li>Розвилка 9 «Дані прийшли?»: так, тварини є — <a href="my-animals.html">базова сторінка</a>; так, тварин немає — <a href="my-animals-empty.html">порожній стан</a>; ні — <a href="my-animals-error.html">помилка</a>.</li>
+    </ul>
+  </aside>
+
+</div>
+</body>
+</html>

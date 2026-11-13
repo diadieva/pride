@@ -1,0 +1,147 @@
+<!doctype html>
+<!--
+  Заявка на прилаштування · adopt-loading.html — стан завантаження (sitemap.md, колонка «Стани»: «надсилаємо заявку»).
+  Базова сторінка — adopt.html; шапка, зони й таббар ті самі, поля заповнені тим, що людина ввела.
+
+  Крок flow — flows.md, flow Г9: ADOPT → розвилка 3 «Контакти правильні?» — так →
+  L1 «loading: надсилаємо заявку» → 4 «Заявку прийнято?»: так — OK1 «успіх»; ні — E2 «не вдалося надіслати».
+
+  Job (sitemap.md): Г9 [?]. Тип — глибокий: таббар без поточного пункту.
+  Правила — wireframes/_conventions.md.
+-->
+<html lang="uk" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Вайрфрейм · Заявка на прилаштування · завантаження</title>
+  <script src="../_nav/theme.js"></script>
+  <link rel="stylesheet" href="../_nav/theme.css">
+  <link rel="stylesheet" href="../_nav/icons.css">
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script defer src="../_nav/tree.js"></script>
+  <script defer src="../_nav/nav.js"></script>
+  <link rel="stylesheet" href="_frame.css">
+</head>
+<body>
+<div class="wf-page">
+
+  <nav class="wf-states" aria-label="Стани екрана «Заявка на прилаштування»">
+    <a href="adopt.html">Базова сторінка</a>
+    <a href="adopt-error.html">Помилка</a>
+    <a href="adopt-loading.html" aria-current="page">Завантаження</a>
+    <a href="adopt-success.html">Успіх</a>
+    <span>Порожнього немає: це форма, на старті вона порожня завжди</span>
+  </nav>
+
+  <div class="device">
+
+    <header class="app-header" data-zone="1">
+      <a class="brand" href="board.html">Прайд</a>
+      <details class="service">
+        <summary><span class="i i-gear" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
+        <nav aria-label="Службова зона">
+          <ul>
+            <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
+            <li><a href="my-subscriptions.html"><span class="i i-envelope" aria-hidden="true"></span>Мої підписки</a></li>
+            <li><a><span class="i i-globe" aria-hidden="true"></span>Мова: українська · English</a></li>
+          </ul>
+        </nav>
+      </details>
+    </header>
+
+    <main>
+      <a class="back" href="animal.html"><span class="i i-angle-left" aria-hidden="true"></span> <span class="ph">[ім'я коня]</span></a>
+      <h1>Заявка на прилаштування</h1>
+
+      <section aria-labelledby="about-title" data-zone="2">
+        <h2 id="about-title"><span class="i i-house" aria-hidden="true"></span> Хочу забрати додому</h2>
+        <fieldset disabled>
+          <legend>Про кого заявка</legend>
+          <label class="choice"><input type="radio" name="about" value="animal" checked>
+            <span class="img avatar" role="img" aria-label="Фото: [ім'я тварини]">фото</span>
+            <span><b><span class="ph">[ім'я коня]</span></b> · кінь · у центрі</span>
+          </label>
+          <label class="choice"><input type="radio" name="about" value="general"> Загалом, без конкретної тварини</label>
+        </fieldset>
+      </section>
+
+      <form aria-labelledby="contacts-title" data-zone="3" aria-busy="true">
+        <h2 id="contacts-title" role="status"><span class="i i-hourglass" aria-hidden="true"></span> Надсилаємо заявку…</h2>
+        <label>Як до вас звертатися
+          <input type="text" name="name" value="Катерина" disabled>
+        </label>
+        <label>Email
+          <input type="email" name="email" value="kateryna@example.com" disabled>
+        </label>
+        <label>Телефон, необов'язково
+          <input type="tel" name="phone" disabled>
+        </label>
+        <label>Коментар, необов'язково
+          <textarea name="comment" rows="3" disabled>Зручно говорити після 18:00.</textarea>
+        </label>
+        <label class="choice"><input type="checkbox" name="consent" checked disabled> Погоджуюся на обробку моїх персональних даних, щоб центр відповів на заявку [?]</label>
+        <span class="skeleton button"></span>
+      </form>
+
+      <section aria-labelledby="next-title" data-zone="4">
+        <h2 id="next-title">Що буде далі</h2>
+        <ul>
+          <li>Команда центру прочитає заявку і зв'яжеться з вами — телефоном чи листом [?].</li>
+          <li>Коли саме — поки не знаємо [?]. Центр працює пн–пт, 09:00–19:00.</li>
+          <li>Заявка — це знайомство, а не зобов'язання: передумати можна будь-коли [?].</li>
+        </ul>
+      </section>
+    </main>
+
+    <nav class="tabbar" aria-label="Головна навігація" data-zone="5">
+      <ul>
+        <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+        <li><a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+        <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+        <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+      </ul>
+    </nav>
+
+  </div>
+
+  <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
+    <h2>Заявка на прилаштування · завантаження</h2>
+    <ul>
+      <li>Контакти правильні, заявка відправляється в центр.</li>
+      <li>Flow Г9, L1 «надсилаємо заявку» → розвилка 4.</li>
+    </ul>
+
+    <h2>Job</h2>
+    <ul>
+      <li>Г9 [?] · Повідомити центр, що хочу взяти тварину додому</li>
+    </ul>
+
+    <h2>Зони в цьому стані</h2>
+    <ul>
+      <li><span class="wf-zone">2</span> Про кого — вибір видно, але заблоковано.</li>
+      <li><span class="wf-zone">3</span> «Надсилаємо заявку…» — введене видно, поля заблоковано, кнопка — заглушка <code>.skeleton</code>, <code>aria-busy</code> на зоні.</li>
+      <li><span class="wf-zone">1</span>, <span class="wf-zone">4</span>, <span class="wf-zone">5</span> — як на базовій сторінці. Живий вихід — «‹ [ім'я коня]», шапка й таббар.</li>
+    </ul>
+
+    <h2>Дані</h2>
+    <ul>
+      <li>«Катерина», kateryna@example.com і коментар — приклад того, що ввела людина, а не факти центру.</li>
+    </ul>
+
+    <h2>Переходи flow</h2>
+    <ul class="wf-flow">
+      <li>Сюди — з <a href="adopt.html">форми</a>, розвилка 3 «Контакти правильні?» — так; і з <a href="adopt-error.html">помилки</a> — «Спробувати ще» (E2 → L1).</li>
+      <li>Розвилка 4 «Заявку прийнято?»: так — <a href="adopt-success.html">успіх</a> (OK1); ні — <a href="adopt-error.html">помилка «не вдалося надіслати»</a> (E2), введене збережено.</li>
+      <li>Розвилка 2 «Тварина ще доступна?» центр може перевірити лише тут, під час надсилання [?]: ні — ST1, <a href="adopt.html">форма</a> з варіантом «тварину вже забрали».</li>
+    </ul>
+
+    <h2>Згода на обробку даних</h2>
+    <ul>
+      <li>Рішення 13.11.2026: прапорець згоди з посиланням на політику конфіденційності, за замовчуванням не позначений. Без нього заявка не надсилається — кнопка тьмяна (як «оплата неактивна без згоди»). Flow Г9, розвилка 3а.</li>
+      <li>Формулювання згоди й сама політика — [?], погодити з центром.</li>
+    </ul>
+  </aside>
+
+</div>
+</body>
+</html>

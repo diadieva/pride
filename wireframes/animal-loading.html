@@ -1,0 +1,131 @@
+<!doctype html>
+<!--
+  Профіль тварини · animal-loading.html — стан завантаження (sitemap.md, колонка «Стани»).
+  Базова сторінка — animal.html; шапка, зони й таббар ті самі, на місці даних — сірі заглушки.
+
+  Крок main flow — flows.md, flow M: «відкрити картку» на «Моїх улюбленцях» або лист про оновлення →
+  L2 «loading: профіль тварини» → розвилка 14 «Профіль завантажився?».
+
+  Job (sitemap.md): R3, R1, E2, E3, R4, M, R2, Г2 [?], Г9 [?]. У головному flow працюють M, R4, E2, E3.
+  Правила — wireframes/_conventions.md.
+-->
+<html lang="uk" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Вайрфрейм · Профіль тварини · завантаження</title>
+  <script src="../_nav/theme.js"></script>
+  <link rel="stylesheet" href="../_nav/theme.css">
+  <link rel="stylesheet" href="../_nav/icons.css">
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script defer src="../_nav/tree.js"></script>
+  <script defer src="../_nav/nav.js"></script>
+  <link rel="stylesheet" href="_frame.css">
+</head>
+<body>
+<div class="wf-page">
+
+  <nav class="wf-states" aria-label="Стани екрана «Профіль тварини»">
+    <a href="animal.html">Базова сторінка</a>
+    <a href="animal-empty.html">Порожній</a>
+    <a href="animal-error.html">Помилка</a>
+    <a href="animal-loading.html" aria-current="page">Завантаження</a>
+    <a href="animal-success.html">Успіх</a>
+  </nav>
+
+  <div class="device">
+
+    <header class="app-header" data-zone="1">
+      <a class="brand" href="board.html">Прайд</a>
+      <details class="service">
+        <summary><span class="i i-gear" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
+        <nav aria-label="Службова зона">
+          <ul>
+            <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
+            <li><a href="my-subscriptions.html"><span class="i i-envelope" aria-hidden="true"></span>Мої підписки</a></li>
+            <li><a><span class="i i-globe" aria-hidden="true"></span>Мова: українська · English</a></li>
+          </ul>
+        </nav>
+      </details>
+    </header>
+
+    <main>
+      <a class="back" href="my-animals.html"><span class="i i-angle-left" aria-hidden="true"></span> Мої улюбленці</a>
+
+      <section aria-labelledby="pet" data-zone="2" aria-busy="true">
+        <span class="skeleton photo"></span>
+        <h1 id="pet" class="meta" role="status"><span class="i i-hourglass" aria-hidden="true"></span> Відкриваємо профіль…</h1>
+        <span class="skeleton short"></span>
+      </section>
+
+      <section aria-labelledby="my-care" data-zone="3" aria-busy="true">
+        <h2 id="my-care">Моя опіка</h2>
+        <span class="skeleton"></span>
+        <span class="skeleton short"></span>
+        <span class="skeleton button"></span>
+        <span class="skeleton button"></span>
+      </section>
+
+      <section aria-labelledby="updates" data-zone="4" aria-busy="true">
+        <h2 id="updates">Новини</h2>
+        <span class="skeleton photo"></span>
+        <span class="skeleton title short"></span>
+        <span class="skeleton"></span>
+        <span class="skeleton short"></span>
+      </section>
+
+      <section aria-labelledby="done" data-zone="5" aria-busy="true">
+        <h2 id="done">Що зроблено завдяки підтримці</h2>
+        <span class="skeleton"></span>
+        <span class="skeleton"></span>
+        <span class="skeleton"></span>
+      </section>
+
+      <section aria-labelledby="story" data-zone="6" aria-busy="true">
+        <h2 id="story">Історія і характер</h2>
+        <span class="skeleton title short"></span>
+        <span class="skeleton"></span>
+        <span class="skeleton short"></span>
+      </section>
+    </main>
+
+    <nav class="tabbar" aria-label="Головна навігація" data-zone="7">
+      <ul>
+        <li><a href="board.html" aria-current="page"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+        <li><a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+        <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+        <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+      </ul>
+    </nav>
+
+  </div>
+
+  <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
+    <h2>Профіль тварини · завантаження</h2>
+    <ul>
+      <li>Чекаємо на профіль: фото, новини, звіт, історію і стан моєї опіки.</li>
+      <li>Flow M, L2 → розвилка 14: так — базова сторінка, ні — помилка.</li>
+    </ul>
+
+    <h2>Job</h2>
+    <ul>
+      <li>M · Допомогти конкретній тварині й бачити, що це змінює її життя</li>
+      <li>R4 · Знати, як живе підопічний після підтримки</li>
+    </ul>
+
+    <h2>Зони в цьому стані</h2>
+    <ul>
+      <li><span class="wf-zone">2</span>–<span class="wf-zone">6</span> — заголовки зон уже на місці, дані — сірими заглушками тих самих розмірів. Текст процесу — «Відкриваємо профіль…».</li>
+      <li>Вихід — «Мої улюбленці» вгорі, шапка і таббар працюють.</li>
+    </ul>
+
+    <h2>Переходи flow</h2>
+    <ul class="wf-flow">
+      <li>Сюди — з <a href="my-animals.html">Моїх улюбленців</a> («Відкрити історію»), з листа про оновлення, з <a href="animal-error.html">помилки</a> — «Спробувати ще», з <a href="care-success.html">успіху опіки</a> — «Відкрити історію».</li>
+      <li>Розвилка 14 «Профіль завантажився?»: так — розвилка 16 «Є звіт?»: так — <a href="animal.html">базова сторінка</a>, ні — <a href="animal-empty.html">порожній стан</a>; ні — <a href="animal-error.html">помилка</a>.</li>
+    </ul>
+  </aside>
+
+</div>
+</body>
+</html>

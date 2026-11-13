@@ -1,0 +1,286 @@
+<!doctype html>
+<!--
+  Моя підтримка · my-support.html — базова сторінка (sitemap.md, «Екрани», група «Мої улюбленці»). Тип — глибокий.
+
+  Крок flow — flows.md, flow R5 «Змінити чи зупинити регулярну допомогу, коли змінюються обставини»:
+  вузол SUP «Моя підтримка · my-support.html». Сюди — з L1, коли дані прийшли (розвилка 3), регулярна підтримка є (4) →
+  розвилка 5 «Що змінити?»: суму (6), пауза (7 [?]), скасувати (ST2 → 8), спосіб оплати (PAY → 9).
+  Кожна дія → L2 «оновлюємо в провайдера» → 10 «Провайдер підтвердив зміну?».
+  Входи: «Керувати опікою» на картці й банер «не вдалося списати» (flow M, розвилка 11), блок «Моя підтримка центру»,
+  службова зона, підписане посилання в чеку (R5, розвилка 2 [?]; R2 донатора, OK1 → SUP).
+
+  Job (sitemap.md): R5, E1, Г3 [?]. Правила — wireframes/_conventions.md.
+-->
+<html lang="uk" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Вайрфрейм · Моя підтримка</title>
+  <script src="../_nav/theme.js"></script>
+  <link rel="stylesheet" href="../_nav/theme.css">
+  <link rel="stylesheet" href="../_nav/icons.css">
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script defer src="../_nav/tree.js"></script>
+  <script defer src="../_nav/nav.js"></script>
+  <link rel="stylesheet" href="_frame.css">
+</head>
+<body>
+<div class="wf-page">
+
+  <nav class="wf-states" aria-label="Стани екрана «Моя підтримка»">
+    <a href="my-support.html" aria-current="page">Базова сторінка</a>
+    <a href="my-support-empty.html">Порожній</a>
+    <a href="my-support-error.html">Помилка</a>
+    <a href="my-support-loading.html">Завантаження</a>
+    <a href="my-support-success.html">Успіх</a>
+  </nav>
+
+  <div class="device">
+
+    <header class="app-header" data-zone="1">
+      <a class="brand" href="board.html">Прайд</a>
+      <details class="service">
+        <summary><span class="i i-gear" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
+        <nav aria-label="Службова зона">
+          <ul>
+            <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
+            <li><a href="my-subscriptions.html"><span class="i i-envelope" aria-hidden="true"></span>Мої підписки</a></li>
+            <li><a><span class="i i-globe" aria-hidden="true"></span>Мова: українська · English</a></li>
+          </ul>
+        </nav>
+      </details>
+    </header>
+
+    <main>
+      <a class="back" href="my-animals.html"><span class="i i-angle-left" aria-hidden="true"></span> Мої улюбленці</a>
+      <h1>Моя підтримка</h1>
+      <p class="meta">Регулярна підтримка з адреси kateryna@example.com</p>
+
+      <!-- Опіка: прийшли сюди з «Керувати опікою» на картці — ця опіка перша, «Змінити суму» розкрито -->
+      <article aria-labelledby="care-1" data-zone="2">
+        <span class="img avatar" role="img" aria-label="Фото: [ім'я тварини]">фото</span>
+        <h2 id="care-1">Опіка над <span class="ph">[ім'я коня]</span></h2>
+        <p class="meta">Кінь · у центрі</p>
+        <dl>
+          <dt>Стан</dt>
+          <dd><span class="i i-check-circle" aria-hidden="true"></span> активна</dd>
+          <dt>Сума</dt>
+          <dd><b>1 000 грн щомісяця</b></dd>
+          <dt>Наступне списання</dt>
+          <dd><time datetime="2026-12-01">1 грудня</time></dd>
+          <dt>Спосіб оплати</dt>
+          <dd>картка в гривні · WayForPay <span class="meta">[?]</span></dd>
+          <dt>Чеки</dt>
+          <dd>kateryna@example.com</dd>
+        </dl>
+
+        <details open>
+          <summary>Змінити суму</summary>
+          <form aria-label="Змінити суму опіки" action="my-support-loading.html" method="get">
+            <input type="hidden" name="support" value="care-1">
+            <label>Нова сума на місяць, грн
+              <input type="number" name="amount" value="1000" min="1" required aria-describedby="amount-1-hint">
+            </label>
+            <p class="meta" id="amount-1-hint">Зараз — 1 000 грн. Нова сума спишеться вже <time datetime="2026-12-01">1 грудня</time>.</p>
+            <button class="primary" type="submit">Зберегти суму</button>
+          </form>
+        </details>
+
+        <details>
+          <summary>Призупинити <span class="meta">[?]</span></summary>
+          <form aria-label="Призупинити опіку" action="my-support-loading.html" method="get">
+            <input type="hidden" name="support" value="care-1">
+            <fieldset class="row">
+              <legend>На скільки <span class="meta">[?]</span></legend>
+              <label class="choice"><input type="radio" name="pause" value="1" checked> 1 міс.</label>
+              <label class="choice"><input type="radio" name="pause" value="3"> 3 міс.</label>
+              <label class="choice"><input type="radio" name="pause" value="open"> Без строку</label>
+            </fieldset>
+            <p>Поки триває пауза, нічого не списується. <span class="ph">[ім'я коня]</span> лишається у ваших «Моїх улюбленцях», новини приходять як і раніше.</p>
+            <button type="submit">Призупинити опіку</button>
+          </form>
+        </details>
+
+        <details>
+          <summary>Скасувати опіку</summary>
+          <form aria-label="Скасувати опіку" action="my-support-loading.html" method="get">
+            <input type="hidden" name="support" value="care-1">
+            <p>Щомісячні списання по 1 000 грн припиняться — <time datetime="2026-12-01">1 грудня</time> нічого не спишеться.</p>
+            <p><span class="ph">[ім'я коня]</span> лишається у ваших «Моїх улюбленцях», новини приходять як і раніше <span class="meta">[?]</span>. Повернутися до опіки можна будь-коли.</p>
+            <footer class="actions">
+              <button type="submit">Скасувати опіку</button>
+              <a class="btn" href="my-support.html">Залишити як є</a>
+            </footer>
+          </form>
+        </details>
+
+        <details>
+          <summary>Змінити спосіб оплати</summary>
+          <form aria-label="Змінити спосіб оплати опіки" action="my-support-loading.html" method="get">
+            <input type="hidden" name="support" value="care-1">
+            <p>Нову картку ви додасте на сторінці WayForPay <span class="meta">[?]</span>. Даних картки ми не бачимо й не зберігаємо.</p>
+            <p class="meta">Якщо не завершите там — діятиме теперішня картка.</p>
+            <button type="submit">Перейти до WayForPay</button>
+          </form>
+        </details>
+      </article>
+
+      <!-- Донат центру: ті самі дії, згорнуті, щоб список лишався коротким -->
+      <article aria-labelledby="center-1" data-zone="3">
+        <h2 id="center-1">Донат центру</h2>
+        <p class="meta">На все, що потрібно центру «Прайд»</p>
+        <dl>
+          <dt>Стан</dt>
+          <dd><span class="i i-check-circle" aria-hidden="true"></span> активний</dd>
+          <dt>Сума</dt>
+          <dd><b>200 грн щомісяця</b></dd>
+          <dt>Наступне списання</dt>
+          <dd><time datetime="2026-12-05">5 грудня</time></dd>
+          <dt>Спосіб оплати</dt>
+          <dd>картка в гривні · WayForPay <span class="meta">[?]</span></dd>
+          <dt>Чеки</dt>
+          <dd>kateryna@example.com</dd>
+        </dl>
+
+        <details>
+          <summary>Змінити суму</summary>
+          <form aria-label="Змінити суму донату центру" action="my-support-loading.html" method="get">
+            <input type="hidden" name="support" value="center-1">
+            <label>Нова сума на місяць, грн
+              <input type="number" name="amount" value="200" min="1" required aria-describedby="amount-2-hint">
+            </label>
+            <p class="meta" id="amount-2-hint">Зараз — 200 грн. Нова сума спишеться вже <time datetime="2026-12-05">5 грудня</time>.</p>
+            <button class="primary" type="submit">Зберегти суму</button>
+          </form>
+        </details>
+
+        <details>
+          <summary>Призупинити <span class="meta">[?]</span></summary>
+          <form aria-label="Призупинити донат центру" action="my-support-loading.html" method="get">
+            <input type="hidden" name="support" value="center-1">
+            <fieldset class="row">
+              <legend>На скільки <span class="meta">[?]</span></legend>
+              <label class="choice"><input type="radio" name="pause" value="1" checked> 1 міс.</label>
+              <label class="choice"><input type="radio" name="pause" value="3"> 3 міс.</label>
+              <label class="choice"><input type="radio" name="pause" value="open"> Без строку</label>
+            </fieldset>
+            <p>Поки триває пауза, нічого не списується.</p>
+            <button type="submit">Призупинити донат</button>
+          </form>
+        </details>
+
+        <details>
+          <summary>Скасувати донат</summary>
+          <form aria-label="Скасувати донат центру" action="my-support-loading.html" method="get">
+            <input type="hidden" name="support" value="center-1">
+            <p>Щомісячні списання по 200 грн припиняться — <time datetime="2026-12-05">5 грудня</time> нічого не спишеться. Разово підтримати центр можна будь-коли.</p>
+            <footer class="actions">
+              <button type="submit">Скасувати донат</button>
+              <a class="btn" href="my-support.html">Залишити як є</a>
+            </footer>
+          </form>
+        </details>
+
+        <details>
+          <summary>Змінити спосіб оплати</summary>
+          <form aria-label="Змінити спосіб оплати донату" action="my-support-loading.html" method="get">
+            <input type="hidden" name="support" value="center-1">
+            <p>Нову картку ви додасте на сторінці WayForPay <span class="meta">[?]</span>. Даних картки ми не бачимо й не зберігаємо.</p>
+            <p class="meta">Якщо не завершите там — діятиме теперішня картка.</p>
+            <button type="submit">Перейти до WayForPay</button>
+          </form>
+        </details>
+      </article>
+
+      <!-- Історія платежів: кожне списання видно (Платіж, R5, E1) -->
+      <section aria-labelledby="history" data-zone="4">
+        <h2 id="history">Історія платежів</h2>
+        <table>
+          <caption class="sr-only">Платежі за опікою і донатом центру, нові зверху</caption>
+          <thead>
+            <tr><th scope="col">Дата</th><th scope="col">Кому, сума</th><th scope="col">Статус</th><th scope="col">Чек</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><time datetime="2026-11-13">13 листопада</time></td><td><span class="ph">[ім'я коня]</span> · 500 грн разово</td><td>успішний</td><td><a>Чек<span class="sr-only"> за 13 листопада</span></a></td></tr>
+            <tr><td><time datetime="2026-11-05">5 листопада</time></td><td>Центр · 200 грн</td><td>успішний</td><td><a>Чек<span class="sr-only"> за 5 листопада</span></a></td></tr>
+            <tr><td><time datetime="2026-11-01">1 листопада</time></td><td><span class="ph">[ім'я коня]</span> · 1 000 грн</td><td>успішний</td><td><a>Чек<span class="sr-only"> за 1 листопада</span></a></td></tr>
+            <tr><td><time datetime="2026-10-05">5 жовтня</time></td><td>Центр · 200 грн</td><td>успішний</td><td><a>Чек<span class="sr-only"> за 5 жовтня</span></a></td></tr>
+            <tr><td><time datetime="2026-10-01">1 жовтня</time></td><td><span class="ph">[ім'я коня]</span> · 1 000 грн</td><td>успішний</td><td><a>Чек<span class="sr-only"> за 1 жовтня</span></a></td></tr>
+          </tbody>
+        </table>
+        <p class="meta">Кожен чек також приходить листом на kateryna@example.com.</p>
+      </section>
+    </main>
+
+    <nav class="tabbar" aria-label="Головна навігація" data-zone="5">
+      <ul>
+        <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+        <li><a href="my-animals.html" aria-current="page"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+        <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+        <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+      </ul>
+    </nav>
+
+  </div>
+
+  <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
+    <h2>Моя підтримка · базова сторінка</h2>
+    <ul>
+      <li><code>my-support.html</code>. Група «Мої улюбленці». Тип — глибокий: назад — на «Мої улюбленці».</li>
+      <li>Flow R5, вузол SUP → розвилка 5 «Що змінити?». Від картки на головному — 3 кліки: «Керувати опікою» → дія → «Зберегти» чи «Скасувати опіку» (sitemap.md, «Глибина до main job»).</li>
+      <li>Персона — Опікун: опіка над конем і донат центру. Донатор без тварин бачить лише зону 3.</li>
+    </ul>
+
+    <h2>Job</h2>
+    <ul>
+      <li>R5 · Змінити чи зупинити регулярну допомогу, коли змінюються обставини</li>
+      <li>E1 · Спокій замість тривоги очікування</li>
+      <li>Г3 [?] · Коли я зупиняю допомогу, не відчувати провини, щоб могти повернутися згодом</li>
+    </ul>
+
+    <h2>Зони і головна дія кожної</h2>
+    <ul>
+      <li><span class="wf-zone">1</span> Шапка — службова зона.</li>
+      <li><span class="wf-zone">2</span> Опіка над [ім'я коня] — усе для звірки: стан, сума, наступне списання, спосіб, куди чеки. <b>«Зберегти суму»</b>: поле вже з поточною сумою. Поруч, згорнуто, — «Призупинити» [?], «Скасувати опіку», «Змінити спосіб оплати». Прийшли з «Керувати опікою» — ця опіка перша, «Змінити суму» розкрито.</li>
+      <li><span class="wf-zone">3</span> Донат центру — ті самі дії, усі згорнуто. «Зберегти суму».</li>
+      <li><span class="wf-zone">4</span> Історія платежів — дата, кому й сума, статус, чек. Без головної дії: це звірка.</li>
+      <li><span class="wf-zone">5</span> Таббар — поточний «Мої улюбленці».</li>
+    </ul>
+
+    <h2>Без пастки й без тиску</h2>
+    <ul>
+      <li>Скасування — одне підтвердження в тому самому розкритті. Без опитування «чому», без «ви впевнені?» удруге (R5, DV4).</li>
+      <li>«Скасувати опіку» і «Залишити як є» — обидві світлі: продукт не підштовхує ні туди, ні туди.</li>
+      <li>Тварина лишається в «Моїх улюбленцях», новини — теж (Г3 [?]; чи лишається Підписка після скасування Опіки — [?] у sitemap.md, «Сутності»).</li>
+      <li>Спосіб оплати змінюють на сторінці провайдера: карткових даних у нас немає.</li>
+    </ul>
+
+    <h2>Варіанти — та сама сторінка</h2>
+    <ul>
+      <li><b>Паузи немає</b> (R5, розвилка 7 [?] — ні, ST1): у розкритті «Призупинити» замість кнопки — «WayForPay [?] не вміє ставити опіку на паузу. Можна зменшити суму чи скасувати — повернутися можна будь-коли» і перехід до «Змінити суму» чи «Скасувати опіку» (ST1 → розвилка 5).</li>
+      <li><b>Картку не змінено</b> (розвилка 9 — ні, ST3): людина повернулася від провайдера без нової картки — над зоною рядок «Картку не змінено, діє попередня».</li>
+      <li><b>Опіка призупинена</b> — стан «призупинена до [дата]», дія «Відновити» замість «Призупинити».</li>
+      <li><b>З підписаного посилання в чеку</b> (розвилка 2 [?]) — лише ця опіка чи донат, без історії інших; вхід не потрібен.</li>
+    </ul>
+
+    <h2>Дані</h2>
+    <ul>
+      <li>Суми, дати й адреса узгоджені з <code>my-animals.html</code> і <code>care-success.html</code> (разовий внесок 500 грн 13 листопада).</li>
+      <li>Провайдер — WayForPay чи LiqPay, ще не обрано: [?]. Варіанти паузи — [?].</li>
+      <li>Чеки — документи провайдера чи листа, не екрани: посилання без href.</li>
+    </ul>
+
+    <h2>Переходи flow</h2>
+    <ul class="wf-flow">
+      <li>Сюди — з <a href="my-support-loading.html">завантаження</a>: дані прийшли (розвилка 3 — так), регулярна підтримка є (4 — так). Входи — «Керувати опікою» і «Керувати» на <a href="my-animals.html">Моїх улюбленцях</a>, банер «не вдалося списати» (M, розвилка 11), службова зона, посилання в чеку (R2 донатора, OK1 → SUP).</li>
+      <li>Розвилка 4 — ні → <a href="my-support-empty.html">порожній стан</a>.</li>
+      <li>Розвилка 6 «Нова сума правильна?»: ні — браузер не надішле форму (<code>required</code>, <code>type="number"</code>), варіант <a href="my-support-error.html">помилки</a> «хибна сума»; так → <a href="my-support-loading.html">оновлюємо в провайдера</a> (L2).</li>
+      <li>Розвилка 7 «Провайдер підтримує паузу? [?]»: так → <a href="my-support-loading.html">L2</a>; ні → ST1, варіант цієї сторінки.</li>
+      <li>ST2 → розвилка 8 «Підтверджує?»: ні — «Залишити як є» → <a href="my-support.html">ця сторінка</a>; так → <a href="my-support-loading.html">L2</a>.</li>
+      <li>«Змінити спосіб оплати» → сторінка провайдера (зовнішня) → розвилка 9: так → <a href="my-support-loading.html">L2</a>; ні → ST3, варіант цієї сторінки.</li>
+    </ul>
+  </aside>
+
+</div>
+</body>
+</html>

@@ -34,6 +34,16 @@ ICONS = [
     "user-circle", "user-heart",  # джерела даних: власний акаунт, донори «Прайду»
     "house", "search-text", "users", "sitemap",  # пункти навігатора
     "angles-left", "angles-right",               # згорнути / розгорнути навігатор
+    # вайрфрейми продукту (wireframes/)
+    "paw", "heart", "wallet-heart", "building",  # таббар: Тварини, Мої улюбленці, Підтримати, Про центр
+    "gear", "wallet", "envelope",                # службова зона: кнопка, Моя підтримка, Мої підписки
+    "angle-right", "calendar",                   # перехід у профіль; дата списання
+    "mobile", "folder-heart",                    # навігатор: гілка «Екрани», розділ групи «Мої улюбленці»
+    "inbox", "exclamation-circle", "hourglass",  # стани: порожній, помилка, завантаження
+    "arrows-rotate", "phone",                    # «спробувати ще»; контакти центру
+    "folder-search", "folder-dollar", "folder-user",  # навігатор: розділи груп «Знайти свою тварину», «Підтримати», «Повернутися до своїх»
+    "door-open", "angle-left", "envelope-check",      # екран «Вхід»; шлях назад; лист надіслано
+    "folder-info", "folder-location-pin", "folder-gear",  # розділи «Хто такі «Прайд»», «Забрати додому», «Команда центру»
 ]
 
 

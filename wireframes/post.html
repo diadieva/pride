@@ -1,0 +1,221 @@
+<!doctype html>
+<!--
+  Нове оновлення · post.html — базова сторінка, форма (sitemap.md, «Екрани», група «Команда центру»). [КОМАНДА]:
+  поза навігацією донора — шапка без службової зони, таббару немає (_conventions.md, розділ 3).
+
+  Крок flow — flows.md, «R4 · Знати, як живе підопічний після підтримки — сторона команди»:
+  вузол POST «Нове оновлення · post.html». Сюди — після розвилки 1 «Вхід дійсний?» — так і 2 «Список прийшов?» — так.
+  На сторінці — розвилка 3 «Тварина є в списку?» (ні → ST1 «додати нову тварину чернеткою»),
+  5 «Текст і тип оновлення заповнено?» (ні → E2 «підказка біля поля», браузер через required),
+  6 «Важлива зміна чи непроста новина?» (так → ST3 «окреме підтвердження — піде всім підписникам одразу»).
+  «Опублікувати» → L2/L3 → post-loading.html.
+
+  Job (sitemap.md): R3, R4, E3 — jobs донора, які забезпечує екран. Jobs самих волонтерів не зібрано.
+  Порожнього стану немає: тварини без новин стоять зверху списку.
+  Правила — wireframes/_conventions.md.
+-->
+<html lang="uk" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Вайрфрейм · Нове оновлення</title>
+  <script src="../_nav/theme.js"></script>
+  <link rel="stylesheet" href="../_nav/theme.css">
+  <link rel="stylesheet" href="../_nav/icons.css">
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script defer src="../_nav/tree.js"></script>
+  <script defer src="../_nav/nav.js"></script>
+  <link rel="stylesheet" href="_frame.css">
+</head>
+<body>
+<div class="wf-page">
+
+  <nav class="wf-states" aria-label="Стани екрана «Нове оновлення»">
+    <a href="post.html" aria-current="page">Базова сторінка</a>
+    <a href="post-error.html">Помилка</a>
+    <a href="post-loading.html">Завантаження</a>
+    <a href="post-success.html">Успіх</a>
+    <span>Порожнього немає: тварини без новин стоять зверху списку</span>
+  </nav>
+
+  <div class="device">
+
+    <header class="app-header" data-zone="1">
+      <a class="brand" href="board.html">Прайд</a>
+    </header>
+
+    <main>
+      <h1>Нове оновлення</h1>
+      <p class="meta"><span class="i i-users" aria-hidden="true"></span> Команда центру · <span class="ph">[ім'я волонтера]</span></p>
+
+      <!-- Крок 1. Тварина: хто довше без новин — зверху (flows.md, «„Тишу“ в M закриває команда») -->
+      <section aria-labelledby="animal-title" data-zone="2">
+        <h2 id="animal-title">1. Про кого</h2>
+        <p class="meta" id="animal-hint">Зверху — ті, про кого давно не писали.</p>
+        <fieldset aria-describedby="animal-hint">
+          <legend class="sr-only">Тварина</legend>
+          <label class="choice">
+            <input type="radio" name="animal" value="1" form="post-form" required checked>
+            <span class="img avatar" role="img" aria-label="Фото: [ім'я тварини]">фото</span>
+            <span><span class="ph">[ім'я коня]</span> · кінь<br><span class="meta"><time datetime="2026-10-23">21 день без новин</time></span></span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="animal" value="2" form="post-form">
+            <span class="img avatar" role="img" aria-label="Фото: [ім'я тварини]">фото</span>
+            <span><span class="ph">[ім'я собаки]</span> · собака<br><span class="meta"><time datetime="2026-11-01">12 днів без новин</time></span></span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="animal" value="3" form="post-form">
+            <span class="img avatar" role="img" aria-label="Фото: [ім'я тварини]">фото</span>
+            <span><span class="ph">[ім'я коня]</span> · кінь<br><span class="meta"><time datetime="2026-11-04">9 днів без новин</time></span></span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="animal" value="4" form="post-form">
+            <span class="img avatar" role="img" aria-label="Фото: [ім'я тварини]">фото</span>
+            <span><span class="ph">[ім'я собаки]</span> · собака<br><span class="meta">остання новина <time datetime="2026-11-10">3 дні тому</time></span></span>
+          </label>
+        </fieldset>
+        <details>
+          <summary>Усі тварини · <span class="ph">[кількість]</span></summary>
+          <p class="meta">Решта списку в тому самому порядку: від найдовшої тиші до найсвіжішої новини.</p>
+        </details>
+        <details>
+          <summary><span class="i i-plus" aria-hidden="true"></span> Додати нову тварину чернеткою</summary>
+          <fieldset>
+            <legend>Нової тварини ще немає в списку</legend>
+            <label class="choice"><input type="radio" name="animal" value="new" form="post-form"> Оновлення про нову тварину</label>
+            <label>Ім'я
+              <input type="text" name="new-name" form="post-form" autocomplete="off">
+            </label>
+            <label>Вид
+              <select name="new-species" form="post-form">
+                <option>кінь</option>
+                <option>собака</option>
+                <option>інша тварина</option>
+              </select>
+            </label>
+            <label>Фото
+              <input type="file" name="new-photo" form="post-form" accept="image/*" capture>
+            </label>
+            <p class="meta">Донори побачать профіль, коли команда допише історію й характер. Де це робиться — питання до центру [?].</p>
+          </fieldset>
+        </details>
+      </section>
+
+      <!-- Крок 2. Фото чи відео — одразу з камери телефона -->
+      <section aria-labelledby="media-title" data-zone="3">
+        <h2 id="media-title">2. Фото чи відео</h2>
+        <label>Додати з камери чи галереї
+          <input type="file" name="media" form="post-form" accept="image/*,video/*" multiple capture aria-describedby="media-hint">
+        </label>
+        <p class="meta" id="media-hint">Можна кілька. Завантаження почнеться одразу, поки ви пишете текст. Слабкий зв'язок — не страшно: чернетка лишиться на телефоні, догрузимо, щойно зв'язок з'явиться.</p>
+      </section>
+
+      <!-- Крок 3. Текст: українською обов'язково, англійською — [?] -->
+      <section aria-labelledby="text-title" data-zone="4">
+        <h2 id="text-title">3. Що сталося</h2>
+        <label>Текст українською
+          <textarea name="text-uk" form="post-form" rows="5" required aria-describedby="text-hint" placeholder="Як минув день, що вийшло вперше, що змінилося"></textarea>
+        </label>
+        <p class="meta" id="text-hint">Кількох речень досить.</p>
+        <details>
+          <summary>Англійською <span class="meta">[?]</span></summary>
+          <label>Текст англійською
+            <textarea name="text-en" form="post-form" rows="4" aria-describedby="text-en-hint"></textarea>
+          </label>
+          <p class="meta" id="text-en-hint">Можна лишити порожнім — публікації це не заважає. Хто перекладає для англомовних донорів, — питання до центру [?].</p>
+        </details>
+      </section>
+
+      <!-- Крок 4. Тип: від нього залежить, коли новина дійде до підписників -->
+      <section aria-labelledby="type-title" data-zone="5">
+        <h2 id="type-title">4. Яка це новина</h2>
+        <fieldset>
+          <legend class="sr-only">Тип оновлення</legend>
+          <label class="choice"><input type="radio" name="type" value="moment" form="post-form" required checked aria-describedby="type-moment-hint"> Момент</label>
+          <p class="meta" id="type-moment-hint">День, звичка, маленька перемога. Прийде підписникам так часто, як вони обрали.</p>
+          <label class="choice"><input type="radio" name="type" value="important" form="post-form" aria-describedby="type-important-hint"> Важлива зміна</label>
+          <p id="type-important-hint"><span class="i i-exclamation-circle" aria-hidden="true"></span> <b>Піде всім підписникам одразу, хоч яку періодичність вони обрали.</b> <span class="meta">Те, що змінює життя тварини: переведення, прилаштування.</span></p>
+          <label class="choice"><input type="radio" name="type" value="hard" form="post-form" aria-describedby="type-hard-hint"> Непроста новина <span class="meta">[?]</span></label>
+          <p class="meta" id="type-hard-hint">Чесно про складне: хвороба, погіршення. Іде одразу всім, як важлива зміна, — [?].</p>
+        </fieldset>
+      </section>
+
+      <!-- Крок 5. Звірка й публікація -->
+      <form id="post-form" aria-labelledby="publish-title" data-zone="6" action="post-loading.html" method="get">
+        <h2 id="publish-title">5. Перевірте й опублікуйте</h2>
+        <dl>
+          <dt>Про кого</dt>
+          <dd><span class="ph">[ім'я коня]</span> · кінь</dd>
+          <dt>Тип</dt>
+          <dd>момент</dd>
+          <dt>Фото й відео</dt>
+          <dd>3 файли</dd>
+          <dt>Де з'явиться</dt>
+          <dd>на дошці й у профілі — одразу</dd>
+          <dt>Лист отримають</dt>
+          <dd>37 підписників [?] — так часто, як вони обрали</dd>
+        </dl>
+        <button class="primary" type="submit">Опублікувати</button>
+        <p class="meta" role="status">Чернетку збережено на телефоні · <time datetime="2026-11-13T14:32">14:32</time> [?]</p>
+      </form>
+    </main>
+
+  </div>
+
+  <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
+    <h2>Нове оновлення · базова сторінка (форма)</h2>
+    <ul>
+      <li><code>post.html</code> — <b>[КОМАНДА]</b>. Група «Команда центру». Поза навігацією донора: окрема адреса для 1–3 волонтерів, вхід за magic link. Шапка без службової зони, таббару немає.</li>
+      <li>Flow R4 — сторона команди, вузол POST. Волонтер з телефона, зв'язок нестабільний, на все — кілька хвилин між справами. Тому один екран зверху вниз, без кроків-сторінок.</li>
+      <li>У рамці форму вже почали заповнювати: тварину зверху списку й тип «момент» обрано, файли додано. Чи обирати тварину заздалегідь у продукті, — [?]: так легше помилитися твариною.</li>
+    </ul>
+
+    <h2>Job</h2>
+    <ul>
+      <li>R4 · Знати, як живе підопічний після підтримки — без цього екрана новин немає.</li>
+      <li>R3 · Познайомитися з твариною, перш ніж давати гроші — оновлення видно на дошці до підписки.</li>
+      <li>E3 · Вірити, що мені показують правду — важлива зміна й непроста новина не губляться в дайджесті.</li>
+      <li>Jobs самих волонтерів не зібрано — потрібне інтерв'ю з командою (sitemap.md).</li>
+    </ul>
+
+    <h2>Зони і головна дія кожної</h2>
+    <ul>
+      <li><span class="wf-zone">1</span> Шапка — лише «Прайд». Службової зони донора немає.</li>
+      <li><span class="wf-zone">2</span> Про кого — обрати тварину. Хто довше без новин — зверху, з датою: так команда закриває «тишу» з flow M. Нова тварина — «Додати чернеткою» (ім'я, вид, фото), шторкою на місці.</li>
+      <li><span class="wf-zone">3</span> Фото чи відео — одне поле, відкриває камеру. Кілька файлів.</li>
+      <li><span class="wf-zone">4</span> Що сталося — текст українською, обов'язковий. Англійською — шторкою, [?].</li>
+      <li><span class="wf-zone">5</span> Яка це новина — момент, важлива зміна, непроста новина [?]. Попередження про «всім одразу» стоїть під варіантом, а не після натискання.</li>
+      <li><span class="wf-zone">6</span> Перевірте й опублікуйте — <b>«Опублікувати»</b>. Звірка поруч: про кого, тип, скільки файлів, де з'явиться, скільки людей отримає лист.</li>
+    </ul>
+
+    <h2>Поведінка і дані</h2>
+    <ul>
+      <li>Зони дотику — від 44 px; рядок тварини з аватаркою — 64 px.</li>
+      <li>Фото починають вантажитися одразу після вибору: у flow L2 стоїть до розвилки 5. Без JS прогрес показано на <a href="post-loading.html">завантаженні</a>.</li>
+      <li>Чернетка зберігається на телефоні, поки волонтер пише [?] — щоб обрив зв'язку нічого не стер.</li>
+      <li>Дні без новин, 37 підписників, 3 файли — реалістичні значення. Імена тварин — плейсхолдери. Поріг «давно» — ритм центру [?] (flows.md, M, розвилка 13).</li>
+      <li>Попередження для важливої зміни рахує всіх підписників тварини. Скільки їх, — [?], поки немає даних.</li>
+    </ul>
+
+    <h2>Інші стани на цій сторінці</h2>
+    <ul>
+      <li><b>ST3 · окреме підтвердження</b> (розвилка 6 — так): після «Опублікувати» з типом «важлива зміна» чи «непроста новина» — «Надіслати всім 37 підписникам [?] зараз?», кнопки «Так, опублікувати» і «Повернутися до тексту». Без JS у рамці його немає.</li>
+      <li><b>ST1 · нова тварина чернеткою</b> (розвилка 3 — ні) — відкрита шторка в зоні 2.</li>
+    </ul>
+
+    <h2>Переходи flow</h2>
+    <ul class="wf-flow">
+      <li>Розвилка 1 «Вхід дійсний?»: ні — <a href="team-login.html">Вхід для команди</a>, підflow як у M (<a href="team-login-loading.html">надсилаємо лист</a> → <a href="team-login-success.html">лист надіслано</a> → посилання з листа веде сюди); так — завантаження списку тварин (L1, варіант <a href="post-loading.html">завантаження</a>).</li>
+      <li>Розвилка 2 «Список прийшов?»: так — ця сторінка; ні — <a href="post-error.html">помилка</a>, варіант «немає зв'язку — можна писати чернетку».</li>
+      <li>Розвилка 3 «Тварина є в списку?»: так — обрати в зоні 2; ні — «Додати нову тварину чернеткою» (ST1) і далі той самий шлях.</li>
+      <li>Розвилка 4 «Завантажилось?»: так — далі; ні — чернетку збережено на телефоні, догрузимо зі зв'язком (варіант <a href="post-loading.html">завантаження</a>).</li>
+      <li>Розвилка 5 «Текст і тип заповнено?»: ні — браузер не надішле форму й покаже підказку біля поля (E2, варіант <a href="post-error.html">помилки</a>); так — розвилка 6.</li>
+      <li>Розвилка 6 «Важлива зміна чи непроста новина?»: так — ST3, окреме підтвердження, потім публікація; ні — одразу «Опублікувати» → <a href="post-loading.html">публікуємо</a> (L3).</li>
+      <li>Розвилка 7 «Опубліковано?» — на <a href="post-loading.html">завантаженні</a>: так — <a href="post-success.html">успіх</a>; ні — <a href="post-error.html">помилка «не опубліковано, чернетку збережено»</a>.</li>
+    </ul>
+  </aside>
+
+</div>
+</body>
+</html>

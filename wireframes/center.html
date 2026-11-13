@@ -1,0 +1,233 @@
+<!doctype html>
+<!--
+  Про центр · center.html — базова сторінка (sitemap.md, «Екрани», група «Хто такі «Прайд»»). Глобальний екран, пункт таббару «Про центр».
+
+  Кроки flows.md, де бере участь екран:
+  - R2 · Терміновий донатор: розвилка 3 «Хоче перевірити, хто такі «Прайд»?» — так → CENTER «Про центр · center.html» →
+    «назад, введене збережено» → Donate (розвилка 4). Це крок E3 [?].
+  - Г9: розвилка 1 «Звідки?» — «сторінка центру» → CENTER → ADOPT «Заявка на прилаштування · adopt.html».
+  - Вузли CONTACT «Про центр · center.html» — вихід «контакти центру»: M (вхід після двох листів, помилка «Моїх улюбленців» E3,
+    помилка профілю E5), R2 · Опікун (E3 «не вдалося підтвердити»), R2 · Терміновий донатор (E4), R5 (EM1 «не знайшов»),
+    R3 (розвилка 12 «Дійшов після повтору?» — ні), Г2 (E1 «не вдалося відписати»), Г9 (E2 «не вдалося надіслати»).
+  - «Документи» (id="documents", [ЗАКОН]) відкриваються шторкою з care.html і donate.html (sitemap.md, «Навігація»).
+
+  Стани (sitemap.md): -loading і -error окремими сторінками. Порожнього немає — зміст статичний; успіху немає — не екран дії.
+  Правила — wireframes/_conventions.md.
+-->
+<html lang="uk" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Вайрфрейм · Про центр</title>
+  <script src="../_nav/theme.js"></script>
+  <link rel="stylesheet" href="../_nav/theme.css">
+  <link rel="stylesheet" href="../_nav/icons.css">
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script defer src="../_nav/tree.js"></script>
+  <script defer src="../_nav/nav.js"></script>
+  <link rel="stylesheet" href="_frame.css">
+</head>
+<body>
+<div class="wf-page">
+
+  <nav class="wf-states" aria-label="Стани екрана «Про центр»">
+    <a href="center.html" aria-current="page">Базова сторінка</a>
+    <span>Порожнього немає: зміст статичний</span>
+    <a href="center-error.html">Помилка</a>
+    <a href="center-loading.html">Завантаження</a>
+    <span>Успіху немає: це не екран дії</span>
+  </nav>
+
+  <div class="device">
+
+    <header class="app-header" data-zone="1">
+      <a class="brand" href="board.html">Прайд</a>
+      <details class="service">
+        <summary><span class="i i-gear" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
+        <nav aria-label="Службова зона">
+          <ul>
+            <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
+            <li><a href="my-subscriptions.html"><span class="i i-envelope" aria-hidden="true"></span>Мої підписки</a></li>
+            <li><a><span class="i i-globe" aria-hidden="true"></span>Мова: українська · English</a></li>
+          </ul>
+        </nav>
+      </details>
+    </header>
+
+    <main>
+      <!-- Хто ми і де ми: справжні дані центру з CLAUDE.md, «Організація» -->
+      <section aria-labelledby="who" data-zone="2">
+        <div class="img wide" role="img" aria-label="Фото: центр «Прайд»">фото</div>
+        <h1 id="who">Реабілітаційний центр «Прайд»</h1>
+        <p class="meta"><span class="i i-building" aria-hidden="true"></span> с. Кандибине, Миколаївська обл., Україна</p>
+        <p>Евакуюємо тварин із зон бойових дій, лікуємо, реабілітуємо й шукаємо їм нові домівки. Проводимо реабілітацію дітей з інвалідністю.</p>
+        <p><span class="ph">[текст з поточного сайту: Наша місія]</span></p>
+      </section>
+
+      <!-- Контакти одразу під «хто ми»: E3 — за новинами й грошима стоять люди, до яких можна достукатися -->
+      <section aria-labelledby="contacts" data-zone="3">
+        <h2 id="contacts">Контакти</h2>
+        <dl>
+          <dt>Телефон</dt>
+          <dd><a href="tel:+380665826817">+380 66 582 68 17</a></dd>
+          <dt>Email</dt>
+          <dd><a href="mailto:info@bestofthepride.info">info@bestofthepride.info</a></dd>
+          <dt>Години</dt>
+          <dd>пн–пт, 09:00–19:00</dd>
+          <dt>Instagram</dt>
+          <dd><a>@pride__rehabilitation_center</a></dd>
+          <dt>Facebook</dt>
+          <dd><a>Центр реабілітації Прайд</a></dd>
+        </dl>
+        <a class="btn primary" href="tel:+380665826817"><span class="i i-phone" aria-hidden="true"></span> Зателефонувати</a>
+        <a class="btn" href="mailto:info@bestofthepride.info"><span class="i i-envelope" aria-hidden="true"></span> Написати листом</a>
+      </section>
+
+      <!-- Що робимо: два напрями з брифу; дитяча терапія — контекст, не головний фокус -->
+      <section aria-labelledby="what" data-zone="4">
+        <h2 id="what">Що ми робимо</h2>
+
+        <h3><span class="i i-paw" aria-hidden="true"></span> Порятунок і реабілітація тварин</h3>
+        <ul>
+          <li>евакуація тварин із зон бойових дій;</li>
+          <li>лікування й реабілітація;</li>
+          <li>пошук нових домівок.</li>
+        </ul>
+        <p class="meta">Тварини центру — переважно коні та спеціально навчені собаки, а також інші врятовані тварини.</p>
+
+        <h3><span class="i i-heart" aria-hidden="true"></span> Реабілітація дітей з інвалідністю</h3>
+        <ul>
+          <li>іпотерапія;</li>
+          <li>іповенція;</li>
+          <li>каністерапія;</li>
+          <li>психологічна підтримка дітей і мам;</li>
+          <li>масаж;</li>
+          <li>гідро- і термотерапія;</li>
+          <li>арт-терапія.</li>
+        </ul>
+        <p><span class="ph">[текст з поточного сайту: Чим займається центр]</span></p>
+      </section>
+
+      <!-- Команда: імен у репо немає — лише плейсхолдери -->
+      <section aria-labelledby="team" data-zone="5">
+        <h2 id="team"><span class="i i-users" aria-hidden="true"></span> Команда</h2>
+        <ul class="hlist">
+          <li>
+            <span class="img avatar" role="img" aria-label="Фото: [ім'я людини з команди]">фото</span>
+            <span class="ph">[ім'я]</span>
+            <span class="meta">[роль]</span>
+          </li>
+          <li>
+            <span class="img avatar" role="img" aria-label="Фото: [ім'я людини з команди]">фото</span>
+            <span class="ph">[ім'я]</span>
+            <span class="meta">[роль]</span>
+          </li>
+          <li>
+            <span class="img avatar" role="img" aria-label="Фото: [ім'я людини з команди]">фото</span>
+            <span class="ph">[ім'я]</span>
+            <span class="meta">[роль]</span>
+          </li>
+        </ul>
+        <p><span class="ph">[текст з поточного сайту: Команда]</span></p>
+      </section>
+
+      <!-- FAQ: питання й відповіді — з поточного сайту, тут не вигадуються -->
+      <section aria-labelledby="faq" data-zone="6">
+        <h2 id="faq">Часті питання</h2>
+        <details>
+          <summary><span class="ph">[питання 1 з поточного сайту: FAQ]</span></summary>
+          <p><span class="ph">[відповідь з поточного сайту: FAQ]</span></p>
+        </details>
+        <details>
+          <summary><span class="ph">[питання 2 з поточного сайту: FAQ]</span></summary>
+          <p><span class="ph">[відповідь з поточного сайту: FAQ]</span></p>
+        </details>
+        <details>
+          <summary><span class="ph">[питання 3 з поточного сайту: FAQ]</span></summary>
+          <p><span class="ph">[відповідь з поточного сайту: FAQ]</span></p>
+        </details>
+      </section>
+
+      <!-- Г9: зі сторінки центру — заявка загалом, без конкретної тварини -->
+      <section aria-labelledby="adopt" data-zone="7">
+        <h2 id="adopt"><span class="i i-house" aria-hidden="true"></span> Забрати тварину додому</h2>
+        <p>Центр шукає врятованим тваринам нові домівки. Можна залишити заявку, навіть якщо ви ще не обрали тварину.</p>
+        <a class="btn" href="adopt.html">Хочу забрати додому</a>
+      </section>
+
+      <!-- [ЗАКОН] Документи: якір #documents — сюди веде шторка з care.html і donate.html -->
+      <section id="documents" aria-labelledby="documents-title" data-zone="8">
+        <h2 id="documents-title"><span class="i i-lock" aria-hidden="true"></span> Документи</h2>
+        <details>
+          <summary>Умови пожертви</summary>
+          <p><span class="ph">[текст умов пожертви (оферта) — юридичний текст ще не написано]</span></p>
+          <p class="meta">Редакція від <span class="ph">[дата]</span></p>
+        </details>
+        <details>
+          <summary>Політика конфіденційності</summary>
+          <p><span class="ph">[текст політики конфіденційності, зокрема GDPR — юридичний текст ще не написано]</span></p>
+          <p class="meta">Редакція від <span class="ph">[дата]</span></p>
+        </details>
+      </section>
+    </main>
+
+    <nav class="tabbar" aria-label="Головна навігація" data-zone="9">
+      <ul>
+        <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+        <li><a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+        <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+        <li><a href="center.html" aria-current="page"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+      </ul>
+    </nav>
+
+  </div>
+
+  <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
+    <h2>Про центр · базова сторінка</h2>
+    <ul>
+      <li><code>center.html</code> — глобальний екран, пункт таббару «Про центр». Група «Хто такі «Прайд»».</li>
+      <li>Персона — Терміновий донатор (secondary) перед донатом; також усі, хто прийшов сюди по контакти з помилки.</li>
+      <li>Найслабший пункт навігації: даних, що цю сторінку шукають, немає (sitemap.md, «Навігація»).</li>
+    </ul>
+
+    <h2>Job</h2>
+    <ul>
+      <li>E3 [?] · Вірити, що мені показують правду: за новинами й грошима стоїть реальний центр — з адресою, телефоном і людьми.</li>
+      <li>Г9 [?] · Повідомити центр, що хочу взяти тварину додому — зона 7.</li>
+    </ul>
+
+    <h2>Зони і головна дія кожної</h2>
+    <ul>
+      <li><span class="wf-zone">1</span> Шапка — службова зона: Моя підтримка, Мої підписки, мова.</li>
+      <li><span class="wf-zone">2</span> Хто ми і де ми — назва, село, два напрями роботи, місія з поточного сайту. Дії немає: це відповідь на «хто це».</li>
+      <li><span class="wf-zone">3</span> Контакти — <b>«Зателефонувати»</b> (<code>tel:</code>); поруч «Написати листом» (<code>mailto:</code>), години, Instagram і Facebook. Стоять другими: більшість входів сюди — вихід «контакти центру» з помилок.</li>
+      <li><span class="wf-zone">4</span> Що ми робимо — тварини й терапія з дітьми, послуги списком із брифу. Без дії.</li>
+      <li><span class="wf-zone">5</span> Команда — плейсхолдери. Без дії.</li>
+      <li><span class="wf-zone">6</span> Часті питання — розгорнути відповідь (<code>details</code>).</li>
+      <li><span class="wf-zone">7</span> Забрати тварину додому — «Хочу забрати додому» → <code>adopt.html</code> (Г9). Світла кнопка: прилаштування — не основний фокус (бриф).</li>
+      <li><span class="wf-zone">8</span> <b>[ЗАКОН]</b> Документи, <code>id="documents"</code> — розгорнути «Умови пожертви» чи «Політику конфіденційності».</li>
+      <li><span class="wf-zone">9</span> Глобальна навігація — 4 пункти, поточний — «Про центр».</li>
+    </ul>
+
+    <h2>Дані</h2>
+    <ul>
+      <li>Назва, село, напрями роботи, послуги, телефон, email, години, Instagram і Facebook — справжні, з CLAUDE.md («Організація»).</li>
+      <li>Місія, опис роботи, команда, FAQ — плейсхолдери: текст з поточного сайту ще не перенесено, з інтернету нічого не беремо.</li>
+      <li>Instagram і Facebook — <code>&lt;a&gt;</code> без <code>href</code>: адрес сторінок у брифі немає [?].</li>
+      <li>Тексти документів — плейсхолдери: юридичних текстів у репо немає.</li>
+    </ul>
+
+    <h2>Переходи flow</h2>
+    <ul class="wf-flow">
+      <li>Сюди — з пункту «Про центр» таббару.</li>
+      <li>R2 · Терміновий донатор, розвилка 3 «Хоче перевірити, хто такі „Прайд“?»: так — з <a href="donate.html">Донату центру</a> («хто ми») сюди і назад «назад, введене збережено» → <a href="donate.html">Донат центру</a> (розвилка 4); ні — донатор лишається на донаті. Посилання «Повернутися до донату» в рамці немає: воно доречне не для всіх входів, тож повернення — кнопкою «назад» браузера чи пунктом «Підтримати».</li>
+      <li>Г9, розвилка 1 «Звідки?»: сторінка центру — «Хочу забрати додому» → <a href="adopt.html">Заявка на прилаштування</a> (заявка загалом); тихе посилання на профілі — з <a href="animal.html">Профілю тварини</a>, повз цю сторінку.</li>
+      <li>Вихід «контакти центру» — сюди з <a href="login-success.html">Входу</a> (після двох листів), з <a href="my-animals-error.html">помилки «Моїх улюбленців»</a>, з <a href="animal-error.html">помилки профілю</a> (M); з <a href="care-error.html">помилки опіки</a> (R2 · Опікун, E3); з <a href="donate-error.html">помилки донату</a> (R2 · донатор, E4); з <a href="my-support-empty.html">порожньої «Моєї підтримки»</a> (R5, «не знайшов»); з <a href="animal-success.html">«перевірте пошту» на профілі</a> (R3, розвилка 12 — ні); з <a href="my-subscriptions-error.html">помилки відписки</a> (Г2); з <a href="adopt-error.html">помилки заявки</a> (Г9).</li>
+      <li>«Документи» — шторкою з <a href="care.html">Опіки над твариною</a> і <a href="donate.html">Донату центру</a> (розвилка 5 «Згода з умовами позначена?»), без окремого кроку.</li>
+      <li>Сторінка вантажиться: <a href="center-loading.html">завантаження</a>; не вдалося — <a href="center-error.html">помилка</a>. Порожнього й успіху немає.</li>
+    </ul>
+  </aside>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!doctype html>
+<!--
+  Усі тварини · animals-error.html — стан помилки (sitemap.md, колонка «Стани»: «не вдалося завантажити →
+  спробувати ще чи назад на дошку»).
+  Базова сторінка — animals.html; шапка, зони й таббар ті самі.
+
+  Крок flow — flows.md, flow R3: L3 «loading: список; результати пошуку» → розвилка 4а «Список прийшов?» — ні →
+  E4 «error: не вдалося завантажити». Виходи: «спробувати ще» → L3; «назад» → Дошка.
+  Контакти центру — за правилом _conventions.md.
+
+  Job (sitemap.md): R1, R3.
+  Правила — wireframes/_conventions.md.
+-->
+<html lang="uk" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Вайрфрейм · Усі тварини · помилка</title>
+  <script src="../_nav/theme.js"></script>
+  <link rel="stylesheet" href="../_nav/theme.css">
+  <link rel="stylesheet" href="../_nav/icons.css">
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script defer src="../_nav/tree.js"></script>
+  <script defer src="../_nav/nav.js"></script>
+  <link rel="stylesheet" href="_frame.css">
+</head>
+<body>
+<div class="wf-page">
+
+  <nav class="wf-states" aria-label="Стани екрана «Усі тварини»">
+    <a href="animals.html">Базова сторінка</a>
+    <a href="animals-empty.html">Порожній</a>
+    <a href="animals-error.html" aria-current="page">Помилка</a>
+    <a href="animals-loading.html">Завантаження</a>
+    <span>Успіху немає: це не екран дії — тут шукають і фільтрують</span>
+  </nav>
+
+  <div class="device">
+
+    <header class="app-header" data-zone="1">
+      <a class="brand" href="board.html">Прайд</a>
+      <details class="service">
+        <summary><span class="i i-gear" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
+        <nav aria-label="Службова зона">
+          <ul>
+            <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
+            <li><a href="my-subscriptions.html"><span class="i i-envelope" aria-hidden="true"></span>Мої підписки</a></li>
+            <li><a><span class="i i-globe" aria-hidden="true"></span>Мова: українська · English</a></li>
+          </ul>
+        </nav>
+      </details>
+    </header>
+
+    <main>
+      <a class="back" href="board.html"><span class="i i-angle-left" aria-hidden="true"></span> Дошка</a>
+
+      <h1>Усі тварини</h1>
+
+      <!-- Введене збережено: повтор шукає те саме -->
+      <form role="search" aria-label="Пошук і фільтри" data-zone="2" action="animals-loading.html" method="get">
+        <label>Ім'я тварини
+          <input type="search" name="q" autocomplete="off">
+        </label>
+        <label class="choice"><input type="checkbox" name="need" value="lacking" checked> Лише ті, кому ще бракує допомоги</label>
+        <details>
+          <summary>Вид і характер · нічого не обрано</summary>
+          <fieldset class="row">
+            <legend>Вид</legend>
+            <label class="choice"><input type="checkbox" name="kind" value="horse"> Коні</label>
+            <label class="choice"><input type="checkbox" name="kind" value="dog"> Собаки</label>
+            <label class="choice"><input type="checkbox" name="kind" value="other"> Інші</label>
+          </fieldset>
+          <fieldset class="row">
+            <legend>Характер</legend>
+            <label class="choice"><input type="checkbox" name="trait" value="1"> <span class="ph">[риса]</span></label>
+            <label class="choice"><input type="checkbox" name="trait" value="2"> <span class="ph">[риса]</span></label>
+            <label class="choice"><input type="checkbox" name="trait" value="3"> <span class="ph">[риса]</span></label>
+          </fieldset>
+        </details>
+        <button class="primary" type="submit"><span class="i i-search-text" aria-hidden="true"></span> Показати</button>
+      </form>
+
+      <!-- На місці списку — що сталося, повтор, назад і куди звернутися -->
+      <section aria-labelledby="list" data-zone="3">
+        <h2 id="list"><span class="i i-exclamation-circle" aria-hidden="true"></span> Не вдалося завантажити тварин</h2>
+        <p role="alert">Список не відкрився — схоже, зв'язок перервався. Обрані фільтри збережено.</p>
+        <a class="btn primary" href="animals-loading.html"><span class="i i-arrows-rotate" aria-hidden="true"></span> Спробувати ще</a>
+        <a class="btn" href="board.html">Назад на дошку</a>
+        <p class="meta">Не виходить? Команда центру на зв'язку пн–пт, 09:00–19:00:</p>
+        <ul>
+          <li><a href="tel:+380665826817"><span class="i i-phone" aria-hidden="true"></span> +380 66 582 68 17</a></li>
+          <li><a href="mailto:info@bestofthepride.info"><span class="i i-envelope" aria-hidden="true"></span> info@bestofthepride.info</a></li>
+          <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span> Про центр</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <nav class="tabbar" aria-label="Головна навігація" data-zone="4">
+      <ul>
+        <li><a href="board.html" aria-current="page"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+        <li><a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+        <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+        <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+      </ul>
+    </nav>
+
+  </div>
+
+  <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
+    <h2>Усі тварини · помилка</h2>
+    <ul>
+      <li>Список не завантажився: збій зв'язку чи сервера.</li>
+      <li>Розвилка 4а «Список прийшов?» — ні → E4: «спробувати ще» → L3, «назад» → Дошка. Є і в sitemap.md, і у flow R3.</li>
+    </ul>
+
+    <h2>Job</h2>
+    <ul>
+      <li>R1 · Зрозуміти, з ким із тварин виникне зв'язок</li>
+      <li>R3 · Познайомитися з твариною, перш ніж давати гроші</li>
+    </ul>
+
+    <h2>Зони в цьому стані</h2>
+    <ul>
+      <li><span class="wf-zone">3</span> Що сталося — <b>«Спробувати ще»</b> з тими самими фільтрами, «Назад на дошку» і контакти центру: телефон, email, години, «Про центр».</li>
+      <li><span class="wf-zone">2</span> Пошук і фільтри — введене збережено (тут — «кому ще бракує допомоги»).</li>
+      <li><span class="wf-zone">1</span>, <span class="wf-zone">4</span> — шапка і таббар працюють.</li>
+    </ul>
+
+    <h2>Переходи flow</h2>
+    <ul class="wf-flow">
+      <li>Сюди — з <a href="animals-loading.html">завантаження</a>: список чи результати пошуку не прийшли.</li>
+      <li>«Спробувати ще» і «Показати» → <a href="animals-loading.html">завантаження</a>.</li>
+      <li>«Назад на дошку» і «Дошка» вгорі → <a href="board.html">Дошка</a>.</li>
+      <li>Не виходить — контакти й <a href="center.html">Про центр</a>.</li>
+    </ul>
+  </aside>
+
+</div>
+</body>
+</html>

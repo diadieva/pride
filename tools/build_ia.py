@@ -66,14 +66,14 @@ for r in mrows:
     if m: JOBNAMES[m.group(1)] = m.group(2).strip('~ ')
 
 # ---------- registry ----------
-rh, rrows = table(S, '| Група | Екран | Файл | Job | Що на екрані |')
+rh, rrows = table(S, '| Група | Екран | Файл | Job | Що на екрані | Стани |')
 groups, cur = [], None
-for g, name, f, jobs, desc in rrows:
+for g, name, f, jobs, desc, states in rrows:
     if g:
         gm = re.match(r'\*\*(.+?)\*\*(?: · (.*))?', g)
         cur = {'name': gm.group(1), 'ent': gm.group(2) or '', 'screens': []}
         groups.append(cur)
-    cur['screens'].append({'name': name, 'file': f.strip('`'), 'jobs': jobs, 'desc': desc})
+    cur['screens'].append({'name': name, 'file': f.strip('`'), 'jobs': jobs, 'desc': desc, 'states': states})
 
 th, trows = table(S, '| Екран | Тип | Звідки | Чому так |')
 TYPE = {r[0].strip('`'): r[1] for r in trows}
@@ -108,7 +108,9 @@ def tree():
             o.append(f'<li class="screen{" is-main" if main else ""}"><details><summary>'
                      f'<span class="sname">{esc(s["name"])}</span> <code class="file">{s["file"]}</code>'
                      f'<span class="jobs">{inline(re.sub(r"(\]) ?[,—] ?", r"\1 ", s["jobs"]))}</span>{badges}</summary>'
-                     f'<p>{inline(desc)}</p></details></li>')
+                     f'<p>{inline(desc)}</p>'
+                     + ''.join(f'<p>{inline(st)}</p>' for st in s['states'].split('<br>') if st)
+                     + '</details></li>')
         o.append('</ul></li>')
     o.append('</ul></li></ul>')
     return ''.join(o)
