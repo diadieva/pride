@@ -1,6 +1,6 @@
 /* Навігатор репо — службовий інструмент, не частина продукту. Кольори — з _nav/theme.css (палітра ілюстрації), префікс pn-.
-   Ширина — --pn-space: 240px, згорнутий (html.pn-collapsed, лише на ширині понад 760px) — 64px. */
-html { --pn-space: 240px; }
+   Ширина — --pn-space: 264px, згорнутий (html.pn-collapsed, лише на ширині понад 760px) — 64px. */
+html { --pn-space: 264px; }
 
 .pn {
   --pn-bg: #ebdfc5;
@@ -50,7 +50,7 @@ html { --pn-space: 240px; }
 .pn *, .pn *::before, .pn *::after { box-sizing: border-box; }
 
 .pn-head {
-  margin: 0 8px 12px;
+  margin: 0 12px 12px;
   color: var(--pn-muted);
   font-size: 11px;
   font-weight: 600;
@@ -62,7 +62,7 @@ html { --pn-space: 240px; }
   display: flex;
   gap: 2px;
   width: max-content;
-  margin: 0 8px 14px;
+  margin: 0 12px 16px;
   padding: 2px;
   border: 1px solid var(--pn-line);
   border-radius: 999px;
@@ -86,13 +86,13 @@ html { --pn-space: 240px; }
 
 .pn ul { list-style: none; margin: 0; padding: 0; }
 .pn ul ul { margin-left: 12px; padding-left: 8px; border-left: 1px solid var(--pn-line); }
-.pn li { margin: 1px 0; }
+.pn li { margin: 2px 0; }
 
 .pn-page, .pn-branch {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 6px 10px;
+  padding: 9px 12px;
   border-radius: 10px;
   color: inherit;
   text-decoration: none;
@@ -154,7 +154,7 @@ html.pn-on body { padding-left: var(--pn-space); }
   }
   html.pn-collapsed .pn-theme { flex-direction: column; margin: 0 auto 14px; }
   html.pn-collapsed .pn-theme button { justify-content: center; padding: 6px; }
-  html.pn-collapsed .pn-page { justify-content: center; padding: 10px 0; }
+  html.pn-collapsed .pn-page { justify-content: center; padding: 12px 0; }
   html.pn-collapsed .pn-branch { display: none; }
   html.pn-collapsed .pn ul ul { margin-left: 0; padding-left: 0; border-left: 0; }
 

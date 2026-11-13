@@ -15,5 +15,5 @@ window.NAV_TREE = [
   { title: "Огляд продукту", href: "index.html", icon: "house" },
   { title: "Дослідження", href: "research/research.html", icon: "search-text" },
   { title: "Персони і JTBD", href: "personas.html", icon: "users" },
-  { title: "Інформаційна архітектура", href: "ia.html", icon: "sitemap" }
+  { title: "Структура", href: "ia.html", icon: "sitemap" }
 ];
