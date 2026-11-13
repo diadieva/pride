@@ -92,4 +92,65 @@
 
   if (document.body) build();
   else document.addEventListener("DOMContentLoaded", build);
+
+  // Автооновлення після пушу: щойно на GitHub Pages новий деплой, сторінка перезавантажується сама.
+  // Для сторінки, її стилів і скриптів порівнюємо Last-Modified: що показано / що в кеші браузера
+  // проти того, що зараз на сервері. Запит із cache: "no-cache" заодно оновлює кеш, тож після
+  // перезавантаження браузер бере вже нові файли. Перевірка — кожні 10 с, поки вкладка на екрані,
+  // і щойно на неї повертаються. Локально (file://) не працює.
+  function watchDeploys() {
+    if (location.protocol === "file:" || !window.fetch) return;
+    var page = location.href.split("#")[0];
+    var loaded = null; // Last-Modified сторінки, яку показано зараз
+    var checking = false;
+    var pending = false; // зміну знайдено, чекаємо, поки можна перезавантажити
+
+    function stamp(url, mode) {
+      return fetch(url, { cache: mode }).then(function (r) {
+        return r.ok ? r.headers.get("last-modified") : null;
+      });
+    }
+
+    // Старий і свіжий штамп файлу: спершу з кешу, потім із сервера (кеш при цьому оновлюється)
+    function changed(url) {
+      return stamp(url, "force-cache").then(function (cached) {
+        return stamp(url, "no-cache").then(function (fresh) { return !!fresh && fresh !== cached; });
+      });
+    }
+
+    function assets() {
+      var urls = [];
+      document.querySelectorAll('link[rel="stylesheet"][href], script[src]').forEach(function (el) {
+        var u = new URL(el.href || el.src, location.href);
+        if (u.origin === location.origin) urls.push(u.href);
+      });
+      return urls;
+    }
+
+    function recentlyReloaded() {
+      try { return Date.now() - Number(sessionStorage.getItem("pn-live-reload") || 0) < 20000; } catch (e) { return false; }
+    }
+
+    function check() {
+      if (checking || document.visibilityState !== "visible") return;
+      checking = true;
+      Promise.all([stamp(page, "no-cache")].concat(assets().map(changed))).then(function (res) {
+        if (!loaded) { loaded = res[0]; return; }
+        if ((res[0] && res[0] !== loaded) || res.slice(1).some(Boolean)) pending = true;
+        if (!pending || recentlyReloaded()) return;
+        try { sessionStorage.setItem("pn-live-reload", String(Date.now())); } catch (e) {}
+        location.reload();
+      }).catch(function () {}).then(function () { checking = false; });
+    }
+
+    stamp(page, "force-cache").then(function (v) {
+      loaded = v;
+      check();
+      setInterval(check, 10000);
+      document.addEventListener("visibilitychange", check);
+      window.addEventListener("focus", check);
+    }).catch(function () {});
+  }
+
+  watchDeploys();
 })();
