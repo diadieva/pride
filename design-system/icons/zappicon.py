@@ -28,8 +28,9 @@ ICONS = [
     "sun", "moon",    # перемикач теми
     "menu-bars",      # кнопка навігатора на телефоні
     "minus", "plus",  # масштаб діаграм
-    "arrows-out",     # вмістити діаграму в ширину
-    "expand",         # діаграма на весь екран
+    "arrows-width",   # вмістити схему в ширину
+    "expand", "compress",  # схема на весь екран / вийти
+    "arrow-up",       # повернутися до списку flows
     "house", "search-text", "users", "sitemap",  # пункти навігатора
     "angles-left", "angles-right",               # згорнути / розгорнути навігатор
 ]

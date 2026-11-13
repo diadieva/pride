@@ -195,25 +195,23 @@ def flow_html(fl):
     meta = ''.join(f'<p>{inline(x)}</p>' for x in fl['meta'].split('\n\n') if x.strip())
     dead = len(re.findall(r'class [A-Za-z0-9,]+ dead', fl['code']))
     deadc = len(re.findall(r'\(\"тупик', fl['code']))
-    return (f'<article class="flow" id="{fid(fl["title"])}"><h3><span class="fnum">{esc(num)}</span> {esc(name)}</h3>'
+    return (f'<article class="flow" id="{fid(fl["title"])}"><div class="fhead"><h3><span class="fnum">{esc(num)}</span> {esc(name)}</h3>'
+            '<a class="tolist" href="#flow-list"><span class="i i-arrow-up" aria-hidden="true"></span>Усі flows</a></div>'
             f'<div class="fmeta">{meta}</div>'
-            f'<div class="viewer"><div class="dtools" role="toolbar" aria-label="Масштаб діаграми flow {esc(num)}" hidden>'
-            '<div class="zgroup">'
+            f'<div class="viewer"><div class="dtools" hidden><div class="dpanel" role="toolbar" aria-label="Керування схемою flow {esc(num)}">'
             '<button type="button" class="tb" data-act="out" aria-label="Зменшити" title="Зменшити (−)"><span class="i i-minus" aria-hidden="true"></span></button>'
-            '<output class="zval" aria-live="polite">100%</output>'
+            '<button type="button" class="tb zval" data-act="real" title="Справжній розмір, 100% (1)">100%</button>'
             '<button type="button" class="tb" data-act="in" aria-label="Збільшити" title="Збільшити (+)"><span class="i i-plus" aria-hidden="true"></span></button>'
-            '</div>'
-            '<button type="button" class="tb" data-act="fit" aria-pressed="true" title="Вмістити в ширину (0)"><span class="i i-arrows-out" aria-hidden="true"></span>Вмістити</button>'
-            '<button type="button" class="tb" data-act="real" aria-pressed="false" title="Справжній розмір (1)">100%</button>'
-            '<button type="button" class="tb" data-act="full" title="На весь екран (F)"><span class="i i-expand" aria-hidden="true"></span><span class="lbl">На весь екран</span></button>'
-            '<span class="hint">Тягніть, щоб гортати · Ctrl/⌘ + коліщатко — масштаб</span>'
-            '<a class="tolist" href="#flows">До списку flows</a>'
-            '</div>'
+            '<span class="dsep" aria-hidden="true"></span>'
+            '<button type="button" class="tb" data-act="fit" aria-pressed="true" aria-label="Вмістити в ширину" title="Вмістити в ширину (0)"><span class="i i-arrows-width" aria-hidden="true"></span></button>'
+            '<button type="button" class="tb" data-act="full" aria-label="На весь екран" title="На весь екран (F)"><span class="i i-expand" aria-hidden="true"></span></button>'
+            '<span class="sr" aria-live="polite"></span>'
+            '</div></div>'
             f'<div class="diagram" tabindex="0" role="region" aria-label="Діаграма flow {esc(num)}"><pre class="mermaid">{esc(fl["code"])}</pre></div></div>'
             f'<details class="fdet"><summary>Розвилки і стани словами</summary><div class="dgrid">{det}</div></details></article>')
 
 def why():
-    o = ['<div class="table-wrap"><table class="why"><thead><tr><th scope="col">Flow</th><th scope="col">Чому</th></tr></thead><tbody>']
+    o = ['<div class="table-wrap" id="flow-list"><table class="why"><thead><tr><th scope="col">Flow</th><th scope="col">Чому</th></tr></thead><tbody>']
     for f_, w in why_rows:
         title = re.sub(r'\*\*', '', f_)
         anchor = next((fid(fl['title']) for fl in flows if fl['title'].replace(' — ', ' — ') == title or fl['title'] == title), None)
