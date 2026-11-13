@@ -66,6 +66,9 @@
   border-radius: 999px;
 }
 .pn-theme button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   padding: 3px 10px;
   border: 0;
   border-radius: 999px;
@@ -112,7 +115,9 @@ html.pn-on body { padding-left: 240px; }
   .pn { transform: translateX(-100%); transition: transform .2s ease; box-shadow: none; }
   html.pn-open .pn { transform: none; box-shadow: 0 0 24px rgba(0,0,0,.2); }
   .pn-toggle {
-    display: block;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     position: fixed;
     left: 8px;
     bottom: 8px;

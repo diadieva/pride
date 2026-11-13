@@ -6,6 +6,7 @@
   <title>Прайд · Персони і JTBD</title>
   <script src="./_nav/theme.js"></script>
   <link rel="stylesheet" href="./_nav/theme.css">
+  <link rel="stylesheet" href="./_nav/icons.css">
   <link rel="stylesheet" href="./_nav/nav.css">
   <script defer src="./_nav/tree.js"></script>
   <script defer src="./_nav/nav.js"></script>
@@ -142,6 +143,9 @@
     .sc.s3 { background: var(--accent-fill); color: var(--on-accent); }
     .sc.s2 { background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent-line); }
     .na { color: var(--muted); font-weight: 700; margin-right: 4px; }
+    .i-check-circle { color: var(--good); }
+    .i-contrast { color: var(--warn); }
+    .i-xmark-circle { color: var(--bad); }
     td .why { color: var(--muted); font-size: 12.5px; }
     td.fn { min-width: 200px; }
     td.cmp { min-width: 260px; color: var(--muted); font-size: 12.5px; }
@@ -180,14 +184,14 @@
     <div class="legend" aria-label="Позначки">
       <span class="item"><span class="q">[?]</span> даних немає</span>
       <span class="item"><span class="hyp">гіпотеза</span> треба перевірити</span>
-      <span class="item">🗣 слова людей (відгуки)</span>
-      <span class="item">🧩 сигнал продукту</span>
-      <span class="item">📰 третя сторона</span>
+      <span class="item"><span class="i i-comment-text" aria-hidden="true"></span> слова людей (відгуки)</span>
+      <span class="item"><span class="i i-puzzle-piece" aria-hidden="true"></span> сигнал продукту</span>
+      <span class="item"><span class="i i-newspaper" aria-hidden="true"></span> третя сторона</span>
       <span class="item"><span class="fix">виправлено 30.10</span> змінено після доресерчу</span>
     </div>
     <div class="provenance">
       <div class="prov"><b>Власний акаунт</b><span>Нічого. Теки <code>research/screens/own/</code> немає, скрінів власного акаунта не надходило.</span></div>
-      <div class="prov"><b>Публічні сторінки 🌐</b><span>Усе: скріни конкурентів, відгуки в App Store і Trustpilot, статті. Імена авторів відгуків не зберігаємо.</span></div>
+      <div class="prov"><b>Публічні сторінки <span class="i i-globe" aria-hidden="true"></span></b><span>Усе: скріни конкурентів, відгуки в App Store і Trustpilot, статті. Імена авторів відгуків не зберігаємо.</span></div>
       <div class="prov"><b>Донори «Прайду»</b><span>Даних немає. Персони і jobs виросли з даних про конкурентів, а не перевірені на людях, які підтримують центр.</span></div>
     </div>
   </header>
@@ -229,8 +233,8 @@
             <h4>Jobs</h4>
             <ul>
               <li>Обрати одну тварину і взяти опіку повну чи часткову: від 50 грн <a class="c" href="#src-DV1">DV1</a> <a class="c" href="#src-DV3">DV3</a>; £4 на місяць або £48 разово <a class="c" href="#src-DS3">DS3</a>.</li>
-              <li>Бачити, як живе «своя» тварина після оплати. 🗣 «Сподівалась, що за це хоча б будуть якісь фото кроликів- але ні.» <a class="c" href="#src-DV4">DV4</a>; «very gratifying to get updates on how your borrower is doing» <a class="c" href="#src-KV6">KV6</a>.</li>
-              <li>Керувати регулярною опікою: змінити суму чи скасувати. 🗣 Просять «редагувати кураторство - наприклад збільшити місячний внесок», скаржаться, що не можуть припинити списання <a class="c" href="#src-DV4">DV4</a>.</li>
+              <li>Бачити, як живе «своя» тварина після оплати. <span class="i i-comment-text" role="img" aria-label="слова людей"></span> «Сподівалась, що за це хоча б будуть якісь фото кроликів- але ні.» <a class="c" href="#src-DV4">DV4</a>; «very gratifying to get updates on how your borrower is doing» <a class="c" href="#src-KV6">KV6</a>.</li>
+              <li>Керувати регулярною опікою: змінити суму чи скасувати. <span class="i i-comment-text" role="img" aria-label="слова людей"></span> Просять «редагувати кураторство - наприклад збільшити місячний внесок», скаржаться, що не можуть припинити списання <a class="c" href="#src-DV4">DV4</a>.</li>
             </ul>
           </div>
 
@@ -239,9 +243,9 @@
             <ul>
               <li><b>Стіна логіну перед опікою:</b> «Вхід» і рекламний поп-ап <a class="c" href="#src-HP4">HP4</a>; обов'язкова реєстрація <a class="c" href="#src-HP2">HP2</a>.</li>
               <li><b>Реєстрація ламається на підтвердженні email:</b> «не приходить лист з підтвердженням» <a class="c" href="#src-DV2">DV2</a>.</li>
-              <li><b>Шукати незручно:</b> 537 тварин списком <a class="c" href="#src-HP2">HP2</a>. 🗣 4 відгуки просять показати, «яким тваринкам необхідна допомога» <a class="c" href="#src-DV4">DV4</a>.</li>
-              <li><b>Після оплати не видно навіть саму тварину, а про важливе мовчать</b> <span class="fix">виправлено 30.10</span>: 5 із 67 відгуків — тварина зникає з «Мої тварини» <a class="c" href="#src-DV4">DV4</a> 🗣; опікунам не сказали, куди перевели віслюка <a class="c" href="#src-DS5">DS5</a> 🗣.</li>
-              <li><b>Регулярну опіку важко зупинити:</b> лише листом <a class="c" href="#src-HP5">HP5</a>; 🗣 «навіть якщо вихожу з аккаунту гроші всеодно списуються» <a class="c" href="#src-DV4">DV4</a>.</li>
+              <li><b>Шукати незручно:</b> 537 тварин списком <a class="c" href="#src-HP2">HP2</a>. <span class="i i-comment-text" role="img" aria-label="слова людей"></span> 4 відгуки просять показати, «яким тваринкам необхідна допомога» <a class="c" href="#src-DV4">DV4</a>.</li>
+              <li><b>Після оплати не видно навіть саму тварину, а про важливе мовчать</b> <span class="fix">виправлено 30.10</span>: 5 із 67 відгуків — тварина зникає з «Мої тварини» <a class="c" href="#src-DV4">DV4</a> <span class="i i-comment-text" role="img" aria-label="слова людей"></span>; опікунам не сказали, куди перевели віслюка <a class="c" href="#src-DS5">DS5</a> <span class="i i-comment-text" role="img" aria-label="слова людей"></span>.</li>
+              <li><b>Регулярну опіку важко зупинити:</b> лише листом <a class="c" href="#src-HP5">HP5</a>; <span class="i i-comment-text" role="img" aria-label="слова людей"></span> «навіть якщо вихожу з аккаунту гроші всеодно списуються» <a class="c" href="#src-DV4">DV4</a>.</li>
               <li class="muted">Котра біль найсильніша <span class="q">[?]</span> — частоти скарг немає.</li>
             </ul>
           </div>
@@ -252,10 +256,10 @@
             <div class="t calm">
               <b>Заспокоює</b> <span class="fix">виправлено 30.10</span>
               <ul>
-                <li>🗣 Видно, кому допомагаєш і куди йдуть гроші: «With Kiva, you can actually choose and see who you are helping.» <a class="c" href="#src-KV5">KV5</a></li>
-                <li>🗣 Видно прогрес збору: «скільки вже допомоги для тваринки закрито» <a class="c" href="#src-DV4">DV4</a> <a class="c" href="#src-KV6">KV6</a></li>
-                <li>🗣 Немає тиску: «they do not keep on at you for more money» <a class="c" href="#src-DS5">DS5</a></li>
-                <li>🗣 Профіль з інформацією і фото <a class="c" href="#src-DV4">DV4</a></li>
+                <li><span class="i i-comment-text" role="img" aria-label="слова людей"></span> Видно, кому допомагаєш і куди йдуть гроші: «With Kiva, you can actually choose and see who you are helping.» <a class="c" href="#src-KV5">KV5</a></li>
+                <li><span class="i i-comment-text" role="img" aria-label="слова людей"></span> Видно прогрес збору: «скільки вже допомоги для тваринки закрито» <a class="c" href="#src-DV4">DV4</a> <a class="c" href="#src-KV6">KV6</a></li>
+                <li><span class="i i-comment-text" role="img" aria-label="слова людей"></span> Немає тиску: «they do not keep on at you for more money» <a class="c" href="#src-DS5">DS5</a></li>
+                <li><span class="i i-comment-text" role="img" aria-label="слова людей"></span> Профіль з інформацією і фото <a class="c" href="#src-DV4">DV4</a></li>
                 <li class="muted"><span class="q">[?]</span> Характер, друзі, вебкамера, ціна в каталозі, екран від імені тварини: є в продуктах <a class="c" href="#src-DS2">DS2</a> <a class="c" href="#src-DS3">DS3</a> <a class="c" href="#src-DV1">DV1</a>, відгуків про них немає.</li>
                 <li class="muted"><span class="hyp">гіпотеза</span> <span class="q">[?]</span> Етапи «що зроблено», як трекер посилки <a class="c" href="#src-CW1">CW1</a> <a class="c" href="#src-DM1">DM1</a>.</li>
               </ul>
@@ -263,10 +267,10 @@
             <div class="t alarm">
               <b>Насторожує</b> <span class="fix">виправлено 30.10</span>
               <ul>
-                <li>🗣 Мовчання про важливе: «we have not been informed where our sponsored Donkey is?» <a class="c" href="#src-DS5">DS5</a></li>
-                <li>🗣 Тварина зникла з «Мої тварини», підтримка мовчить <a class="c" href="#src-DV4">DV4</a></li>
-                <li>🗣 Не вдається скасувати списання <a class="c" href="#src-DV4">DV4</a> <a class="c" href="#src-HP5">HP5</a></li>
-                <li>🗣 Реклама спонсорства, поки організація мовчить про кризу <a class="c" href="#src-DS5">DS5</a></li>
+                <li><span class="i i-comment-text" role="img" aria-label="слова людей"></span> Мовчання про важливе: «we have not been informed where our sponsored Donkey is?» <a class="c" href="#src-DS5">DS5</a></li>
+                <li><span class="i i-comment-text" role="img" aria-label="слова людей"></span> Тварина зникла з «Мої тварини», підтримка мовчить <a class="c" href="#src-DV4">DV4</a></li>
+                <li><span class="i i-comment-text" role="img" aria-label="слова людей"></span> Не вдається скасувати списання <a class="c" href="#src-DV4">DV4</a> <a class="c" href="#src-HP5">HP5</a></li>
+                <li><span class="i i-comment-text" role="img" aria-label="слова людей"></span> Реклама спонсорства, поки організація мовчить про кризу <a class="c" href="#src-DS5">DS5</a></li>
                 <li class="muted"><span class="q">[?]</span> Рідкі рутинні оновлення <a class="c" href="#src-HP2">HP2</a> <a class="c" href="#src-DS3">DS3</a> — скарг саме на частоту не знайшли.</li>
               </ul>
             </div>
@@ -406,7 +410,7 @@
         <span class="id">MAIN JOB · M</span>
         <h4>Допомогти конкретній тварині й бачити, що це змінює її життя</h4>
         <p class="jtbd"><b>Коли</b> я хочу допомогти врятованим тваринам, <b>я хочу</b> підтримувати одну конкретну тварину, а не «всіх загалом», <b>щоб</b> бачити, як моя допомога змінює саме її життя.</p>
-        <p class="meta">Опікун (головна) · Спостерігач (на шляху) · Терміновий донатор (частково) · 🧩 <a class="c" href="#src-HP2">HP2</a> <a class="c" href="#src-DV1">DV1</a> <a class="c" href="#src-DS2">DS2</a> <a class="c" href="#src-DC2">DC2</a></p>
+        <p class="meta">Опікун (головна) · Спостерігач (на шляху) · Терміновий донатор (частково) · <span class="i i-puzzle-piece" role="img" aria-label="сигнал продукту"></span> <a class="c" href="#src-HP2">HP2</a> <a class="c" href="#src-DV1">DV1</a> <a class="c" href="#src-DS2">DS2</a> <a class="c" href="#src-DC2">DC2</a></p>
       </div>
       <div class="connector" aria-hidden="true"></div>
       <div class="path" aria-label="Related jobs на шляху до main job">
@@ -414,31 +418,31 @@
           <span class="step">Крок 1</span><br><span class="id">R1</span>
           <h4>Зрозуміти, з ким виникне зв'язок</h4>
           <p class="jtbd"><b>Коли</b> переді мною багато тварин, <b>я хочу</b> швидко зрозуміти, хто мені близький або кому ще бракує допомоги, <b>щоб</b> обрати, не перебираючи всіх.</p>
-          <p class="meta">Опікун · ТД <span class="q">[?]</span> · 🗣 <a class="c" href="#src-DV4">DV4</a> 🧩 <a class="c" href="#src-HP2">HP2</a> <a class="c" href="#src-DS2">DS2</a> <span class="fix">виправлено 30.10</span></p>
+          <p class="meta">Опікун · ТД <span class="q">[?]</span> · <span class="i i-comment-text" role="img" aria-label="слова людей"></span> <a class="c" href="#src-DV4">DV4</a> <span class="i i-puzzle-piece" role="img" aria-label="сигнал продукту"></span> <a class="c" href="#src-HP2">HP2</a> <a class="c" href="#src-DS2">DS2</a> <span class="fix">виправлено 30.10</span></p>
         </div>
         <div class="job">
           <span class="step">Крок 2</span><br><span class="id">R3</span>
           <h4>Познайомитися з твариною до оплати</h4>
           <p class="jtbd"><b>Коли</b> я ще не готова чи не готовий платити, <b>я хочу</b> бачити, як живе тварина, <b>щоб</b> вирішити, чи хочу стати частиною її історії.</p>
-          <p class="meta">Спостерігач · 🧩 <a class="c" href="#src-HP2">HP2</a> <a class="c" href="#src-KV4">KV4</a> <a class="c" href="#src-GD1">GD1</a> · слів людей <span class="q">[?]</span></p>
+          <p class="meta">Спостерігач · <span class="i i-puzzle-piece" role="img" aria-label="сигнал продукту"></span> <a class="c" href="#src-HP2">HP2</a> <a class="c" href="#src-KV4">KV4</a> <a class="c" href="#src-GD1">GD1</a> · слів людей <span class="q">[?]</span></p>
         </div>
         <div class="job core">
           <span class="step">Крок 3</span><br><span class="id">R2</span><span class="mvp">ядро MVP</span>
           <h4>Почати допомагати, поки рішення «гаряче»</h4>
           <p class="jtbd"><b>Коли</b> рішення допомогти вже є, <b>я хочу</b> зробити це за хвилину, <b>щоб</b> порив не згас на півдорозі.</p>
-          <p class="meta">Опікун · ТД · 🗣 <a class="c" href="#src-DV2">DV2</a> 🧩 <a class="c" href="#src-HP4">HP4</a> <a class="c" href="#src-MB1">MB1</a> · скільки кидає <span class="q">[?]</span></p>
+          <p class="meta">Опікун · ТД · <span class="i i-comment-text" role="img" aria-label="слова людей"></span> <a class="c" href="#src-DV2">DV2</a> <span class="i i-puzzle-piece" role="img" aria-label="сигнал продукту"></span> <a class="c" href="#src-HP4">HP4</a> <a class="c" href="#src-MB1">MB1</a> · скільки кидає <span class="q">[?]</span></p>
         </div>
         <div class="job core">
           <span class="step">Крок 4</span><br><span class="id">R4</span><span class="mvp">ядро MVP</span>
           <h4>Знати, що змінилося завдяки моєму внеску</h4>
           <p class="jtbd"><b>Коли</b> я вже допомогла чи допоміг, <b>я хочу</b> знати, що зроблено на мої гроші, <b>щоб</b> бути певною чи певним, що вони дійшли.</p>
-          <p class="meta">Опікун · ТД · 🗣 <a class="c" href="#src-DV4">DV4</a> <a class="c" href="#src-DS5">DS5</a> <a class="c" href="#src-KV6">KV6</a> · частота <span class="q">[?]</span></p>
+          <p class="meta">Опікун · ТД · <span class="i i-comment-text" role="img" aria-label="слова людей"></span> <a class="c" href="#src-DV4">DV4</a> <a class="c" href="#src-DS5">DS5</a> <a class="c" href="#src-KV6">KV6</a> · частота <span class="q">[?]</span></p>
         </div>
         <div class="job core">
           <span class="step">Крок 5</span><br><span class="id">R5</span><span class="mvp">ядро MVP</span>
           <h4>Змінити чи зупинити регулярну допомогу</h4>
           <p class="jtbd"><b>Коли</b> мої обставини змінюються, <b>я хочу</b> легко зменшити, призупинити чи припинити допомогу, <b>щоб</b> не почуватися в пастці.</p>
-          <p class="meta">Опікун · 🗣 <a class="c" href="#src-DV4">DV4</a> 🧩 <a class="c" href="#src-HP5">HP5</a> · чому зупиняються <span class="q">[?]</span></p>
+          <p class="meta">Опікун · <span class="i i-comment-text" role="img" aria-label="слова людей"></span> <a class="c" href="#src-DV4">DV4</a> <span class="i i-puzzle-piece" role="img" aria-label="сигнал продукту"></span> <a class="c" href="#src-HP5">HP5</a> · чому зупиняються <span class="q">[?]</span></p>
         </div>
       </div>
       <p class="note">Порядок кроків — шлях Опікуна; R3 — вхід для Спостерігача. Нумерація R1–R5 — як у jtbd.md.</p>
@@ -448,15 +452,15 @@
       <div>
         <h3>Emotional jobs</h3>
         <div class="grid e">
-          <div class="job"><span class="id">E1</span><h4>Спокій замість тривоги очікування</h4><p class="jtbd"><b>Коли</b> гроші віддано, а результату ще не видно, <b>я хочу</b> почуватися спокійно, <b>щоб</b> не гадати, чи все дійшло.</p><p class="meta">Опікун · ТД · 📰 <a class="c" href="#src-DM1">DM1</a> 🧩 <a class="c" href="#src-DC2">DC2</a> · про донорів тварин <span class="q">[?]</span></p></div>
-          <div class="job"><span class="id">E2</span><h4>Відчути, що тварина «моя»</h4><p class="jtbd"><b>Коли</b> я обираю тварину, <b>я хочу</b> відчути особистий зв'язок, <b>щоб</b> допомога була стосунками, а не транзакцією.</p><p class="meta">Опікун · 🧩 <a class="c" href="#src-DV1">DV1</a> <a class="c" href="#src-DS3">DS3</a> <a class="c" href="#src-HP3">HP3</a> · вплив на почуття <span class="q">[?]</span></p></div>
-          <div class="job"><span class="id">E3</span><h4>Вірити, що мені показують правду</h4><p class="jtbd"><b>Коли</b> я бачу новини про тварину, <b>я хочу</b> бути певною чи певним, що показують, як є, <b>щоб</b> довіряти.</p><p class="meta">Спостерігач · Опікун · 📰 <a class="c" href="#src-DM2">DM2</a> <a class="c" href="#src-GD3">GD3</a> · не про донорів тварин <span class="q">[?]</span></p></div>
+          <div class="job"><span class="id">E1</span><h4>Спокій замість тривоги очікування</h4><p class="jtbd"><b>Коли</b> гроші віддано, а результату ще не видно, <b>я хочу</b> почуватися спокійно, <b>щоб</b> не гадати, чи все дійшло.</p><p class="meta">Опікун · ТД · <span class="i i-newspaper" role="img" aria-label="третя сторона"></span> <a class="c" href="#src-DM1">DM1</a> <span class="i i-puzzle-piece" role="img" aria-label="сигнал продукту"></span> <a class="c" href="#src-DC2">DC2</a> · про донорів тварин <span class="q">[?]</span></p></div>
+          <div class="job"><span class="id">E2</span><h4>Відчути, що тварина «моя»</h4><p class="jtbd"><b>Коли</b> я обираю тварину, <b>я хочу</b> відчути особистий зв'язок, <b>щоб</b> допомога була стосунками, а не транзакцією.</p><p class="meta">Опікун · <span class="i i-puzzle-piece" role="img" aria-label="сигнал продукту"></span> <a class="c" href="#src-DV1">DV1</a> <a class="c" href="#src-DS3">DS3</a> <a class="c" href="#src-HP3">HP3</a> · вплив на почуття <span class="q">[?]</span></p></div>
+          <div class="job"><span class="id">E3</span><h4>Вірити, що мені показують правду</h4><p class="jtbd"><b>Коли</b> я бачу новини про тварину, <b>я хочу</b> бути певною чи певним, що показують, як є, <b>щоб</b> довіряти.</p><p class="meta">Спостерігач · Опікун · <span class="i i-newspaper" role="img" aria-label="третя сторона"></span> <a class="c" href="#src-DM2">DM2</a> <a class="c" href="#src-GD3">GD3</a> · не про донорів тварин <span class="q">[?]</span></p></div>
         </div>
       </div>
       <div>
         <h3>Social jobs</h3>
         <div class="grid">
-          <div class="job"><span class="id">S1</span><h4>Подарувати зв'язок із твариною</h4><p class="jtbd"><b>Коли</b> я шукаю подарунок зі змістом, <b>я хочу</b> подарувати стосунки з конкретною твариною, <b>щоб</b> близька людина теж стала частиною історії.</p><p class="meta">Жодна з персон · 🧩 <a class="c" href="#src-DS4">DS4</a> · один сигнал <span class="q">[?]</span></p></div>
+          <div class="job"><span class="id">S1</span><h4>Подарувати зв'язок із твариною</h4><p class="jtbd"><b>Коли</b> я шукаю подарунок зі змістом, <b>я хочу</b> подарувати стосунки з конкретною твариною, <b>щоб</b> близька людина теж стала частиною історії.</p><p class="meta">Жодна з персон · <span class="i i-puzzle-piece" role="img" aria-label="сигнал продукту"></span> <a class="c" href="#src-DS4">DS4</a> · один сигнал <span class="q">[?]</span></p></div>
         </div>
       </div>
     </div>
@@ -485,9 +489,9 @@
     <h2><span class="num">03</span> JTBD-матриця</h2>
     <p class="sub">Важливість job для кожної персони — за доказами про конкурентів, а не виміряно на людях «Прайду». Середнього значення не ставимо. Функції — робочі назви з брифу: реєстрів <code>sitemap.md</code> і <code>design-system/inventory.md</code> ще немає.</p>
     <div class="scale">
-      <div><span class="sc s3">3</span> визначальна поведінка персони, підтверджена ресерчем, або є 🗣 слова людей про цей job</div>
-      <div><span class="sc s2">2</span> job трапляється на шляху персони за 🧩 сигналами продукту, але не визначає її</div>
-      <div><span class="q">[?]</span> джерела немає · <span class="na">—</span> не стосується за визначенням персони · конкуренти: ✅ ◐ ❌</div>
+      <div><span class="sc s3">3</span> визначальна поведінка персони, підтверджена ресерчем, або є <span class="i i-comment-text" role="img" aria-label="слова людей"></span> слова людей про цей job</div>
+      <div><span class="sc s2">2</span> job трапляється на шляху персони за <span class="i i-puzzle-piece" role="img" aria-label="сигнал продукту"></span> сигналами продукту, але не визначає її</div>
+      <div><span class="q">[?]</span> джерела немає · <span class="na">—</span> не стосується за визначенням персони · конкуренти: <span class="i i-check-circle" role="img" aria-label="виконує"></span> <span class="i i-contrast" role="img" aria-label="частково"></span> <span class="i i-xmark-circle" role="img" aria-label="ні"></span></div>
     </div>
     <div class="table-wrap">
       <table>
@@ -508,23 +512,23 @@
             <td class="p"><span class="q">[?]</span> <span class="why">у Банці героя не обрати</span> <a class="c" href="#src-MB1">MB1</a></td>
             <td class="p"><span class="q">[?]</span> <span class="why">«стежить → опікується» — <span class="hyp">гіпотеза</span> 1 ресерчу</span></td>
             <td class="fn">Профіль тварини + опікунство (разово / регулярно) + трекер турботи</td>
-            <td class="cmp"><b>◐</b> Опіка є (HP, DV, DS), але результат після неї рідкий або за логіном <a class="c" href="#src-HP2">HP2</a> <a class="c" href="#src-DS3">DS3</a> <a class="c" href="#src-KV4">KV4</a></td>
+            <td class="cmp"><b><span class="i i-contrast" role="img" aria-label="частково"></span></b> Опіка є (HP, DV, DS), але результат після неї рідкий або за логіном <a class="c" href="#src-HP2">HP2</a> <a class="c" href="#src-DS3">DS3</a> <a class="c" href="#src-KV4">KV4</a></td>
           </tr>
           <tr>
             <th>R1 · Зрозуміти, з ким виникне зв'язок або кому ще бракує допомоги <small><span class="fix">виправлено 30.10</span></small></th>
-            <td class="p primary"><span class="sc s3">3</span><span class="why">🗣 4 відгуки: «яким тваринкам необхідна допомога»</span> <a class="c" href="#src-DV4">DV4</a> <a class="c" href="#src-HP2">HP2</a> <a class="c" href="#src-DS2">DS2</a></td>
+            <td class="p primary"><span class="sc s3">3</span><span class="why"><span class="i i-comment-text" role="img" aria-label="слова людей"></span> 4 відгуки: «яким тваринкам необхідна допомога»</span> <a class="c" href="#src-DV4">DV4</a> <a class="c" href="#src-HP2">HP2</a> <a class="c" href="#src-DS2">DS2</a></td>
             <td class="p"><span class="q">[?]</span> <span class="why">терміновість як мотив не підтверджено</span> <a class="c" href="#src-DV4">DV4</a></td>
             <td class="p"><span class="q">[?]</span></td>
             <td class="fn">Стрічка історій + «Усі тварини» з пошуком; квіз-підбір — за умови</td>
-            <td class="cmp"><b>◐</b> DS — за характером <a class="c" href="#src-DS2">DS2</a>; KV — фільтри <a class="c" href="#src-KV2">KV2</a>; HP — за ID і ціною <a class="c" href="#src-HP2">HP2</a>; DV — «скільки вже закрито» прибрали, люди просять повернути <a class="c" href="#src-DV4">DV4</a>; MB — вибору немає <a class="c" href="#src-MB1">MB1</a></td>
+            <td class="cmp"><b><span class="i i-contrast" role="img" aria-label="частково"></span></b> DS — за характером <a class="c" href="#src-DS2">DS2</a>; KV — фільтри <a class="c" href="#src-KV2">KV2</a>; HP — за ID і ціною <a class="c" href="#src-HP2">HP2</a>; DV — «скільки вже закрито» прибрали, люди просять повернути <a class="c" href="#src-DV4">DV4</a>; MB — вибору немає <a class="c" href="#src-MB1">MB1</a></td>
           </tr>
           <tr class="core">
             <th>R2 · Почати допомагати, поки рішення «гаряче» <small><span class="mvp">ядро MVP</span></small></th>
-            <td class="p primary"><span class="sc s3">3</span><span class="why">🗣 «не приходить лист з підтвердженням»</span> <a class="c" href="#src-DV2">DV2</a>; <span class="why">стіна логіну</span> <a class="c" href="#src-HP4">HP4</a></td>
+            <td class="p primary"><span class="sc s3">3</span><span class="why"><span class="i i-comment-text" role="img" aria-label="слова людей"></span> «не приходить лист з підтвердженням»</span> <a class="c" href="#src-DV2">DV2</a>; <span class="why">стіна логіну</span> <a class="c" href="#src-HP4">HP4</a></td>
             <td class="p"><span class="sc s3">3</span><span class="why">визначальна поведінка: швидко й без реєстрації</span> <a class="c" href="#src-MB1">MB1</a></td>
             <td class="p"><span class="q">[?]</span></td>
             <td class="fn">Перша підтримка без кабінету (кабінет — після, через magic link); Monobank-банка; оплата на одному екрані</td>
-            <td class="cmp"><b>◐</b> Без героя — так <a class="c" href="#src-MB1">MB1</a>. Для конкретної тварини — логін <a class="c" href="#src-HP4">HP4</a>, реєстрація <a class="c" href="#src-DV2">DV2</a>. Кошик без логіну є <a class="c" href="#src-KV3">KV3</a> <a class="c" href="#src-DS4">DS4</a>, оформлення 🔒 або дані не підтверджені</td>
+            <td class="cmp"><b><span class="i i-contrast" role="img" aria-label="частково"></span></b> Без героя — так <a class="c" href="#src-MB1">MB1</a>. Для конкретної тварини — логін <a class="c" href="#src-HP4">HP4</a>, реєстрація <a class="c" href="#src-DV2">DV2</a>. Кошик без логіну є <a class="c" href="#src-KV3">KV3</a> <a class="c" href="#src-DS4">DS4</a>, оформлення <span class="i i-lock" role="img" aria-label="не бачили наживо"></span> або дані не підтверджені</td>
           </tr>
           <tr>
             <th>R3 · Познайомитися з твариною до оплати</th>
@@ -532,23 +536,23 @@
             <td class="p"><span class="q">[?]</span></td>
             <td class="p"><span class="sc s3">3</span><span class="why">визначальна поведінка; прогалина ринку</span> <a class="c" href="#src-HP2">HP2</a> <a class="c" href="#src-KV4">KV4</a> <a class="c" href="#src-MB1">MB1</a>, <span class="why">аналог</span> <a class="c" href="#src-GD1">GD1</a>. <span class="why">Слів людей немає</span></td>
             <td class="fn">Публічна стрічка живих моментів (видна до підписки) + підписка на тварину без пароля</td>
-            <td class="cmp"><b>❌</b> Приклад оновлення до оплати не показує ніхто <a class="c" href="#src-HP2">HP2</a> <a class="c" href="#src-DS3">DS3</a> <a class="c" href="#src-KV2">KV2</a> <a class="c" href="#src-MB1">MB1</a>; <b>◐</b> лише вебкамери DS <a class="c" href="#src-DS2">DS2</a></td>
+            <td class="cmp"><b><span class="i i-xmark-circle" role="img" aria-label="ні"></span></b> Приклад оновлення до оплати не показує ніхто <a class="c" href="#src-HP2">HP2</a> <a class="c" href="#src-DS3">DS3</a> <a class="c" href="#src-KV2">KV2</a> <a class="c" href="#src-MB1">MB1</a>; <b><span class="i i-contrast" role="img" aria-label="частково"></span></b> лише вебкамери DS <a class="c" href="#src-DS2">DS2</a></td>
           </tr>
           <tr class="core">
             <th>R4 · Знати, що змінилося завдяки моєму внеску <small><span class="mvp">ядро MVP</span></small></th>
-            <td class="p primary"><span class="sc s3">3</span><span class="why">🗣 опікуни хочуть бачити тварину після оплати</span> <a class="c" href="#src-DV4">DV4</a> <a class="c" href="#src-DS5">DS5</a> <a class="c" href="#src-KV6">KV6</a></td>
+            <td class="p primary"><span class="sc s3">3</span><span class="why"><span class="i i-comment-text" role="img" aria-label="слова людей"></span> опікуни хочуть бачити тварину після оплати</span> <a class="c" href="#src-DV4">DV4</a> <a class="c" href="#src-DS5">DS5</a> <a class="c" href="#src-KV6">KV6</a></td>
             <td class="p"><span class="q">[?]</span> <span class="why">бачить лише «Зібрано / Ціль»</span> <a class="c" href="#src-MB1">MB1</a></td>
             <td class="p"><span class="na">—</span><span class="why">ще не платить</span></td>
             <td class="fn">Трекер турботи «Отримали → Купили → Зроблено → Фото»; прозорість витрат на рівні тварини; оновлення email / Telegram</td>
-            <td class="cmp"><b>❌</b> / слабко: раз на 2 місяці <a class="c" href="#src-HP2">HP2</a>, двічі на рік <a class="c" href="#src-DS3">DS3</a>, за логіном <a class="c" href="#src-KV4">KV4</a> <a class="c" href="#src-DV1">DV1</a>, лише гроші <a class="c" href="#src-MB1">MB1</a>. У відгуках: тварина зникає <a class="c" href="#src-DV4">DV4</a>; не повідомили, куди перевели віслюка <a class="c" href="#src-DS5">DS5</a></td>
+            <td class="cmp"><b><span class="i i-xmark-circle" role="img" aria-label="ні"></span></b> / слабко: раз на 2 місяці <a class="c" href="#src-HP2">HP2</a>, двічі на рік <a class="c" href="#src-DS3">DS3</a>, за логіном <a class="c" href="#src-KV4">KV4</a> <a class="c" href="#src-DV1">DV1</a>, лише гроші <a class="c" href="#src-MB1">MB1</a>. У відгуках: тварина зникає <a class="c" href="#src-DV4">DV4</a>; не повідомили, куди перевели віслюка <a class="c" href="#src-DS5">DS5</a></td>
           </tr>
           <tr class="core">
             <th>R5 · Змінити чи зупинити регулярну допомогу <small><span class="mvp">ядро MVP</span> <span class="fix">2 → 3 · 30.10</span></small></th>
-            <td class="p primary"><span class="sc s3">3</span><span class="why">🗣 3 відгуки: не можуть припинити списання; ще один — змінити суму</span> <a class="c" href="#src-DV4">DV4</a>; <span class="why">лише листом</span> <a class="c" href="#src-HP5">HP5</a></td>
+            <td class="p primary"><span class="sc s3">3</span><span class="why"><span class="i i-comment-text" role="img" aria-label="слова людей"></span> 3 відгуки: не можуть припинити списання; ще один — змінити суму</span> <a class="c" href="#src-DV4">DV4</a>; <span class="why">лише листом</span> <a class="c" href="#src-HP5">HP5</a></td>
             <td class="p"><span class="q">[?]</span> <span class="why">регулярних списань у Банці немає</span> <a class="c" href="#src-MB1">MB1</a></td>
             <td class="p"><span class="na">—</span><span class="why">не платить</span></td>
             <td class="fn">Кабінет «Мої улюбленці»: сума, пауза, скасування в один тап</td>
-            <td class="cmp"><b>❌</b> HP — лише листом <a class="c" href="#src-HP5">HP5</a>; <b>❌</b> DV — скасування є з 1.5.1 <a class="c" href="#src-DV1">DV1</a>, але у відгуках 2025–2026 його не знаходять <a class="c" href="#src-DV4">DV4</a>; MB — регулярних немає; KV, DS — <span class="q">[?]</span></td>
+            <td class="cmp"><b><span class="i i-xmark-circle" role="img" aria-label="ні"></span></b> HP — лише листом <a class="c" href="#src-HP5">HP5</a>; <b><span class="i i-xmark-circle" role="img" aria-label="ні"></span></b> DV — скасування є з 1.5.1 <a class="c" href="#src-DV1">DV1</a>, але у відгуках 2025–2026 його не знаходять <a class="c" href="#src-DV4">DV4</a>; MB — регулярних немає; KV, DS — <span class="q">[?]</span></td>
           </tr>
           <tr>
             <th>E1 · Спокій замість тривоги очікування</th>
@@ -556,7 +560,7 @@
             <td class="p"><span class="q">[?]</span></td>
             <td class="p"><span class="na">—</span><span class="why">ще не платить</span></td>
             <td class="fn">Трекер турботи; чек і підтвердження на email</td>
-            <td class="cmp"><b>❌</b> Після оплати 🔒, лише обіцянки текстом <a class="c" href="#src-HP2">HP2</a>. Є в бенчмарку, не в конкурентів <a class="c" href="#src-DM1">DM1</a> <a class="c" href="#src-CW1">CW1</a></td>
+            <td class="cmp"><b><span class="i i-xmark-circle" role="img" aria-label="ні"></span></b> Після оплати <span class="i i-lock" role="img" aria-label="не бачили наживо"></span>, лише обіцянки текстом <a class="c" href="#src-HP2">HP2</a>. Є в бенчмарку, не в конкурентів <a class="c" href="#src-DM1">DM1</a> <a class="c" href="#src-CW1">CW1</a></td>
           </tr>
           <tr>
             <th>E2 · Відчути, що тварина «моя»</th>
@@ -564,7 +568,7 @@
             <td class="p"><span class="q">[?]</span> <span class="why">героя немає</span> <a class="c" href="#src-MB1">MB1</a></td>
             <td class="p"><span class="q">[?]</span></td>
             <td class="fn">Екран від імені тварини після дії + листівка з QR; колекція «Мої улюбленці»; свій колір і «голос» тварини</td>
-            <td class="cmp"><b>◐</b> DV <a class="c" href="#src-DV1">DV1</a>, DS <a class="c" href="#src-DS3">DS3</a>; <b>❌</b> HP — анкета з ID <a class="c" href="#src-HP3">HP3</a>; MB, KV — голос збору чи позичальника</td>
+            <td class="cmp"><b><span class="i i-contrast" role="img" aria-label="частково"></span></b> DV <a class="c" href="#src-DV1">DV1</a>, DS <a class="c" href="#src-DS3">DS3</a>; <b><span class="i i-xmark-circle" role="img" aria-label="ні"></span></b> HP — анкета з ID <a class="c" href="#src-HP3">HP3</a>; MB, KV — голос збору чи позичальника</td>
           </tr>
           <tr>
             <th>E3 · Вірити, що мені показують правду</th>
@@ -580,7 +584,7 @@
             <td class="p"><span class="q">[?]</span></td>
             <td class="p"><span class="q">[?]</span></td>
             <td class="fn">Опіка в подарунок — <b>немає в обсязі MVP</b></td>
-            <td class="cmp"><b>◐</b> Лише DS <a class="c" href="#src-DS4">DS4</a> <a class="c" href="#src-DS3">DS3</a></td>
+            <td class="cmp"><b><span class="i i-contrast" role="img" aria-label="частково"></span></b> Лише DS <a class="c" href="#src-DS4">DS4</a> <a class="c" href="#src-DS3">DS3</a></td>
           </tr>
         </tbody>
       </table>
@@ -593,12 +597,12 @@
         <thead><tr><th>Job</th><th class="pcol primary">Опікун</th><th class="pcol">ТД</th><th class="pcol">Спостерігач</th><th>Функція</th><th>Конкуренти</th></tr></thead>
         <tbody>
           <tr><th>Г1 · Допомагати на відстані <span class="hyp">гіпотеза</span></th><td class="p primary"><span class="q">[?]</span></td><td><span class="q">[?]</span></td><td><span class="q">[?]</span></td><td class="fn">Увесь продукт, окремої функції немає</td><td class="cmp"><span class="q">[?]</span></td></tr>
-          <tr><th>Г2 · Новини там, де я буваю, і так часто, як зручно <span class="hyp">гіпотеза</span></th><td class="p primary"><span class="q">[?]</span></td><td><span class="q">[?]</span></td><td><span class="q">[?]</span></td><td class="fn">Вибір каналу (email / Telegram-бот / Instagram) і періодичності</td><td class="cmp"><b>◐</b> HP — листи <a class="c" href="#src-HP2">HP2</a>; DV — у застосунку <a class="c" href="#src-DV1">DV1</a>. Вибору каналу й частоти не знайдено ні в кого</td></tr>
+          <tr><th>Г2 · Новини там, де я буваю, і так часто, як зручно <span class="hyp">гіпотеза</span></th><td class="p primary"><span class="q">[?]</span></td><td><span class="q">[?]</span></td><td><span class="q">[?]</span></td><td class="fn">Вибір каналу (email / Telegram-бот / Instagram) і періодичності</td><td class="cmp"><b><span class="i i-contrast" role="img" aria-label="частково"></span></b> HP — листи <a class="c" href="#src-HP2">HP2</a>; DV — у застосунку <a class="c" href="#src-DV1">DV1</a>. Вибору каналу й частоти не знайдено ні в кого</td></tr>
           <tr><th>Г3 · Зупинитися без провини <span class="hyp">гіпотеза</span></th><td class="p primary"><span class="q">[?]</span></td><td><span class="q">[?]</span></td><td><span class="q">[?]</span></td><td class="fn">Тон відписки в кабінеті (та сама функція, що в R5)</td><td class="cmp"><span class="q">[?]</span></td></tr>
           <tr><th>Г4 · Поділитися моментом зі своїми <span class="hyp">гіпотеза</span></th><td class="p primary"><span class="q">[?]</span></td><td><span class="q">[?]</span></td><td><span class="q">[?]</span></td><td class="fn">Шерінг моменту, листівка з QR, інтеграція з Instagram</td><td class="cmp"><span class="q">[?]</span></td></tr>
           <tr><th>Г5 · Допомагаю не сам чи не сама <span class="hyp">гіпотеза</span></th><td class="p primary"><span class="q">[?]</span></td><td><span class="q">[?]</span></td><td><span class="q">[?]</span></td><td class="fn">«Хто вже опікується» в профілі</td><td class="cmp"><span class="q">[?]</span></td></tr>
-          <tr><th>Г6 · Скластися з іншими на опіку коня <span class="hyp">гіпотеза</span></th><td class="p primary"><span class="q">[?]</span></td><td><span class="q">[?]</span></td><td><span class="q">[?]</span></td><td class="fn">Спільна опіка «покрито X з Y» — <b>немає в обсязі MVP</b></td><td class="cmp"><b>◐</b> DV — часткова разова опіка <a class="c" href="#src-DV1">DV1</a> <a class="c" href="#src-DV3">DV3</a>, без «X з Y»</td></tr>
-          <tr><th>Г7 · Допомагати з-за кордону <span class="hyp">гіпотеза</span></th><td class="p primary"><span class="q">[?]</span></td><td><span class="q">[?]</span></td><td><span class="q">[?]</span></td><td class="fn">Мова en; валюти USD/EUR; Stripe</td><td class="cmp"><b>◐</b> KV <a class="c" href="#src-KV1">KV1</a> і DS <a class="c" href="#src-DS1">DS1</a> — англійською; DV згадує 5 мов <a class="c" href="#src-DV1">DV1</a>; HP — українською <a class="c" href="#src-HP6">HP6</a></td></tr>
+          <tr><th>Г6 · Скластися з іншими на опіку коня <span class="hyp">гіпотеза</span></th><td class="p primary"><span class="q">[?]</span></td><td><span class="q">[?]</span></td><td><span class="q">[?]</span></td><td class="fn">Спільна опіка «покрито X з Y» — <b>немає в обсязі MVP</b></td><td class="cmp"><b><span class="i i-contrast" role="img" aria-label="частково"></span></b> DV — часткова разова опіка <a class="c" href="#src-DV1">DV1</a> <a class="c" href="#src-DV3">DV3</a>, без «X з Y»</td></tr>
+          <tr><th>Г7 · Допомагати з-за кордону <span class="hyp">гіпотеза</span></th><td class="p primary"><span class="q">[?]</span></td><td><span class="q">[?]</span></td><td><span class="q">[?]</span></td><td class="fn">Мова en; валюти USD/EUR; Stripe</td><td class="cmp"><b><span class="i i-contrast" role="img" aria-label="частково"></span></b> KV <a class="c" href="#src-KV1">KV1</a> і DS <a class="c" href="#src-DS1">DS1</a> — англійською; DV згадує 5 мов <a class="c" href="#src-DV1">DV1</a>; HP — українською <a class="c" href="#src-HP6">HP6</a></td></tr>
           <tr><th>Г8 · Бачити, як тварина працює з дітьми <span class="hyp">гіпотеза</span></th><td class="p primary"><span class="q">[?]</span></td><td><span class="q">[?]</span></td><td><span class="q">[?]</span></td><td class="fn">Позначка «працює з дітьми» + історії</td><td class="cmp"><span class="q">[?]</span></td></tr>
         </tbody>
       </table>
@@ -612,9 +616,9 @@
 
     <h3>3 jobs для ядра MVP</h3>
     <div class="cards three">
-      <div class="card yes"><p class="k">1 · R4</p><h4>Знати, що змінилося завдяки моєму внеску</h4><p>Опікун — 3 за відгуками <a class="c" href="#src-DV4">DV4</a> <a class="c" href="#src-DS5">DS5</a> <a class="c" href="#src-KV6">KV6</a>; конкуренти — ❌ або слабко. Найбільше шкодить мовчання про важливе і тварина, яку не видно після оплати. Частота — <span class="q">[?]</span>.</p><p><b>Функція:</b> трекер турботи + прозорість витрат на рівні тварини.</p></div>
+      <div class="card yes"><p class="k">1 · R4</p><h4>Знати, що змінилося завдяки моєму внеску</h4><p>Опікун — 3 за відгуками <a class="c" href="#src-DV4">DV4</a> <a class="c" href="#src-DS5">DS5</a> <a class="c" href="#src-KV6">KV6</a>; конкуренти — <span class="i i-xmark-circle" role="img" aria-label="ні"></span> або слабко. Найбільше шкодить мовчання про важливе і тварина, яку не видно після оплати. Частота — <span class="q">[?]</span>.</p><p><b>Функція:</b> трекер турботи + прозорість витрат на рівні тварини.</p></div>
       <div class="card yes"><p class="k">2 · R2</p><h4>Почати допомагати, поки рішення «гаряче»</h4><p>Опікун — 3 <a class="c" href="#src-DV2">DV2</a>. Конкуренти дають це лише без героя <a class="c" href="#src-MB1">MB1</a>; для конкретної тварини — логін чи реєстрація <a class="c" href="#src-HP4">HP4</a> <a class="c" href="#src-DV2">DV2</a>.</p><p><b>Функція:</b> перша опіка без кабінету, magic link — після; Monobank-банка.</p></div>
-      <div class="card yes"><p class="k">3 · R5</p><h4>Змінити чи зупинити регулярну допомогу</h4><p>Опікун — 3 <a class="c" href="#src-DV4">DV4</a>; конкуренти — ❌: лише листом <a class="c" href="#src-HP5">HP5</a>, у Домівці скасування є, але люди його не знаходять.</p><p><b>Функція:</b> кабінет «Мої улюбленці» — сума, пауза, скасування в один тап.</p></div>
+      <div class="card yes"><p class="k">3 · R5</p><h4>Змінити чи зупинити регулярну допомогу</h4><p>Опікун — 3 <a class="c" href="#src-DV4">DV4</a>; конкуренти — <span class="i i-xmark-circle" role="img" aria-label="ні"></span>: лише листом <a class="c" href="#src-HP5">HP5</a>, у Домівці скасування є, але люди його не знаходять.</p><p><b>Функція:</b> кабінет «Мої улюбленці» — сума, пауза, скасування в один тап.</p></div>
     </div>
 
     <h3>Чому не інші</h3>
@@ -636,7 +640,7 @@
   <!-- ДЖЕРЕЛА -->
   <section id="sources">
     <h2><span class="num">↗</span> Джерела</h2>
-    <p class="sub">Коди — з <a href="research/research.html#sources">ресерчу</a> і доресерчу після персон. Усе — публічні сторінки 🌐; скріни — у <code>research/screens/</code>. Відгуки цитуємо з датою й оцінкою, без імен авторів.</p>
+    <p class="sub">Коди — з <a href="research/research.html#sources">ресерчу</a> і доресерчу після персон. Усе — публічні сторінки <span class="i i-globe" role="img" aria-label="публічні сторінки"></span>; скріни — у <code>research/screens/</code>. Відгуки цитуємо з датою й оцінкою, без імен авторів.</p>
     <div class="sources">
       <h4>Happy Paw</h4>
       <p id="src-HP2"><code>HP2</code> <a href="research/screens/happy-paw/guardianship-mobile-full.jpg">Опіка на відстані</a> · <a href="https://happypaw.ua/ua/guardianship">happypaw.ua/ua/guardianship</a></p>

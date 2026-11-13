@@ -38,16 +38,25 @@
     return ul;
   }
 
+  // Іконка з _nav/icons.css; поруч завжди є текст, тож для скрінрідера вона декоративна
+  function icon(name) {
+    var i = document.createElement("span");
+    i.className = "i i-" + name;
+    i.setAttribute("aria-hidden", "true");
+    return i;
+  }
+
   // Перемикач теми: дві кнопки, натиснута — поточна тема (_nav/theme.js).
   function renderThemeSwitch(theme) {
     var group = document.createElement("div");
     group.className = "pn-theme";
     group.setAttribute("role", "group");
     group.setAttribute("aria-label", "Тема");
-    var buttons = [["light", "☀ Світла"], ["dark", "☾ Темна"]].map(function (opt) {
+    var buttons = [["light", "sun", "Світла"], ["dark", "moon", "Темна"]].map(function (opt) {
       var b = document.createElement("button");
       b.type = "button";
-      b.textContent = opt[1];
+      b.appendChild(icon(opt[1]));
+      b.appendChild(document.createTextNode(opt[2]));
       b.addEventListener("click", function () { theme.set(opt[0]); sync(); });
       group.appendChild(b);
       return [opt[0], b];
@@ -79,7 +88,8 @@
     toggle.type = "button";
     toggle.setAttribute("aria-controls", "pn");
     toggle.setAttribute("aria-expanded", "false");
-    toggle.textContent = "☰ Навігатор";
+    toggle.appendChild(icon("menu-bars"));
+    toggle.appendChild(document.createTextNode("Навігатор"));
     toggle.addEventListener("click", function () {
       var open = document.documentElement.classList.toggle("pn-open");
       toggle.setAttribute("aria-expanded", String(open));
