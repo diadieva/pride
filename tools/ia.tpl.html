@@ -180,6 +180,13 @@
     .diagram marker path, .diagram .marker, .diagram .arrowheadPath { fill: var(--muted) !important; stroke: var(--muted) !important; }
     .diagram .edgeLabel, .diagram .edgeLabel p, .diagram .edgeLabel span, .diagram .labelBkg { background-color: var(--surface) !important; color: var(--muted) !important; }
     .diagram .edgeLabel rect { fill: var(--surface) !important; }
+    /* Підсвітка шляху до вузла під курсором */
+    .diagram svg :is(g.node, g.edgeLabel, path.flowchart-link) { transition: opacity .15s ease; }
+    .diagram svg.is-tracing :is(g.node, g.edgeLabel, path.flowchart-link):not(.on) { opacity: .2; }
+    .diagram svg.is-tracing .flowchart-link.on { stroke: var(--text) !important; stroke-width: 2.5px !important; }
+    .diagram svg.is-tracing g.edgeLabel.on :is(p, span) { color: var(--text) !important; font-weight: 600; }
+    .diagram svg.is-tracing .node.is-target :is(rect, polygon, path, circle, ellipse) { stroke: var(--accent) !important; stroke-width: 3px !important; }
+    @media (prefers-reduced-motion: reduce) { .diagram svg :is(g.node, g.edgeLabel, path.flowchart-link) { transition: none; } }
     .nl { display: inline-block; padding: 0 8px; border-radius: 6px; font-size: 12px; border: 1px solid var(--line); background: var(--surface-2); color: var(--text); }
     .nl.screen { background: var(--surface-raised); border: 2px solid var(--accent); }
     .nl.loading { background: var(--surface); border: 1px dashed var(--muted); }
@@ -285,6 +292,7 @@
     });
     mermaid.run({ querySelector: ".diagram .mermaid" }).then(function () {
       document.querySelectorAll(".viewer").forEach(setupViewer);
+      document.querySelectorAll(".diagram svg").forEach(setupTrace);
     }).catch(function (e) { console.error(e); });
   }
 
@@ -374,6 +382,62 @@
     window.addEventListener("resize", function () { if (mode === "fit") act("fit"); });
     bar.hidden = false;
     act("fit");
+  }
+
+  // Наведення на вузол: шлях до нього (усі вузли й стрілки, з яких до нього можна дійти) жирніший, решта притухає.
+  // На сенсорному екрані — дотик до вузла, дотик повз вузли знімає підсвітку.
+  function setupTrace(svg) {
+    var nodes = {}, edges = [];
+    svg.querySelectorAll("g.node").forEach(function (g) {
+      var m = /^flowchart-(.+)-\d+$/.exec(g.id);
+      if (m) nodes[m[1]] = g;
+    });
+    var labels = svg.querySelectorAll("g.edgeLabel");
+    svg.querySelectorAll("path.flowchart-link").forEach(function (p, i) {
+      var m = /^L_(.+)_\d+$/.exec(p.id);
+      if (!m) return;
+      var rest = m[1], parts = rest.split("_");
+      for (var k = 1; k < parts.length; k++) {
+        var from = parts.slice(0, k).join("_"), to = parts.slice(k).join("_");
+        if (nodes[from] && nodes[to]) {
+          edges.push({ from: from, to: to, el: p, label: labels.length === svg.querySelectorAll("path.flowchart-link").length ? labels[i] : null });
+          break;
+        }
+      }
+    });
+    function clear() {
+      svg.classList.remove("is-tracing");
+      svg.querySelectorAll(".on").forEach(function (el) { el.classList.remove("on"); });
+    }
+    function trace(id) {
+      clear();
+      var path = {}, queue = [id];
+      path[id] = true;
+      while (queue.length) {
+        var cur = queue.shift();
+        edges.forEach(function (e) {
+          if (e.to === cur && !path[e.from]) { path[e.from] = true; queue.push(e.from); }
+        });
+      }
+      Object.keys(path).forEach(function (n) { nodes[n].classList.add("on"); });
+      edges.forEach(function (e) {
+        if (path[e.from] && path[e.to] && e.from !== id) {
+          e.el.classList.add("on");
+          if (e.label) e.label.classList.add("on");
+        }
+      });
+      nodes[id].classList.add("on", "is-target");
+      svg.classList.add("is-tracing");
+    }
+    Object.keys(nodes).forEach(function (id) {
+      var g = nodes[id];
+      g.addEventListener("pointerenter", function (e) { if (e.pointerType !== "touch") trace(id); });
+      g.addEventListener("pointerleave", function (e) { if (e.pointerType !== "touch") { clear(); nodes[id].classList.remove("is-target"); } });
+      g.addEventListener("click", function () { trace(id); });
+    });
+    svg.addEventListener("click", function (e) {
+      if (!e.target.closest("g.node")) { clear(); svg.querySelectorAll(".is-target").forEach(function (el) { el.classList.remove("is-target"); }); }
+    });
   }
 </script>
 </body>
