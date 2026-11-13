@@ -31,6 +31,7 @@ ICONS = [
     "arrows-width",   # вмістити схему в ширину
     "expand", "compress",  # схема на весь екран / вийти
     "arrow-up",       # повернутися до списку flows
+    "user-circle", "user-heart",  # джерела даних: власний акаунт, донори «Прайду»
     "house", "search-text", "users", "sitemap",  # пункти навігатора
     "angles-left", "angles-right",               # згорнути / розгорнути навігатор
 ]

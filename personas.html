@@ -37,8 +37,10 @@
     .provenance { display: grid; gap: 8px; margin: 28px 0 0; }
     @media (min-width: 720px) { .provenance { grid-template-columns: repeat(3, 1fr); } }
     .prov { background: var(--surface); border-radius: var(--radius); padding: 14px 16px; }
-    .prov b { display: block; font-size: 13px; margin-bottom: 4px; }
-    .prov span { color: var(--muted); font-size: 13px; }
+    .prov b { display: flex; align-items: center; gap: 10px; font-size: 13px; margin-bottom: 8px; }
+    .prov-ic { display: grid; place-items: center; flex: none; width: 32px; height: 32px; border-radius: 10px; background: var(--surface-raised); color: var(--text); }
+    .prov-ic .i { width: 18px; height: 18px; vertical-align: 0; }
+    .prov > span { color: var(--muted); font-size: 13px; }
 
     .legend { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 20px 0 0; padding: 14px 16px; background: var(--surface); border-radius: var(--radius); font-size: 13px; color: var(--muted); }
     .legend span.item { display: inline-flex; align-items: center; gap: 6px; }
@@ -186,9 +188,9 @@
       <span class="item"><span class="fix">виправлено 30.10</span> змінено після доресерчу</span>
     </div>
     <div class="provenance">
-      <div class="prov"><b>Власний акаунт</b><span>Нічого. Теки <code>research/screens/own/</code> немає, скрінів власного акаунта не надходило.</span></div>
-      <div class="prov"><b>Публічні сторінки <span class="i i-globe" aria-hidden="true"></span></b><span>Усе: скріни конкурентів, відгуки в App Store і Trustpilot, статті. Імена авторів відгуків не зберігаємо.</span></div>
-      <div class="prov"><b>Донори «Прайду»</b><span>Даних немає. Персони і jobs виросли з даних про конкурентів, а не перевірені на людях, які підтримують центр.</span></div>
+      <div class="prov"><b><span class="prov-ic"><span class="i i-user-circle" aria-hidden="true"></span></span>Власний акаунт</b><span>Нічого. Теки <code>research/screens/own/</code> немає, скрінів власного акаунта не надходило.</span></div>
+      <div class="prov"><b><span class="prov-ic"><span class="i i-globe" aria-hidden="true"></span></span>Публічні сторінки</b><span>Усе: скріни конкурентів, відгуки в App Store і Trustpilot, статті. Імена авторів відгуків не зберігаємо.</span></div>
+      <div class="prov"><b><span class="prov-ic"><span class="i i-user-heart" aria-hidden="true"></span></span>Донори «Прайду»</b><span>Даних немає. Персони і jobs виросли з даних про конкурентів, а не перевірені на людях, які підтримують центр.</span></div>
     </div>
   </header>
 

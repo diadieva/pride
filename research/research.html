@@ -37,8 +37,10 @@
     .provenance { display: grid; gap: 8px; margin: 28px 0 0; }
     @media (min-width: 720px) { .provenance { grid-template-columns: repeat(3, 1fr); } }
     .prov { background: var(--surface); border-radius: var(--radius); padding: 14px 16px; }
-    .prov b { display: block; font-size: 13px; margin-bottom: 4px; }
-    .prov span { color: var(--muted); font-size: 13px; }
+    .prov b { display: flex; align-items: center; gap: 10px; font-size: 13px; margin-bottom: 8px; }
+    .prov-ic { display: grid; place-items: center; flex: none; width: 32px; height: 32px; border-radius: 10px; background: var(--surface-raised); color: var(--text); }
+    .prov-ic .i { width: 18px; height: 18px; vertical-align: 0; }
+    .prov > span { color: var(--muted); font-size: 13px; }
 
     section { padding-top: 56px; }
     section > h2 { font-size: clamp(22px, 4vw, 30px); letter-spacing: -.01em; margin: 0 0 6px; display: flex; align-items: baseline; gap: 12px; }
@@ -117,9 +119,9 @@
       <li><a href="#sources">Джерела</a></li>
     </ul>
     <div class="provenance">
-      <div class="prov"><b>Власний акаунт</b><span>Нічого. Теки <code>research/screens/own/</code> немає, скрінів власного акаунта не надходило.</span></div>
-      <div class="prov"><b>Публічні сторінки <span class="i i-globe" aria-hidden="true"></span></b><span>Усі факти та скріни: сайти компаній, App Store, довідкові центри, прес-релізи, статті.</span></div>
-      <div class="prov"><b>Не бачили наживо <span class="i i-lock" aria-hidden="true"></span></b><span>Екрани за логіном і після оплати. Де немає офіційного опису — «дані не підтверджені».</span></div>
+      <div class="prov"><b><span class="prov-ic"><span class="i i-user-circle" aria-hidden="true"></span></span>Власний акаунт</b><span>Нічого. Теки <code>research/screens/own/</code> немає, скрінів власного акаунта не надходило.</span></div>
+      <div class="prov"><b><span class="prov-ic"><span class="i i-globe" aria-hidden="true"></span></span>Публічні сторінки</b><span>Усі факти та скріни: сайти компаній, App Store, довідкові центри, прес-релізи, статті.</span></div>
+      <div class="prov"><b><span class="prov-ic"><span class="i i-lock" aria-hidden="true"></span></span>Не бачили наживо</b><span>Екрани за логіном і після оплати. Де немає офіційного опису — «дані не підтверджені».</span></div>
     </div>
   </header>
 
