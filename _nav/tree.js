@@ -8,12 +8,13 @@
 // з першою сторінкою її екрана, навіть якщо сторінка одна. Назви групи й екрана — дослівно з sitemap.md.
 //
 // Навігатор малює лише пункти першого рівня; розділ підсвічено, коли поточна сторінка — він або щось усередині.
-// Гілку «Екрани» читають: шапка сцени на сторінці екрана (шлях, назва екрана зі списком усіх екранів,
-// вкладки станів) і огляд wireframes/index.html. Назви станів починаються з «Порожній», «Помилка»,
+// Гілку «Екрани» читає шапка сцени на сторінці екрана (шлях, назва екрана зі списком усіх екранів,
+// вкладки станів). Окремої посадкової сторінки немає: «Екрани» відкриває останній переглянутий екран
+// (його пам'ятає nav.js), уперше — href розділу, тобто Дошку. Назви станів починаються з «Порожній», «Помилка»,
 // «Завантаження», «Успіх» — за ними шапка ставить стан на його місце у вкладках.
 //
 // Будова гілки «Екрани»:
-// { title: "Екрани", href: "wireframes/index.html", icon: "mobile", children: [
+// { title: "Екрани", href: "wireframes/board.html", icon: "mobile", children: [
 //   { title: "<група>", icon: "…", children: [
 //     { title: "<екран>", href: "wireframes/<ім'я>.html", icon: "…", children: [
 //       { title: "Порожній стан", href: "wireframes/<ім'я>-empty.html", icon: "…" }
@@ -26,7 +27,7 @@ window.NAV_TREE = [
   { title: "Дослідження", href: "research/research.html", icon: "search-text" },
   { title: "Персони і JTBD", href: "personas.html", icon: "users" },
   { title: "Структура", href: "ia.html", icon: "sitemap" },
-  { title: "Екрани", href: "wireframes/index.html", icon: "mobile", children: [
+  { title: "Екрани", href: "wireframes/board.html", icon: "mobile", children: [
     { title: "Знайти свою тварину", icon: "folder-search", children: [
       { title: "Дошка", href: "wireframes/board.html", icon: "newspaper", children: [
         { title: "Порожній стан", href: "wireframes/board-empty.html", icon: "inbox" },

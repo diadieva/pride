@@ -40,16 +40,30 @@
     return (item.children || []).some(contains);
   }
 
+  // Розділ із вкладеними сторінками («Екрани») веде на останню переглянуту сторінку всередині нього —
+  // з тим самим станом; уперше — на свій href. Пам'ять пишe renderStageBar
+  var LAST = "pn-last-screen";
+  function lastInside(item) {
+    var saved = null;
+    try { saved = localStorage.getItem(LAST); } catch (e) {}
+    if (!saved) return null;
+    var found = false;
+    (function walk(list) {
+      (list || []).forEach(function (c) { if (c.href === saved) found = true; walk(c.children); });
+    })(item.children);
+    return found ? saved : null;
+  }
+
   function renderItems(items) {
     var ul = document.createElement("ul");
     items.forEach(function (item) {
       var li = document.createElement("li");
       var a = document.createElement(item.href ? "a" : "span");
       a.className = item.href ? "pn-page" : "pn-branch";
-      if (item.href) a.href = root + item.href;
+      if (item.href) a.href = root + (lastInside(item) || item.href);
       if (contains(item)) {
         a.className += " pn-current";
-        a.setAttribute("aria-current", item.href && normalize(a.href) === here ? "page" : "true");
+        a.setAttribute("aria-current", item.href && normalize(root + item.href) === here ? "page" : "true");
       }
       if (item.icon) {
         var ic = icon(item.icon);
@@ -101,6 +115,10 @@
     });
     var current = screens.filter(contains)[0];
     if (!current) return;
+    // Запам'ятати сторінку (екран чи його стан), щоб «Екрани» в навігаторі вели сюди наступного разу
+    [current].concat(current.children || []).forEach(function (p) {
+      if (p.href && normalize(root + p.href) === here) { try { localStorage.setItem(LAST, p.href); } catch (e) {} }
+    });
 
     var groupTitle = "";
     groups.forEach(function (g) { if (g.screens.indexOf(current) >= 0) groupTitle = g.title || ""; });
@@ -113,8 +131,8 @@
     var crumbs = document.createElement("nav");
     crumbs.className = "pn-crumbs";
     crumbs.setAttribute("aria-label", "Шлях");
-    var home = document.createElement(section.href ? "a" : "span");
-    if (section.href) home.href = root + section.href;
+    // Шлях — лише орієнтир, не посилання: інші екрани — у списку під назвою
+    var home = document.createElement("span");
     home.textContent = section.title;
     crumbs.appendChild(home);
     if (groupTitle) {

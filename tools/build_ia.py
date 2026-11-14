@@ -108,7 +108,9 @@ def tree():
             o.append(f'<li class="screen{" is-main" if main else ""}"><details><summary>'
                      f'<span class="sname">{esc(s["name"])}</span> <code class="file">{s["file"]}</code>'
                      f'<span class="jobs">{inline(re.sub(r"(\]) ?[,—] ?", r"\1 ", s["jobs"]))}</span>{badges}</summary>'
-                     f'<p>{inline(desc)}</p>'
+                     + (f'<p><a class="wf-open" href="wireframes/{s["file"]}"><span class="i i-mobile" aria-hidden="true"></span>Відкрити вайрфрейм</a></p>'
+                        if os.path.exists(os.path.join(ROOT, 'wireframes', s['file'])) else '')
+                     + f'<p>{inline(desc)}</p>'
                      + ''.join(f'<p>{inline(st)}</p>' for st in s['states'].split('<br>') if st)
                      + '</details></li>')
         o.append('</ul></li>')
