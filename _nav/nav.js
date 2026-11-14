@@ -31,100 +31,224 @@
     el.setAttribute("data-label", text);
   }
 
-  // Навігатор показує розділи й сторінки, а не стани: дерево має щонайбільше два рівні посилань.
-  //   Рівень 1 — розділи («Огляд продукту», …, «Екрани»), з іконкою.
-  //   Усередині розділу — підписи груп (не клікаються) і сторінки (екрани).
-  //   Діти екрана — його стани: їх показують таби на сторінці екрана, у навігаторі їх немає.
-  // Розділ розкривається сам, коли поточна сторінка — він або щось усередині; на інших сторінках згорнутий.
-  // Один клік — одна дія: кожен пункт — звичайне посилання, окремих перемикачів немає.
+  // Навігатор — лише розділи першого рівня; вкладене в ньому не малюється.
+  // Розділ підсвічено, коли поточна сторінка — він сам або щось усередині (наприклад, будь-який екран у «Екранах»).
+  // Навігація між екранами — на самій сторінці екрана, у панелі над рамкою (renderScreenBar нижче).
 
   function contains(item) {
     if (item.href && normalize(root + item.href) === here) return true;
     return (item.children || []).some(contains);
   }
 
-  // Посилання на сторінку. Екран підсвічено й тоді, коли відкрито один з його станів
-  function pageLink(item, withIcon) {
-    var a = document.createElement("a");
-    a.href = root + item.href;
-    a.className = "pn-page";
-    if (normalize(a.href) === here) {
-      a.className += " pn-current";
-      a.setAttribute("aria-current", "page");
-    } else if (contains(item) && !(item.children || []).some(function (c) { return c.children && c.children.length; })) {
-      a.className += " pn-current";
-      a.setAttribute("aria-current", "true");
-    }
-    if (withIcon && item.icon) {
-      var ic = icon(item.icon);
-      ic.classList.add("pn-ic");
-      a.appendChild(ic);
-    }
-    label(a, item.title);
-    return a;
-  }
-
-  // Сторінки розділу: екрани прямо або під підписами груп
-  function renderSection(children) {
-    var ul = document.createElement("ul");
-    ul.className = "pn-sub";
-    children.forEach(function (child, i) {
-      var li = document.createElement("li");
-      if (child.href) {
-        li.appendChild(pageLink(child, false));
-      } else {
-        var cap = document.createElement("span");
-        cap.className = "pn-group";
-        cap.id = "pn-group-" + i;
-        cap.textContent = child.title;
-        li.appendChild(cap);
-        var inner = document.createElement("ul");
-        inner.setAttribute("aria-labelledby", cap.id);
-        (child.children || []).forEach(function (screen) {
-          if (!screen.href) return;
-          var sli = document.createElement("li");
-          sli.appendChild(pageLink(screen, false));
-          inner.appendChild(sli);
-        });
-        li.appendChild(inner);
-      }
-      ul.appendChild(li);
-    });
-    return ul;
-  }
-
   function renderItems(items) {
     var ul = document.createElement("ul");
     items.forEach(function (item) {
       var li = document.createElement("li");
-      var kids = item.children || [];
-      if (!kids.length) {
-        li.appendChild(pageLink(item, true));
-        ul.appendChild(li);
-        return;
+      var a = document.createElement(item.href ? "a" : "span");
+      a.className = item.href ? "pn-page" : "pn-branch";
+      if (item.href) a.href = root + item.href;
+      if (contains(item)) {
+        a.className += " pn-current";
+        a.setAttribute("aria-current", item.href && normalize(a.href) === here ? "page" : "true");
       }
-      var inside = contains(item);
-      var head;
-      if (item.href) {
-        head = pageLink(item, true);
-        if (inside && !head.classList.contains("pn-current")) head.classList.add("pn-has-current");
-        // Шеврон — лише індикатор стану розділу, окремо на нього не натискають
-        var chev = icon("angle-right");
-        chev.classList.add("pn-chev");
-        head.appendChild(chev);
-        if (inside) head.classList.add("is-open");
-      } else {
-        head = document.createElement("span");
-        head.className = "pn-branch";
-        if (item.icon) { var bi = icon(item.icon); bi.classList.add("pn-ic"); head.appendChild(bi); }
-        label(head, item.title);
-        inside = true;  // розділ без власної сторінки нікуди не веде, тож завжди розкритий
+      if (item.icon) {
+        var ic = icon(item.icon);
+        ic.classList.add("pn-ic");
+        a.appendChild(ic);
       }
-      li.appendChild(head);
-      if (inside) li.appendChild(renderSection(kids));
+      label(a, item.title);
+      li.appendChild(a);
       ul.appendChild(li);
     });
     return ul;
+  }
+
+  // Шапка сцени над рамкою вайрфрейма, три рівні:
+  //   1. шлях «Екрани / група» і назва екрана — вона ж перемикач (список усіх екранів, як у tree.js);
+  //   2. вкладки станів — завжди ті самі 5, відсутні неактивні з поясненням зі сторінки;
+  //   3. ширина рамки (телефон, планшет, десктоп) — тихий інструмент праворуч від шляху.
+  // Будується з tree.js; ручні таби .wf-states на сторінці лишаються запасом без JavaScript і джерелом пояснень.
+  // «Попередній / наступний» немає: порядок реєстру — не порядок сценарію, а переходи за сценарієм —
+  // посилання всередині самого вайрфрейма.
+  var STATES = [
+    { stem: "", label: "Базова" },
+    { stem: "порожн", label: "Порожній" },
+    { stem: "помилк", label: "Помилка" },
+    { stem: "завантаж", label: "Завантаження" },
+    { stem: "успіх", label: "Успіх" }
+  ];
+  // Ширини рамки. Доступні ті, що сторінка оголосила в <html data-breakpoints="phone tablet desktop">
+  // (за замовчуванням — лише телефон: інші ще не намальовано, правило — wireframes/_conventions.md)
+  var BREAKPOINTS = [
+    { id: "phone", icon: "mobile", label: "Телефон", width: 390 },
+    { id: "tablet", icon: "tablet", label: "Планшет", width: 768 },
+    { id: "desktop", icon: "desktop", label: "Десктоп", width: 1440 }
+  ];
+
+  function renderStageBar() {
+    var legacy = document.querySelector(".wf-states");
+    if (!legacy) return;
+    var section = null, groups = [], screens = [];
+    (window.NAV_TREE || []).forEach(function (top) {
+      if (section || !contains(top)) return;
+      (top.children || []).forEach(function (child) {
+        if (child.href) { groups.push({ title: null, screens: [child] }); screens.push(child); return; }
+        var list = (child.children || []).filter(function (s) { return s.href; });
+        groups.push({ title: child.title, screens: list });
+        screens.push.apply(screens, list);
+      });
+      section = top;
+    });
+    var current = screens.filter(contains)[0];
+    if (!current) return;
+
+    var groupTitle = "";
+    groups.forEach(function (g) { if (g.screens.indexOf(current) >= 0) groupTitle = g.title || ""; });
+
+    // Шапка сцени: шлях і ширина (тихий інструмент) → назва екрана, вона ж перемикач екранів
+    var head = document.createElement("div");
+    head.className = "pn-stagehead";
+    var top = document.createElement("div");
+    top.className = "pn-stagehead-top";
+    var crumbs = document.createElement("nav");
+    crumbs.className = "pn-crumbs";
+    crumbs.setAttribute("aria-label", "Шлях");
+    var home = document.createElement(section.href ? "a" : "span");
+    if (section.href) home.href = root + section.href;
+    home.textContent = section.title;
+    crumbs.appendChild(home);
+    if (groupTitle) {
+      var sep = document.createElement("span");
+      sep.className = "pn-crumbs-sep";
+      sep.setAttribute("aria-hidden", "true");
+      sep.textContent = "/";
+      crumbs.appendChild(sep);
+      var gt = document.createElement("span");
+      gt.textContent = groupTitle;
+      crumbs.appendChild(gt);
+    }
+    top.appendChild(crumbs);
+
+    // Ширина рамки
+    var allowed = (document.documentElement.getAttribute("data-breakpoints") || "phone").split(/\s+/);
+    var device = document.querySelector(".device");
+    var bp = document.createElement("div");
+    bp.className = "pn-bp";
+    bp.setAttribute("role", "group");
+    bp.setAttribute("aria-label", "Ширина");
+    var saved = "phone";
+    try { saved = localStorage.getItem("pn-bp") || "phone"; } catch (e) {}
+    if (allowed.indexOf(saved) < 0) saved = "phone";
+    var buttons = BREAKPOINTS.map(function (b) {
+      var btn = document.createElement("button");
+      btn.type = "button";
+      var on = allowed.indexOf(b.id) >= 0;
+      var text = b.label + " · " + b.width + " px" + (on ? "" : " — ще не намальовано");
+      btn.title = text;
+      btn.setAttribute("aria-label", text);
+      btn.appendChild(icon(b.icon));
+      if (!on) btn.setAttribute("aria-disabled", "true");
+      btn.addEventListener("click", function () { if (on) apply(b.id, true); });
+      bp.appendChild(btn);
+      return [b, btn];
+    });
+    function apply(id, remember) {
+      buttons.forEach(function (pair) { pair[1].setAttribute("aria-pressed", String(pair[0].id === id)); });
+      var b = BREAKPOINTS.filter(function (x) { return x.id === id; })[0];
+      if (device && allowed.length > 1) device.style.width = "min(" + b.width + "px, 100%)";
+      document.documentElement.setAttribute("data-bp", id);
+      if (remember) { try { localStorage.setItem("pn-bp", id); } catch (e) {} }
+    }
+    apply(saved, false);
+    top.appendChild(bp);
+    head.appendChild(top);
+
+    var menu = document.createElement("details");
+    menu.className = "pn-screens";
+    var summary = document.createElement("summary");
+    summary.setAttribute("aria-label", "Екран: " + current.title + ". Відкрити список усіх екранів");
+    var title = document.createElement("span");
+    title.textContent = current.title;
+    summary.appendChild(title);
+    var chev = icon("angle-right");
+    chev.classList.add("pn-screens-chev");
+    summary.appendChild(chev);
+    menu.appendChild(summary);
+    var pop = document.createElement("div");
+    pop.className = "pn-screens-pop";
+    groups.forEach(function (g, gi) {
+      if (g.title) {
+        var cap = document.createElement("span");
+        cap.className = "pn-screens-group";
+        cap.id = "pn-sg-" + gi;
+        cap.textContent = g.title;
+        pop.appendChild(cap);
+      }
+      var ul = document.createElement("ul");
+      if (g.title) ul.setAttribute("aria-labelledby", "pn-sg-" + gi);
+      g.screens.forEach(function (s) {
+        var li = document.createElement("li"), a = document.createElement("a");
+        a.href = root + s.href;
+        a.textContent = s.title;
+        if (s === current) { a.className = "is-current"; a.setAttribute("aria-current", "true"); }
+        li.appendChild(a);
+        ul.appendChild(li);
+      });
+      pop.appendChild(ul);
+    });
+    menu.appendChild(pop);
+    document.addEventListener("click", function (e) { if (menu.open && !menu.contains(e.target)) menu.open = false; });
+    menu.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.open) { menu.open = false; summary.focus(); }
+    });
+    head.appendChild(menu);
+
+    // Вкладки станів — завжди ті самі 5; відсутні неактивні, з поясненням зі сторінки («Успіху немає: …»).
+    // Смуга вкладок закріплена вгорі; коли шапка поїхала вгору, ліворуч з'являється коротка назва екрана
+    var notes = [].map.call(legacy.querySelectorAll("span"), function (sp) { return sp.textContent.trim(); });
+    var tabs = document.createElement("nav");
+    tabs.className = "pn-tabs";
+    tabs.setAttribute("aria-label", "Стани екрана «" + current.title + "»");
+    var mini = document.createElement("span");
+    mini.className = "pn-tabs-screen";
+    mini.setAttribute("aria-hidden", "true");
+    mini.textContent = current.title;
+    tabs.appendChild(mini);
+    STATES.forEach(function (st) {
+      var target = st.stem ? (current.children || []).filter(function (c) {
+        return c.href && c.title.toLowerCase().indexOf(st.stem) === 0;
+      })[0] : current;
+      var el;
+      if (target) {
+        el = document.createElement("a");
+        el.href = root + target.href;
+        if (normalize(el.href) === here) el.setAttribute("aria-current", "page");
+        el.textContent = st.label;
+      } else {
+        el = document.createElement("span");
+        el.className = "is-off";
+        var why = notes.filter(function (n) { return n.toLowerCase().indexOf(st.stem) === 0; })[0] || (st.label + " — у цього екрана немає");
+        el.title = why;
+        el.setAttribute("tabindex", "0");
+        el.setAttribute("aria-disabled", "true");
+        el.textContent = st.label;
+        var sr = document.createElement("span");
+        sr.className = "pn-sr";
+        sr.textContent = ". " + why;
+        el.appendChild(sr);
+      }
+      el.classList.add("pn-tab");
+      tabs.appendChild(el);
+    });
+    if (window.IntersectionObserver) {
+      new IntersectionObserver(function (entries) {
+        tabs.classList.toggle("is-stuck", !entries[0].isIntersecting);
+      }).observe(menu);
+    }
+
+    legacy.parentNode.insertBefore(head, legacy);
+    legacy.parentNode.insertBefore(tabs, legacy);
+    document.documentElement.classList.add("pn-stage-on");
   }
 
   // Перемикач теми: дві кнопки, натиснута — поточна тема (_nav/theme.js).
@@ -248,16 +372,7 @@
     nav.insertAdjacentElement("afterend", renderCollapseButton());
     document.body.appendChild(tip);
 
-    // Перехід між екранами не повинен «стрибати» навігатором: зберігаємо прокрутку між сторінками,
-    // а якщо активний пункт за межами видимого — показуємо його
-    try { nav.scrollTop = Number(sessionStorage.getItem("pn-scroll") || 0); } catch (e) {}
-    var cur = nav.querySelector(".pn-current");
-    if (cur && (cur.offsetTop < nav.scrollTop || cur.offsetTop + cur.offsetHeight > nav.scrollTop + nav.clientHeight)) {
-      nav.scrollTop = cur.offsetTop - nav.clientHeight / 3;
-    }
-    window.addEventListener("pagehide", function () {
-      try { sessionStorage.setItem("pn-scroll", String(nav.scrollTop)); } catch (e) {}
-    });
+    renderStageBar();
     document.documentElement.classList.add("pn-on");
     // Анімацію ширини вмикаємо після першого кадру, щоб збережений стан не «проїжджав» при завантаженні
     requestAnimationFrame(function () { requestAnimationFrame(function () {

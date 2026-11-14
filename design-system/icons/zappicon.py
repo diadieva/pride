@@ -32,6 +32,7 @@ ICONS = [
     "expand", "compress",  # схема на весь екран / вийти
     "arrow-up",       # повернутися до списку flows
     "user-circle", "user-heart",  # джерела даних: власний акаунт, донори «Прайду»
+    "tablet", "desktop",          # перемикач ширини над рамкою вайрфрейма (телефон — "mobile")
     "house", "search-text", "users", "sitemap",  # пункти навігатора
     "angles-left", "angles-right",               # згорнути / розгорнути навігатор
     # вайрфрейми продукту (wireframes/)

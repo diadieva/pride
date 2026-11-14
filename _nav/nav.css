@@ -110,36 +110,121 @@ html { --pn-space: 264px; }
 .pn-page:focus-visible { outline: 2px solid var(--pn-fg); outline-offset: -2px; }
 .pn-branch { color: var(--pn-muted); font-weight: 600; }
 
-/* Розділ, у якому зараз людина (наприклад, «Екрани» на сторінці екрана): жирний, без заливки */
-.pn-has-current { font-weight: 600; }
-/* Шеврон розділу — індикатор «розкрито / згорнуто», не окрема кнопка */
-.pn .pn-chev { width: 14px; height: 14px; margin-left: auto; color: var(--pn-muted); transition: transform .15s ease; }
-.pn-current .pn-chev { color: inherit; }
-.pn-page.is-open .pn-chev { transform: rotate(90deg); }
+/* Шапка сцени над рамкою вайрфрейма (поза .pn — кольори з ролей _nav/theme.css).
+   Ширина — як у сцени: рамка 390 + 32 + нотатки 360 */
+html.pn-stage-on .wf-states { display: none; }
+.pn-stagehead, .pn-tabs {
+  flex-basis: 100%;
+  max-width: 782px;
+  margin-left: auto;
+  margin-right: auto;
+  font: 14px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+.pn-stagehead { margin-top: -8px; margin-bottom: -20px; }
+.pn-stagehead-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 30px; }
+.pn-crumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; color: var(--muted); font-size: 12.5px; }
+.pn-crumbs a { color: var(--muted); text-decoration: none; }
+.pn-crumbs a:hover { color: var(--text); text-decoration: underline; text-underline-offset: 2px; }
+.pn-crumbs-sep { opacity: .6; }
+/* Ширина — тихий інструмент: лише іконки, без підкладки */
+.pn-bp { display: inline-flex; gap: 2px; }
+.pn-bp button { display: grid; place-items: center; width: 30px; height: 30px; padding: 0; border: 0; border-radius: 8px; background: none; color: var(--muted); cursor: pointer; }
+.pn-bp button:not([aria-disabled]):hover { background: var(--surface); color: var(--text); }
+.pn-bp button[aria-pressed="true"] { color: var(--text); }
+.pn-bp button[aria-disabled] { opacity: .35; cursor: not-allowed; }
+.pn-bp .i { width: 16px; height: 16px; vertical-align: 0; }
+.pn-bp button:focus-visible, .pn-crumbs a:focus-visible, .pn-tab:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-/* Сторінки розділу. Підписи груп — другорядні орієнтири: дрібні, приглушені, не клікаються */
-.pn .pn-sub { margin: 2px 0 10px 21px; padding-left: 8px; border-left: 1px solid var(--pn-line); }
-.pn .pn-sub ul { margin: 0; padding: 0; border: 0; }
-.pn-group {
+/* Вкладки станів: закріплені вгорі, підкреслена — поточна */
+.pn-tabs {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: -8px;
+  padding-top: 8px;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.pn-tab {
+  flex: none;
+  padding: 10px 0 11px;
+  color: var(--muted);
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: inset 0 -2px 0 transparent;
+}
+a.pn-tab:hover { color: var(--text); }
+.pn-tab[aria-current="page"] { color: var(--text); font-weight: 600; box-shadow: inset 0 -2px 0 var(--text); }
+.pn-tab.is-off { opacity: .45; cursor: not-allowed; }
+.pn-tabs-screen { display: none; flex: none; padding-right: 8px; color: var(--text); font-weight: 600; }
+.pn-tabs.is-stuck .pn-tabs-screen { display: inline; }
+.pn-sr { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.pn-screens { position: relative; }
+.pn-screens summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: -8px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  color: var(--text);
+  font-size: clamp(24px, 4vw, 30px);
+  font-weight: 700;
+  letter-spacing: -.01em;
+  line-height: 1.2;
+  list-style: none;
+  cursor: pointer;
+}
+.pn-screens summary::-webkit-details-marker { display: none; }
+.pn-screens summary:hover { background: var(--surface); }
+.pn-screens-chev { width: 18px; height: 18px; vertical-align: 0; transform: rotate(90deg); transition: transform .15s ease; }
+.pn-screens[open] .pn-screens-chev { transform: rotate(-90deg); }
+.pn-screens summary:focus-visible, .pn-screens-pop a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.pn-screens-pop {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 50;
+  width: 280px;
+  max-height: 70vh;
+  overflow-y: auto;
+  padding: 8px;
+  border-radius: 16px;
+  background: var(--surface-raised);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .16);
+  text-align: left;
+}
+.pn-screens-group {
   display: block;
-  padding: 12px 12px 4px;
-  color: var(--pn-muted);
+  padding: 10px 10px 4px;
+  color: var(--muted);
   font-size: 10.5px;
   font-weight: 600;
   letter-spacing: .06em;
   text-transform: uppercase;
-  opacity: .85;
-  cursor: default;
 }
-.pn-sub > li:first-child > .pn-group { padding-top: 6px; }
-.pn-sub .pn-page { padding: 7px 12px; }
+.pn-screens-pop ul { list-style: none; margin: 0; padding: 0; }
+.pn-screens-pop li a {
+  display: block;
+  padding: 7px 10px;
+  border-radius: 10px;
+  color: var(--text);
+  text-decoration: none;
+}
+.pn-screens-pop li a:hover { background: var(--surface-2); }
+.pn-screens-pop a.is-current { background: var(--accent-fill); color: var(--on-accent); font-weight: 600; }
+@media (prefers-reduced-motion: reduce) { .pn-screens-chev { transition: none; } }
 .pn-current, .pn-current:hover {
   background: var(--pn-current-bg);
   color: var(--pn-current-fg);
 }
 .pn .pn-ic { width: 18px; height: 18px; vertical-align: 0; }
-/* Іконки — лише в пунктів першого рівня; вкладені (гілка «Екрани») — без іконок */
-.pn ul ul .pn-ic { display: none; }
 
 .pn-toggle { display: none; }
 
@@ -185,10 +270,7 @@ html.pn-on body { padding-left: var(--pn-space); }
   html.pn-collapsed .pn-theme { flex-direction: column; margin: auto auto 0; }
   html.pn-collapsed .pn-page { justify-content: center; padding: 12px 0; }
   /* Згорнутий: лише перший рівень; гілка — кнопка, що розгортає навігатор */
-  html.pn-collapsed .pn ul ul { display: none; }
   html.pn-collapsed .pn-branch { justify-content: center; padding: 12px 0; color: var(--pn-fg); }
-  html.pn-collapsed .pn-chev { display: none; }
-  html.pn-collapsed .pn-has-current { background: var(--pn-current-bg); color: var(--pn-current-fg); }
 
   .pn-tip {
     display: block;
@@ -239,6 +321,5 @@ html.pn-on body { padding-left: var(--pn-space); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .pn .pn-chev,
   .pn, html.pn-ready .pn, html.pn-ready.pn-on body, .pn-collapse, html.pn-ready .pn-collapse { transition: none; }
 }
