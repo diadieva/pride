@@ -33,7 +33,8 @@ ICONS = [
     "arrow-up",       # повернутися до списку flows
     "user-circle", "user-heart",  # джерела даних: власний акаунт, донори «Прайду»
     "tablet", "desktop",          # перемикач ширини над рамкою вайрфрейма (телефон — "mobile")
-    "house", "search-text", "users", "sitemap",  # пункти навігатора
+    "file-text", "search-text", "users", "sitemap",  # пункти навігатора
+    "house",          # екран «Заявка на прилаштування»
     "angles-left", "angles-right",               # згорнути / розгорнути навігатор
     # вайрфрейми продукту (wireframes/)
     "paw", "heart", "wallet-heart", "building",  # таббар: Тварини, Мої улюбленці, Підтримати, Про центр
