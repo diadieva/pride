@@ -51,7 +51,12 @@
       if (item.icon) el.appendChild(icon(item.icon));
       label(el, item.title);
       li.appendChild(el);
-      if (item.children && item.children.length) li.appendChild(renderItems(item.children));
+      if (item.children && item.children.length) {
+        var sub = renderItems(item.children);
+        // Гілка, всередині якої поточна сторінка, — у згорнутому навігаторі підсвічена замість неї
+        if (sub.querySelector(".pn-current")) el.classList.add("pn-has-current");
+        li.appendChild(sub);
+      }
       ul.appendChild(li);
     });
     return ul;
@@ -94,6 +99,9 @@
     b.setAttribute("aria-controls", "pn");
     var ic = icon("angles-left");
     b.appendChild(ic);
+    // У згорнутому навігаторі вкладених пунктів не видно: гілка першого рівня (як «Екрани») стає кнопкою,
+    // що розгортає навігатор
+    var branches = document.querySelectorAll(".pn > ul > li > .pn-branch");
     function sync() {
       var collapsed = document.documentElement.classList.contains(COLLAPSED);
       var text = collapsed ? "Розгорнути навігатор" : "Згорнути навігатор";
@@ -101,7 +109,17 @@
       b.setAttribute("aria-expanded", String(!collapsed));
       b.setAttribute("aria-label", text);
       b.title = text + " ([)";
+      branches.forEach(function (br) {
+        if (collapsed) { br.setAttribute("role", "button"); br.setAttribute("tabindex", "0"); }
+        else { br.removeAttribute("role"); br.removeAttribute("tabindex"); }
+      });
     }
+    branches.forEach(function (br) {
+      br.addEventListener("click", function () { if (document.documentElement.classList.contains(COLLAPSED)) toggle(); });
+      br.addEventListener("keydown", function (e) {
+        if ((e.key === "Enter" || e.key === " ") && document.documentElement.classList.contains(COLLAPSED)) { e.preventDefault(); toggle(); }
+      });
+    });
     function toggle() {
       var collapsed = document.documentElement.classList.toggle(COLLAPSED);
       try { localStorage.setItem(COLLAPSED, collapsed ? "1" : "0"); } catch (e) {}
