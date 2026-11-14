@@ -13,11 +13,13 @@ body {
 .wf-page {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   gap: 32px;
   padding: 32px 16px 64px;
 }
+/* Ті самі відступи від навігатора, що й на інших сторінках репо: зміст не стрибає між сторінками */
+@media (min-width: 900px) { .wf-page { padding: 48px 40px 64px; } }
 .wf-notes {
   width: min(360px, 100%);
   color: var(--muted);
