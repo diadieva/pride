@@ -71,7 +71,7 @@ window.NAV_TREE = [
         { title: "Завантаження", href: "wireframes/my-support-loading.html", icon: "hourglass" },
         { title: "Успіх", href: "wireframes/my-support-success.html", icon: "check-circle" }
       ] },
-      { title: "Мої підписки", href: "wireframes/my-subscriptions.html", icon: "envelope", children: [
+      { title: "Мої підписки", href: "wireframes/my-subscriptions.html", icon: "bell-heart", children: [
         { title: "Порожній стан", href: "wireframes/my-subscriptions-empty.html", icon: "inbox" },
         { title: "Помилка", href: "wireframes/my-subscriptions-error.html", icon: "exclamation-circle" },
         { title: "Завантаження", href: "wireframes/my-subscriptions-loading.html", icon: "hourglass" },
