@@ -74,17 +74,18 @@
           <p>Лист надіслали <time datetime="2026-11-13T14:32">о 14:32</time> на</p>
           <p><b>kateryna@example.com</b></p>
           <p>Натисніть у ньому посилання — і новини про <span class="ph">[ім'я коня]</span> приходитимуть на email. Якщо ви вже стежите за цією історією, лист так і скаже.</p>
+          <p class="meta">Новини приходитимуть раз на тиждень [?], а важливі зміни — одразу. Змінити частоту можна в «Моїх підписках».</p>
           <p class="meta">Листа немає кілька хвилин? Перевірте «Спам» і «Промоакції».</p>
           <details>
             <summary>Це не та адреса? Виправити</summary>
-            <form action="animal-success.html" method="get" aria-label="Виправити адресу">
+            <form action="animal-loading.html" method="get" aria-label="Виправити адресу">
               <label>Email для новин
                 <input type="email" name="email" value="kateryna@example.com" autocomplete="email" required>
               </label>
               <button type="submit">Надіслати на цю адресу</button>
             </form>
           </details>
-          <a class="btn" href="animal-success.html"><span class="i i-arrows-rotate" aria-hidden="true"></span> Надіслати ще раз</a>
+          <a class="btn" href="animal-loading.html"><span class="i i-arrows-rotate" aria-hidden="true"></span> Надіслати ще раз</a>
           <p class="meta">Надіслали двічі, а листа все немає — напишіть чи зателефонуйте нам, пн–пт 09:00–19:00: <a href="mailto:info@bestofthepride.info">info@bestofthepride.info</a>, <a href="tel:+380665826817">+380 66 582 68 17</a>. Усі контакти — <a href="center.html">Про центр</a>.</p>
         </section>
 
@@ -173,14 +174,14 @@
     <h2>Дані</h2>
     <ul>
       <li>Адреса kateryna@example.com і час — реалістичні значення людини. Канал — email; Telegram — [?] (Г2).</li>
-      <li>Сторінки «надсилаємо лист» для профілю в sitemap.md немає, тож «Надіслати ще раз» і «Надіслати на цю адресу» ведуть одразу сюди ж.</li>
+      <li>«Надіслати ще раз» і «Надіслати на цю адресу» ведуть через <a href="animal-loading.html">завантаження</a>, варіант «Надсилаємо лист…» (R3, 9а) — повторне надсилання там заблоковано — і повертаються сюди (рішення 14.11.2026).</li>
     </ul>
 
     <h2>Переходи flow</h2>
     <ul class="wf-flow">
       <li>Сюди — з профілю для відвідувача: форма «Стежити за історією», розвилка 9 — так (ST1). Хибна адреса (9 — ні) — <a href="animal-error.html">помилка</a>, варіант біля поля.</li>
       <li>Розвилка 10 «Лист дійшов?»: так → 13 «Посилання дійсне?»: так — посилання з листа → <a href="my-animals-loading.html">Мої улюбленці · завантаження</a>, тварина серед моїх (успіх R3); ні — <a href="login.html">Вхід</a>, підflow як у M.</li>
-      <li>Розвилка 11 «Адреса правильна?»: ні — «Виправити» → нова адреса, лист іде на неї (сюди ж); так — «Надіслати ще раз» → <a href="animal-success.html">сюди ж</a> (W1).</li>
+      <li>Розвилка 11 «Адреса правильна?»: ні — «Виправити» → нова адреса → <a href="animal-loading.html">надсилаємо лист</a> → сюди ж; так — «Надіслати ще раз» → <a href="animal-success.html">сюди ж</a> (W1).</li>
       <li>Розвилка 12 «Дійшов після повтору?»: ні — контакти й <a href="center.html">Про центр</a>.</li>
       <li>«Взяти опіку» → <a href="care.html">Опіка над твариною</a> (R2 Опікуна).</li>
     </ul>
