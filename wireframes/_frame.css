@@ -108,17 +108,19 @@ body {
 .device small, .device .meta { color: var(--wf-muted); font-size: 13px; }
 .device :focus-visible { outline: 2px solid var(--wf-ink); outline-offset: 2px; }
 
-/* Шапка — однакова на кожному екрані */
+/* Шапка — однакова на кожному екрані донора: бренд зліва, справа лупа пошуку і службова зона.
+   margin-right: auto у бренда тримає обидві кнопки разом праворуч без обгортки */
 .app-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+  gap: 8px;
   padding: 12px 16px;
   border-bottom: 1px solid var(--wf-line);
 }
-.brand { font-weight: 700; text-decoration: none; }
+.brand { margin-right: auto; font-weight: 700; text-decoration: none; }
 .service { position: relative; }
+/* Лупа (глобальний пошук) і кнопка службової зони — однакові квадрати 44 px з іконкою по центру */
+.search-link,
 .service > summary {
   list-style: none;
   cursor: pointer;
@@ -126,10 +128,14 @@ body {
   min-height: 44px;
   display: grid;
   place-items: center;
-  justify-content: center; /* .device details > summary нижче робить його flex — шестерня має лишатися по центру */
+  justify-content: center; /* .device details > summary нижче робить його flex — іконка має лишатися по центру */
   border: 1px solid var(--wf-line);
   border-radius: 10px;
+  color: inherit;
+  text-decoration: none;
 }
+/* На сторінках «Пошуку» лупа — поточна сторінка (aria-current), як пункт таббару */
+.search-link[aria-current="page"] { background: var(--wf-fill); border-color: var(--wf-ink); }
 .service > summary::-webkit-details-marker { display: none; }
 .service > nav {
   position: absolute;

@@ -1,11 +1,11 @@
 <!doctype html>
 <!--
-  Усі тварини · animals-loading.html — стан завантаження (sitemap.md, колонка «Стани»: «список; результати пошуку»).
+  Усі тварини · animals-loading.html — стан завантаження (sitemap.md, колонка «Стани»: «список; список за ім'ям і фільтрами»).
   Базова сторінка — animals.html; шапка, зони й таббар ті самі, на місці рядків — сірі заглушки.
 
-  Крок flow — flows.md, flow R3: вхід у ALL з дошки (розвилки 2, 3, 4) чи з помилки дошки (E1 «шукати за ім'ям») →
-  завантаження списку → розвилка 5 «Хтось знайшовся за пошуком чи фільтром?».
-  У flow R3 це L3 «loading: список; результати пошуку» → розвилка 4а «Список прийшов?».
+  Крок flow — flows.md, flow R3: вхід у ALL з дошки (розвилки 3, 4) чи з «Пошуку» («Усі тварини» в результатах, EM4) →
+  завантаження списку → розвилка 5 «Хтось знайшовся за ім'ям чи фільтром?».
+  У flow R3 це L3 «loading: список» → розвилка 4а «Список прийшов?».
 
   Job (sitemap.md): R1, R3.
   Правила — wireframes/_conventions.md.
@@ -38,8 +38,9 @@
 
     <header class="app-header" data-zone="1">
       <a class="brand" href="board.html">Прайд</a>
+      <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
       <details class="service">
-        <summary><span class="i i-gear" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
+        <summary><span class="i i-user-circle" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
         <nav aria-label="Службова зона">
           <ul>
             <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
@@ -61,8 +62,8 @@
 
       <h1>Усі тварини</h1>
 
-      <!-- Форма на місці: можна уточнити пошук, не чекаючи списку -->
-      <form role="search" aria-label="Пошук і фільтри" data-zone="2" action="animals-loading.html" method="get">
+      <!-- Форма на місці: можна уточнити фільтри, не чекаючи списку -->
+      <form role="search" aria-label="Фільтри списку" data-zone="2" action="animals-loading.html" method="get">
         <label>Ім'я тварини
           <input type="search" name="q" autocomplete="off">
         </label>
@@ -115,7 +116,7 @@
     <h2>Усі тварини · завантаження</h2>
     <ul>
       <li>Чекаємо на список тварин: фото, імена, вид, риси, «бракує» чи «покрито».</li>
-      <li>Flow R3: вхід у ALL → розвилка 5 «Хтось знайшовся за пошуком чи фільтром?».</li>
+      <li>Flow R3: вхід у ALL → розвилка 5 «Хтось знайшовся за ім'ям чи фільтром?».</li>
     </ul>
 
     <h2>Job</h2>
@@ -127,18 +128,18 @@
     <h2>Зони в цьому стані</h2>
     <ul>
       <li><span class="wf-zone">3</span> Тварини центру — заголовок на місці, рядки — сірими заглушками: фото, ім'я, рядок даних. Текст процесу — «Завантажуємо тварин…».</li>
-      <li><span class="wf-zone">2</span> Пошук і фільтри — працюють: уточнити запит можна, не чекаючи.</li>
+      <li><span class="wf-zone">2</span> Фільтри списку — працюють: уточнити ім'я чи фільтри можна, не чекаючи.</li>
       <li>Вихід — «Дошка» вгорі, шапка і таббар.</li>
     </ul>
 
     <h2>Інший варіант — та сама сторінка</h2>
     <ul>
-      <li><b>Результати пошуку</b> — після «Знайти» на дошці чи «Показати» тут: у полі — запит, обрані фільтри позначено, текст процесу — «Шукаємо „<span class="ph">[запит]</span>“…».</li>
+      <li><b>Список за ім'ям і фільтрами</b> — після «Показати»: у полі — ім'я, обрані фільтри позначено, текст процесу — «Шукаємо „<span class="ph">[запит]</span>“…».</li>
     </ul>
 
     <h2>Переходи flow</h2>
     <ul class="wf-flow">
-      <li>Сюди — з <a href="board.html">дошки</a> (пошук, «Усі тварини» в кінці стрічки), з <a href="board-empty.html">порожньої дошки</a>, з <a href="board-error.html">помилки дошки</a> — «Шукати за ім'ям», з <a href="animals-empty.html">порожнього стану</a> — «Скинути фільтри», з <a href="animals-error.html">помилки</a> — «Спробувати ще», і з власної форми — «Показати».</li>
+      <li>Сюди — з <a href="board.html">дошки</a> («Усі тварини» в кінці стрічки), з <a href="board-empty.html">порожньої дошки</a>, з <a href="board-error.html">помилки дошки</a> — «Відкрити список», з <a href="search.html">Пошуку</a> — «Усі тварини» в результатах і в <a href="search-empty.html">порожньому стані</a>, з <a href="animals-empty.html">порожнього стану</a> — «Скинути фільтри», з <a href="animals-error.html">помилки</a> — «Спробувати ще», і з власної форми — «Показати».</li>
       <li>Розвилка 5 «Хтось знайшовся?»: так — <a href="animals.html">базова сторінка</a>; ні — <a href="animals-empty.html">порожній стан</a>; збій — <a href="animals-error.html">помилка</a>.</li>
     </ul>
   </aside>

@@ -39,6 +39,11 @@ window.NAV_TREE = [
         { title: "Помилка", href: "wireframes/animals-error.html", icon: "exclamation-circle" },
         { title: "Завантаження", href: "wireframes/animals-loading.html", icon: "hourglass" }
       ] },
+      { title: "Пошук", href: "wireframes/search.html", icon: "search", children: [
+        { title: "Порожній стан", href: "wireframes/search-empty.html", icon: "inbox" },
+        { title: "Помилка", href: "wireframes/search-error.html", icon: "exclamation-circle" },
+        { title: "Завантаження", href: "wireframes/search-loading.html", icon: "hourglass" }
+      ] },
       { title: "Профіль тварини", href: "wireframes/animal.html", icon: "paw", children: [
         { title: "Порожній стан", href: "wireframes/animal-empty.html", icon: "inbox" },
         { title: "Помилка", href: "wireframes/animal-error.html", icon: "exclamation-circle" },

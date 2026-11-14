@@ -1,0 +1,135 @@
+<!doctype html>
+<!--
+  Пошук · search-empty.html — порожній стан (sitemap.md, колонка «Стани»: «нічого не знайшли за „[запит]“ →
+  перевірити написання, „Усі тварини“ з фільтрами, дошка»).
+  Базова сторінка — search.html; шапка, поле й таббар ті самі. На місці результатів — пояснення й виходи.
+  Порожнє поле до введення — не цей стан, а базова сторінка.
+
+  Крок flow — flows.md, flow R3: L5 «loading: шукаємо» → 2а «Пошук відповів?» — так → SEARCH →
+  2б «Щось знайшлось?» — ні → EM4 «empty: нічого не знайшли за запитом» →
+  «Усі тварини» з фільтрами → L3; «спробувати інакше» → L5; «дошка» → BOARD.
+
+  Job (sitemap.md): R1, R3.
+  Правила — wireframes/_conventions.md.
+-->
+<html lang="uk" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Вайрфрейм · Пошук · порожній стан</title>
+  <script src="../_nav/theme.js"></script>
+  <link rel="stylesheet" href="../_nav/theme.css">
+  <link rel="stylesheet" href="../_nav/icons.css">
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script defer src="../_nav/tree.js"></script>
+  <script defer src="../_nav/nav.js"></script>
+  <link rel="stylesheet" href="_frame.css">
+</head>
+<body>
+<div class="wf-page">
+
+  <nav class="wf-states" aria-label="Стани екрана «Пошук»">
+    <a href="search.html">Базова сторінка</a>
+    <a href="search-empty.html" aria-current="page">Порожній</a>
+    <a href="search-error.html">Помилка</a>
+    <a href="search-loading.html">Завантаження</a>
+    <span>Успіху немає: це не екран дії — тут шукають, нічого не вносять</span>
+  </nav>
+
+  <div class="device">
+
+    <header class="app-header" data-zone="1">
+      <a class="brand" href="board.html">Прайд</a>
+      <a class="search-link" href="search.html" aria-current="page"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
+      <details class="service">
+        <summary><span class="i i-user-circle" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
+        <nav aria-label="Службова зона">
+          <ul>
+            <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
+            <li><a href="my-subscriptions.html"><span class="i i-bell-heart" aria-hidden="true"></span>Мої підписки</a></li>
+            <li>
+              <fieldset class="lang">
+                <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
+                <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
+                <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
+              </fieldset>
+            </li>
+          </ul>
+        </nav>
+      </details>
+    </header>
+
+    <main>
+      <h1>Пошук</h1>
+
+      <!-- Запит збережено: його видно і можна виправити — це вихід «спробувати інакше» -->
+      <form role="search" aria-label="Пошук по сайту" data-zone="2" action="search-loading.html" method="get">
+        <label>Що шукаємо
+          <input type="search" name="q" value="[запит]" autocomplete="off" aria-describedby="search-hint">
+        </label>
+        <p class="meta" id="search-hint">Ім'я, вид чи риса характеру тварини, слово з моменту чи з розділу «Про центр»</p>
+        <button class="primary" type="submit"><span class="i i-search" aria-hidden="true"></span> Знайти</button>
+      </form>
+
+      <!-- На місці результатів — що сталося і виходи з flows.md: EM4 → «Усі тварини» з фільтрами, інший запит, дошка -->
+      <section aria-labelledby="results" data-zone="3">
+        <h2 id="results"><span class="i i-inbox" aria-hidden="true"></span> Нічого не знайшли за «<span class="ph">[запит]</span>»</h2>
+        <p role="status">Ні серед тварин, ні в моментах, ні про центр.</p>
+        <p>Перевірте написання або спробуйте інакше: вид, як-от «кінь» чи «собака», або одне слово замість кількох.</p>
+        <p>А ще можна переглянути всіх тварин і звузити список фільтрами — за видом, характером і тим, кому ще бракує допомоги.</p>
+        <a class="btn primary" href="animals-loading.html">Усі тварини — з фільтрами <span class="i i-angle-right" aria-hidden="true"></span></a>
+        <a class="btn" href="board.html">На дошку</a>
+      </section>
+    </main>
+
+    <nav class="tabbar" aria-label="Головна навігація" data-zone="6">
+      <ul>
+        <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+        <li><a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+        <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+        <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+      </ul>
+    </nav>
+
+  </div>
+
+  <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
+    <h2>Пошук · порожній стан</h2>
+    <ul>
+      <li>Пошук відповів, але за запитом нічого немає в жодній групі: ні тварин, ні моментів, ні розділів про центр.</li>
+      <li>Flow R3, розвилка 2б «Щось знайшлось?» — ні → EM4.</li>
+      <li>Порожнє поле до введення — не цей стан, а <a href="search.html">базова сторінка</a>.</li>
+    </ul>
+
+    <h2>Job</h2>
+    <ul>
+      <li>R1 · Зрозуміти, з ким із тварин виникне зв'язок</li>
+      <li>R3 · Познайомитися з твариною, перш ніж давати гроші</li>
+    </ul>
+
+    <h2>Зони в цьому стані</h2>
+    <ul>
+      <li><span class="wf-zone">3</span> «Нічого не знайшли за „[запит]“» — на місці результатів: запит названо, порада перевірити написання, без вибачень і без тиску. <b>«Усі тварини — з фільтрами»</b> — головний вихід: тварину, ім'я якої людина не пам'ятає точно, легше впізнати в списку. «На дошку» — другорядний.</li>
+      <li><span class="wf-zone">2</span> Поле — запит збережено; виправити й «Знайти» — це «спробувати інакше».</li>
+      <li>Зон <span class="wf-zone">4</span> і <span class="wf-zone">5</span> (Моменти, Про центр) немає: порожніх груп не показуємо. Нумерацію залишено як на базовій сторінці.</li>
+      <li><span class="wf-zone">1</span>, <span class="wf-zone">6</span> — шапка і таббар; жоден пункт таббару не поточний.</li>
+    </ul>
+
+    <h2>Дані</h2>
+    <ul>
+      <li>«кінь» і «собака» в підказці — справжні види тварин центру (CLAUDE.md, «Організація»), не імена.</li>
+      <li>Підказки на кшталт «можливо, ви мали на увазі» — [?]: залежить від того, як шукатиме продукт.</li>
+    </ul>
+
+    <h2>Переходи flow</h2>
+    <ul class="wf-flow">
+      <li>Сюди — з <a href="search-loading.html">завантаження</a>: розвилка 2а — так, 2б «Щось знайшлось?» — ні (EM4).</li>
+      <li>EM4 → «Усі тварини — з фільтрами» → <a href="animals-loading.html">Усі тварини · завантаження</a> (L3).</li>
+      <li>EM4 → «спробувати інакше»: виправити запит і «Знайти» → <a href="search-loading.html">завантаження</a> (L5).</li>
+      <li>EM4 → «На дошку» → <a href="board.html">Дошка</a>.</li>
+    </ul>
+  </aside>
+
+</div>
+</body>
+</html>

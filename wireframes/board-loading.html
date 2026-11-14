@@ -5,7 +5,7 @@
 
   Крок flow — flows.md, flow R3: старт «Спостерігач прийшов з посту чи Instagram [?]» →
   L1 «loading: моменти» → розвилка 1 «Моменти завантажились?»: так — BOARD, ні — E1.
-  Пошук працює й без моментів: він веде в «Усі тварини».
+  Лупа в шапці («Пошук») і «Усі тварини» працюють і без моментів.
 
   Job (sitemap.md): R3, R1, E3.
   Правила — wireframes/_conventions.md.
@@ -31,15 +31,16 @@
     <a href="board-empty.html">Порожній</a>
     <a href="board-error.html">Помилка</a>
     <a href="board-loading.html" aria-current="page">Завантаження</a>
-    <span>Успіху немає: це не екран дії — тут дивляться й шукають</span>
+    <span>Успіху немає: це не екран дії — тут дивляться моменти, нічого не вносять</span>
   </nav>
 
   <div class="device">
 
     <header class="app-header" data-zone="1">
       <a class="brand" href="board.html">Прайд</a>
+      <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
       <details class="service">
-        <summary><span class="i i-gear" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
+        <summary><span class="i i-user-circle" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
         <nav aria-label="Службова зона">
           <ul>
             <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
@@ -61,15 +62,7 @@
 
       <h1>Дошка</h1>
 
-      <!-- Пошук не чекає на моменти: шукає серед усіх тварин -->
-      <form role="search" aria-label="Пошук за ім'ям" data-zone="2" action="animals-loading.html" method="get">
-        <label>Знайти тварину за ім'ям
-          <input type="search" name="q" autocomplete="off" placeholder="Наприклад, ім'я коня чи собаки">
-        </label>
-        <button class="primary" type="submit"><span class="i i-search-text" aria-hidden="true"></span> Знайти</button>
-      </form>
-
-      <section aria-labelledby="feed" data-zone="3" aria-busy="true">
+      <section aria-labelledby="feed" data-zone="2" aria-busy="true">
         <h2 id="feed">Свіжі моменти</h2>
         <p class="meta" role="status"><span class="i i-hourglass" aria-hidden="true"></span> Завантажуємо моменти…</p>
         <span class="skeleton title short"></span>
@@ -82,14 +75,14 @@
         <span class="skeleton photo"></span>
       </section>
 
-      <section aria-labelledby="all-animals" data-zone="4">
+      <section aria-labelledby="all-animals" data-zone="3">
         <h2 id="all-animals" tabindex="-1">Усі тварини центру</h2>
-        <p>Списком, з пошуком і фільтрами: за характером, видом і тим, кому ще бракує допомоги.</p>
+        <p>Списком, з фільтрами: за ім'ям, характером, видом і тим, кому ще бракує допомоги.</p>
         <a class="btn primary" href="animals-loading.html">Усі тварини <span class="i i-angle-right" aria-hidden="true"></span></a>
       </section>
     </main>
 
-    <nav class="tabbar" aria-label="Головна навігація" data-zone="5">
+    <nav class="tabbar" aria-label="Головна навігація" data-zone="4">
       <ul>
         <li><a href="board.html" aria-current="page"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
         <li><a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
@@ -115,9 +108,9 @@
 
     <h2>Зони в цьому стані</h2>
     <ul>
-      <li><span class="wf-zone">3</span> Свіжі моменти — заголовок на місці, моменти — сірими заглушками тих самих розмірів. Текст процесу — «Завантажуємо моменти…».</li>
-      <li><span class="wf-zone">2</span> Пошук і <span class="wf-zone">4</span> «Усі тварини» — <b>працюють уже зараз</b>: людині, яка шукає конкретну тварину, не треба чекати стрічку. Це й живий вихід зі стану.</li>
-      <li><span class="wf-zone">1</span>, <span class="wf-zone">5</span> — шапка і таббар працюють.</li>
+      <li><span class="wf-zone">2</span> Свіжі моменти — заголовок на місці, моменти — сірими заглушками тих самих розмірів. Текст процесу — «Завантажуємо моменти…».</li>
+      <li><span class="wf-zone">3</span> «Усі тварини» і лупа в шапці <span class="wf-zone">1</span> — <b>працюють уже зараз</b>: людині, яка шукає конкретну тварину, не треба чекати стрічку. Це й живий вихід зі стану.</li>
+      <li><span class="wf-zone">1</span>, <span class="wf-zone">4</span> — шапка і таббар працюють.</li>
     </ul>
 
     <h2>Інший варіант — та сама сторінка</h2>
@@ -129,7 +122,8 @@
     <ul class="wf-flow">
       <li>Сюди — кожен вхід на дошку: пост чи Instagram [?], пункт «Тварини», бренд «Прайд», <a href="board-error.html">помилка</a> — «Спробувати ще». У вайрфреймах таббар і бренд ведуть одразу на <a href="board.html">базову сторінку</a>, щоб шапка й таббар були однакові скрізь.</li>
       <li>Розвилка 1 «Моменти завантажились?»: так — розвилка 3 «Є свіжі моменти?»: так — <a href="board.html">базова сторінка</a>, ні — <a href="board-empty.html">порожній стан</a>; ні — <a href="board-error.html">помилка</a>.</li>
-      <li>Пошук і «Усі тварини» → <a href="animals-loading.html">Усі тварини · завантаження</a> (розвилки 2 і 4).</li>
+      <li>Лупа в шапці → <a href="search.html">Пошук</a> (розвилка 2).</li>
+      <li>«Усі тварини» → <a href="animals-loading.html">Усі тварини · завантаження</a> (розвилка 4).</li>
     </ul>
   </aside>
 

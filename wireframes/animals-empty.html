@@ -1,9 +1,9 @@
 <!doctype html>
 <!--
-  Усі тварини · animals-empty.html — порожній стан (sitemap.md, колонка «Стани»: «нікого за пошуком чи фільтром → скинути фільтри»).
+  Усі тварини · animals-empty.html — порожній стан (sitemap.md, колонка «Стани»: «нікого за ім'ям чи фільтром → скинути фільтри»).
   Базова сторінка — animals.html; шапка, зони й таббар ті самі.
 
-  Крок flow — flows.md, flow R3: ALL → розвилка 5 «Хтось знайшовся за пошуком чи фільтром?» — ні →
+  Крок flow — flows.md, flow R3: ALL → розвилка 5 «Хтось знайшовся за ім'ям чи фільтром?» — ні →
   EM2 «empty: нікого за фільтром, скинути фільтри» → ALL.
 
   Job (sitemap.md): R1, R3.
@@ -37,8 +37,9 @@
 
     <header class="app-header" data-zone="1">
       <a class="brand" href="board.html">Прайд</a>
+      <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
       <details class="service">
-        <summary><span class="i i-gear" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
+        <summary><span class="i i-user-circle" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
         <nav aria-label="Службова зона">
           <ul>
             <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
@@ -61,7 +62,7 @@
       <h1>Усі тварини</h1>
 
       <!-- Обрані фільтри збережено: видно, що саме звузило список -->
-      <form role="search" aria-label="Пошук і фільтри" data-zone="2" action="animals-loading.html" method="get">
+      <form role="search" aria-label="Фільтри списку" data-zone="2" action="animals-loading.html" method="get">
         <label>Ім'я тварини
           <input type="search" name="q" autocomplete="off">
         </label>
@@ -108,7 +109,7 @@
     <h2>Усі тварини · порожній стан</h2>
     <ul>
       <li>Список завантажився, але за обраними фільтрами нікого немає.</li>
-      <li>Flow R3, розвилка 5 «Хтось знайшовся за пошуком чи фільтром?» — ні → EM2 → ALL.</li>
+      <li>Flow R3, розвилка 5 «Хтось знайшовся за ім'ям чи фільтром?» — ні → EM2 → ALL.</li>
     </ul>
 
     <h2>Job</h2>
@@ -120,20 +121,20 @@
     <h2>Зони в цьому стані</h2>
     <ul>
       <li><span class="wf-zone">3</span> «Нікого не знайшли» — названо фільтри, які звузили список, і <b>«Скинути фільтри»</b>: вихід EM2 → повний список.</li>
-      <li><span class="wf-zone">2</span> Пошук і фільтри — обране збережено; можна прибрати один фільтр і «Показати».</li>
+      <li><span class="wf-zone">2</span> Фільтри списку — обране збережено; можна прибрати один фільтр і «Показати».</li>
       <li><span class="wf-zone">1</span>, <span class="wf-zone">4</span> — шапка і таббар; «Дошка» вгорі.</li>
     </ul>
 
     <h2>Інший варіант — та сама сторінка</h2>
     <ul>
-      <li><b>Нікого за ім'ям</b> — пошук із дошки не дав результату: «Тварини з ім'ям „<span class="ph">[запит]</span>“ немає. Перевірте написання». Та сама дія — «Скинути пошук» → повний список.</li>
+      <li><b>Нікого за ім'ям</b> — ім'я в полі цього списку не дало результату: «Тварини з ім'ям „<span class="ph">[запит]</span>“ немає. Перевірте написання». Та сама дія — «Скинути фільтри» → повний список. Шукати ширше — моменти й «Про центр» — можна в «Пошуку», лупа в шапці.</li>
     </ul>
 
     <h2>Переходи flow</h2>
     <ul class="wf-flow">
       <li>Сюди — з <a href="animals-loading.html">завантаження</a>: розвилка 5 — ні (EM2).</li>
       <li>«Скинути фільтри» → <a href="animals-loading.html">завантаження</a> без фільтрів → <a href="animals.html">базова сторінка</a> (EM2 → ALL).</li>
-      <li>«Показати» з іншими фільтрами → <a href="animals-loading.html">завантаження: результати пошуку</a>.</li>
+      <li>«Показати» з іншими фільтрами → <a href="animals-loading.html">завантаження: список за ім'ям і фільтрами</a>.</li>
     </ul>
   </aside>
 

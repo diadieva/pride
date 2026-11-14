@@ -6,6 +6,7 @@
 
   Крок flow — flows.md, flow R3: L1 → розвилка 1 «Моменти завантажились?» — так → BOARD →
   2 «Шукає конкретну тварину?» — ні → 3 «Є свіжі моменти?» — ні → EM1 «empty: нових моментів давно немає» → ALL.
+  Шукати конкретну тварину можна й тут — лупою в шапці (розвилка 2 → «Пошук»).
 
   Job (sitemap.md): R3, R1, E3.
   Правила — wireframes/_conventions.md.
@@ -31,15 +32,16 @@
     <a href="board-empty.html" aria-current="page">Порожній</a>
     <a href="board-error.html">Помилка</a>
     <a href="board-loading.html">Завантаження</a>
-    <span>Успіху немає: це не екран дії — тут дивляться й шукають</span>
+    <span>Успіху немає: це не екран дії — тут дивляться моменти, нічого не вносять</span>
   </nav>
 
   <div class="device">
 
     <header class="app-header" data-zone="1">
       <a class="brand" href="board.html">Прайд</a>
+      <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
       <details class="service">
-        <summary><span class="i i-gear" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
+        <summary><span class="i i-user-circle" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
         <nav aria-label="Службова зона">
           <ul>
             <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
@@ -61,29 +63,22 @@
 
       <h1>Дошка</h1>
 
-      <form role="search" aria-label="Пошук за ім'ям" data-zone="2" action="animals-loading.html" method="get">
-        <label>Знайти тварину за ім'ям
-          <input type="search" name="q" autocomplete="off" placeholder="Наприклад, ім'я коня чи собаки">
-        </label>
-        <button class="primary" type="submit"><span class="i i-search-text" aria-hidden="true"></span> Знайти</button>
-      </form>
-
       <!-- На місці стрічки — пояснення і вихід з flows.md: EM1 → «Усі тварини» -->
-      <section aria-labelledby="feed" data-zone="3">
+      <section aria-labelledby="feed" data-zone="2">
         <h2 id="feed"><span class="i i-inbox" aria-hidden="true"></span> Нових моментів поки немає</h2>
         <p>Останній момент на дошці — від <time datetime="2026-10-28">28 жовтня</time>. Команда центру пише, коли з тваринами щось стається, і нові моменти з'являться тут.</p>
         <p>А поки — познайомтеся з тваринами: у кожної є історія, характер і всі попередні новини.</p>
         <a class="btn primary" href="animals-loading.html">Усі тварини <span class="i i-angle-right" aria-hidden="true"></span></a>
       </section>
 
-      <section aria-labelledby="all-animals" data-zone="4">
+      <section aria-labelledby="all-animals" data-zone="3">
         <h2 id="all-animals" tabindex="-1">Усі тварини центру</h2>
-        <p>Списком, з пошуком і фільтрами: за характером, видом і тим, кому ще бракує допомоги.</p>
+        <p>Списком, з фільтрами: за ім'ям, характером, видом і тим, кому ще бракує допомоги.</p>
         <a class="btn" href="animals-loading.html">Відкрити список <span class="i i-angle-right" aria-hidden="true"></span></a>
       </section>
     </main>
 
-    <nav class="tabbar" aria-label="Головна навігація" data-zone="5">
+    <nav class="tabbar" aria-label="Головна навігація" data-zone="4">
       <ul>
         <li><a href="board.html" aria-current="page"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
         <li><a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
@@ -111,21 +106,21 @@
 
     <h2>Зони в цьому стані</h2>
     <ul>
-      <li><span class="wf-zone">3</span> «Нових моментів поки немає» — чесна дата останнього моменту, без вибачень і без тиску. <b>«Усі тварини»</b> — вихід з EM1.</li>
-      <li><span class="wf-zone">4</span> Усі тварини центру — та сама дія світлою кнопкою: головна вже в зоні 3. Лишається ціллю «Пропустити стрічку».</li>
-      <li><span class="wf-zone">1</span>, <span class="wf-zone">2</span>, <span class="wf-zone">5</span> — як на базовій сторінці; пошук працює.</li>
+      <li><span class="wf-zone">2</span> «Нових моментів поки немає» — чесна дата останнього моменту, без вибачень і без тиску. <b>«Усі тварини»</b> — вихід з EM1.</li>
+      <li><span class="wf-zone">3</span> Усі тварини центру — та сама дія світлою кнопкою: головна вже в зоні 2. Лишається ціллю «Пропустити стрічку».</li>
+      <li><span class="wf-zone">1</span>, <span class="wf-zone">4</span> — як на базовій сторінці; лупа в шапці веде в «Пошук».</li>
     </ul>
 
     <h2>Інший варіант — не окрема сторінка</h2>
     <ul>
-      <li><b>Стрічка скінчилася</b> (sitemap.md, «порожній»; R3, розвилка 4 «ні, стрічка скінчилась») — людина догортала до кінця. Моменти лишаються, а зона <span class="wf-zone">4</span> під ними — «Усі тварини» як на <a href="board.html">базовій сторінці</a>; «Показати ще моменти» зникає.</li>
+      <li><b>Стрічка скінчилася</b> (sitemap.md, «порожній»; R3, розвилка 4 «ні, стрічка скінчилась») — людина догортала до кінця. Моменти лишаються, а зона <span class="wf-zone">3</span> під ними — «Усі тварини» як на <a href="board.html">базовій сторінці</a>; «Показати ще моменти» зникає.</li>
     </ul>
 
     <h2>Переходи flow</h2>
     <ul class="wf-flow">
       <li>Сюди — з <a href="board-loading.html">завантаження</a>: розвилка 1 — так, розвилка 3 «Є свіжі моменти?» — ні (EM1).</li>
       <li>EM1 → «Усі тварини» → <a href="animals-loading.html">Усі тварини · завантаження</a>.</li>
-      <li>Розвилка 2: пошук → <a href="animals-loading.html">Усі тварини · завантаження</a> з результатами.</li>
+      <li>Розвилка 2: лупа в шапці → <a href="search.html">Пошук</a>.</li>
     </ul>
   </aside>
 

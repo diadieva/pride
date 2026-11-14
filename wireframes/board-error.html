@@ -1,11 +1,11 @@
 <!doctype html>
 <!--
   Дошка · board-error.html — стан помилки (sitemap.md, колонка «Стани»: «не вдалося завантажити → спробувати ще
-  чи шукати за ім'ям в „Усіх тваринах“»).
+  чи шукати за ім'ям у „Пошуку“»).
   Базова сторінка — board.html; шапка, зони й таббар ті самі.
 
   Крок flow — flows.md, flow R3: L1 «loading: моменти» → розвилка 1 «Моменти завантажились?» — ні →
-  E1 «error: не вдалося завантажити» → «спробувати ще» → L1; «шукати за ім'ям» → ALL.
+  E1 «error: не вдалося завантажити» → «спробувати ще» → L1; «шукати за ім'ям» → «Пошук» (L5 → SEARCH).
   Контакти центру — за правилом _conventions.md; у вузлі E1 їх немає.
 
   Job (sitemap.md): R3, R1, E3.
@@ -32,15 +32,16 @@
     <a href="board-empty.html">Порожній</a>
     <a href="board-error.html" aria-current="page">Помилка</a>
     <a href="board-loading.html">Завантаження</a>
-    <span>Успіху немає: це не екран дії — тут дивляться й шукають</span>
+    <span>Успіху немає: це не екран дії — тут дивляться моменти, нічого не вносять</span>
   </nav>
 
   <div class="device">
 
     <header class="app-header" data-zone="1">
       <a class="brand" href="board.html">Прайд</a>
+      <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
       <details class="service">
-        <summary><span class="i i-gear" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
+        <summary><span class="i i-user-circle" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
         <nav aria-label="Службова зона">
           <ul>
             <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
@@ -62,20 +63,12 @@
 
       <h1>Дошка</h1>
 
-      <!-- Пошук працює і без стрічки — це вихід E1 «шукати за ім'ям» -->
-      <form role="search" aria-label="Пошук за ім'ям" data-zone="2" action="animals-loading.html" method="get">
-        <label>Знайти тварину за ім'ям
-          <input type="search" name="q" autocomplete="off" placeholder="Наприклад, ім'я коня чи собаки">
-        </label>
-        <button class="primary" type="submit"><span class="i i-search-text" aria-hidden="true"></span> Знайти</button>
-      </form>
-
       <!-- На місці стрічки — що сталося, повтор і куди звернутися -->
-      <section aria-labelledby="feed" data-zone="3">
+      <section aria-labelledby="feed" data-zone="2">
         <h2 id="feed"><span class="i i-exclamation-circle" aria-hidden="true"></span> Не вдалося завантажити моменти</h2>
         <p role="alert">Стрічка не відкрилася — схоже, зв'язок перервався. Тварини й новини на місці: це збій показу.</p>
         <a class="btn primary" href="board-loading.html"><span class="i i-arrows-rotate" aria-hidden="true"></span> Спробувати ще</a>
-        <a class="btn" href="animals-loading.html">Шукати за ім'ям в «Усіх тваринах»</a>
+        <a class="btn" href="search.html"><span class="i i-search" aria-hidden="true"></span> Шукати за ім'ям</a>
         <p class="meta">Не виходить? Команда центру на зв'язку пн–пт, 09:00–19:00:</p>
         <ul>
           <li><a href="tel:+380665826817"><span class="i i-phone" aria-hidden="true"></span> +380 66 582 68 17</a></li>
@@ -84,14 +77,14 @@
         </ul>
       </section>
 
-      <section aria-labelledby="all-animals" data-zone="4">
+      <section aria-labelledby="all-animals" data-zone="3">
         <h2 id="all-animals" tabindex="-1">Усі тварини центру</h2>
-        <p>Списком, з пошуком і фільтрами: за характером, видом і тим, кому ще бракує допомоги.</p>
+        <p>Списком, з фільтрами: за ім'ям, характером, видом і тим, кому ще бракує допомоги.</p>
         <a class="btn" href="animals-loading.html">Відкрити список <span class="i i-angle-right" aria-hidden="true"></span></a>
       </section>
     </main>
 
-    <nav class="tabbar" aria-label="Головна навігація" data-zone="5">
+    <nav class="tabbar" aria-label="Головна навігація" data-zone="4">
       <ul>
         <li><a href="board.html" aria-current="page"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
         <li><a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
@@ -117,10 +110,9 @@
 
     <h2>Зони в цьому стані</h2>
     <ul>
-      <li><span class="wf-zone">3</span> Що сталося — <b>«Спробувати ще»</b> (E1 → L1), «Шукати за ім'ям в „Усіх тваринах“» (E1 → ALL) і контакти центру: телефон, email, години, «Про центр».</li>
-      <li><span class="wf-zone">2</span> Пошук — працює: він теж вихід E1 «шукати за ім'ям».</li>
-      <li><span class="wf-zone">4</span> Усі тварини центру — світлою кнопкою, головна дія вже в зоні 3.</li>
-      <li><span class="wf-zone">1</span>, <span class="wf-zone">5</span> — шапка і таббар працюють.</li>
+      <li><span class="wf-zone">2</span> Що сталося — <b>«Спробувати ще»</b> (E1 → L1), «Шукати за ім'ям» → «Пошук» (E1 → L5) і контакти центру: телефон, email, години, «Про центр».</li>
+      <li><span class="wf-zone">3</span> Усі тварини центру — світлою кнопкою, головна дія вже в зоні 2.</li>
+      <li><span class="wf-zone">1</span>, <span class="wf-zone">4</span> — шапка і таббар працюють; лупа в шапці — той самий «Пошук», що й «Шукати за ім'ям».</li>
     </ul>
 
     <h2>Звірка з flows.md</h2>
@@ -133,7 +125,8 @@
     <ul class="wf-flow">
       <li>Сюди — з <a href="board-loading.html">завантаження</a>, розвилка 1 — ні (E1).</li>
       <li>«Спробувати ще» → <a href="board-loading.html">завантаження</a> (E1 → L1).</li>
-      <li>«Шукати за ім'ям», пошук і «Відкрити список» → <a href="animals-loading.html">Усі тварини · завантаження</a> (E1 → ALL).</li>
+      <li>«Шукати за ім'ям» і лупа в шапці → <a href="search.html">Пошук</a> (E1 → L5 → SEARCH).</li>
+      <li>«Відкрити список» → <a href="animals-loading.html">Усі тварини · завантаження</a>.</li>
       <li>Не виходить — контакти й <a href="center.html">Про центр</a>.</li>
     </ul>
   </aside>
