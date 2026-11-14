@@ -84,6 +84,7 @@ body {
   min-height: 44px;
   display: grid;
   place-items: center;
+  justify-content: center; /* .device details > summary нижче робить його flex — шестерня має лишатися по центру */
   border: 1px solid var(--wf-line);
   border-radius: 10px;
 }
@@ -142,7 +143,8 @@ body {
   font: 600 11px/18px system-ui, sans-serif;
   text-align: center;
 }
-.app-header[data-zone]::before, .tabbar[data-zone]::before { top: 2px; left: 2px; }
+/* Шапка впирається в заокруглений кут рамки: її номер сидить на нижній межі шапки, як номери інших зон — на верхній */
+.app-header[data-zone]::before { top: auto; bottom: -9px; left: 10px; }
 .wf-zone {
   display: inline-block;
   min-width: 18px;
