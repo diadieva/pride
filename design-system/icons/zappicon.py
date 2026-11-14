@@ -35,6 +35,7 @@ ICONS = [
     "tablet", "desktop",          # перемикач ширини над рамкою вайрфрейма (телефон — "mobile")
     "file-text", "search-text", "users", "sitemap",  # пункти навігатора
     "bell-heart",     # «Мої підписки»: новини про тварин (конверт лишається за листами й email)
+    "signal", "wifi", "battery-full", "text-size", "arrow-rotate-right",  # смуга браузера в рамці вайрфрейма
     "house",          # екран «Заявка на прилаштування»
     "angles-left", "angles-right",               # згорнути / розгорнути навігатор
     # вайрфрейми продукту (wireframes/)

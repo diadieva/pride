@@ -99,6 +99,24 @@
     { id: "desktop", icon: "desktop", label: "Десктоп", width: 1440 }
   ];
 
+  // Смуга браузера згори рамки вайрфрейма (рядок стану + адресний рядок Safari). Декоративна,
+  // скрінрідеру не потрібна. Стилі — wireframes/_frame.css (.wf-browser)
+  function renderBrowserChrome() {
+    document.querySelectorAll(".device").forEach(function (device) {
+      if (device.querySelector(".wf-browser")) return;
+      var bar = document.createElement("div");
+      bar.className = "wf-browser";
+      bar.setAttribute("aria-hidden", "true");
+      bar.innerHTML =
+        '<div class="wf-status"><span class="wf-time">9:41</span>' +
+        '<span class="wf-sys"><span class="i i-signal"></span><span class="i i-wifi"></span><span class="i i-battery-full"></span></span></div>' +
+        '<div class="wf-url"><span class="i i-text-size"></span>' +
+        '<span class="wf-domain"><span class="i i-lock"></span>адреса сайту</span>' +
+        '<span class="i i-arrow-rotate-right"></span></div>';
+      device.insertBefore(bar, device.firstChild);
+    });
+  }
+
   function renderStageBar() {
     var legacy = document.querySelector(".wf-states");
     if (!legacy) return;
@@ -391,6 +409,7 @@
     document.body.appendChild(tip);
 
     renderStageBar();
+    renderBrowserChrome();
     document.documentElement.classList.add("pn-on");
     // Анімацію ширини вмикаємо після першого кадру, щоб збережений стан не «проїжджав» при завантаженні
     requestAnimationFrame(function () { requestAnimationFrame(function () {

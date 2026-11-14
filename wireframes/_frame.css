@@ -58,27 +58,34 @@ body {
   position: relative;
 }
 
-/* Схематична адресна смуга браузера — частина рамки, не продукту: 56 px зверху.
-   Сторінка починається під нею */
-.device::before {
-  content: "адреса сайту";
-  flex: none;
+/* Смуга браузера згори рамки — частина рамки, не продукту (будує _nav/nav.js, бо розмітки на сторінці немає):
+   рядок стану телефона 44 px + адресний рядок Safari 54 px = 98 px. Сторінка починається під нею */
+.wf-browser { flex: none; height: 98px; color: var(--wf-ink); font: 15px/1 system-ui, sans-serif; }
+.wf-status { display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 4px 26px 0 32px; }
+.wf-time { font-weight: 600; }
+.wf-sys { display: inline-flex; align-items: center; gap: 6px; }
+.wf-sys .i { width: 17px; height: 17px; }
+.wf-url {
   display: flex;
   align-items: center;
-  justify-content: center;
-  height: 36px;
-  margin: 10px 16px;
-  border-radius: 18px;
+  gap: 10px;
+  height: 40px;
+  margin: 6px 12px 8px;
+  padding: 0 12px;
+  border-radius: 12px;
   background: var(--wf-fill);
-  color: var(--wf-muted);
-  font: 12px/1 system-ui, sans-serif;
 }
+.wf-url .i { width: 16px; height: 16px; vertical-align: 0; }
+.wf-domain { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 5px; color: var(--wf-ink); font-size: 14px; }
+.wf-domain .i { width: 12px; height: 12px; color: var(--wf-muted); }
+.wf-url > .i { color: var(--wf-ink); }
 /* Межа першого екрана: телефон 390×844 у Safari з панелями показує ≈664 px сторінки.
-   56 px смуги + 664 = 720 px від верху рамки. Що нижче лінії — видно лише після прокрутки */
+   98 px смуги браузера + 664 = 762 px від верху рамки; нижче — нижня панель Safari.
+   Що нижче лінії — видно лише після прокрутки */
 .device::after {
   content: "↑ 1-й екран";
   position: absolute;
-  top: 720px;
+  top: 762px;
   left: 0;
   right: 0;
   z-index: 2;
