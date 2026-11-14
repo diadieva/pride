@@ -43,7 +43,13 @@
           <ul>
             <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
             <li><a href="my-subscriptions.html"><span class="i i-envelope" aria-hidden="true"></span>Мої підписки</a></li>
-            <li><a><span class="i i-globe" aria-hidden="true"></span>Мова: українська · English</a></li>
+            <li>
+              <fieldset class="lang">
+                <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
+                <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
+                <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
+              </fieldset>
+            </li>
           </ul>
         </nav>
       </details>
@@ -53,9 +59,9 @@
       <h1>Мої улюбленці</h1>
 
       <!-- Перемикач: список тварин не прийшов -->
-      <nav aria-label="Мої тварини" data-zone="2">
+      <section aria-label="Мої тварини" data-zone="2">
         <p class="meta">Список тварин не завантажився.</p>
-      </nav>
+      </section>
 
       <!-- Головна зона: що сталося і два виходи з flows.md -->
       <article aria-labelledby="error-title" data-zone="3">
@@ -107,10 +113,17 @@
       <li>Flow M, розвилка 9 «Дані прийшли?» — ні → E3.</li>
     </ul>
 
+    <h2>Job</h2>
+    <ul>
+      <li>M · Допомогти конкретній тварині й бачити, що це змінює її життя</li>
+      <li>R4 · Знати, як живе підопічний після підтримки</li>
+      <li>E3 · Вірити, що мені показують правду</li>
+    </ul>
+
     <h2>Зони в цьому стані</h2>
     <ul>
       <li><span class="wf-zone">1</span> Шапка — без змін.</li>
-      <li><span class="wf-zone">2</span> Перемикач — «Список тварин не завантажився».</li>
+      <li><span class="wf-zone">2</span> Перемикач — «Список тварин не завантажився». Зона для читання: дія — «Спробувати ще» в зоні 3.</li>
       <li><span class="wf-zone">3</span> Що сталося — <b>«Спробувати ще»</b> (E3 → L1). Друга дія — «Показати збережену версію» (E3 → CACHE, без зв'язку).</li>
       <li><span class="wf-zone">4</span> Допомога — телефон, email, години роботи і «Про центр» → <code>center.html</code>.</li>
       <li><span class="wf-zone">5</span> Моя підтримка центру — даних немає, але «Керувати» веде в <code>my-support.html</code>.</li>

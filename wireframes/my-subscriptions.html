@@ -45,7 +45,13 @@
           <ul>
             <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
             <li><a href="my-subscriptions.html"><span class="i i-envelope" aria-hidden="true"></span>Мої підписки</a></li>
-            <li><a><span class="i i-globe" aria-hidden="true"></span>Мова: українська · English</a></li>
+            <li>
+              <fieldset class="lang">
+                <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
+                <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
+                <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
+              </fieldset>
+            </li>
           </ul>
         </nav>
       </details>
@@ -122,6 +128,8 @@
           <dd>без пароля, за посиланням у листі</dd>
         </dl>
         <p class="meta">Сюди приходять новини, чеки й посилання для входу.</p>
+        <a href="login.html">Адреса не та? Увійти з іншою</a>
+        <p class="meta">Підписки й дані цієї адреси лишаться як є: нічого не перенесемо й не видалимо.</p>
       </section>
 
       <!-- [ЗАКОН] Видалення даних (GDPR): є регулярна підтримка → спершу скасувати її (Г2, розвилка 8 — так, ST1) -->
@@ -182,7 +190,7 @@
       <li><span class="wf-zone">1</span> Шапка — службова зона.</li>
       <li><span class="wf-zone">2</span> За ким я стежу — кожна підписка: стан і звідки вона (сама чи з опіки). «Відписатися від новин» — світла: відписка доступна, але не підштовхуємо. Для підписки з опіки — що опіка лишиться.</li>
       <li><span class="wf-zone">3</span> Як приходять новини — канал, періодичність, мова. <b>«Зберегти»</b>.</li>
-      <li><span class="wf-zone">4</span> Акаунт — email і як входити. Без дії: зміни адреси немає у flows.</li>
+      <li><span class="wf-zone">4</span> Акаунт — email і як входити. «Адреса не та? Увійти з іншою» → <code>login.html</code> (Г2, рішення 14.11.2026). Дані й підписки попередньої адреси не переносимо й не видаляємо.</li>
       <li><span class="wf-zone">5</span> <b>[ЗАКОН]</b> Видалити всі дані — є регулярна підтримка, тож спершу «Скасувати в „Моїй підтримці“». Що зникне, а що лишиться — до підтвердження. Кнопка видалення неактивна.</li>
       <li><span class="wf-zone">6</span> Таббар — поточний «Мої улюбленці».</li>
     </ul>

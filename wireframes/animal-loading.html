@@ -43,7 +43,13 @@
           <ul>
             <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
             <li><a href="my-subscriptions.html"><span class="i i-envelope" aria-hidden="true"></span>Мої підписки</a></li>
-            <li><a><span class="i i-globe" aria-hidden="true"></span>Мова: українська · English</a></li>
+            <li>
+              <fieldset class="lang">
+                <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
+                <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
+                <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
+              </fieldset>
+            </li>
           </ul>
         </nav>
       </details>
@@ -130,6 +136,11 @@
       <li>Після «Стежити за історією» (flow R3, розвилка 9 — так → L4). У зоні 3 на місці форми: «<span class="i i-hourglass" aria-hidden="true"></span> Надсилаємо лист на kateryna@example.com…», поле адреси заблоковане, кнопка «Стежити» — сіра заглушка: <b>повторне надсилання заблоковано</b>, поки лист іде. Решта профілю — на місці, без заглушок.</li>
       <li>Розвилка 9а «Лист відправлено?»: так — <a href="animal-success.html">успіх «Перевірте пошту»</a>; ні — <a href="animal-error.html">помилка «не вдалося надіслати, спробуйте за хвилину»</a>.</li>
       <li>Як у вході (<a href="login-loading.html">Вхід · завантаження</a>). У рамці цієї сторінки — завантаження профілю, бо воно в головному flow M (рішення 14.11.2026).</li>
+    </ul>
+
+    <h2>Галерея, «працює з дітьми», «хто вже опікується»</h2>
+    <ul>
+      <li>Галерея, позначка «працює з дітьми» й «хто вже опікується» з'являються разом із профілем: поки вантажиться — у заглушках зон 2 і 3 (рішення 14.11.2026).</li>
     </ul>
   </aside>
 

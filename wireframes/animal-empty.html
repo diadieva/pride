@@ -44,7 +44,13 @@
           <ul>
             <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
             <li><a href="my-subscriptions.html"><span class="i i-envelope" aria-hidden="true"></span>Мої підписки</a></li>
-            <li><a><span class="i i-globe" aria-hidden="true"></span>Мова: українська · English</a></li>
+            <li>
+              <fieldset class="lang">
+                <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
+                <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
+                <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
+              </fieldset>
+            </li>
           </ul>
         </nav>
       </details>
@@ -57,10 +63,18 @@
         <div class="img wide" role="img" aria-label="Фото: [ім'я тварини]">фото</div>
         <h1 id="pet"><span class="ph">[ім'я коня]</span></h1>
         <p class="meta">Кінь · у центрі · <span class="ph">[вік]</span> [?]</p>
+        <p class="meta"><span class="ph">[позначка «Працює з дітьми» — лише для тварин, які справді працюють з дітьми]</span> [?]</p>
+        <details>
+          <summary>Усі фото · <span class="ph">[кількість]</span> [?]</summary>
+          <div class="img" role="img" aria-label="Фото: [ім'я тварини]">фото</div>
+          <div class="img" role="img" aria-label="Фото: [ім'я тварини]">фото</div>
+          <div class="img" role="img" aria-label="Фото: [ім'я тварини]">фото</div>
+        </details>
       </section>
 
       <section aria-labelledby="my-care" data-zone="3">
         <h2 id="my-care">Моя опіка</h2>
+        <p class="meta">Хто вже опікується: <span class="ph">[кількість]</span> людей [?]. Імена — лише тих, хто сам дозволив їх показувати [?].</p>
         <dl>
           <dt>Опіка</dt>
           <dd><span class="i i-check-circle" aria-hidden="true"></span> активна · 1 000 грн щомісяця</dd>

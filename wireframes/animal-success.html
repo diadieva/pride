@@ -49,7 +49,13 @@
           <ul>
             <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
             <li><a href="my-subscriptions.html"><span class="i i-envelope" aria-hidden="true"></span>Мої підписки</a></li>
-            <li><a><span class="i i-globe" aria-hidden="true"></span>Мова: українська · English</a></li>
+            <li>
+              <fieldset class="lang">
+                <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
+                <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
+                <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
+              </fieldset>
+            </li>
           </ul>
         </nav>
       </details>
@@ -62,12 +68,20 @@
         <div class="img wide" role="img" aria-label="Фото: [ім'я тварини]">фото</div>
         <h1 id="pet"><span class="ph">[ім'я коня]</span></h1>
         <p class="meta">Кінь · у центрі · <span class="ph">[вік]</span> [?]</p>
+        <p class="meta"><span class="ph">[позначка «Працює з дітьми» — лише для тварин, які справді працюють з дітьми]</span> [?]</p>
+        <details>
+          <summary>Усі фото · <span class="ph">[кількість]</span> [?]</summary>
+          <div class="img" role="img" aria-label="Фото: [ім'я тварини]">фото</div>
+          <div class="img" role="img" aria-label="Фото: [ім'я тварини]">фото</div>
+          <div class="img" role="img" aria-label="Фото: [ім'я тварини]">фото</div>
+        </details>
       </section>
 
       <!-- Відвідувач без входу: замість «Моєї опіки» — «Взяти опіку» і «Стежити за історією».
            Форму стеження вже надіслано, на її місці — підтвердження з адресою для звірки -->
       <section aria-labelledby="be-part" data-zone="3">
         <h2 id="be-part">Стати частиною історії</h2>
+        <p class="meta">Хто вже опікується: <span class="ph">[кількість]</span> людей [?]. Імена — лише тих, хто сам дозволив їх показувати [?].</p>
 
         <section aria-labelledby="sent-title">
           <h3 id="sent-title" role="status"><span class="i i-envelope-check" aria-hidden="true"></span> Перевірте пошту</h3>
@@ -164,6 +178,7 @@
       <li><span class="wf-zone">3</span> Стати частиною історії — підтвердження на місці форми: <b>адреса, з якою людина звіряє</b>, час, що буде після посилання, спам. «Виправити» розгортає поле з тією самою адресою (розвилка 11 — ні), «Надіслати ще раз» (11 — так, W1), контакти після двох спроб (12 — ні). Темної кнопки немає: головна дія — відкрити лист. «Взяти опіку» лишається світлою, без тиску.</li>
       <li><span class="wf-zone">2</span>, <span class="wf-zone">4</span>–<span class="wf-zone">6</span> — як на базовій сторінці: профіль публічний. «Хочу забрати додому» → <code>adopt.html</code> (Г9).</li>
       <li><span class="wf-zone">1</span>, <span class="wf-zone">7</span> — шапка і таббар.</li>
+      <li><span class="wf-zone">5</span> — зона для читання.</li>
     </ul>
 
     <h2>Чому однаково для нових і вже підписаних</h2>

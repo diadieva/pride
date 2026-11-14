@@ -46,7 +46,13 @@
           <ul>
             <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
             <li><a href="my-subscriptions.html"><span class="i i-envelope" aria-hidden="true"></span>Мої підписки</a></li>
-            <li><a><span class="i i-globe" aria-hidden="true"></span>Мова: українська · English</a></li>
+            <li>
+              <fieldset class="lang">
+                <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
+                <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
+                <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
+              </fieldset>
+            </li>
           </ul>
         </nav>
       </details>
@@ -133,7 +139,7 @@
       <!-- Посилання на «Мої підписки» з головного (sitemap.md, «3. Типи екранів») -->
       <section aria-labelledby="news" data-zone="6">
         <h2 id="news">Як приходять новини</h2>
-        <p>Email · kateryna@example.com · періодичність <span class="meta">[?]</span></p>
+        <p>Email · kateryna@example.com · раз на тиждень <span class="meta">[?]</span></p>
         <p class="meta">Важливі зміни приходять одразу, хоч яку періодичність обрано.</p>
         <a class="btn" href="my-subscriptions-loading.html">Змінити в «Моїх підписках»</a>
       </section>
@@ -156,6 +162,16 @@
       <li><code>my-animals.html</code> — <b>головний</b>. Група «Мої улюбленці». Jobs: M, R4, R5, E1, E2, E3.</li>
       <li>Flow M, вузол «Мої улюбленці»: стан тварини — 0 кліків, повна історія — 1 клік.</li>
       <li>Персона — Опікун (primary). Він опікується конем і стежить за собакою, тож перемикач видно.</li>
+    </ul>
+
+    <h2>Job</h2>
+    <ul>
+      <li>M · Допомогти конкретній тварині й бачити, що це змінює її життя</li>
+      <li>R4 · Знати, як живе підопічний після підтримки</li>
+      <li>R5 · Змінити чи зупинити регулярну допомогу</li>
+      <li>E1 · Спокій замість тривоги очікування</li>
+      <li>E2 · Відчути, що тварина «моя», а не рядок у списку</li>
+      <li>E3 · Вірити, що мені показують правду</li>
     </ul>
 
     <h2>Зони і головна дія кожної</h2>

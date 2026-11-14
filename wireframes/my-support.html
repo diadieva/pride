@@ -45,7 +45,13 @@
           <ul>
             <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
             <li><a href="my-subscriptions.html"><span class="i i-envelope" aria-hidden="true"></span>Мої підписки</a></li>
-            <li><a><span class="i i-globe" aria-hidden="true"></span>Мова: українська · English</a></li>
+            <li>
+              <fieldset class="lang">
+                <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
+                <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
+                <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
+              </fieldset>
+            </li>
           </ul>
         </nav>
       </details>
@@ -71,7 +77,7 @@
           <dt>Спосіб оплати</dt>
           <dd>картка в гривні · WayForPay <span class="meta">[?]</span></dd>
           <dt>Чеки</dt>
-          <dd>kateryna@example.com</dd>
+          <dd><span class="ph">[як отримати чек]</span> [?]</dd>
         </dl>
 
         <details open>
@@ -139,7 +145,7 @@
           <dt>Спосіб оплати</dt>
           <dd>картка в гривні · WayForPay <span class="meta">[?]</span></dd>
           <dt>Чеки</dt>
-          <dd>kateryna@example.com</dd>
+          <dd><span class="ph">[як отримати чек]</span> [?]</dd>
         </dl>
 
         <details>
@@ -201,11 +207,11 @@
             <tr><th scope="col">Дата</th><th scope="col">Кому, сума</th><th scope="col">Статус</th><th scope="col">Чек</th></tr>
           </thead>
           <tbody>
-            <tr><td><time datetime="2026-11-13">13 листопада</time></td><td><span class="ph">[ім'я коня]</span> · 500 грн разово</td><td>успішний</td><td><a>Чек<span class="sr-only"> за 13 листопада</span></a></td></tr>
-            <tr><td><time datetime="2026-11-05">5 листопада</time></td><td>Центр · 200 грн</td><td>успішний</td><td><a>Чек<span class="sr-only"> за 5 листопада</span></a></td></tr>
-            <tr><td><time datetime="2026-11-01">1 листопада</time></td><td><span class="ph">[ім'я коня]</span> · 1 000 грн</td><td>успішний</td><td><a>Чек<span class="sr-only"> за 1 листопада</span></a></td></tr>
-            <tr><td><time datetime="2026-10-05">5 жовтня</time></td><td>Центр · 200 грн</td><td>успішний</td><td><a>Чек<span class="sr-only"> за 5 жовтня</span></a></td></tr>
-            <tr><td><time datetime="2026-10-01">1 жовтня</time></td><td><span class="ph">[ім'я коня]</span> · 1 000 грн</td><td>успішний</td><td><a>Чек<span class="sr-only"> за 1 жовтня</span></a></td></tr>
+            <tr><td><time datetime="2026-11-13">13 листопада</time></td><td><span class="ph">[ім'я коня]</span> · 500 грн разово</td><td>успішний</td><td><span class="ph">[як отримати чек]</span> [?]</td></tr>
+            <tr><td><time datetime="2026-11-05">5 листопада</time></td><td>Центр · 200 грн</td><td>успішний</td><td><span class="ph">[як отримати чек]</span> [?]</td></tr>
+            <tr><td><time datetime="2026-11-01">1 листопада</time></td><td><span class="ph">[ім'я коня]</span> · 1 000 грн</td><td>успішний</td><td><span class="ph">[як отримати чек]</span> [?]</td></tr>
+            <tr><td><time datetime="2026-10-05">5 жовтня</time></td><td>Центр · 200 грн</td><td>успішний</td><td><span class="ph">[як отримати чек]</span> [?]</td></tr>
+            <tr><td><time datetime="2026-10-01">1 жовтня</time></td><td><span class="ph">[ім'я коня]</span> · 1 000 грн</td><td>успішний</td><td><span class="ph">[як отримати чек]</span> [?]</td></tr>
           </tbody>
         </table>
         <p class="meta">Кожен чек також приходить листом на kateryna@example.com.</p>
@@ -243,7 +249,7 @@
       <li><span class="wf-zone">1</span> Шапка — службова зона.</li>
       <li><span class="wf-zone">2</span> Опіка над [ім'я коня] — усе для звірки: стан, сума, наступне списання, спосіб, куди чеки. <b>«Зберегти суму»</b>: поле вже з поточною сумою. Поруч, згорнуто, — «Призупинити» [?], «Скасувати опіку», «Змінити спосіб оплати». Прийшли з «Керувати опікою» — ця опіка перша, «Змінити суму» розкрито.</li>
       <li><span class="wf-zone">3</span> Донат центру — ті самі дії, усі згорнуто. «Зберегти суму».</li>
-      <li><span class="wf-zone">4</span> Історія платежів — дата, кому й сума, статус, чек. Без головної дії: це звірка.</li>
+      <li><span class="wf-zone">4</span> Історія платежів — дата, кому й сума, статус, чек. Без головної дії: це звірка. Зона для читання.</li>
       <li><span class="wf-zone">5</span> Таббар — поточний «Мої улюбленці».</li>
     </ul>
 
@@ -278,6 +284,11 @@
       <li>Розвилка 7 «Провайдер підтримує паузу? [?]»: так → <a href="my-support-loading.html">L2</a>; ні → ST1, варіант цієї сторінки.</li>
       <li>ST2 → розвилка 8 «Підтверджує?»: ні — «Залишити як є» → <a href="my-support.html">ця сторінка</a>; так → <a href="my-support-loading.html">L2</a>.</li>
       <li>«Змінити спосіб оплати» → сторінка провайдера (зовнішня) → розвилка 9: так → <a href="my-support-loading.html">L2</a>; ні → ST3, варіант цієї сторінки.</li>
+    </ul>
+
+    <h2>Чеки</h2>
+    <ul>
+      <li>Рішення 14.11.2026: посилань на чеки немає — лише текст. Як людина отримує чек і як це назвати — [?], уточнюємо в центру. Відправку чека на email не обіцяємо, поки її не підтверджено.</li>
     </ul>
   </aside>
 

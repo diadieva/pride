@@ -43,7 +43,13 @@
           <ul>
             <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
             <li><a href="my-subscriptions.html"><span class="i i-envelope" aria-hidden="true"></span>Мої підписки</a></li>
-            <li><a><span class="i i-globe" aria-hidden="true"></span>Мова: українська · English</a></li>
+            <li>
+              <fieldset class="lang">
+                <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
+                <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
+                <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
+              </fieldset>
+            </li>
           </ul>
         </nav>
       </details>
@@ -63,7 +69,7 @@
       <!-- Налаштування з'являться разом із першою підпискою -->
       <section aria-labelledby="how-title" data-zone="3">
         <h2 id="how-title">Як приходять новини</h2>
-        <p class="meta">Канал, періодичність і мову оберете разом із першою підпискою.</p>
+        <p class="meta">Новини приходитимуть раз на тиждень [?]. Змінити частоту можна тут, щойно з'явиться перша підписка.</p>
       </section>
 
       <!-- Акаунт: email — це і канал новин, і вхід -->
@@ -76,6 +82,8 @@
           <dd>без пароля, за посиланням у листі</dd>
         </dl>
         <p class="meta">Сюди приходять новини, чеки й посилання для входу.</p>
+        <a href="login.html">Адреса не та? Увійти з іншою</a>
+        <p class="meta">Підписки й дані цієї адреси лишаться як є: нічого не перенесемо й не видалимо.</p>
       </section>
 
       <!-- [ЗАКОН] Видалення даних (GDPR): є регулярна підтримка → спершу скасувати її (Г2, розвилка 8 — так, ST1) -->
@@ -132,7 +140,7 @@
     <h2>Зони в цьому стані</h2>
     <ul>
       <li><span class="wf-zone">2</span> «Ви ні за ким не стежите» — <b>«Знайти свою тварину»</b> → <code>board.html</code> (EM1 → BOARD).</li>
-      <li><span class="wf-zone">3</span> Як приходять новини — без форми: налаштовувати нічого.</li>
+      <li><span class="wf-zone">3</span> Як приходять новини — без форми: налаштовувати нічого. Зона для читання.</li>
       <li><span class="wf-zone">4</span> Акаунт — як на базовій сторінці.</li>
       <li><span class="wf-zone">5</span> <b>[ЗАКОН]</b> Видалити дані — лишився регулярний донат центру, тож спершу скасувати його в «Моїй підтримці» (розвилка 8 — так, ST1).</li>
       <li><span class="wf-zone">1</span>, <span class="wf-zone">6</span> — як на базовій сторінці.</li>

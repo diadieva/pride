@@ -48,7 +48,13 @@
           <ul>
             <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
             <li><a href="my-subscriptions.html"><span class="i i-envelope" aria-hidden="true"></span>Мої підписки</a></li>
-            <li><a><span class="i i-globe" aria-hidden="true"></span>Мова: українська · English</a></li>
+            <li>
+              <fieldset class="lang">
+                <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
+                <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
+                <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
+              </fieldset>
+            </li>
           </ul>
         </nav>
       </details>
@@ -75,9 +81,9 @@
           <dt>Години</dt>
           <dd>пн–пт, 09:00–19:00</dd>
           <dt>Instagram</dt>
-          <dd><a>@pride__rehabilitation_center</a></dd>
+          <dd><a>@pride__rehabilitation_center</a> <span class="meta"><span class="ph">[посилання на Instagram]</span> [?]</span></dd>
           <dt>Facebook</dt>
-          <dd><a>Центр реабілітації Прайд</a></dd>
+          <dd><a>Центр реабілітації Прайд</a> <span class="meta"><span class="ph">[посилання на Facebook]</span> [?]</span></dd>
         </dl>
         <a class="btn primary" href="tel:+380665826817"><span class="i i-phone" aria-hidden="true"></span> Зателефонувати</a>
         <a class="btn" href="mailto:info@bestofthepride.info"><span class="i i-envelope" aria-hidden="true"></span> Написати листом</a>
@@ -115,17 +121,17 @@
           <li>
             <span class="img avatar" role="img" aria-label="Фото: [ім'я людини з команди]">фото</span>
             <span class="ph">[ім'я]</span>
-            <span class="meta">[роль]</span>
+            <span class="meta"><span class="ph">[роль]</span></span>
           </li>
           <li>
             <span class="img avatar" role="img" aria-label="Фото: [ім'я людини з команди]">фото</span>
             <span class="ph">[ім'я]</span>
-            <span class="meta">[роль]</span>
+            <span class="meta"><span class="ph">[роль]</span></span>
           </li>
           <li>
             <span class="img avatar" role="img" aria-label="Фото: [ім'я людини з команди]">фото</span>
             <span class="ph">[ім'я]</span>
-            <span class="meta">[роль]</span>
+            <span class="meta"><span class="ph">[роль]</span></span>
           </li>
         </ul>
         <p><span class="ph">[текст з поточного сайту: Команда]</span></p>
@@ -199,10 +205,10 @@
     <h2>Зони і головна дія кожної</h2>
     <ul>
       <li><span class="wf-zone">1</span> Шапка — службова зона: Моя підтримка, Мої підписки, мова.</li>
-      <li><span class="wf-zone">2</span> Хто ми і де ми — назва, село, два напрями роботи, місія з поточного сайту. Дії немає: це відповідь на «хто це».</li>
+      <li><span class="wf-zone">2</span> Хто ми і де ми — назва, село, два напрями роботи, місія з поточного сайту. Дії немає: це відповідь на «хто це». Зона для читання.</li>
       <li><span class="wf-zone">3</span> Контакти — <b>«Зателефонувати»</b> (<code>tel:</code>); поруч «Написати листом» (<code>mailto:</code>), години, Instagram і Facebook. Стоять другими: більшість входів сюди — вихід «контакти центру» з помилок.</li>
-      <li><span class="wf-zone">4</span> Що ми робимо — тварини й терапія з дітьми, послуги списком із брифу. Без дії.</li>
-      <li><span class="wf-zone">5</span> Команда — плейсхолдери. Без дії.</li>
+      <li><span class="wf-zone">4</span> Що ми робимо — тварини й терапія з дітьми, послуги списком із брифу. Без дії. Зона для читання.</li>
+      <li><span class="wf-zone">5</span> Команда — плейсхолдери. Без дії. Зона для читання.</li>
       <li><span class="wf-zone">6</span> Часті питання — розгорнути відповідь (<code>details</code>).</li>
       <li><span class="wf-zone">7</span> Забрати тварину додому — «Хочу забрати додому» → <code>adopt.html</code> (Г9). Світла кнопка: прилаштування — не основний фокус (бриф).</li>
       <li><span class="wf-zone">8</span> <b>[ЗАКОН]</b> Документи, <code>id="documents"</code> — розгорнути «Умови пожертви» чи «Політику конфіденційності».</li>

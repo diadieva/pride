@@ -45,7 +45,13 @@
           <ul>
             <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
             <li><a href="my-subscriptions.html"><span class="i i-envelope" aria-hidden="true"></span>Мої підписки</a></li>
-            <li><a><span class="i i-globe" aria-hidden="true"></span>Мова: українська · English</a></li>
+            <li>
+              <fieldset class="lang">
+                <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
+                <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
+                <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
+              </fieldset>
+            </li>
           </ul>
         </nav>
       </details>
@@ -58,10 +64,18 @@
         <div class="img wide" role="img" aria-label="Фото: [ім'я тварини]">фото</div>
         <h1 id="pet"><span class="ph">[ім'я коня]</span></h1>
         <p class="meta">Кінь · у центрі · <span class="ph">[вік]</span> [?]</p>
+        <p class="meta"><span class="ph">[позначка «Працює з дітьми» — лише для тварин, які справді працюють з дітьми]</span> [?]</p>
+        <details>
+          <summary>Усі фото · <span class="ph">[кількість]</span> [?]</summary>
+          <div class="img" role="img" aria-label="Фото: [ім'я тварини]">фото</div>
+          <div class="img" role="img" aria-label="Фото: [ім'я тварини]">фото</div>
+          <div class="img" role="img" aria-label="Фото: [ім'я тварини]">фото</div>
+        </details>
       </section>
 
       <section aria-labelledby="my-care" data-zone="3">
         <h2 id="my-care">Моя опіка</h2>
+        <p class="meta">Хто вже опікується: <span class="ph">[кількість]</span> людей [?]. Імена — лише тих, хто сам дозволив їх показувати [?].</p>
         <dl>
           <dt>Опіка</dt>
           <dd><span class="i i-check-circle" aria-hidden="true"></span> активна · 1 000 грн щомісяця</dd>
@@ -187,6 +201,15 @@
     <ul>
       <li>Форма коротка: email, канал, згода. Періодичності в ній немає — за замовчуванням раз на тиждень [?], змінити можна в «Моїх підписках» (рішення 14.11.2026; бриф, п. 2, пропонує обирати її при підписці).</li>
       <li>Надіслати → <a href="animal-loading.html">«Надсилаємо лист…»</a>, повторне надсилання заблоковано → <a href="animal-success.html">«Перевірте пошту»</a>.</li>
+    </ul>
+
+    <h2>Галерея, «працює з дітьми», «хто вже опікується»</h2>
+    <ul>
+      <li>Рішення 14.11.2026: усі три є в «Обсязі MVP» брифу й у даних <code>_conventions.md</code>. Формат показу кожного — [?].</li>
+      <li><b>Усі фото</b> — у зоні 2, розгортаються на місці (<code>details</code>), без окремого екрана. Лише реальні фото центру.</li>
+      <li><b>«Працює з дітьми»</b> — позначка лише для тварин, які справді працюють з дітьми (Г8 [?]); в інших тварин її немає зовсім.</li>
+      <li><b>«Хто вже опікується»</b> — у зоні 3: кількість і лише ті імена, які опікуни самі дозволили показувати (поле Опіки «показувати ім'я серед опікунів», Г5 [?]). Без згоди — лише число.</li>
+      <li>На <a href="animal-loading.html">завантаженні</a> ці дані — у заглушках зон 2 і 3; на <a href="animal-error.html">помилці</a> їх не показуємо: їх не вдалося отримати.</li>
     </ul>
   </aside>
 

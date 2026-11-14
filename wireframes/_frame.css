@@ -99,6 +99,9 @@ body {
 }
 .service ul { list-style: none; padding: 0; display: grid; gap: 4px; }
 .service a { display: flex; align-items: center; gap: 8px; padding: 8px; min-height: 44px; }
+/* Перемикач мови — радіокнопки, а не посилання */
+.service .lang { padding: 4px 8px 8px; gap: 4px; }
+.service .lang legend { display: flex; align-items: center; gap: 8px; padding: 4px 0; }
 
 /* Робоча зона */
 .device > main {
@@ -201,6 +204,7 @@ body {
   font-size: 13px;
 }
 .img.wide { aspect-ratio: 2 / 1; }
+.device details > .img + .img { margin-top: 8px; }
 .img.avatar { width: 48px; aspect-ratio: 1; border-radius: 50%; font-size: 11px; }
 
 /* Горизонтальний список (перемикач тварин): аватарка над підписом */
