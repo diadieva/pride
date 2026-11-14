@@ -31,10 +31,19 @@
     el.setAttribute("data-label", text);
   }
 
-  function renderItems(items) {
+  // Розкриті гілки дерева: { "Екрани/Знайти свою тварину": true, … }. Без запису — розкрито лише шлях
+  // до поточної сторінки; вибір людини пам'ятаємо між сторінками
+  var OPEN = "pn-open", openState = {}, uid = 0;
+  try { openState = JSON.parse(localStorage.getItem(OPEN) || "{}") || {}; } catch (e) {}
+  function saveOpen() { try { localStorage.setItem(OPEN, JSON.stringify(openState)); } catch (e) {} }
+  var expandNav = function () {};  // підміняє renderCollapseButton
+
+  function renderItems(items, path) {
     var ul = document.createElement("ul");
     items.forEach(function (item) {
       var li = document.createElement("li");
+      var key = path ? path + "/" + item.title : item.title;
+      var hasKids = item.children && item.children.length;
       var el;
       if (item.href) {
         el = document.createElement("a");
@@ -45,18 +54,55 @@
           el.setAttribute("aria-current", "page");
         }
       } else {
-        el = document.createElement("span");
+        el = document.createElement("button");
+        el.type = "button";
         el.className = "pn-branch";
       }
-      if (item.icon) el.appendChild(icon(item.icon));
-      label(el, item.title);
-      li.appendChild(el);
-      if (item.children && item.children.length) {
-        var sub = renderItems(item.children);
-        // Гілка, всередині якої поточна сторінка, — у згорнутому навігаторі підсвічена замість неї
-        if (sub.querySelector(".pn-current")) el.classList.add("pn-has-current");
-        li.appendChild(sub);
+      if (item.icon) {
+        var ic = icon(item.icon);
+        ic.classList.add("pn-ic");
+        el.appendChild(ic);
       }
+      label(el, item.title);
+      if (!hasKids) {
+        li.appendChild(el);
+        ul.appendChild(li);
+        return;
+      }
+
+      // Пункт із вкладеними: назва веде на сторінку, стрілка праворуч розкриває й згортає.
+      // Розділ без сторінки (група екранів) розкривається кліком по всьому рядку.
+      var sub = renderItems(item.children, key);
+      sub.id = "pn-sub-" + (++uid);
+      var inside = !!sub.querySelector(".pn-current");
+      if (inside) el.classList.add("pn-has-current");
+      var chev = icon("angle-right");
+      chev.classList.add("pn-chev");
+      var twisty = el;
+      if (item.href) {
+        twisty = document.createElement("button");
+        twisty.type = "button";
+        twisty.className = "pn-twisty";
+        twisty.setAttribute("aria-label", item.title + ": вкладені пункти");
+      }
+      twisty.appendChild(chev);
+      twisty.setAttribute("aria-controls", sub.id);
+      function set(open, remember) {
+        sub.hidden = !open;
+        twisty.setAttribute("aria-expanded", String(open));
+        if (remember) { openState[key] = open; saveOpen(); }
+      }
+      set(inside || openState[key] === true, false);
+      twisty.addEventListener("click", function () {
+        if (document.documentElement.classList.contains(COLLAPSED)) { expandNav(); set(true, true); return; }
+        set(sub.hidden, true);
+      });
+      var row = document.createElement("div");
+      row.className = "pn-row";
+      row.appendChild(el);
+      if (twisty !== el) row.appendChild(twisty);
+      li.appendChild(row);
+      li.appendChild(sub);
       ul.appendChild(li);
     });
     return ul;
@@ -99,9 +145,6 @@
     b.setAttribute("aria-controls", "pn");
     var ic = icon("angles-left");
     b.appendChild(ic);
-    // У згорнутому навігаторі вкладених пунктів не видно: гілка першого рівня (як «Екрани») стає кнопкою,
-    // що розгортає навігатор
-    var branches = document.querySelectorAll(".pn > ul > li > .pn-branch");
     function sync() {
       var collapsed = document.documentElement.classList.contains(COLLAPSED);
       var text = collapsed ? "Розгорнути навігатор" : "Згорнути навігатор";
@@ -109,17 +152,7 @@
       b.setAttribute("aria-expanded", String(!collapsed));
       b.setAttribute("aria-label", text);
       b.title = text + " ([)";
-      branches.forEach(function (br) {
-        if (collapsed) { br.setAttribute("role", "button"); br.setAttribute("tabindex", "0"); }
-        else { br.removeAttribute("role"); br.removeAttribute("tabindex"); }
-      });
     }
-    branches.forEach(function (br) {
-      br.addEventListener("click", function () { if (document.documentElement.classList.contains(COLLAPSED)) toggle(); });
-      br.addEventListener("keydown", function (e) {
-        if ((e.key === "Enter" || e.key === " ") && document.documentElement.classList.contains(COLLAPSED)) { e.preventDefault(); toggle(); }
-      });
-    });
     function toggle() {
       var collapsed = document.documentElement.classList.toggle(COLLAPSED);
       try { localStorage.setItem(COLLAPSED, collapsed ? "1" : "0"); } catch (e) {}
@@ -127,6 +160,7 @@
       sync();
     }
     b.addEventListener("click", toggle);
+    expandNav = function () { if (document.documentElement.classList.contains(COLLAPSED)) toggle(); };
     document.addEventListener("keydown", function (e) {
       if (e.code !== "BracketLeft" || e.ctrlKey || e.metaKey || e.altKey) return;
       var t = e.target;

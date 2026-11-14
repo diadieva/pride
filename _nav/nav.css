@@ -110,17 +110,45 @@ html { --pn-space: 264px; }
 .pn-current { font-weight: 600; }
 .pn-page:focus-visible { outline: 2px solid var(--pn-fg); outline-offset: -2px; }
 .pn-branch {
-  margin-top: 10px;
+  width: 100%;
+  border: 0;
+  background: none;
   color: var(--pn-muted);
+  font: inherit;
   font-weight: 600;
+  text-align: left;
+  cursor: pointer;
 }
+.pn-branch:hover { background: var(--pn-hover); color: var(--pn-fg); }
+.pn-branch:focus-visible, .pn-twisty:focus-visible { outline: 2px solid var(--pn-fg); outline-offset: -2px; }
+
+/* Рядок пункту з вкладеними: назва (сторінка) і стрілка, що розкриває вкладені */
+.pn-row { display: flex; align-items: center; gap: 2px; }
+.pn-row > .pn-page { flex: 1; min-width: 0; }
+.pn-twisty {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  background: none;
+  color: var(--pn-muted);
+  cursor: pointer;
+}
+.pn-twisty:hover { background: var(--pn-hover); color: var(--pn-fg); }
+.pn .pn-chev { width: 14px; height: 14px; transition: transform .15s ease; }
+.pn-branch .pn-chev { margin-left: auto; }
+[aria-expanded="true"] > .pn-chev { transform: rotate(90deg); }
 .pn-current, .pn-current:hover {
   background: var(--pn-current-bg);
   color: var(--pn-current-fg);
 }
-.pn-page .i, .pn-branch .i { width: 18px; height: 18px; vertical-align: 0; }
+.pn .pn-ic { width: 18px; height: 18px; vertical-align: 0; }
 /* Іконки — лише в пунктів першого рівня; вкладені (гілка «Екрани») — без іконок */
-.pn ul ul .i { display: none; }
+.pn ul ul .pn-ic { display: none; }
 
 .pn-toggle { display: none; }
 
@@ -167,10 +195,9 @@ html.pn-on body { padding-left: var(--pn-space); }
   html.pn-collapsed .pn-page { justify-content: center; padding: 12px 0; }
   /* Згорнутий: лише перший рівень; гілка — кнопка, що розгортає навігатор */
   html.pn-collapsed .pn ul ul { display: none; }
-  html.pn-collapsed .pn-branch { justify-content: center; margin: 0; padding: 12px 0; color: var(--pn-fg); cursor: pointer; }
-  html.pn-collapsed .pn-branch:hover { background: var(--pn-hover); }
-  html.pn-collapsed .pn-branch:focus-visible { outline: 2px solid var(--pn-fg); outline-offset: -2px; }
-  html.pn-collapsed .pn-branch.pn-has-current { background: var(--pn-current-bg); color: var(--pn-current-fg); }
+  html.pn-collapsed .pn-branch { justify-content: center; padding: 12px 0; color: var(--pn-fg); }
+  html.pn-collapsed .pn-twisty, html.pn-collapsed .pn-chev { display: none; }
+  html.pn-collapsed .pn-has-current { background: var(--pn-current-bg); color: var(--pn-current-fg); }
   html.pn-collapsed .pn ul ul { margin-left: 0; padding-left: 0; border-left: 0; }
 
   .pn-tip {
@@ -222,5 +249,6 @@ html.pn-on body { padding-left: var(--pn-space); }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .pn .pn-chev,
   .pn, html.pn-ready .pn, html.pn-ready.pn-on body, .pn-collapse, html.pn-ready .pn-collapse { transition: none; }
 }

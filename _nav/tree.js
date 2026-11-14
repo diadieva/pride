@@ -7,8 +7,11 @@
 // Виняток — гілка «Екрани»: вона повторює групи з sitemap.md. Розділ групи з'являється разом
 // з першою сторінкою її екрана, навіть якщо сторінка одна. Назви групи й екрана — дослівно з sitemap.md.
 //
+// Пункт із вкладеними: назва веде на сторінку, стрілка праворуч розкриває вкладені; розділ без href
+// розкривається кліком по рядку. «Екрани» — сторінка-огляд wireframes/index.html, вона будується з цієї гілки.
+//
 // Будова гілки «Екрани»:
-// { title: "Екрани", icon: "mobile", children: [
+// { title: "Екрани", href: "wireframes/index.html", icon: "mobile", children: [
 //   { title: "<група>", icon: "…", children: [
 //     { title: "<екран>", href: "wireframes/<ім'я>.html", icon: "…", children: [
 //       { title: "Порожній стан", href: "wireframes/<ім'я>-empty.html", icon: "…" }
@@ -21,7 +24,7 @@ window.NAV_TREE = [
   { title: "Дослідження", href: "research/research.html", icon: "search-text" },
   { title: "Персони і JTBD", href: "personas.html", icon: "users" },
   { title: "Структура", href: "ia.html", icon: "sitemap" },
-  { title: "Екрани", icon: "mobile", children: [
+  { title: "Екрани", href: "wireframes/index.html", icon: "mobile", children: [
     { title: "Знайти свою тварину", icon: "folder-search", children: [
       { title: "Дошка", href: "wireframes/board.html", icon: "newspaper", children: [
         { title: "Порожній стан", href: "wireframes/board-empty.html", icon: "inbox" },
