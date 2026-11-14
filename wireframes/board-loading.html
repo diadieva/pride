@@ -1,7 +1,7 @@
 <!doctype html>
 <!--
   Дошка · board-loading.html — стан завантаження (sitemap.md, колонка «Стани»: «моменти; довантаження стрічки»).
-  Базова сторінка — board.html; шапка, зони й таббар ті самі, на місці моментів — сірі заглушки.
+  Базова сторінка — board.html; шапка й зони ті самі, на місці моментів — сірі заглушки.
 
   Крок flow — flows.md, flow R3: старт «Спостерігач прийшов з посту чи Instagram [?]» →
   L1 «loading: моменти» → розвилка 1 «Моменти завантажились?»: так — BOARD, ні — E1.
@@ -28,6 +28,7 @@
 
   <nav class="wf-states" aria-label="Стани екрана «Дошка»">
     <a href="board.html">Базова сторінка</a>
+    <a href="board-menu.html">Меню відкрите</a>
     <a href="board-empty.html">Порожній</a>
     <a href="board-error.html">Помилка</a>
     <a href="board-loading.html" aria-current="page">Завантаження</a>
@@ -37,24 +38,32 @@
   <div class="device">
 
     <header class="app-header" data-zone="1">
-      <a class="brand" href="board.html">Прайд</a>
-      <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
-      <details class="service">
-        <summary><span class="i i-user-circle" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
-        <nav aria-label="Службова зона">
+      <details class="menu">
+        <summary><span class="i i-menu-bars" aria-hidden="true"></span><span class="sr-only">Меню</span></summary>
+        <nav aria-label="Меню">
           <ul>
+            <li><a href="board.html" aria-current="page"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+            <li><a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+            <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+            <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+          </ul>
+          <p class="menu-caption" id="menu-cabinet">Мій кабінет</p>
+          <ul aria-labelledby="menu-cabinet">
             <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
             <li><a href="my-subscriptions.html"><span class="i i-bell-heart" aria-hidden="true"></span>Мої підписки</a></li>
-            <li>
-              <fieldset class="lang">
-                <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
-                <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
-                <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
-              </fieldset>
-            </li>
           </ul>
+          <fieldset class="lang">
+            <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
+            <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
+            <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
+          </fieldset>
         </nav>
       </details>
+      <a class="brand" href="board.html">Прайд</a>
+      <nav class="quick" aria-label="Швидкий доступ">
+        <a class="fav-link" href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span><span class="sr-only">Мої улюбленці</span></a>
+        <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
+      </nav>
     </header>
 
     <main>
@@ -82,15 +91,6 @@
       </section>
     </main>
 
-    <nav class="tabbar" aria-label="Головна навігація" data-zone="4">
-      <ul>
-        <li><a href="board.html" aria-current="page"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
-        <li><a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
-        <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
-        <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
-      </ul>
-    </nav>
-
   </div>
 
   <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
@@ -110,7 +110,7 @@
     <ul>
       <li><span class="wf-zone">2</span> Свіжі моменти — заголовок на місці, моменти — сірими заглушками тих самих розмірів. Текст процесу — «Завантажуємо моменти…».</li>
       <li><span class="wf-zone">3</span> «Усі тварини» і лупа в шапці <span class="wf-zone">1</span> — <b>працюють уже зараз</b>: людині, яка шукає конкретну тварину, не треба чекати стрічку. Це й живий вихід зі стану.</li>
-      <li><span class="wf-zone">1</span>, <span class="wf-zone">4</span> — шапка і таббар працюють.</li>
+      <li><span class="wf-zone">1</span> — шапка працює.</li>
     </ul>
 
     <h2>Інший варіант — та сама сторінка</h2>
@@ -120,7 +120,7 @@
 
     <h2>Переходи flow</h2>
     <ul class="wf-flow">
-      <li>Сюди — кожен вхід на дошку: пост чи Instagram [?], пункт «Тварини», бренд «Прайд», <a href="board-error.html">помилка</a> — «Спробувати ще». У вайрфреймах таббар і бренд ведуть одразу на <a href="board.html">базову сторінку</a>, щоб шапка й таббар були однакові скрізь.</li>
+      <li>Сюди — кожен вхід на дошку: пост чи Instagram [?], пункт меню «Тварини», бренд «Прайд», <a href="board-error.html">помилка</a> — «Спробувати ще». У вайрфреймах меню і бренд ведуть одразу на <a href="board.html">базову сторінку</a>, щоб шапка була однакова скрізь.</li>
       <li>Розвилка 1 «Моменти завантажились?»: так — розвилка 3 «Є свіжі моменти?»: так — <a href="board.html">базова сторінка</a>, ні — <a href="board-empty.html">порожній стан</a>; ні — <a href="board-error.html">помилка</a>.</li>
       <li>Лупа в шапці → <a href="search.html">Пошук</a> (розвилка 2).</li>
       <li>«Усі тварини» → <a href="animals-loading.html">Усі тварини · завантаження</a> (розвилка 4).</li>

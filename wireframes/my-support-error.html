@@ -1,7 +1,7 @@
 <!doctype html>
 <!--
   Моя підтримка · my-support-error.html — стан помилки (sitemap.md, колонка «Стани»).
-  Базова сторінка — my-support.html; шапка, зони й таббар ті самі, змінюється лише вміст зони 2.
+  Базова сторінка — my-support.html; шапка й зони ті самі, змінюється лише вміст зони 2.
 
   Крок flow — flows.md, flow R5: L2 «оновлюємо в провайдера» → розвилка 10 «Провайдер підтвердив зміну?» — ні →
   E3 «error: не вдалося, наступне списання ще не змінено» → 11 «Спробувати ще?»: так → L2;
@@ -37,24 +37,32 @@
   <div class="device">
 
     <header class="app-header" data-zone="1">
-      <a class="brand" href="board.html">Прайд</a>
-      <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
-      <details class="service">
-        <summary><span class="i i-user-circle" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
-        <nav aria-label="Службова зона">
+      <details class="menu">
+        <summary><span class="i i-menu-bars" aria-hidden="true"></span><span class="sr-only">Меню</span></summary>
+        <nav aria-label="Меню">
           <ul>
+            <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+            <li><a href="my-animals.html" aria-current="page"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+            <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+            <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+          </ul>
+          <p class="menu-caption" id="menu-cabinet">Мій кабінет</p>
+          <ul aria-labelledby="menu-cabinet">
             <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
             <li><a href="my-subscriptions.html"><span class="i i-bell-heart" aria-hidden="true"></span>Мої підписки</a></li>
-            <li>
-              <fieldset class="lang">
-                <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
-                <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
-                <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
-              </fieldset>
-            </li>
           </ul>
+          <fieldset class="lang">
+            <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
+            <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
+            <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
+          </fieldset>
         </nav>
       </details>
+      <a class="brand" href="board.html">Прайд</a>
+      <nav class="quick" aria-label="Швидкий доступ">
+        <a class="fav-link" href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span><span class="sr-only">Мої улюбленці</span></a>
+        <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
+      </nav>
     </header>
 
     <main>
@@ -181,15 +189,6 @@
       </section>
     </main>
 
-    <nav class="tabbar" aria-label="Головна навігація" data-zone="5">
-      <ul>
-        <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
-        <li><a href="my-animals.html" aria-current="page"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
-        <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
-        <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
-      </ul>
-    </nav>
-
   </div>
 
   <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
@@ -209,7 +208,7 @@
     <h2>Зони в цьому стані</h2>
     <ul>
       <li><span class="wf-zone">2</span> Опіка — що сталося і що це означає для грошей: «наступне списання ще не змінено». <b>«Спробувати ще раз»</b> (розвилка 11 — так). Нижче — ручне скасування й контакти: телефон, email, години, «Про центр».</li>
-      <li><span class="wf-zone">1</span>, <span class="wf-zone">3</span>, <span class="wf-zone">4</span>, <span class="wf-zone">5</span> — як на базовій сторінці.</li>
+      <li><span class="wf-zone">1</span>, <span class="wf-zone">3</span>, <span class="wf-zone">4</span> — як на базовій сторінці.</li>
       <li><span class="wf-zone">4</span> — зона для читання — історія платежів, звірка.</li>
     </ul>
 

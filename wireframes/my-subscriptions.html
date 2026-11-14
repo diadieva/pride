@@ -6,7 +6,7 @@
   вузол SUBS «Мої підписки · my-subscriptions.html». Сюди — з L2, коли дані прийшли (розвилка 4), підписки є (5) →
   розвилка 6 «Що змінити?»: канал чи періодичність → L3 «зберігаємо» → 7; відписатися від тварини → L1 «відписуємо» → 3;
   видалити всі дані (закон, не job) → 8 «Є регулярна підтримка?» — так → ST1 «спершу скасуйте» → Моя підтримка.
-  Входи: посилання «Мої підписки» на головному, службова зона, «відписатися» в кожному листі (розвилки 1–2).
+  Входи: посилання «Мої підписки» на головному, «Мій кабінет» у меню, «відписатися» в кожному листі (розвилки 1–2).
 
   Job (sitemap.md): R4, Г2 [?]. [ЗАКОН] — email і видалення даних (GDPR), колишній account.html.
   Правила — wireframes/_conventions.md.
@@ -38,24 +38,32 @@
   <div class="device">
 
     <header class="app-header" data-zone="1">
-      <a class="brand" href="board.html">Прайд</a>
-      <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
-      <details class="service">
-        <summary><span class="i i-user-circle" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
-        <nav aria-label="Службова зона">
+      <details class="menu">
+        <summary><span class="i i-menu-bars" aria-hidden="true"></span><span class="sr-only">Меню</span></summary>
+        <nav aria-label="Меню">
           <ul>
+            <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+            <li><a href="my-animals.html" aria-current="page"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+            <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+            <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+          </ul>
+          <p class="menu-caption" id="menu-cabinet">Мій кабінет</p>
+          <ul aria-labelledby="menu-cabinet">
             <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
             <li><a href="my-subscriptions.html"><span class="i i-bell-heart" aria-hidden="true"></span>Мої підписки</a></li>
-            <li>
-              <fieldset class="lang">
-                <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
-                <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
-                <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
-              </fieldset>
-            </li>
           </ul>
+          <fieldset class="lang">
+            <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
+            <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
+            <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
+          </fieldset>
         </nav>
       </details>
+      <a class="brand" href="board.html">Прайд</a>
+      <nav class="quick" aria-label="Швидкий доступ">
+        <a class="fav-link" href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span><span class="sr-only">Мої улюбленці</span></a>
+        <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
+      </nav>
     </header>
 
     <main>
@@ -160,15 +168,6 @@
       </section>
     </main>
 
-    <nav class="tabbar" aria-label="Головна навігація" data-zone="6">
-      <ul>
-        <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
-        <li><a href="my-animals.html" aria-current="page"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
-        <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
-        <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
-      </ul>
-    </nav>
-
   </div>
 
   <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
@@ -188,12 +187,11 @@
 
     <h2>Зони і головна дія кожної</h2>
     <ul>
-      <li><span class="wf-zone">1</span> Шапка — пошук (лупа → «Пошук») і службова зона.</li>
+      <li><span class="wf-zone">1</span> Шапка — меню зліва (розділи, «Мій кабінет», мова; поточний розділ у меню — «Мої улюбленці»), «Прайд» по центру, праворуч серце → «Мої улюбленці» і лупа → «Пошук».</li>
       <li><span class="wf-zone">2</span> За ким я стежу — кожна підписка: стан і звідки вона (сама чи з опіки). «Відписатися від новин» — світла: відписка доступна, але не підштовхуємо. Для підписки з опіки — що опіка лишиться.</li>
       <li><span class="wf-zone">3</span> Як приходять новини — канал, періодичність, мова. <b>«Зберегти»</b>.</li>
       <li><span class="wf-zone">4</span> Акаунт — email і як входити. «Адреса не та? Увійти з іншою» → <code>login.html</code> (Г2, рішення 14.11.2026). Дані й підписки попередньої адреси не переносимо й не видаляємо.</li>
       <li><span class="wf-zone">5</span> <b>[ЗАКОН]</b> Видалити всі дані — є регулярна підтримка, тож спершу «Скасувати в „Моїй підтримці“». Що зникне, а що лишиться — до підтвердження. Кнопка видалення неактивна.</li>
-      <li><span class="wf-zone">6</span> Таббар — поточний «Мої улюбленці».</li>
     </ul>
 
     <h2>Варіанти — та сама сторінка</h2>
@@ -211,7 +209,7 @@
 
     <h2>Переходи flow</h2>
     <ul class="wf-flow">
-      <li>Сюди — з <a href="my-subscriptions-loading.html">завантаження</a>: дані прийшли (розвилка 4 — так), підписки є (5 — так). Входи — «Змінити в „Моїх підписках“» на <a href="my-animals.html">Моїх улюбленцях</a> і службова зона; з <a href="login.html">входу</a>, коли посилання відписки пошкоджене (розвилка 2 — ні).</li>
+      <li>Сюди — з <a href="my-subscriptions-loading.html">завантаження</a>: дані прийшли (розвилка 4 — так), підписки є (5 — так). Входи — «Змінити в „Моїх підписках“» на <a href="my-animals.html">Моїх улюбленцях</a> і «Мій кабінет» у меню; з <a href="login.html">входу</a>, коли посилання відписки пошкоджене (розвилка 2 — ні).</li>
       <li>Розвилка 5 — ні → <a href="my-subscriptions-empty.html">порожній стан</a>.</li>
       <li>Канал чи періодичність → «Зберегти» → <a href="my-subscriptions-loading.html">зберігаємо</a> (L3) → розвилка 7.</li>
       <li>«Відписатися від новин» → <a href="my-subscriptions-loading.html">відписуємо</a> (L1) → розвилка 3.</li>

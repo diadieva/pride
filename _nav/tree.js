@@ -12,7 +12,7 @@
 // вкладки станів). Окремої посадкової сторінки немає: «Екрани» відкриває останній переглянутий екран
 // (його пам'ятає nav.js), уперше — href розділу, тобто Дошку. Назви станів починаються з «Порожній», «Помилка»,
 // «Завантаження», «Успіх» — за ними шапка ставить стан на його місце у вкладках. Дитина екрана з іншою назвою —
-// варіант базової сторінки (наприклад, «Результати» в «Пошуку»): своя вкладка одразу після «Базова»,
+// варіант базової сторінки (наприклад, «Результати» в «Пошуку», «Меню відкрите» на Дошці): своя вкладка одразу після «Базова»,
 // з назвою з tree.js, у порядку tree.js. Варіанти ставимо в children першими, перед станами.
 //
 // Будова гілки «Екрани»:
@@ -32,6 +32,7 @@ window.NAV_TREE = [
   { title: "Екрани", href: "wireframes/board.html", icon: "mobile", children: [
     { title: "Знайти свою тварину", icon: "folder-search", children: [
       { title: "Дошка", href: "wireframes/board.html", icon: "newspaper", children: [
+        { title: "Меню відкрите", href: "wireframes/board-menu.html", icon: "menu-bars" },
         { title: "Порожній стан", href: "wireframes/board-empty.html", icon: "inbox" },
         { title: "Помилка", href: "wireframes/board-error.html", icon: "exclamation-circle" },
         { title: "Завантаження", href: "wireframes/board-loading.html", icon: "hourglass" }

@@ -1,7 +1,7 @@
 <!doctype html>
 <!--
   Вхід · login-loading.html — стан завантаження (sitemap.md, колонка «Стани»).
-  Базова сторінка — login.html; шапка, зони й таббар ті самі.
+  Базова сторінка — login.html; шапка й зони ті самі.
 
   Крок main flow — flows.md, flow M: LOGIN → розвилка 3 «Адреса в правильному форматі?» — так →
   L0 «loading: надсилаємо лист» → 4 «Лист відправлено?». Продукт чекає, поки поштовий сервіс прийме лист.
@@ -36,24 +36,32 @@
   <div class="device">
 
     <header class="app-header" data-zone="1">
-      <a class="brand" href="board.html">Прайд</a>
-      <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
-      <details class="service">
-        <summary><span class="i i-user-circle" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
-        <nav aria-label="Службова зона">
+      <details class="menu">
+        <summary><span class="i i-menu-bars" aria-hidden="true"></span><span class="sr-only">Меню</span></summary>
+        <nav aria-label="Меню">
           <ul>
+            <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+            <li><a href="my-animals.html" aria-current="page"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+            <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+            <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+          </ul>
+          <p class="menu-caption" id="menu-cabinet">Мій кабінет</p>
+          <ul aria-labelledby="menu-cabinet">
             <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
             <li><a href="my-subscriptions.html"><span class="i i-bell-heart" aria-hidden="true"></span>Мої підписки</a></li>
-            <li>
-              <fieldset class="lang">
-                <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
-                <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
-                <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
-              </fieldset>
-            </li>
           </ul>
+          <fieldset class="lang">
+            <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
+            <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
+            <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
+          </fieldset>
         </nav>
       </details>
+      <a class="brand" href="board.html">Прайд</a>
+      <nav class="quick" aria-label="Швидкий доступ">
+        <a class="fav-link" href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span><span class="sr-only">Мої улюбленці</span></a>
+        <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
+      </nav>
     </header>
 
     <main>
@@ -70,15 +78,6 @@
         <a class="btn" href="login.html">Змінити адресу</a>
       </form>
     </main>
-
-    <nav class="tabbar" aria-label="Головна навігація" data-zone="3">
-      <ul>
-        <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
-        <li><a href="my-animals.html" aria-current="page"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
-        <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
-        <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
-      </ul>
-    </nav>
 
   </div>
 
@@ -97,7 +96,7 @@
     <h2>Зони в цьому стані</h2>
     <ul>
       <li><span class="wf-zone">2</span> «Надсилаємо лист…» — адресу видно, поле заблоковано, кнопка — заглушка. Вихід — «Змінити адресу».</li>
-      <li><span class="wf-zone">1</span>, <span class="wf-zone">3</span> — як на базовій сторінці.</li>
+      <li><span class="wf-zone">1</span> — як на базовій сторінці.</li>
     </ul>
 
     <h2>Переходи flow</h2>

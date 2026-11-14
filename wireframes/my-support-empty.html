@@ -1,7 +1,7 @@
 <!doctype html>
 <!--
   Моя підтримка · my-support-empty.html — порожній стан (sitemap.md, колонка «Стани»).
-  Базова сторінка — my-support.html; шапка, зони й таббар ті самі, змінюється лише вміст.
+  Базова сторінка — my-support.html; шапка й зони ті самі, змінюється лише вміст.
 
   Крок flow — flows.md, flow R5: L1 → розвилка 3 «Дані прийшли?» — так → SUP → 4 «Є регулярна підтримка?» — ні →
   EM1 «empty: за цією адресою регулярної підтримки немає; можливо, інша адреса чи вже скасовано».
@@ -36,24 +36,32 @@
   <div class="device">
 
     <header class="app-header" data-zone="1">
-      <a class="brand" href="board.html">Прайд</a>
-      <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
-      <details class="service">
-        <summary><span class="i i-user-circle" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
-        <nav aria-label="Службова зона">
+      <details class="menu">
+        <summary><span class="i i-menu-bars" aria-hidden="true"></span><span class="sr-only">Меню</span></summary>
+        <nav aria-label="Меню">
           <ul>
+            <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+            <li><a href="my-animals.html" aria-current="page"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+            <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+            <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+          </ul>
+          <p class="menu-caption" id="menu-cabinet">Мій кабінет</p>
+          <ul aria-labelledby="menu-cabinet">
             <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
             <li><a href="my-subscriptions.html"><span class="i i-bell-heart" aria-hidden="true"></span>Мої підписки</a></li>
-            <li>
-              <fieldset class="lang">
-                <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
-                <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
-                <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
-              </fieldset>
-            </li>
           </ul>
+          <fieldset class="lang">
+            <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
+            <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
+            <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
+          </fieldset>
         </nav>
       </details>
+      <a class="brand" href="board.html">Прайд</a>
+      <nav class="quick" aria-label="Швидкий доступ">
+        <a class="fav-link" href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span><span class="sr-only">Мої улюбленці</span></a>
+        <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
+      </nav>
     </header>
 
     <main>
@@ -87,15 +95,6 @@
       </section>
     </main>
 
-    <nav class="tabbar" aria-label="Головна навігація" data-zone="5">
-      <ul>
-        <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
-        <li><a href="my-animals.html" aria-current="page"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
-        <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
-        <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
-      </ul>
-    </nav>
-
   </div>
 
   <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
@@ -116,7 +115,7 @@
       <li><span class="wf-zone">2</span> «Регулярної підтримки немає» — адреса, з якою звіряти, і дві причини. <b>«Увійти з іншою адресою»</b> → <code>login.html</code>.</li>
       <li><span class="wf-zone">3</span> «Не знайшли?» — телефон, email, години, «Про центр» → <code>center.html</code>. Вихід «не знайшов» з flows.md.</li>
       <li><span class="wf-zone">4</span> Історія платежів — порожня. Зона для читання.</li>
-      <li><span class="wf-zone">1</span>, <span class="wf-zone">5</span> — як на базовій сторінці.</li>
+      <li><span class="wf-zone">1</span> — як на базовій сторінці.</li>
     </ul>
 
     <h2>Інший варіант порожнього стану</h2>

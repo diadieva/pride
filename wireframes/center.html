@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-  Про центр · center.html — базова сторінка (sitemap.md, «Екрани», група «Хто такі «Прайд»»). Глобальний екран, пункт таббару «Про центр».
+  Про центр · center.html — базова сторінка (sitemap.md, «Екрани», група «Хто такі «Прайд»»). Глобальний екран, пункт меню «Про центр».
 
   Кроки flows.md, де бере участь екран:
   - R2 · Терміновий донатор: розвилка 3 «Хоче перевірити, хто такі «Прайд»?» — так → CENTER «Про центр · center.html» →
@@ -41,24 +41,32 @@
   <div class="device">
 
     <header class="app-header" data-zone="1">
-      <a class="brand" href="board.html">Прайд</a>
-      <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
-      <details class="service">
-        <summary><span class="i i-user-circle" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
-        <nav aria-label="Службова зона">
+      <details class="menu">
+        <summary><span class="i i-menu-bars" aria-hidden="true"></span><span class="sr-only">Меню</span></summary>
+        <nav aria-label="Меню">
           <ul>
+            <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+            <li><a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+            <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+            <li><a href="center.html" aria-current="page"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+          </ul>
+          <p class="menu-caption" id="menu-cabinet">Мій кабінет</p>
+          <ul aria-labelledby="menu-cabinet">
             <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
             <li><a href="my-subscriptions.html"><span class="i i-bell-heart" aria-hidden="true"></span>Мої підписки</a></li>
-            <li>
-              <fieldset class="lang">
-                <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
-                <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
-                <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
-              </fieldset>
-            </li>
           </ul>
+          <fieldset class="lang">
+            <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
+            <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
+            <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
+          </fieldset>
         </nav>
       </details>
+      <a class="brand" href="board.html">Прайд</a>
+      <nav class="quick" aria-label="Швидкий доступ">
+        <a class="fav-link" href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span><span class="sr-only">Мої улюбленці</span></a>
+        <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
+      </nav>
     </header>
 
     <main>
@@ -178,21 +186,12 @@
       </section>
     </main>
 
-    <nav class="tabbar" aria-label="Головна навігація" data-zone="9">
-      <ul>
-        <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
-        <li><a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
-        <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
-        <li><a href="center.html" aria-current="page"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
-      </ul>
-    </nav>
-
   </div>
 
   <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
     <h2>Про центр · базова сторінка</h2>
     <ul>
-      <li><code>center.html</code> — глобальний екран, пункт таббару «Про центр». Група «Хто такі «Прайд»».</li>
+      <li><code>center.html</code> — глобальний екран, пункт меню «Про центр». Група «Хто такі «Прайд»».</li>
       <li>Персона — Терміновий донатор (secondary) перед донатом; також усі, хто прийшов сюди по контакти з помилки.</li>
       <li>Найслабший пункт навігації: даних, що цю сторінку шукають, немає (sitemap.md, «Навігація»).</li>
     </ul>
@@ -205,7 +204,7 @@
 
     <h2>Зони і головна дія кожної</h2>
     <ul>
-      <li><span class="wf-zone">1</span> Шапка — пошук (лупа → «Пошук») і службова зона: Моя підтримка, Мої підписки, мова.</li>
+      <li><span class="wf-zone">1</span> Шапка — меню зліва (розділи, «Мій кабінет», мова; поточний розділ у меню — «Про центр»), «Прайд» по центру, праворуч серце → «Мої улюбленці» і лупа → «Пошук».</li>
       <li><span class="wf-zone">2</span> Хто ми і де ми — назва, село, два напрями роботи, місія з поточного сайту. Дії немає: це відповідь на «хто це». Зона для читання.</li>
       <li><span class="wf-zone">3</span> Контакти — <b>«Зателефонувати»</b> (<code>tel:</code>); поруч «Написати листом» (<code>mailto:</code>), години, Instagram і Facebook. Стоять другими: більшість входів сюди — вихід «контакти центру» з помилок.</li>
       <li><span class="wf-zone">4</span> Що ми робимо — тварини й терапія з дітьми, послуги списком із брифу. Без дії. Зона для читання.</li>
@@ -213,7 +212,6 @@
       <li><span class="wf-zone">6</span> Часті питання — розгорнути відповідь (<code>details</code>).</li>
       <li><span class="wf-zone">7</span> Забрати тварину додому — «Хочу забрати додому» → <code>adopt.html</code> (Г9). Світла кнопка: прилаштування — не основний фокус (бриф).</li>
       <li><span class="wf-zone">8</span> <b>[ЗАКОН]</b> Документи, <code>id="documents"</code> — розгорнути «Умови пожертви» чи «Політику конфіденційності».</li>
-      <li><span class="wf-zone">9</span> Глобальна навігація — 4 пункти, поточний — «Про центр».</li>
     </ul>
 
     <h2>Дані</h2>
@@ -226,8 +224,8 @@
 
     <h2>Переходи flow</h2>
     <ul class="wf-flow">
-      <li>Сюди — з пункту «Про центр» таббару і з <a href="search-results.html">результатів Пошуку</a>: розділ про центр — «Що ми робимо», «Команда», «Часті питання», «Документи» (R3, розвилка 2б, вихід з R3).</li>
-      <li>R2 · Терміновий донатор, розвилка 3 «Хоче перевірити, хто такі „Прайд“?»: так — з <a href="donate.html">Донату центру</a> («хто ми») сюди і назад «назад, введене збережено» → <a href="donate.html">Донат центру</a> (розвилка 4); ні — донатор лишається на донаті. Посилання «Повернутися до донату» в рамці немає: воно доречне не для всіх входів, тож повернення — кнопкою «назад» браузера чи пунктом «Підтримати».</li>
+      <li>Сюди — з пункту меню «Про центр» і з <a href="search-results.html">результатів Пошуку</a>: розділ про центр — «Що ми робимо», «Команда», «Часті питання», «Документи» (R3, розвилка 2б, вихід з R3).</li>
+      <li>R2 · Терміновий донатор, розвилка 3 «Хоче перевірити, хто такі „Прайд“?»: так — з <a href="donate.html">Донату центру</a> («хто ми») сюди і назад «назад, введене збережено» → <a href="donate.html">Донат центру</a> (розвилка 4); ні — донатор лишається на донаті. Посилання «Повернутися до донату» в рамці немає: воно доречне не для всіх входів, тож повернення — кнопкою «назад» браузера чи пунктом меню «Підтримати».</li>
       <li>Г9, розвилка 1 «Звідки?»: сторінка центру — «Хочу забрати додому» → <a href="adopt.html">Заявка на прилаштування</a> (заявка загалом); тихе посилання на профілі — з <a href="animal.html">Профілю тварини</a>, повз цю сторінку.</li>
       <li>Вихід «контакти центру» — сюди з <a href="login-success.html">Входу</a> (після двох листів), з <a href="my-animals-error.html">помилки «Моїх улюбленців»</a>, з <a href="animal-error.html">помилки профілю</a> (M); з <a href="care-error.html">помилки опіки</a> (R2 · Опікун, E3); з <a href="donate-error.html">помилки донату</a> (R2 · донатор, E4); з <a href="my-support-empty.html">порожньої «Моєї підтримки»</a> (R5, «не знайшов»); з <a href="animal-success.html">«перевірте пошту» на профілі</a> (R3, розвилка 12 — ні); з <a href="my-subscriptions-error.html">помилки відписки</a> (Г2); з <a href="adopt-error.html">помилки заявки</a> (Г9).</li>
       <li>«Документи» — шторкою з <a href="care.html">Опіки над твариною</a> і <a href="donate.html">Донату центру</a> (розвилка 5 «Згода з умовами позначена?»), без окремого кроку.</li>

@@ -1,7 +1,7 @@
 <!doctype html>
 <!--
   Донат центру · donate-empty.html — порожній стан (sitemap.md, колонка «Стани»).
-  Базова сторінка — donate.html; шапка, зони й таббар ті самі, на місці збору — пояснення.
+  Базова сторінка — donate.html; шапка й зони ті самі, на місці збору — пояснення.
 
   Крок flow — flows.md, flow «R2 · … — Терміновий донатор»: DON → розвилка 2 «Є відкритий збір? [?]» —
   ні чи збір закрито → EM1 «empty: відкритих зборів немає — донат центру загалом; звіт закритого збору» →
@@ -37,24 +37,32 @@
   <div class="device">
 
     <header class="app-header" data-zone="1">
-      <a class="brand" href="board.html">Прайд</a>
-      <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
-      <details class="service">
-        <summary><span class="i i-user-circle" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
-        <nav aria-label="Службова зона">
+      <details class="menu">
+        <summary><span class="i i-menu-bars" aria-hidden="true"></span><span class="sr-only">Меню</span></summary>
+        <nav aria-label="Меню">
           <ul>
+            <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+            <li><a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+            <li><a href="donate.html" aria-current="page"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+            <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+          </ul>
+          <p class="menu-caption" id="menu-cabinet">Мій кабінет</p>
+          <ul aria-labelledby="menu-cabinet">
             <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
             <li><a href="my-subscriptions.html"><span class="i i-bell-heart" aria-hidden="true"></span>Мої підписки</a></li>
-            <li>
-              <fieldset class="lang">
-                <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
-                <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
-                <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
-              </fieldset>
-            </li>
           </ul>
+          <fieldset class="lang">
+            <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
+            <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
+            <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
+          </fieldset>
         </nav>
       </details>
+      <a class="brand" href="board.html">Прайд</a>
+      <nav class="quick" aria-label="Швидкий доступ">
+        <a class="fav-link" href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span><span class="sr-only">Мої улюбленці</span></a>
+        <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
+      </nav>
     </header>
 
     <main>
@@ -129,22 +137,13 @@
       </nav>
     </main>
 
-    <nav class="tabbar" aria-label="Головна навігація" data-zone="5">
-      <ul>
-        <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
-        <li><a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
-        <li><a href="donate.html" aria-current="page"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
-        <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
-      </ul>
-    </nav>
-
   </div>
 
   <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
     <h2>Донат центру · порожній стан</h2>
     <ul>
       <li>Відкритого збору немає — порожній лише збір, а не екран: донат центру загалом дати можна тут же.</li>
-      <li>R2 · Терміновий донатор, розвилка 2 «Є відкритий збір? [?]» — ні → EM1. У рамці — «відкритих зборів немає»: так людина бачить екран із пункту «Підтримати», і цей варіант не залежить від звіту [?].</li>
+      <li>R2 · Терміновий донатор, розвилка 2 «Є відкритий збір? [?]» — ні → EM1. У рамці — «відкритих зборів немає»: так людина бачить екран із пункту меню «Підтримати», і цей варіант не залежить від звіту [?].</li>
     </ul>
 
     <h2>Job</h2>
@@ -157,7 +156,7 @@
     <ul>
       <li><span class="wf-zone">2</span> «Зараз відкритих зборів немає» — куди піде донат і на що йдуть кошти центру. «Зібрано / Ціль» немає: немає збору. Дія — «Хто ми».</li>
       <li><span class="wf-zone">3</span> Форма — та сама, <b>«Оплатити 500 грн»</b>: це і є вихід із порожнього стану. «Разом» каже, що донат — на щоденну роботу центру.</li>
-      <li><span class="wf-zone">1</span>, <span class="wf-zone">4</span>, <span class="wf-zone">5</span> — як на базовій сторінці.</li>
+      <li><span class="wf-zone">1</span>, <span class="wf-zone">4</span> — як на базовій сторінці.</li>
     </ul>
 
     <h2>Інший варіант — та сама сторінка</h2>

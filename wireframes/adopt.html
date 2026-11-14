@@ -7,7 +7,7 @@
   ADOPT «Заявка на прилаштування · adopt.html» → 2 «Тварину вказано і вона ще доступна?» →
   3 «Контакти правильні?» → L1 «loading: надсилаємо заявку» → 4 «Заявку прийнято?».
 
-  Job (sitemap.md): Г9 [?] — гіпотеза, жодної персони. Тип — глибокий: таббар без поточного пункту.
+  Job (sitemap.md): Г9 [?] — гіпотеза, жодної персони. Тип — глибокий: у меню поточного розділу немає.
   Порожнього стану немає: це форма. Правила — wireframes/_conventions.md.
 -->
 <html lang="uk" data-root="../">
@@ -37,24 +37,32 @@
   <div class="device">
 
     <header class="app-header" data-zone="1">
-      <a class="brand" href="board.html">Прайд</a>
-      <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
-      <details class="service">
-        <summary><span class="i i-user-circle" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
-        <nav aria-label="Службова зона">
+      <details class="menu">
+        <summary><span class="i i-menu-bars" aria-hidden="true"></span><span class="sr-only">Меню</span></summary>
+        <nav aria-label="Меню">
           <ul>
+            <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+            <li><a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+            <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+            <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+          </ul>
+          <p class="menu-caption" id="menu-cabinet">Мій кабінет</p>
+          <ul aria-labelledby="menu-cabinet">
             <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
             <li><a href="my-subscriptions.html"><span class="i i-bell-heart" aria-hidden="true"></span>Мої підписки</a></li>
-            <li>
-              <fieldset class="lang">
-                <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
-                <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
-                <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
-              </fieldset>
-            </li>
           </ul>
+          <fieldset class="lang">
+            <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
+            <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
+            <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
+          </fieldset>
         </nav>
       </details>
+      <a class="brand" href="board.html">Прайд</a>
+      <nav class="quick" aria-label="Швидкий доступ">
+        <a class="fav-link" href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span><span class="sr-only">Мої улюбленці</span></a>
+        <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
+      </nav>
     </header>
 
     <main>
@@ -107,21 +115,12 @@
       </section>
     </main>
 
-    <nav class="tabbar" aria-label="Головна навігація" data-zone="5">
-      <ul>
-        <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
-        <li><a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
-        <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
-        <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
-      </ul>
-    </nav>
-
   </div>
 
   <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
     <h2>Заявка на прилаштування · базова сторінка (форма)</h2>
     <ul>
-      <li><code>adopt.html</code>. Група «Забрати додому» — під питанням. Тип — глибокий: у таббарі поточного пункту немає, шлях назад — «‹ [ім'я коня]» на профіль.</li>
+      <li><code>adopt.html</code>. Група «Забрати додому» — під питанням. Тип — глибокий: у меню поточного розділу немає, шлях назад — «‹ [ім'я коня]» на профіль.</li>
       <li>Flow Г9, вузол ADOPT. Рідкісна дія, не основний фокус (бриф, сценарій 6): коротка форма, без тиску й обіцянок.</li>
       <li>Персона — жодна з трьох [?].</li>
     </ul>
@@ -133,11 +132,10 @@
 
     <h2>Зони і головна дія кожної</h2>
     <ul>
-      <li><span class="wf-zone">1</span> Шапка — пошук (лупа → «Пошук») і службова зона.</li>
+      <li><span class="wf-zone">1</span> Шапка — меню зліва (розділи, «Мій кабінет», мова; поточного розділу в меню немає), «Прайд» по центру, праворуч серце → «Мої улюбленці» і лупа → «Пошук».</li>
       <li><span class="wf-zone">2</span> «Хочу забрати додому» — <b>дані для звірки</b>: про кого заявка, фото, ім'я, перебування. Вибір «[ім'я коня]» чи «загалом» (поля належать формі зони 3 через <code>form="adopt-form"</code>).</li>
       <li><span class="wf-zone">3</span> Контакти — <b>«Надіслати заявку»</b>. Обов'язкові лише ім'я й email, решта — за бажанням. Поля, яких центр ще не визначив, — плейсхолдер [?].</li>
       <li><span class="wf-zone">4</span> «Що буде далі» — чесно: хто зв'яжеться, строк невідомий [?]. Дії немає. Зона для читання.</li>
-      <li><span class="wf-zone">5</span> Таббар — без поточного пункту: у навігації групи «Забрати додому» немає.</li>
     </ul>
 
     <h2>Варіанти — та сама сторінка</h2>

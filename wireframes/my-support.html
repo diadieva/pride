@@ -7,7 +7,7 @@
   розвилка 5 «Що змінити?»: суму (6), пауза (7 [?]), скасувати (ST2 → 8), спосіб оплати (PAY → 9).
   Кожна дія → L2 «оновлюємо в провайдера» → 10 «Провайдер підтвердив зміну?».
   Входи: «Керувати опікою» на картці й банер «не вдалося списати» (flow M, розвилка 11), блок «Моя підтримка центру»,
-  службова зона, підписане посилання в чеку (R5, розвилка 2 [?]; R2 донатора, OK1 → SUP).
+  «Мій кабінет» у меню, підписане посилання в чеку (R5, розвилка 2 [?]; R2 донатора, OK1 → SUP).
 
   Job (sitemap.md): R5, E1, Г3 [?]. Правила — wireframes/_conventions.md.
 -->
@@ -38,24 +38,32 @@
   <div class="device">
 
     <header class="app-header" data-zone="1">
-      <a class="brand" href="board.html">Прайд</a>
-      <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
-      <details class="service">
-        <summary><span class="i i-user-circle" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
-        <nav aria-label="Службова зона">
+      <details class="menu">
+        <summary><span class="i i-menu-bars" aria-hidden="true"></span><span class="sr-only">Меню</span></summary>
+        <nav aria-label="Меню">
           <ul>
+            <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+            <li><a href="my-animals.html" aria-current="page"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+            <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+            <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+          </ul>
+          <p class="menu-caption" id="menu-cabinet">Мій кабінет</p>
+          <ul aria-labelledby="menu-cabinet">
             <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
             <li><a href="my-subscriptions.html"><span class="i i-bell-heart" aria-hidden="true"></span>Мої підписки</a></li>
-            <li>
-              <fieldset class="lang">
-                <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
-                <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
-                <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
-              </fieldset>
-            </li>
           </ul>
+          <fieldset class="lang">
+            <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
+            <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
+            <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
+          </fieldset>
         </nav>
       </details>
+      <a class="brand" href="board.html">Прайд</a>
+      <nav class="quick" aria-label="Швидкий доступ">
+        <a class="fav-link" href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span><span class="sr-only">Мої улюбленці</span></a>
+        <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
+      </nav>
     </header>
 
     <main>
@@ -219,15 +227,6 @@
       </section>
     </main>
 
-    <nav class="tabbar" aria-label="Головна навігація" data-zone="5">
-      <ul>
-        <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
-        <li><a href="my-animals.html" aria-current="page"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
-        <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
-        <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
-      </ul>
-    </nav>
-
   </div>
 
   <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
@@ -247,11 +246,10 @@
 
     <h2>Зони і головна дія кожної</h2>
     <ul>
-      <li><span class="wf-zone">1</span> Шапка — пошук (лупа → «Пошук») і службова зона.</li>
+      <li><span class="wf-zone">1</span> Шапка — меню зліва (розділи, «Мій кабінет», мова; поточний розділ у меню — «Мої улюбленці»), «Прайд» по центру, праворуч серце → «Мої улюбленці» і лупа → «Пошук».</li>
       <li><span class="wf-zone">2</span> Опіка над [ім'я коня] — усе для звірки: стан, сума, наступне списання, спосіб, куди чеки. <b>«Зберегти суму»</b>: поле вже з поточною сумою. Поруч, згорнуто, — «Призупинити» [?], «Скасувати опіку», «Змінити спосіб оплати». Прийшли з «Керувати опікою» — ця опіка перша, «Змінити суму» розкрито.</li>
       <li><span class="wf-zone">3</span> Донат центру — ті самі дії, усі згорнуто. «Зберегти суму».</li>
       <li><span class="wf-zone">4</span> Історія платежів — дата, кому й сума, статус, чек. Без головної дії: це звірка. Зона для читання.</li>
-      <li><span class="wf-zone">5</span> Таббар — поточний «Мої улюбленці».</li>
     </ul>
 
     <h2>Без пастки й без тиску</h2>
@@ -279,7 +277,7 @@
 
     <h2>Переходи flow</h2>
     <ul class="wf-flow">
-      <li>Сюди — з <a href="my-support-loading.html">завантаження</a>: дані прийшли (розвилка 3 — так), регулярна підтримка є (4 — так). Входи — «Керувати опікою» і «Керувати» на <a href="my-animals.html">Моїх улюбленцях</a>, банер «не вдалося списати» (M, розвилка 11), службова зона, посилання в чеку (R2 донатора, OK1 → SUP).</li>
+      <li>Сюди — з <a href="my-support-loading.html">завантаження</a>: дані прийшли (розвилка 3 — так), регулярна підтримка є (4 — так). Входи — «Керувати опікою» і «Керувати» на <a href="my-animals.html">Моїх улюбленцях</a>, банер «не вдалося списати» (M, розвилка 11), «Мій кабінет» у меню, посилання в чеку (R2 донатора, OK1 → SUP).</li>
       <li>Розвилка 4 — ні → <a href="my-support-empty.html">порожній стан</a>.</li>
       <li>Розвилка 6 «Нова сума правильна?»: ні — браузер не надішле форму (<code>required</code>, <code>type="number"</code>), варіант <a href="my-support-error.html">помилки</a> «хибна сума»; так → <a href="my-support-loading.html">оновлюємо в провайдера</a> (L2).</li>
       <li>Розвилка 7 «Провайдер підтримує паузу? [?]»: так → <a href="my-support-loading.html">L2</a>; ні → ST1, варіант цієї сторінки.</li>

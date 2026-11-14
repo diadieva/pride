@@ -1,7 +1,7 @@
 <!doctype html>
 <!--
   Мої підписки · my-subscriptions-success.html — успіх після дії (sitemap.md, колонка «Стани»).
-  Базова сторінка — my-subscriptions.html; шапка, зони й таббар ті самі, на місці картки в зоні 2 — підтвердження.
+  Базова сторінка — my-subscriptions.html; шапка й зони ті самі, на місці картки в зоні 2 — підтвердження.
 
   Крок flow — flows.md, flow Г2: L1 «відписуємо» → розвилка 3 «Відписка пройшла?» — так →
   OK1 «успіх: відписано в один клік, без входу; повернути можна».
@@ -37,24 +37,32 @@
   <div class="device">
 
     <header class="app-header" data-zone="1">
-      <a class="brand" href="board.html">Прайд</a>
-      <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
-      <details class="service">
-        <summary><span class="i i-user-circle" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
-        <nav aria-label="Службова зона">
+      <details class="menu">
+        <summary><span class="i i-menu-bars" aria-hidden="true"></span><span class="sr-only">Меню</span></summary>
+        <nav aria-label="Меню">
           <ul>
+            <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+            <li><a href="my-animals.html" aria-current="page"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+            <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+            <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+          </ul>
+          <p class="menu-caption" id="menu-cabinet">Мій кабінет</p>
+          <ul aria-labelledby="menu-cabinet">
             <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
             <li><a href="my-subscriptions.html"><span class="i i-bell-heart" aria-hidden="true"></span>Мої підписки</a></li>
-            <li>
-              <fieldset class="lang">
-                <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
-                <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
-                <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
-              </fieldset>
-            </li>
           </ul>
+          <fieldset class="lang">
+            <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
+            <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
+            <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
+          </fieldset>
         </nav>
       </details>
+      <a class="brand" href="board.html">Прайд</a>
+      <nav class="quick" aria-label="Швидкий доступ">
+        <a class="fav-link" href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span><span class="sr-only">Мої улюбленці</span></a>
+        <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
+      </nav>
     </header>
 
     <main>
@@ -163,15 +171,6 @@
       </section>
     </main>
 
-    <nav class="tabbar" aria-label="Головна навігація" data-zone="6">
-      <ul>
-        <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
-        <li><a href="my-animals.html" aria-current="page"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
-        <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
-        <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
-      </ul>
-    </nav>
-
   </div>
 
   <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
@@ -189,14 +188,14 @@
     <h2>Зони в цьому стані</h2>
     <ul>
       <li><span class="wf-zone">2</span> Картка [ім'я собаки] — що зроблено, коли, для якої адреси. Чесно: тварина зникне з «Моїх улюбленців» (там лише опіки й підписки). Як повернутися — кнопка «Повернути підписку в профілі». «До „Моїх улюбленців“» — світла: головної дії тут немає, людина вже зробила, що хотіла. Картка коня — без змін.</li>
-      <li><span class="wf-zone">1</span>, <span class="wf-zone">3</span>–<span class="wf-zone">6</span> — як на базовій сторінці.</li>
+      <li><span class="wf-zone">1</span>, <span class="wf-zone">3</span>–<span class="wf-zone">5</span> — як на базовій сторінці.</li>
     </ul>
 
     <h2>Інші варіанти успіху</h2>
     <ul>
       <li><b>З листа, без входу</b> (розвилки 1–2, OK1) — лише ця картка, без зон 3–5 і без інших тварин: сесії немає. Під нею — «Керувати всіма підписками» → вхід.</li>
       <li><b>Збережено</b> (розвилка 7 — так, OK2) — над формою зони 3: «Збережено. Новини про [ім'я коня] і [ім'я собаки] приходять на kateryna@example.com раз на тиждень [?], українською. Важливі зміни — одразу».</li>
-      <li><b>Дані видалено</b> (розвилка 10 — так, OK3) — весь <code>main</code>: «Ваші дані видалено. Останній лист — підтвердження — надіслано на kateryna@example.com». Зон 2–5 більше немає: акаунта немає. Вихід — таббар.</li>
+      <li><b>Дані видалено</b> (розвилка 10 — так, OK3) — весь <code>main</code>: «Ваші дані видалено. Останній лист — підтвердження — надіслано на kateryna@example.com». Зон 2–5 більше немає: акаунта немає. Вихід — меню й бренд «Прайд» у шапці.</li>
     </ul>
 
     <h2>Переходи flow</h2>

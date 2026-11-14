@@ -1,7 +1,7 @@
 <!doctype html>
 <!--
   Дошка · board.html — базова сторінка (sitemap.md, «Екрани», група «Знайти свою тварину»).
-  Тип — глобальний: пункт «Тварини» і бренд «Прайд». Вхід для нового відвідувача, без входу в акаунт.
+  Тип — глобальний: пункт меню «Тварини» і бренд «Прайд». Вхід для нового відвідувача, без входу в акаунт.
 
   Крок flow — flows.md, flow R3 «Познайомитися з твариною, перш ніж давати гроші»:
   L1 «loading: моменти» → розвилка 1 «Моменти завантажились?» — так → BOARD «Дошка · board.html» →
@@ -31,6 +31,7 @@
 
   <nav class="wf-states" aria-label="Стани екрана «Дошка»">
     <a href="board.html" aria-current="page">Базова сторінка</a>
+    <a href="board-menu.html">Меню відкрите</a>
     <a href="board-empty.html">Порожній</a>
     <a href="board-error.html">Помилка</a>
     <a href="board-loading.html">Завантаження</a>
@@ -40,24 +41,32 @@
   <div class="device">
 
     <header class="app-header" data-zone="1">
-      <a class="brand" href="board.html">Прайд</a>
-      <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
-      <details class="service">
-        <summary><span class="i i-user-circle" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
-        <nav aria-label="Службова зона">
+      <details class="menu">
+        <summary><span class="i i-menu-bars" aria-hidden="true"></span><span class="sr-only">Меню</span></summary>
+        <nav aria-label="Меню">
           <ul>
+            <li><a href="board.html" aria-current="page"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+            <li><a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+            <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+            <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+          </ul>
+          <p class="menu-caption" id="menu-cabinet">Мій кабінет</p>
+          <ul aria-labelledby="menu-cabinet">
             <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
             <li><a href="my-subscriptions.html"><span class="i i-bell-heart" aria-hidden="true"></span>Мої підписки</a></li>
-            <li>
-              <fieldset class="lang">
-                <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
-                <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
-                <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
-              </fieldset>
-            </li>
           </ul>
+          <fieldset class="lang">
+            <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
+            <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
+            <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
+          </fieldset>
         </nav>
       </details>
+      <a class="brand" href="board.html">Прайд</a>
+      <nav class="quick" aria-label="Швидкий доступ">
+        <a class="fav-link" href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span><span class="sr-only">Мої улюбленці</span></a>
+        <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
+      </nav>
     </header>
 
     <main>
@@ -108,21 +117,12 @@
       </section>
     </main>
 
-    <nav class="tabbar" aria-label="Головна навігація" data-zone="4">
-      <ul>
-        <li><a href="board.html" aria-current="page"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
-        <li><a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
-        <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
-        <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
-      </ul>
-    </nav>
-
   </div>
 
   <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
     <h2>Дошка · базова сторінка</h2>
     <ul>
-      <li><code>board.html</code>. Група «Знайти свою тварину». Тип — глобальний: пункт «Тварини» і бренд «Прайд». Перший екран людини без входу.</li>
+      <li><code>board.html</code>. Група «Знайти свою тварину». Тип — глобальний: пункт меню «Тварини» і бренд «Прайд». Перший екран людини без входу.</li>
       <li>Flow R3: Спостерігач прийшов без наміру платити й дивиться, як живуть тварини. Патерн «стрічка історій» з research.md.</li>
       <li>Персона — Спостерігач; Опікун теж приходить сюди, щоб обрати тварину (R1).</li>
     </ul>
@@ -136,15 +136,20 @@
 
     <h2>Зони і головна дія кожної</h2>
     <ul>
-      <li><span class="wf-zone">1</span> Шапка — пошук (лупа → «Пошук», R3, розвилка 2) і службова зона.</li>
+      <li><span class="wf-zone">1</span> Шапка — меню зліва (розділи, «Мій кабінет», мова; поточний розділ у меню — «Тварини»), «Прайд» по центру, праворуч серце → «Мої улюбленці» і лупа → «Пошук».</li>
       <li><span class="wf-zone">2</span> Свіжі моменти — перший блок дошки, над ним лише заголовок екрана. Датовані, свіжі зверху; типи «момент», «важлива зміна», «непроста новина» [?]. Кожен момент — «Відкрити історію» → профіль (розвилка 4). Темної кнопки немає: моменти рівноправні. «Показати ще моменти» — довантаження стрічки.</li>
       <li><span class="wf-zone">3</span> Усі тварини центру — <b>«Усі тварини»</b>: кінець стрічки (розвилка 4, «стрічка скінчилась») і ціль посилання «Пропустити стрічку».</li>
-      <li><span class="wf-zone">4</span> Таббар — поточний «Тварини».</li>
+    </ul>
+
+    <h2>Шапка</h2>
+    <ul>
+      <li>Рішення 15.11.2026: це сайт, а не застосунок — таббару внизу немає. На мобільному сайті він став би над нижньою панеллю Safari і з'їв би перший екран. Розділи — у меню; швидкий доступ — серце («Мої улюбленці», головний, main job — 1 торкання) і лупа.</li>
+      <li>Меню відкрите — <a href="board-menu.html">варіант «Меню відкрите»</a>. Серце без входу веде на <code>login.html</code>; у вайрфреймі — на <code>my-animals.html</code>.</li>
     </ul>
 
     <h2>Доступність</h2>
     <ul>
-      <li>«Пропустити стрічку» — перше посилання в <code>main</code>, видно лише у фокусі; веде до зони 3. Перед ним на клавіатурі — лише бренд, лупа пошуку і службова зона шапки.</li>
+      <li>«Пропустити стрічку» — перше посилання в <code>main</code>, видно лише у фокусі; веде до зони 3. Перед ним на клавіатурі — лише шапка: меню, бренд, серце і лупа.</li>
       <li>Кожне «Відкрити історію» має прихований підпис з ім'ям тварини, щоб посилання в списку не були однаковими.</li>
     </ul>
 
