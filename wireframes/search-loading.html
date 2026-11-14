@@ -1,13 +1,13 @@
 <!doctype html>
 <!--
   Пошук · search-loading.html — стан завантаження (sitemap.md, колонка «Стани»: «шукаємо»).
-  Базова сторінка — search.html; шапка, зони й таббар ті самі, на місці результатів — сірі заглушки.
+  Розмітка — як у search.html: без шапки й таббару; у рядку пошуку — запит, на місці результатів — сірі заглушки.
 
-  Крок flow — flows.md, flow R3: розвилка 2 «Шукає конкретну тварину?» — так: лупа в шапці → L5 «loading: шукаємо» →
-  2а «Пошук відповів?»: так — SEARCH (2б «Щось знайшлось?»: так — результати, ні — EM4); ні — E6.
-  Сюди ж — EM4 «спробувати інакше», E6 «спробувати ще» і E1 «шукати за ім'ям» з помилки дошки (через search.html).
+  Крок flow — flows.md, flow R3: SEARCH → вводить запит, Enter → L5 «loading: шукаємо» → 2а «Пошук відповів?»:
+  так — 2б «Щось знайшлось?»: так — RES (search-results.html), ні — EM4; ні — E6.
+  Сюди ж — «спробувати ще» з E6 і новий запит із результатів чи порожнього стану.
 
-  Job (sitemap.md): R1, R3.
+  Job (sitemap.md): R1, R3. Успіху немає: тут шукають, нічого не вносять.
   Правила — wireframes/_conventions.md.
 -->
 <html lang="uk" data-root="../">
@@ -28,50 +28,29 @@
 
   <nav class="wf-states" aria-label="Стани екрана «Пошук»">
     <a href="search.html">Базова сторінка</a>
+    <a href="search-results.html">Результати</a>
     <a href="search-empty.html">Порожній</a>
     <a href="search-error.html">Помилка</a>
     <a href="search-loading.html" aria-current="page">Завантаження</a>
-    <span>Успіху немає: це не екран дії — тут шукають, нічого не вносять</span>
+    <span>Успіху немає: це не екран дії — тут шукають, нічого не вносять. Результати — варіант базової сторінки, вкладка «Результати»</span>
   </nav>
 
   <div class="device">
 
-    <header class="app-header" data-zone="1">
-      <a class="brand" href="board.html">Прайд</a>
-      <a class="search-link" href="search.html" aria-current="page"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
-      <details class="service">
-        <summary><span class="i i-user-circle" aria-hidden="true"></span><span class="sr-only">Службова зона</span></summary>
-        <nav aria-label="Службова зона">
-          <ul>
-            <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
-            <li><a href="my-subscriptions.html"><span class="i i-bell-heart" aria-hidden="true"></span>Мої підписки</a></li>
-            <li>
-              <fieldset class="lang">
-                <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
-                <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
-                <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
-              </fieldset>
-            </li>
-          </ul>
-        </nav>
-      </details>
-    </header>
+    <!-- Запит на місці: його можна змінити й шукати знову, не чекаючи -->
+    <form class="searchbar" role="search" aria-label="Пошук по сайту" data-zone="1" action="search-loading.html" method="get">
+      <a class="searchbar-back" href="board.html"><span class="i i-angle-left" aria-hidden="true"></span><span class="sr-only">Назад</span></a>
+      <label class="searchbar-field"><span class="sr-only">Що шукаємо</span>
+        <input type="search" name="q" value="кінь" autocomplete="off" enterkeyhint="search" placeholder="Тварина, момент чи «Про центр»">
+      </label>
+      <a class="searchbar-clear" href="search.html"><span class="i i-xmark-circle" aria-hidden="true"></span><span class="sr-only">Очистити</span></a>
+    </form>
 
     <main>
-      <h1>Пошук</h1>
-
-      <!-- Запит лишається в полі: його можна уточнити, не чекаючи результатів -->
-      <form role="search" aria-label="Пошук по сайту" data-zone="2" action="search-loading.html" method="get">
-        <label>Що шукаємо
-          <input type="search" name="q" value="кінь" autocomplete="off" aria-describedby="search-hint">
-        </label>
-        <p class="meta" id="search-hint">Ім'я, вид чи риса характеру тварини, слово з моменту чи з розділу «Про центр»</p>
-        <button class="primary" type="submit"><span class="i i-search" aria-hidden="true"></span> Знайти</button>
-      </form>
-
+      <h1 class="sr-only">Пошук: шукаємо</h1>
       <p class="meta" role="status"><span class="i i-hourglass" aria-hidden="true"></span> Шукаємо «кінь»…</p>
 
-      <section aria-labelledby="found-animals" data-zone="3" aria-busy="true">
+      <section aria-labelledby="found-animals" data-zone="2" aria-busy="true">
         <h2 id="found-animals"><span class="i i-paw" aria-hidden="true"></span> Тварини</h2>
         <span class="skeleton avatar"></span>
         <span class="skeleton title short"></span>
@@ -81,7 +60,7 @@
         <span class="skeleton short"></span>
       </section>
 
-      <section aria-labelledby="found-moments" data-zone="4" aria-busy="true">
+      <section aria-labelledby="found-moments" data-zone="3" aria-busy="true">
         <h2 id="found-moments"><span class="i i-newspaper" aria-hidden="true"></span> Моменти</h2>
         <span class="skeleton title short"></span>
         <span class="skeleton"></span>
@@ -89,29 +68,23 @@
         <span class="skeleton"></span>
       </section>
 
-      <section aria-labelledby="found-center" data-zone="5" aria-busy="true">
+      <section aria-labelledby="found-center" data-zone="4" aria-busy="true">
         <h2 id="found-center"><span class="i i-building" aria-hidden="true"></span> Про центр</h2>
         <span class="skeleton title short"></span>
         <span class="skeleton"></span>
       </section>
     </main>
 
-    <nav class="tabbar" aria-label="Головна навігація" data-zone="6">
-      <ul>
-        <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
-        <li><a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
-        <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
-        <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
-      </ul>
-    </nav>
+    <!-- Таббару немає: сторінка «чисто під пошук» (рішення 15.11.2026) -->
 
   </div>
 
   <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
     <h2>Пошук · завантаження</h2>
     <ul>
-      <li>Чекаємо на результати за запитом: тварин, моменти й розділи про центр.</li>
+      <li>Запит надіслано (Enter), чекаємо на результати: тварин, моменти й розділи про центр.</li>
       <li>Flow R3, L5 «loading: шукаємо» → розвилка 2а «Пошук відповів?».</li>
+      <li>Окрема сторінка «чисто під пошук»: без шапки, службової зони й таббару (рішення 15.11.2026). Зверху — лише рядок пошуку.</li>
     </ul>
 
     <h2>Job</h2>
@@ -122,9 +95,8 @@
 
     <h2>Зони в цьому стані</h2>
     <ul>
-      <li><span class="wf-zone">3</span>, <span class="wf-zone">4</span>, <span class="wf-zone">5</span> Тварини, Моменти, Про центр — заголовки на місці, результати — сірими заглушками. Текст процесу один на всі групи, над ними: «Шукаємо „кінь“…».</li>
-      <li><span class="wf-zone">2</span> Поле — запит на місці; <b>«Знайти»</b> працює: уточнити запит можна, не чекаючи.</li>
-      <li><span class="wf-zone">1</span>, <span class="wf-zone">6</span> — шапка і таббар працюють; жоден пункт таббару не поточний.</li>
+      <li><span class="wf-zone">1</span> Рядок пошуку — «‹ Назад» (у продукті — на попередній екран; у вайрфреймі — на <a href="board.html">Дошку</a>, звідки в R3 приходять), поле із запитом і «× Очистити» → <a href="search.html">базова сторінка</a> з порожнім полем. Кнопки «Знайти» немає: шукає Enter чи кнопка пошуку на клавіатурі телефона (<code>enterkeyhint="search"</code>) → «шукаємо».</li>
+      <li><span class="wf-zone">2</span>, <span class="wf-zone">3</span>, <span class="wf-zone">4</span> Тварини, Моменти, Про центр — як у <a href="search-results.html">результатах</a>: заголовки на місці, результати — сірими заглушками. Текст процесу один на всі групи: «Шукаємо „кінь“…».</li>
     </ul>
 
     <h2>Інший варіант — та сама сторінка</h2>
@@ -134,8 +106,8 @@
 
     <h2>Переходи flow</h2>
     <ul class="wf-flow">
-      <li>Сюди — «Знайти» на <a href="search.html">базовій сторінці</a> (після лупи в шапці чи «Шукати за ім'ям» з <a href="board-error.html">помилки дошки</a>), «спробувати інакше» з <a href="search-empty.html">порожнього стану</a>, «Спробувати ще» з <a href="search-error.html">помилки</a>.</li>
-      <li>Розвилка 2а «Пошук відповів?»: так — 2б «Щось знайшлось?»: так — <a href="search.html">базова сторінка</a> з результатами, ні — <a href="search-empty.html">порожній стан</a>; ні — <a href="search-error.html">помилка</a>.</li>
+      <li>Сюди — Enter у полі <a href="search.html">базової сторінки</a>, новий запит із <a href="search-results.html">результатів</a> чи <a href="search-empty.html">порожнього стану</a>, «Спробувати ще» з <a href="search-error.html">помилки</a>.</li>
+      <li>Розвилка 2а «Пошук відповів?»: так — 2б «Щось знайшлось?»: так — <a href="search-results.html">результати</a>, ні — <a href="search-empty.html">порожній стан</a>; ні — <a href="search-error.html">помилка</a>.</li>
     </ul>
   </aside>
 

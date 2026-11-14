@@ -80,6 +80,7 @@
   // Шапка сцени над рамкою вайрфрейма, три рівні:
   //   1. шлях «Екрани / група» і назва екрана — вона ж перемикач (список усіх екранів, як у tree.js);
   //   2. вкладки станів — завжди ті самі 5, відсутні неактивні з поясненням зі сторінки;
+  //      після «Базова» — вкладки варіантів базової сторінки (діти екрана в tree.js, чия назва не починається зі стану);
   //   3. ширина рамки (телефон, планшет, десктоп) — тихий інструмент праворуч від шляху.
   // Будується з tree.js; ручні таби .wf-states на сторінці лишаються запасом без JavaScript і джерелом пояснень.
   // «Попередній / наступний» немає: порядок реєстру — не порядок сценарію, а переходи за сценарієм —
@@ -239,7 +240,8 @@
     });
     head.appendChild(menu);
 
-    // Вкладки станів — завжди ті самі 5; відсутні неактивні, з поясненням зі сторінки («Успіху немає: …»).
+    // Вкладки станів — завжди ті самі 5, плюс варіанти базової сторінки, якщо вони є в tree.js;
+    // відсутні стани неактивні, з поясненням зі сторінки («Успіху немає: …»).
     // Смуга вкладок закріплена вгорі; коли шапка поїхала вгору, ліворуч з'являється коротка назва екрана
     var notes = [].map.call(legacy.querySelectorAll("span"), function (sp) { return sp.textContent.trim(); });
     var tabs = document.createElement("nav");
@@ -250,10 +252,23 @@
     mini.setAttribute("aria-hidden", "true");
     mini.textContent = current.title;
     tabs.appendChild(mini);
+    // Варіанти базової сторінки — діти екрана в tree.js, чия назва не починається зі стану
+    // («Порожній», «Помилка», «Завантаження», «Успіх»). Кожен — своя вкладка одразу після «Базова», у порядку tree.js
+    var stems = STATES.filter(function (st) { return st.stem; }).map(function (st) { return st.stem; });
+    var variants = (current.children || []).filter(function (c) {
+      var t = c.title.toLowerCase();
+      return c.href && !stems.some(function (stem) { return t.indexOf(stem) === 0; });
+    });
+    var entries = [];
     STATES.forEach(function (st) {
       var target = st.stem ? (current.children || []).filter(function (c) {
         return c.href && c.title.toLowerCase().indexOf(st.stem) === 0;
       })[0] : current;
+      entries.push({ stem: st.stem, label: st.label, target: target });
+      if (!st.stem) variants.forEach(function (v) { entries.push({ stem: null, label: v.title, target: v }); });
+    });
+    entries.forEach(function (st) {
+      var target = st.target;
       var el;
       if (target) {
         el = document.createElement("a");

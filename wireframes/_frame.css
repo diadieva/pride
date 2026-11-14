@@ -134,8 +134,31 @@ body {
   color: inherit;
   text-decoration: none;
 }
-/* На сторінках «Пошуку» лупа — поточна сторінка (aria-current), як пункт таббару */
-.search-link[aria-current="page"] { background: var(--wf-fill); border-color: var(--wf-ink); }
+
+/* Сторінки «Пошуку» — окрема сторінка під пошук, без шапки й таббару: згори рамки рядок пошуку.
+   «‹ Назад» і «× Очистити» — квадрати 44 px, поле займає решту рядка. Кнопки «Знайти» немає — шукає Enter */
+.searchbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--wf-line);
+}
+.searchbar-back,
+.searchbar-clear {
+  flex: none;
+  min-width: 44px;
+  min-height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: inherit;
+  text-decoration: none;
+}
+.searchbar-back { border: 1px solid var(--wf-line); }
+.device .searchbar-field { flex: 1; display: block; min-width: 0; }
+.device .searchbar-field input { width: 100%; }
+.searchbar[data-zone]::before { top: auto; bottom: -9px; left: 10px; }
 .service > summary::-webkit-details-marker { display: none; }
 .service > nav {
   position: absolute;
