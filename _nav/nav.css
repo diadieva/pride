@@ -94,7 +94,6 @@ html { --pn-space: 264px; }
 
 .pn ul { list-style: none; margin: 0; padding: 0; }
 .pn > ul { margin-bottom: 18px; }
-.pn ul ul { margin-left: 12px; padding-left: 8px; border-left: 1px solid var(--pn-line); }
 .pn li { margin: 2px 0; }
 
 .pn-page, .pn-branch {
@@ -109,39 +108,31 @@ html { --pn-space: 264px; }
 .pn-page:hover { background: var(--pn-hover); }
 .pn-current { font-weight: 600; }
 .pn-page:focus-visible { outline: 2px solid var(--pn-fg); outline-offset: -2px; }
-.pn-branch {
-  width: 100%;
-  border: 0;
-  background: none;
-  color: var(--pn-muted);
-  font: inherit;
-  font-weight: 600;
-  text-align: left;
-  cursor: pointer;
-}
-.pn-branch:hover { background: var(--pn-hover); color: var(--pn-fg); }
-.pn-branch:focus-visible, .pn-twisty:focus-visible { outline: 2px solid var(--pn-fg); outline-offset: -2px; }
+.pn-branch { color: var(--pn-muted); font-weight: 600; }
 
-/* Рядок пункту з вкладеними: назва (сторінка) і стрілка, що розкриває вкладені */
-.pn-row { display: flex; align-items: center; gap: 2px; }
-.pn-row > .pn-page { flex: 1; min-width: 0; }
-.pn-twisty {
-  display: grid;
-  place-items: center;
-  flex: none;
-  width: 34px;
-  height: 34px;
-  padding: 0;
-  border: 0;
-  border-radius: 10px;
-  background: none;
+/* Розділ, у якому зараз людина (наприклад, «Екрани» на сторінці екрана): жирний, без заливки */
+.pn-has-current { font-weight: 600; }
+/* Шеврон розділу — індикатор «розкрито / згорнуто», не окрема кнопка */
+.pn .pn-chev { width: 14px; height: 14px; margin-left: auto; color: var(--pn-muted); transition: transform .15s ease; }
+.pn-current .pn-chev { color: inherit; }
+.pn-page.is-open .pn-chev { transform: rotate(90deg); }
+
+/* Сторінки розділу. Підписи груп — другорядні орієнтири: дрібні, приглушені, не клікаються */
+.pn .pn-sub { margin: 2px 0 10px 21px; padding-left: 8px; border-left: 1px solid var(--pn-line); }
+.pn .pn-sub ul { margin: 0; padding: 0; border: 0; }
+.pn-group {
+  display: block;
+  padding: 12px 12px 4px;
   color: var(--pn-muted);
-  cursor: pointer;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  opacity: .85;
+  cursor: default;
 }
-.pn-twisty:hover { background: var(--pn-hover); color: var(--pn-fg); }
-.pn .pn-chev { width: 14px; height: 14px; transition: transform .15s ease; }
-.pn-branch .pn-chev { margin-left: auto; }
-[aria-expanded="true"] > .pn-chev { transform: rotate(90deg); }
+.pn-sub > li:first-child > .pn-group { padding-top: 6px; }
+.pn-sub .pn-page { padding: 7px 12px; }
 .pn-current, .pn-current:hover {
   background: var(--pn-current-bg);
   color: var(--pn-current-fg);
@@ -196,9 +187,8 @@ html.pn-on body { padding-left: var(--pn-space); }
   /* Згорнутий: лише перший рівень; гілка — кнопка, що розгортає навігатор */
   html.pn-collapsed .pn ul ul { display: none; }
   html.pn-collapsed .pn-branch { justify-content: center; padding: 12px 0; color: var(--pn-fg); }
-  html.pn-collapsed .pn-twisty, html.pn-collapsed .pn-chev { display: none; }
+  html.pn-collapsed .pn-chev { display: none; }
   html.pn-collapsed .pn-has-current { background: var(--pn-current-bg); color: var(--pn-current-fg); }
-  html.pn-collapsed .pn ul ul { margin-left: 0; padding-left: 0; border-left: 0; }
 
   .pn-tip {
     display: block;
