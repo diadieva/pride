@@ -118,7 +118,8 @@ html { --pn-space: 264px; }
   background: var(--pn-current-bg);
   color: var(--pn-current-fg);
 }
-.pn-page .i, .pn-branch .i { width: 18px; height: 18px; vertical-align: 0; }
+/* У розгорнутому навігаторі — лише назви; іконки з'являються в згорнутому, де назв не видно */
+.pn-page .i, .pn-branch .i { display: none; width: 18px; height: 18px; vertical-align: 0; }
 
 .pn-toggle { display: none; }
 
@@ -163,6 +164,7 @@ html.pn-on body { padding-left: var(--pn-space); }
   }
   html.pn-collapsed .pn-theme { flex-direction: column; margin: auto auto 0; }
   html.pn-collapsed .pn-page { justify-content: center; padding: 12px 0; }
+  html.pn-collapsed .pn-page .i { display: inline-block; }
   html.pn-collapsed .pn-branch { display: none; }
   html.pn-collapsed .pn ul ul { margin-left: 0; padding-left: 0; border-left: 0; }
 
