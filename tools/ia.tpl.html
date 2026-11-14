@@ -176,6 +176,7 @@
     .diagram .node.empty :is(rect, polygon, path) { fill: var(--hyp-soft) !important; stroke: var(--hyp-line) !important; stroke-dasharray: 4 3; }
     .diagram .node.error :is(rect, polygon, path) { fill: var(--bad-soft) !important; stroke: var(--bad-line) !important; }
     .diagram .node.state :is(rect, polygon, path) { fill: var(--surface) !important; stroke: var(--good) !important; }
+    .diagram .node.success :is(rect, polygon, path) { fill: var(--good-soft) !important; stroke: var(--good) !important; }
     .diagram .node.ok :is(rect, polygon, path) { fill: var(--good-soft) !important; stroke: var(--good) !important; stroke-width: 2px !important; }
     .diagram .node.exit :is(rect, polygon, path) { fill: var(--surface-2) !important; stroke: var(--muted) !important; }
     .diagram .node.dead :is(rect, polygon, path) { fill: var(--text) !important; stroke: var(--text) !important; }
@@ -198,6 +199,7 @@
     .nl.empty { background: var(--hyp-soft); border: 1px dashed var(--hyp-line); }
     .nl.error { background: var(--bad-soft); border-color: var(--bad-line); }
     .nl.state { background: var(--surface); border-color: var(--good); }
+    .nl.success { background: var(--good-soft); border-color: var(--good); }
     .nl.ok { background: var(--good-soft); border: 2px solid var(--good); border-radius: 999px; }
     .nl.exit { border-color: var(--muted); }
     .nl.dead { background: var(--text); color: var(--bg); border-color: var(--text); }
@@ -251,8 +253,9 @@
       <span class="item"><span class="nl loading">loading</span></span>
       <span class="item"><span class="nl empty">empty</span></span>
       <span class="item"><span class="nl error">error</span></span>
-      <span class="item"><span class="nl state">інший стан</span></span>
-      <span class="item"><span class="nl ok">успіх</span></span>
+      <span class="item"><span class="nl state">варіант сторінки</span></span>
+      <span class="item"><span class="nl success">успіх дії</span></span>
+      <span class="item"><span class="nl ok">job закрито</span></span>
       <span class="item"><span class="nl exit">вихід</span></span>
       <span class="item"><span class="nl dead">тупик [?]</span></span>
       <span class="item"><span class="nl ext">провайдер, зовнішній</span></span>
