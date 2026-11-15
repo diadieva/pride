@@ -52,10 +52,6 @@
           <label class="choice"><input type="checkbox" name="kind" value="dog"> Собака</label>
           <label class="choice"><input type="checkbox" name="kind" value="other"> Інші</label>
         </fieldset>
-        <fieldset>
-          <legend>Шукають опікунів</legend>
-          <label class="choice"><input type="checkbox" name="need" value="lacking" checked> Лише ті, хто шукає опікунів</label>
-        </fieldset>
         <fieldset class="row">
           <legend>Характер <span class="meta">[?]</span></legend>
           <label class="choice"><input type="checkbox" name="trait" value="1"> <span class="ph">[риса]</span></label>
@@ -63,8 +59,9 @@
           <label class="choice"><input type="checkbox" name="trait" value="3"> <span class="ph">[риса]</span></label>
         </fieldset>
         <fieldset>
-          <legend>Працює з дітьми <span class="meta">[?]</span></legend>
-          <label class="choice"><input type="checkbox" name="kids" value="1"> Лише ті, хто працює з дітьми — це коні</label>
+          <legend>Показати лише</legend>
+          <label class="choice"><input type="checkbox" name="need" value="lacking" checked> Шукають опікунів</label>
+          <label class="choice"><input type="checkbox" name="kids" value="1"> Працюють з дітьми <span class="meta">[?]</span></label>
         </fieldset>
       </form>
     </main>
@@ -93,7 +90,7 @@
     <h2>Зони і головна дія кожної</h2>
     <ul>
       <li><span class="wf-zone">1</span> Окрема сторінка, без шапки сайту й меню: «‹» — назад до списку без змін, заголовок «Фільтри».</li>
-      <li><span class="wf-zone">2</span> Вибір: Вид (кінь · собака · інші); Шукають опікунів; Характер [?] — набір рис дасть центр; Працює з дітьми [?] — лише коні (від замовниці, 15.11.2026). Зона для вибору, без власної кнопки.</li>
+      <li><span class="wf-zone">2</span> Вибір: Вид (кінь · собака · інші); Характер [?] — набір рис дасть центр; «Показати лише»: «Шукають опікунів», «Працюють з дітьми» [?]. Підписи ті самі, що й на чіпах над списком; без повторів і пояснень у підписі (рішення 15.11.2026). Що з дітьми працюють лише коні — факт для нас (від замовниці), в інтерфейсі його не пишемо: після вибору людина й так побачить коней. Зона для вибору, без власної кнопки.</li>
       <li><span class="wf-zone">3</span> Кнопки, <b>закріплені внизу екрана</b>: «Скинути» (світла) і <b>«Показати [кількість]»</b> — скільки тварин буде, видно до натискання. Видні завжди, навіть коли рис характеру багато й вибір прокручується під ними.</li>
     </ul>
 
