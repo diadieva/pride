@@ -122,6 +122,8 @@ body {
 }
 .menu { justify-self: start; }
 .brand { justify-self: center; font-weight: 700; text-decoration: none; }
+/* На головній сторінці поточне — лого: окремого пункту меню в неї немає (рішення 15.11.2026) */
+.brand[aria-current="page"] { text-decoration: underline; text-underline-offset: 4px; }
 .quick { justify-self: end; display: flex; gap: 8px; }
 /* Кнопка меню, серце і лупа — однакові квадрати 44 px з іконкою по центру */
 .menu > summary,

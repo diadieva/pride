@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-  Стрічка · board-error.html — стан помилки (sitemap.md, колонка «Стани»: «не вдалося завантажити → спробувати ще
+  Головна сторінка · board-error.html — стан помилки (sitemap.md, колонка «Стани»: «не вдалося завантажити → спробувати ще
   чи шукати за ім'ям у „Пошуку“»).
   Базова сторінка — board.html; шапка й зони ті самі.
 
@@ -15,7 +15,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Прайд · Вайрфрейм · Стрічка · помилка</title>
+  <title>Прайд · Вайрфрейм · Головна сторінка · помилка</title>
   <script src="../_nav/theme.js"></script>
   <link rel="stylesheet" href="../_nav/theme.css">
   <link rel="stylesheet" href="../_nav/icons.css">
@@ -27,7 +27,7 @@
 <body>
 <div class="wf-page">
 
-  <nav class="wf-states" aria-label="Стани екрана «Стрічка»">
+  <nav class="wf-states" aria-label="Стани екрана «Головна сторінка»">
     <a href="board.html">Базова сторінка</a>
     <a href="board-menu.html">Меню відкрите</a>
     <a href="board-empty.html">Порожній</a>
@@ -43,12 +43,7 @@
         <summary><span class="i i-menu-bars" aria-hidden="true"></span><span class="sr-only">Меню</span></summary>
         <nav aria-label="Меню">
           <ul>
-            <li>
-              <a href="board.html" aria-current="page"><span class="i i-newspaper" aria-hidden="true"></span>Стрічка</a>
-              <ul class="menu-sub">
-                <li><a href="animals.html"><span class="i i-paw" aria-hidden="true"></span>Усі тварини</a></li>
-              </ul>
-            </li>
+            <li><a href="animals.html"><span class="i i-paw" aria-hidden="true"></span>Усі тварини</a></li>
             <li>
               <a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a>
               <ul class="menu-sub">
@@ -68,7 +63,7 @@
           </fieldset>
         </nav>
       </details>
-      <a class="brand" href="board.html">Прайд</a>
+      <a class="brand" href="board.html" aria-current="page">Прайд</a>
       <nav class="quick" aria-label="Швидкий доступ">
         <a class="fav-link" href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span><span class="sr-only">Мої улюбленці</span></a>
         <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
@@ -78,12 +73,13 @@
     <main>
       <a class="skip" href="#all-animals">Пропустити стрічку</a>
 
-      <h1>Стрічка</h1>
+      <!-- Видимої назви в сторінки немає: це перша сторінка сайту, до неї веде лого «Прайд» (рішення 15.11.2026) -->
+      <h1 class="sr-only">Прайд — останні новини</h1>
 
       <!-- На місці стрічки — що сталося, повтор і куди звернутися -->
       <section aria-labelledby="feed" data-zone="2">
         <h2 id="feed"><span class="i i-exclamation-circle" aria-hidden="true"></span> Не вдалося завантажити моменти</h2>
-        <p role="alert">Стрічка не відкрилася — схоже, зв'язок перервався. Тварини й новини на місці: це збій показу.</p>
+        <p role="alert">Головна сторінка не відкрилася — схоже, зв'язок перервався. Тварини й новини на місці: це збій показу.</p>
         <a class="btn primary" href="board-loading.html"><span class="i i-arrows-rotate" aria-hidden="true"></span> Спробувати ще</a>
         <a class="btn" href="search.html"><span class="i i-search" aria-hidden="true"></span> Шукати за ім'ям</a>
         <p class="meta">Не виходить? Команда центру на зв'язку пн–пт, 09:00–19:00:</p>
@@ -104,7 +100,7 @@
   </div>
 
   <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
-    <h2>Стрічка · помилка</h2>
+    <h2>Головна сторінка · помилка</h2>
     <ul>
       <li>Моменти не завантажились: збій зв'язку чи сервера.</li>
       <li>Flow R3, розвилка 1 «Моменти завантажились?» — ні → E1.</li>

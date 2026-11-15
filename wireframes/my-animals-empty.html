@@ -4,7 +4,7 @@
   Базова сторінка — my-animals.html; шапка й зони ті самі, змінюється лише вміст.
 
   Крок main flow — flows.md, flow M: вузол MAIN → розвилка 10 «Є активні опіки чи підписки?» — ні →
-  EM1 «empty: тут з'являться ваші тварини; рядок «Донат центру», якщо є донат» → Стрічка · board.html.
+  EM1 «empty: тут з'являться ваші тварини; рядок «Донат центру», якщо є донат» → Головна сторінка · board.html.
   Вихід — «Знайти свою тварину» → board.html, як у flow. Рядок «Донат центру» видно, бо в людини є донат центру.
   Людину без тварин, але з регулярним донатом серце й меню ведуть одразу у вкладку «Моя допомога»;
   сюди вона потрапляє, лише натиснувши вкладку «Тварини» (рішення 15.11.2026).
@@ -41,12 +41,7 @@
         <summary><span class="i i-menu-bars" aria-hidden="true"></span><span class="sr-only">Меню</span></summary>
         <nav aria-label="Меню">
           <ul>
-            <li>
-              <a href="board.html"><span class="i i-newspaper" aria-hidden="true"></span>Стрічка</a>
-              <ul class="menu-sub">
-                <li><a href="animals.html"><span class="i i-paw" aria-hidden="true"></span>Усі тварини</a></li>
-              </ul>
-            </li>
+            <li><a href="animals.html"><span class="i i-paw" aria-hidden="true"></span>Усі тварини</a></li>
             <li>
               <a href="my-animals.html" aria-current="page"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a>
               <ul class="menu-sub">
@@ -133,7 +128,7 @@
     <h2>Мої улюбленці · порожній стан</h2>
     <ul>
       <li>Людина увійшла, але не має жодної активної опіки чи підписки. Донат центру в неї є.</li>
-      <li>Flow M, розвилка 10 «Є активні опіки чи підписки?» — ні → EM1 → Стрічка.</li>
+      <li>Flow M, розвилка 10 «Є активні опіки чи підписки?» — ні → EM1 → Головна сторінка.</li>
     </ul>
 
     <h2>Job</h2>
@@ -147,7 +142,7 @@
       <li><span class="wf-zone">1</span> Шапка — без змін.</li>
       <li><span class="wf-zone">2</span> Вкладки розділу «Мої улюбленці» — Тварини · Моя допомога; поточна — «Тварини». Працюють і в цьому стані.</li>
       <li><span class="wf-zone">3</span> Перемикач — замість аватарок «Знайти тварину» → <code>board.html</code>.</li>
-      <li><span class="wf-zone">4</span> «Тут з'являться ваші тварини» — <b>«Знайти свою тварину»</b> → <code>board.html</code>. Це дія, з якої людина почне, і вихід із flows.md (EM1 → Стрічка).</li>
+      <li><span class="wf-zone">4</span> «Тут з'являться ваші тварини» — <b>«Знайти свою тварину»</b> → <code>board.html</code>. Це дія, з якої людина почне, і вихід із flows.md (EM1 → Головна сторінка).</li>
       <li><span class="wf-zone">5</span> Як бути поруч: стежити чи опікуватися. Кнопки немає — без тиску. Зона для читання.</li>
       <li><span class="wf-zone">6</span> Донат центру — рядок-посилання у вкладку «Моя допомога».</li>
       <li><span class="wf-zone">7</span> Як приходять новини — «Змінити в „Налаштуваннях“».</li>
@@ -161,7 +156,7 @@
     <h2>Переходи flow</h2>
     <ul class="wf-flow">
       <li>Сюди — з <a href="my-animals-loading.html">завантаження</a>: дані прийшли, але активних опік і підписок немає (розвилка 10 — ні).</li>
-      <li>Вихід — «Знайти свою тварину» → <a href="board.html">Стрічка</a> (EM1 → BOARD). Донат центру є — «Керувати» → <a href="my-support-loading.html">Моя допомога · завантаження</a>.</li>
+      <li>Вихід — «Знайти свою тварину» → <a href="board.html">Головна сторінка</a> (EM1 → BOARD). Донат центру є — «Керувати» → <a href="my-support-loading.html">Моя допомога · завантаження</a>.</li>
     </ul>
   </aside>
 
