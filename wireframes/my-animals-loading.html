@@ -40,14 +40,15 @@
         <nav aria-label="Меню">
           <ul>
             <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
-            <li><a href="my-animals.html" aria-current="page"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+            <li>
+              <a href="my-animals.html" aria-current="page"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a>
+              <ul class="menu-sub">
+                <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя допомога</a></li>
+                <li><a href="my-subscriptions.html"><span class="i i-sliders-simple" aria-hidden="true"></span>Налаштування</a></li>
+              </ul>
+            </li>
             <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
             <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
-          </ul>
-          <p class="menu-caption" id="menu-cabinet">Мій кабінет</p>
-          <ul aria-labelledby="menu-cabinet">
-            <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
-            <li><a href="my-subscriptions.html"><span class="i i-bell-heart" aria-hidden="true"></span>Мої підписки</a></li>
           </ul>
           <fieldset class="lang">
             <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
@@ -66,8 +67,15 @@
     <main>
       <h1>Мої улюбленці</h1>
 
+      <!-- Вкладки розділу «Мої улюбленці» (рішення 15.11.2026): три сторінки одного розділу -->
+      <nav class="section-tabs" aria-label="Вкладки розділу «Мої улюбленці»" data-zone="2">
+        <a href="my-animals.html" aria-current="page">Тварини</a>
+        <a href="my-support.html">Моя допомога</a>
+        <a href="my-subscriptions.html">Налаштування</a>
+      </nav>
+
       <!-- Перемикач: аватарки ще вантажаться -->
-      <nav aria-label="Мої тварини" data-zone="2" aria-busy="true">
+      <nav aria-label="Мої тварини" data-zone="3" aria-busy="true">
         <ul class="hlist">
           <li><span class="skeleton avatar"></span></li>
           <li><span class="skeleton avatar"></span></li>
@@ -75,7 +83,7 @@
       </nav>
 
       <!-- Картка тварини: заглушки на місці фото, імені, новини, опіки й дій -->
-      <article aria-labelledby="loading-title" data-zone="3" aria-busy="true">
+      <article aria-labelledby="loading-title" data-zone="4" aria-busy="true">
         <span class="skeleton photo"></span>
         <h2 id="loading-title" class="meta" role="status"><span class="i i-hourglass" aria-hidden="true"></span> Завантажуємо ваших тварин…</h2>
         <span class="skeleton title short"></span>
@@ -89,23 +97,21 @@
         </footer>
       </article>
 
-      <article aria-label="Друга тварина завантажується" data-zone="4" aria-busy="true">
+      <article aria-label="Друга тварина завантажується" data-zone="5" aria-busy="true">
         <span class="skeleton photo"></span>
         <span class="skeleton title short"></span>
         <span class="skeleton"></span>
         <span class="skeleton button"></span>
       </article>
 
-      <section aria-labelledby="center-support" data-zone="5" aria-busy="true">
-        <h2 id="center-support">Моя підтримка центру</h2>
-        <span class="skeleton"></span>
+      <section aria-label="Донат центру" data-zone="6" aria-busy="true">
         <span class="skeleton short"></span>
       </section>
 
-      <section aria-labelledby="news" data-zone="6" aria-busy="true">
+      <section aria-labelledby="news" data-zone="7" aria-busy="true">
         <h2 id="news">Як приходять новини</h2>
         <span class="skeleton"></span>
-        <a class="btn" href="my-subscriptions-loading.html">Змінити в «Моїх підписках»</a>
+        <a class="btn" href="my-subscriptions-loading.html">Змінити в «Налаштуваннях»</a>
       </section>
     </main>
 
@@ -127,11 +133,12 @@
     <h2>Зони в цьому стані</h2>
     <ul>
       <li><span class="wf-zone">1</span> Шапка — без змін, працює.</li>
-      <li><span class="wf-zone">2</span> Перемикач — дві круглі заглушки.</li>
-      <li><span class="wf-zone">3</span> Картка тварини — заглушки фото, імені, новини, опіки і трьох кнопок. Текст процесу — «Завантажуємо ваших тварин…».</li>
-      <li><span class="wf-zone">4</span> Друга картка — коротша заглушка.</li>
-      <li><span class="wf-zone">5</span> Моя підтримка центру — заголовок і заглушки. Чи є донат, ще невідомо: якщо немає, зона зникне.</li>
-      <li><span class="wf-zone">6</span> Як приходять новини — заголовок і посилання вже працюють.</li>
+      <li><span class="wf-zone">2</span> Вкладки розділу «Мої улюбленці» — Тварини · Моя допомога · Налаштування; поточна — «Тварини». Працюють і в цьому стані.</li>
+      <li><span class="wf-zone">3</span> Перемикач — дві круглі заглушки.</li>
+      <li><span class="wf-zone">4</span> Картка тварини — заглушки фото, імені, новини, опіки і трьох кнопок. Текст процесу — «Завантажуємо ваших тварин…».</li>
+      <li><span class="wf-zone">5</span> Друга картка — коротша заглушка.</li>
+      <li><span class="wf-zone">6</span> Донат центру — заглушка рядка. Чи є донат, ще невідомо: якщо немає, зона зникне.</li>
+      <li><span class="wf-zone">7</span> Як приходять новини — заголовок і посилання вже працюють.</li>
     </ul>
 
     <h2>Поведінка</h2>

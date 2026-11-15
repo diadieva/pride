@@ -1,7 +1,7 @@
 <!doctype html>
 <!--
-  Моя підтримка · my-support-success.html — успіх після дії (sitemap.md, колонка «Стани»).
-  Базова сторінка — my-support.html; шапка й зони ті самі, на місці дій зони 2 — підтвердження.
+  Моя допомога · my-support-success.html — успіх після дії (sitemap.md, колонка «Стани»).
+  Базова сторінка — my-support.html; шапка й зони ті самі, на місці дій зони 3 — підтвердження.
 
   Крок flow — flows.md, flow R5: L2 → розвилка 10 «Провайдер підтвердив зміну?» — так →
   OK1 «успіх: змінено, на паузі, скасовано чи нова картка; лист-підтвердження» →
@@ -14,7 +14,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Прайд · Вайрфрейм · Моя підтримка · успіх</title>
+  <title>Прайд · Вайрфрейм · Моя допомога · успіх</title>
   <script src="../_nav/theme.js"></script>
   <link rel="stylesheet" href="../_nav/theme.css">
   <link rel="stylesheet" href="../_nav/icons.css">
@@ -26,7 +26,7 @@
 <body>
 <div class="wf-page">
 
-  <nav class="wf-states" aria-label="Стани екрана «Моя підтримка»">
+  <nav class="wf-states" aria-label="Стани екрана «Моя допомога»">
     <a href="my-support.html">Базова сторінка</a>
     <a href="my-support-empty.html">Порожній</a>
     <a href="my-support-error.html">Помилка</a>
@@ -42,14 +42,15 @@
         <nav aria-label="Меню">
           <ul>
             <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
-            <li><a href="my-animals.html" aria-current="page"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+            <li>
+              <a href="my-animals.html" aria-current="true"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a>
+              <ul class="menu-sub">
+                <li><a href="my-support.html" aria-current="page"><span class="i i-wallet" aria-hidden="true"></span>Моя допомога</a></li>
+                <li><a href="my-subscriptions.html"><span class="i i-sliders-simple" aria-hidden="true"></span>Налаштування</a></li>
+              </ul>
+            </li>
             <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
             <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
-          </ul>
-          <p class="menu-caption" id="menu-cabinet">Мій кабінет</p>
-          <ul aria-labelledby="menu-cabinet">
-            <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
-            <li><a href="my-subscriptions.html"><span class="i i-bell-heart" aria-hidden="true"></span>Мої підписки</a></li>
           </ul>
           <fieldset class="lang">
             <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
@@ -66,12 +67,18 @@
     </header>
 
     <main>
-      <a class="back" href="my-animals.html"><span class="i i-angle-left" aria-hidden="true"></span> Мої улюбленці</a>
-      <h1>Моя підтримка</h1>
+      <h1>Мої улюбленці</h1>
+
+      <!-- Вкладки розділу «Мої улюбленці» (рішення 15.11.2026): три сторінки одного розділу -->
+      <nav class="section-tabs" aria-label="Вкладки розділу «Мої улюбленці»" data-zone="2">
+        <a href="my-animals.html">Тварини</a>
+        <a href="my-support.html" aria-current="page">Моя допомога</a>
+        <a href="my-subscriptions.html">Налаштування</a>
+      </nav>
       <p class="meta">Регулярна підтримка з адреси kateryna@example.com</p>
 
       <!-- Опіка скасована: що змінилося, коли, куди пішов лист; тварина лишається -->
-      <article aria-labelledby="care-1" data-zone="2">
+      <article aria-labelledby="care-1" data-zone="3">
         <span class="img avatar" role="img" aria-label="Фото: [ім'я тварини]">фото</span>
         <h2 id="care-1">Опіка над <span class="ph">[ім'я коня]</span></h2>
         <p class="meta">Кінь · у центрі</p>
@@ -91,7 +98,7 @@
       </article>
 
       <!-- Донат центру: ті самі дії, згорнуті, щоб список лишався коротким -->
-      <article aria-labelledby="center-1" data-zone="3">
+      <article aria-labelledby="center-1" data-zone="4">
         <h2 id="center-1">Донат центру</h2>
         <p class="meta">На все, що потрібно центру «Прайд»</p>
         <dl>
@@ -158,7 +165,7 @@
       </article>
 
       <!-- Історія платежів: кожне списання видно (Платіж, R5, E1) -->
-      <section aria-labelledby="history" data-zone="4">
+      <section aria-labelledby="history" data-zone="5">
         <h2 id="history">Історія платежів</h2>
         <table>
           <caption class="sr-only">Платежі за опікою і донатом центру, нові зверху</caption>
@@ -180,7 +187,7 @@
   </div>
 
   <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
-    <h2>Моя підтримка · успіх</h2>
+    <h2>Моя допомога · успіх</h2>
     <ul>
       <li>Провайдер підтвердив скасування. Списань більше не буде, лист-підтвердження надіслано.</li>
       <li>R5, розвилка 10 — так → OK1 → ST4. Job R5 закрито за 3 кліки від картки: «Керувати опікою» → «Скасувати опіку» → «Скасувати опіку».</li>
@@ -196,9 +203,10 @@
 
     <h2>Зони в цьому стані</h2>
     <ul>
-      <li><span class="wf-zone">2</span> «Опіку скасовано» — що, коли, що з наступним списанням, куди пішов лист. Тварина й новини лишаються, подяка без докору. <b>«До „Моїх улюбленців“»</b> — там [ім'я коня] і далі.</li>
-      <li><span class="wf-zone">1</span>, <span class="wf-zone">3</span>, <span class="wf-zone">4</span> — як на базовій сторінці. Історія платежів не змінилась: нового платежу немає.</li>
-      <li><span class="wf-zone">4</span> — зона для читання — історія платежів, звірка.</li>
+      <li><span class="wf-zone">3</span> «Опіку скасовано» — що, коли, що з наступним списанням, куди пішов лист. Тварина й новини лишаються, подяка без докору. <b>«До „Моїх улюбленців“»</b> — там [ім'я коня] і далі.</li>
+      <li><span class="wf-zone">1</span>, <span class="wf-zone">4</span>, <span class="wf-zone">5</span> — як на базовій сторінці. Історія платежів не змінилась: нового платежу немає.</li>
+      <li><span class="wf-zone">2</span> Вкладки розділу «Мої улюбленці» — Тварини · Моя допомога · Налаштування; поточна — «Моя допомога». Працюють і в цьому стані.</li>
+      <li><span class="wf-zone">5</span> — зона для читання — історія платежів, звірка.</li>
     </ul>
 
     <h2>Інші варіанти успіху — та сама сторінка</h2>
@@ -206,7 +214,7 @@
       <li><b>Суму змінено</b> — «Тепер 700 грн щомісяця. Наступне списання — 700 грн, 1 грудня». Лист-підтвердження.</li>
       <li><b>На паузі</b> [?] — «Опіка на паузі до 13 грудня [?]. Списань до того не буде. [ім'я коня] і новини лишаються». Дія — «Відновити».</li>
       <li><b>Нова картка</b> — «Картку змінено. 1 грудня 1 000 грн спишуться з нової картки».</li>
-      <li><b>Донат центру скасовано</b> — те саме для зони 3, без рядка про тварину.</li>
+      <li><b>Донат центру скасовано</b> — те саме для зони 4, без рядка про тварину.</li>
     </ul>
 
     <h2>Переходи flow</h2>

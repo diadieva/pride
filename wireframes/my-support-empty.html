@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-  Моя підтримка · my-support-empty.html — порожній стан (sitemap.md, колонка «Стани»).
+  Моя допомога · my-support-empty.html — порожній стан (sitemap.md, колонка «Стани»).
   Базова сторінка — my-support.html; шапка й зони ті самі, змінюється лише вміст.
 
   Крок flow — flows.md, flow R5: L1 → розвилка 3 «Дані прийшли?» — так → SUP → 4 «Є регулярна підтримка?» — ні →
@@ -13,7 +13,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Прайд · Вайрфрейм · Моя підтримка · порожній стан</title>
+  <title>Прайд · Вайрфрейм · Моя допомога · порожній стан</title>
   <script src="../_nav/theme.js"></script>
   <link rel="stylesheet" href="../_nav/theme.css">
   <link rel="stylesheet" href="../_nav/icons.css">
@@ -25,7 +25,7 @@
 <body>
 <div class="wf-page">
 
-  <nav class="wf-states" aria-label="Стани екрана «Моя підтримка»">
+  <nav class="wf-states" aria-label="Стани екрана «Моя допомога»">
     <a href="my-support.html">Базова сторінка</a>
     <a href="my-support-empty.html" aria-current="page">Порожній</a>
     <a href="my-support-error.html">Помилка</a>
@@ -41,14 +41,15 @@
         <nav aria-label="Меню">
           <ul>
             <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
-            <li><a href="my-animals.html" aria-current="page"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+            <li>
+              <a href="my-animals.html" aria-current="true"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a>
+              <ul class="menu-sub">
+                <li><a href="my-support.html" aria-current="page"><span class="i i-wallet" aria-hidden="true"></span>Моя допомога</a></li>
+                <li><a href="my-subscriptions.html"><span class="i i-sliders-simple" aria-hidden="true"></span>Налаштування</a></li>
+              </ul>
+            </li>
             <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
             <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
-          </ul>
-          <p class="menu-caption" id="menu-cabinet">Мій кабінет</p>
-          <ul aria-labelledby="menu-cabinet">
-            <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
-            <li><a href="my-subscriptions.html"><span class="i i-bell-heart" aria-hidden="true"></span>Мої підписки</a></li>
           </ul>
           <fieldset class="lang">
             <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
@@ -65,12 +66,18 @@
     </header>
 
     <main>
-      <a class="back" href="my-animals.html"><span class="i i-angle-left" aria-hidden="true"></span> Мої улюбленці</a>
-      <h1>Моя підтримка</h1>
+      <h1>Мої улюбленці</h1>
+
+      <!-- Вкладки розділу «Мої улюбленці» (рішення 15.11.2026): три сторінки одного розділу -->
+      <nav class="section-tabs" aria-label="Вкладки розділу «Мої улюбленці»" data-zone="2">
+        <a href="my-animals.html">Тварини</a>
+        <a href="my-support.html" aria-current="page">Моя допомога</a>
+        <a href="my-subscriptions.html">Налаштування</a>
+      </nav>
       <p class="meta">Регулярна підтримка з адреси kateryna@example.com</p>
 
       <!-- Головна зона: чому порожньо і два виходи з flows.md -->
-      <article aria-labelledby="empty-title" data-zone="2">
+      <article aria-labelledby="empty-title" data-zone="3">
         <h2 id="empty-title"><span class="i i-inbox" aria-hidden="true"></span> За цією адресою регулярної підтримки немає</h2>
         <p>Ми шукали опіки й донати центру для kateryna@example.com і не знайшли жодного щомісячного.</p>
         <p class="meta">Можливо, ви підтримуєте з іншої адреси — наприклад, робочої. Або підтримку вже скасовано: тоді нічого не списується.</p>
@@ -78,7 +85,7 @@
       </article>
 
       <!-- Друга картка: не знайшов — контакти центру -->
-      <article aria-labelledby="help-title" data-zone="3">
+      <article aria-labelledby="help-title" data-zone="4">
         <h2 id="help-title">Не знайшли свою підтримку?</h2>
         <p>Якщо гроші списуються, а тут їх не видно, — напишіть чи зателефонуйте нам. Знайдемо за датою і сумою списання.</p>
         <ul>
@@ -89,7 +96,7 @@
         <a class="btn" href="center.html">Усі контакти — «Про центр»</a>
       </article>
 
-      <section aria-labelledby="history" data-zone="4">
+      <section aria-labelledby="history" data-zone="5">
         <h2 id="history">Історія платежів</h2>
         <p class="meta">Платежів з адреси kateryna@example.com немає.</p>
       </section>
@@ -98,7 +105,7 @@
   </div>
 
   <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
-    <h2>Моя підтримка · порожній стан</h2>
+    <h2>Моя допомога · порожній стан</h2>
     <ul>
       <li>Людина увійшла, але за її адресою немає жодної регулярної опіки чи донату. Часто — бо платила з іншої адреси.</li>
       <li>R5, розвилка 4 «Є регулярна підтримка?» — ні → EM1.</li>
@@ -112,15 +119,16 @@
 
     <h2>Зони в цьому стані</h2>
     <ul>
-      <li><span class="wf-zone">2</span> «Регулярної підтримки немає» — адреса, з якою звіряти, і дві причини. <b>«Увійти з іншою адресою»</b> → <code>login.html</code>.</li>
-      <li><span class="wf-zone">3</span> «Не знайшли?» — телефон, email, години, «Про центр» → <code>center.html</code>. Вихід «не знайшов» з flows.md.</li>
-      <li><span class="wf-zone">4</span> Історія платежів — порожня. Зона для читання.</li>
+      <li><span class="wf-zone">3</span> «Регулярної підтримки немає» — адреса, з якою звіряти, і дві причини. <b>«Увійти з іншою адресою»</b> → <code>login.html</code>.</li>
+      <li><span class="wf-zone">4</span> «Не знайшли?» — телефон, email, години, «Про центр» → <code>center.html</code>. Вихід «не знайшов» з flows.md.</li>
+      <li><span class="wf-zone">5</span> Історія платежів — порожня. Зона для читання.</li>
       <li><span class="wf-zone">1</span> — як на базовій сторінці.</li>
+      <li><span class="wf-zone">2</span> Вкладки розділу «Мої улюбленці» — Тварини · Моя допомога · Налаштування; поточна — «Моя допомога». Працюють і в цьому стані.</li>
     </ul>
 
     <h2>Інший варіант порожнього стану</h2>
     <ul>
-      <li><b>Підтримку вже скасовано</b> — зони 2 і 3 ті самі, але в зоні 4 видно минулі платежі з чеками, а в зоні 2 — «Регулярної підтримки зараз немає. Остання — опіка над [ім'я коня], скасована 13 листопада». Списань немає — це і є відповідь на тривогу (E1).</li>
+      <li><b>Підтримку вже скасовано</b> — зони 3 і 4 ті самі, але в зоні 5 видно минулі платежі з чеками, а в зоні 3 — «Регулярної підтримки зараз немає. Остання — опіка над [ім'я коня], скасована 13 листопада». Списань немає — це і є відповідь на тривогу (E1).</li>
       <li>Донатор із разовим донатом і без акаунта сюди не потрапляє: <code>my-support.html</code> лише для регулярної підтримки (sitemap.md, «Кому потрібні екрани»: донатору — лише з регулярним донатом [?]).</li>
     </ul>
 

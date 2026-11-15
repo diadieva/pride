@@ -4,8 +4,10 @@
   Базова сторінка — my-animals.html; шапка й зони ті самі, змінюється лише вміст.
 
   Крок main flow — flows.md, flow M: вузол MAIN → розвилка 10 «Є активні опіки чи підписки?» — ні →
-  EM1 «empty: тут з'являться ваші тварини; блок Моя підтримка центру, якщо є донат» → Дошка · board.html.
-  Вихід — «Знайти свою тварину» → board.html, як у flow. Блок «Моя підтримка центру» видно, бо в людини є донат центру.
+  EM1 «empty: тут з'являться ваші тварини; рядок «Донат центру», якщо є донат» → Дошка · board.html.
+  Вихід — «Знайти свою тварину» → board.html, як у flow. Рядок «Донат центру» видно, бо в людини є донат центру.
+  Людину без тварин, але з регулярним донатом серце й меню ведуть одразу у вкладку «Моя допомога»;
+  сюди вона потрапляє, лише натиснувши вкладку «Тварини» (рішення 15.11.2026).
   Правила — wireframes/_conventions.md.
 -->
 <html lang="uk" data-root="../">
@@ -40,14 +42,15 @@
         <nav aria-label="Меню">
           <ul>
             <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
-            <li><a href="my-animals.html" aria-current="page"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+            <li>
+              <a href="my-animals.html" aria-current="page"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a>
+              <ul class="menu-sub">
+                <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя допомога</a></li>
+                <li><a href="my-subscriptions.html"><span class="i i-sliders-simple" aria-hidden="true"></span>Налаштування</a></li>
+              </ul>
+            </li>
             <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
             <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
-          </ul>
-          <p class="menu-caption" id="menu-cabinet">Мій кабінет</p>
-          <ul aria-labelledby="menu-cabinet">
-            <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
-            <li><a href="my-subscriptions.html"><span class="i i-bell-heart" aria-hidden="true"></span>Мої підписки</a></li>
           </ul>
           <fieldset class="lang">
             <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
@@ -66,8 +69,15 @@
     <main>
       <h1>Мої улюбленці</h1>
 
+      <!-- Вкладки розділу «Мої улюбленці» (рішення 15.11.2026): три сторінки одного розділу -->
+      <nav class="section-tabs" aria-label="Вкладки розділу «Мої улюбленці»" data-zone="2">
+        <a href="my-animals.html" aria-current="page">Тварини</a>
+        <a href="my-support.html">Моя допомога</a>
+        <a href="my-subscriptions.html">Налаштування</a>
+      </nav>
+
       <!-- Перемикач: тварин немає — замість аватарок перший крок -->
-      <nav aria-label="Мої тварини" data-zone="2">
+      <nav aria-label="Мої тварини" data-zone="3">
         <ul class="hlist">
           <li>
             <a href="board.html">
@@ -79,7 +89,7 @@
       </nav>
 
       <!-- Головна зона: пояснення і дія, з якої людина почне -->
-      <article aria-labelledby="empty-title" data-zone="3">
+      <article aria-labelledby="empty-title" data-zone="4">
         <h2 id="empty-title"><span class="i i-inbox" aria-hidden="true"></span> Тут з'являться ваші тварини</h2>
         <p>Поки ви ні за ким не стежите і ні над ким не опікуєтесь.</p>
         <p>Оберіть тварину на дошці. Вона з'явиться тут разом із новинами й станом вашої допомоги.</p>
@@ -87,7 +97,7 @@
       </article>
 
       <!-- Друга картка: що можна зробити з твариною — без тиску, без кнопки оплати -->
-      <article aria-labelledby="ways-title" data-zone="4">
+      <article aria-labelledby="ways-title" data-zone="5">
         <h2 id="ways-title">Як бути поруч із твариною</h2>
         <dl>
           <dt>Стежити</dt>
@@ -98,23 +108,16 @@
         <p class="meta">І те, і те починається в профілі тварини.</p>
       </article>
 
-      <!-- Блок «Моя підтримка центру» — є донат центру, тож блок на місці (flows.md, EM1) -->
-      <section aria-labelledby="center-support" data-zone="5">
-        <h2 id="center-support">Моя підтримка центру</h2>
-        <dl>
-          <dt>Донат центру</dt>
-          <dd>активний · 200 грн щомісяця</dd>
-          <dt>Наступне списання</dt>
-          <dd><time datetime="2026-12-05">5 грудня</time></dd>
-        </dl>
-        <a class="btn" href="my-support-loading.html">Керувати</a>
+      <!-- Донат центру — короткий рядок-посилання у вкладку «Моя допомога», а не окремий блок — є донат центру (flows.md, EM1) -->
+      <section aria-label="Донат центру" data-zone="6">
+        <a href="my-support-loading.html">Донат центру · 200 грн щомісяця · у «Моїй допомозі» <span class="i i-angle-right" aria-hidden="true"></span></a>
       </section>
 
-      <section aria-labelledby="news" data-zone="6">
+      <section aria-labelledby="news" data-zone="7">
         <h2 id="news">Як приходять новини</h2>
         <p>Email · kateryna@example.com</p>
         <p class="meta">Коли оберете тварину, новини про неї приходитимуть сюди. Важливі зміни — одразу.</p>
-        <a class="btn" href="my-subscriptions-loading.html">Змінити в «Моїх підписках»</a>
+        <a class="btn" href="my-subscriptions-loading.html">Змінити в «Налаштуваннях»</a>
       </section>
     </main>
 
@@ -136,11 +139,12 @@
     <h2>Зони в цьому стані</h2>
     <ul>
       <li><span class="wf-zone">1</span> Шапка — без змін.</li>
-      <li><span class="wf-zone">2</span> Перемикач — замість аватарок «Знайти тварину» → <code>board.html</code>.</li>
-      <li><span class="wf-zone">3</span> «Тут з'являться ваші тварини» — <b>«Знайти свою тварину»</b> → <code>board.html</code>. Це дія, з якої людина почне, і вихід із flows.md (EM1 → Дошка).</li>
-      <li><span class="wf-zone">4</span> Як бути поруч: стежити чи опікуватися. Кнопки немає — без тиску. Зона для читання.</li>
-      <li><span class="wf-zone">5</span> Моя підтримка центру — дані є, «Керувати».</li>
-      <li><span class="wf-zone">6</span> Як приходять новини — «Змінити в „Моїх підписках“».</li>
+      <li><span class="wf-zone">2</span> Вкладки розділу «Мої улюбленці» — Тварини · Моя допомога · Налаштування; поточна — «Тварини». Працюють і в цьому стані.</li>
+      <li><span class="wf-zone">3</span> Перемикач — замість аватарок «Знайти тварину» → <code>board.html</code>.</li>
+      <li><span class="wf-zone">4</span> «Тут з'являться ваші тварини» — <b>«Знайти свою тварину»</b> → <code>board.html</code>. Це дія, з якої людина почне, і вихід із flows.md (EM1 → Дошка).</li>
+      <li><span class="wf-zone">5</span> Як бути поруч: стежити чи опікуватися. Кнопки немає — без тиску. Зона для читання.</li>
+      <li><span class="wf-zone">6</span> Донат центру — рядок-посилання у вкладку «Моя допомога».</li>
+      <li><span class="wf-zone">7</span> Як приходять новини — «Змінити в „Налаштуваннях“».</li>
     </ul>
 
     <h2>Інший варіант порожнього стану</h2>
@@ -151,7 +155,7 @@
     <h2>Переходи flow</h2>
     <ul class="wf-flow">
       <li>Сюди — з <a href="my-animals-loading.html">завантаження</a>: дані прийшли, але активних опік і підписок немає (розвилка 10 — ні).</li>
-      <li>Вихід — «Знайти свою тварину» → <a href="board.html">Дошка</a> (EM1 → BOARD). Донат центру є — «Керувати» → <a href="my-support-loading.html">Моя підтримка · завантаження</a>.</li>
+      <li>Вихід — «Знайти свою тварину» → <a href="board.html">Дошка</a> (EM1 → BOARD). Донат центру є — «Керувати» → <a href="my-support-loading.html">Моя допомога · завантаження</a>.</li>
     </ul>
   </aside>
 

@@ -41,14 +41,15 @@
         <nav aria-label="Меню">
           <ul>
             <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
-            <li><a href="my-animals.html" aria-current="page"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+            <li>
+              <a href="my-animals.html" aria-current="page"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a>
+              <ul class="menu-sub">
+                <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя допомога</a></li>
+                <li><a href="my-subscriptions.html"><span class="i i-sliders-simple" aria-hidden="true"></span>Налаштування</a></li>
+              </ul>
+            </li>
             <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
             <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
-          </ul>
-          <p class="menu-caption" id="menu-cabinet">Мій кабінет</p>
-          <ul aria-labelledby="menu-cabinet">
-            <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
-            <li><a href="my-subscriptions.html"><span class="i i-bell-heart" aria-hidden="true"></span>Мої підписки</a></li>
           </ul>
           <fieldset class="lang">
             <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
@@ -67,13 +68,20 @@
     <main>
       <h1>Мої улюбленці</h1>
 
+      <!-- Вкладки розділу «Мої улюбленці» (рішення 15.11.2026): три сторінки одного розділу -->
+      <nav class="section-tabs" aria-label="Вкладки розділу «Мої улюбленці»" data-zone="2">
+        <a href="my-animals.html" aria-current="page">Тварини</a>
+        <a href="my-support.html">Моя допомога</a>
+        <a href="my-subscriptions.html">Налаштування</a>
+      </nav>
+
       <!-- Перемикач: список тварин не прийшов -->
-      <section aria-label="Мої тварини" data-zone="2">
+      <section aria-label="Мої тварини" data-zone="3">
         <p class="meta">Список тварин не завантажився.</p>
       </section>
 
       <!-- Головна зона: що сталося і два виходи з flows.md -->
-      <article aria-labelledby="error-title" data-zone="3">
+      <article aria-labelledby="error-title" data-zone="4">
         <h2 id="error-title"><span class="i i-exclamation-circle" aria-hidden="true"></span> Не вдалося завантажити ваших тварин</h2>
         <p role="alert">Ваші опіки й підписки на місці — ми просто не змогли їх зараз показати. Перевірте зв'язок і спробуйте ще раз.</p>
         <a class="btn primary" href="my-animals-loading.html"><span class="i i-arrows-rotate" aria-hidden="true"></span> Спробувати ще</a>
@@ -81,7 +89,7 @@
       </article>
 
       <!-- Друга картка: куди звернутися по допомогу -->
-      <article aria-labelledby="help-title" data-zone="4">
+      <article aria-labelledby="help-title" data-zone="5">
         <h2 id="help-title">Не виходить? Напишіть чи зателефонуйте нам</h2>
         <p>Команда центру на зв'язку пн–пт, 09:00–19:00.</p>
         <ul>
@@ -91,16 +99,14 @@
         <a class="btn" href="center.html">Усі контакти — «Про центр»</a>
       </article>
 
-      <section aria-labelledby="center-support" data-zone="5">
-        <h2 id="center-support">Моя підтримка центру</h2>
-        <p class="meta">Не завантажилася разом з рештою.</p>
-        <a class="btn" href="my-support-loading.html">Керувати</a>
+      <section aria-label="Донат центру" data-zone="6">
+        <a href="my-support-loading.html">Моя допомога — донати й платежі <span class="i i-angle-right" aria-hidden="true"></span></a>
       </section>
 
-      <section aria-labelledby="news" data-zone="6">
+      <section aria-labelledby="news" data-zone="7">
         <h2 id="news">Як приходять новини</h2>
         <p class="meta">Налаштування не завантажилися. Новини приходять так, як ви обрали.</p>
-        <a class="btn" href="my-subscriptions-loading.html">Змінити в «Моїх підписках»</a>
+        <a class="btn" href="my-subscriptions-loading.html">Змінити в «Налаштуваннях»</a>
       </section>
     </main>
 
@@ -123,11 +129,12 @@
     <h2>Зони в цьому стані</h2>
     <ul>
       <li><span class="wf-zone">1</span> Шапка — без змін.</li>
-      <li><span class="wf-zone">2</span> Перемикач — «Список тварин не завантажився». Зона для читання: дія — «Спробувати ще» в зоні 3.</li>
-      <li><span class="wf-zone">3</span> Що сталося — <b>«Спробувати ще»</b> (E3 → L1). Друга дія — «Показати збережену версію» (E3 → CACHE, без зв'язку).</li>
-      <li><span class="wf-zone">4</span> Допомога — телефон, email, години роботи і «Про центр» → <code>center.html</code>.</li>
-      <li><span class="wf-zone">5</span> Моя підтримка центру — даних немає, але «Керувати» веде в <code>my-support.html</code>.</li>
-      <li><span class="wf-zone">6</span> Як приходять новини — «Змінити в „Моїх підписках“».</li>
+      <li><span class="wf-zone">2</span> Вкладки розділу «Мої улюбленці» — Тварини · Моя допомога · Налаштування; поточна — «Тварини». Працюють і в цьому стані.</li>
+      <li><span class="wf-zone">3</span> Перемикач — «Список тварин не завантажився». Зона для читання: дія — «Спробувати ще» в зоні 4.</li>
+      <li><span class="wf-zone">4</span> Що сталося — <b>«Спробувати ще»</b> (E3 → L1). Друга дія — «Показати збережену версію» (E3 → CACHE, без зв'язку).</li>
+      <li><span class="wf-zone">5</span> Допомога — телефон, email, години роботи і «Про центр» → <code>center.html</code>.</li>
+      <li><span class="wf-zone">6</span> Донат центру — даних немає, тож рядок без суми, але веде у вкладку «Моя допомога».</li>
+      <li><span class="wf-zone">7</span> Як приходять новини — «Змінити в „Налаштуваннях“».</li>
     </ul>
 
     <h2>Звірка з flows.md</h2>

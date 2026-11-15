@@ -6,7 +6,7 @@
   CARE «Опіка над твариною · care.html · оплата як у flow R2». З R2 тут розвилки 3 «Режим, сума й адреса правильні?
   Дефолти вже обрано», 4 «Згода з умовами позначена?», 6 «Обраний спосіб?». Кінець — OK3 «успіх: внесок додано, чек на email».
   Опікун уже має щомісячну опіку (R2, стан «ви вже опікуєтесь — змінити суму чи додати разовий внесок»),
-  тож дефолт — «Разово», а сума опіки змінюється в «Моїй підтримці».
+  тож дефолт — «Разово», а сума опіки змінюється в «Моїй допомозі».
 
   Job (sitemap.md): R2, M, E2, E1. Екран дії: людина сплачує.
   Правила — wireframes/_conventions.md.
@@ -43,14 +43,15 @@
         <nav aria-label="Меню">
           <ul>
             <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
-            <li><a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+            <li>
+              <a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a>
+              <ul class="menu-sub">
+                <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя допомога</a></li>
+                <li><a href="my-subscriptions.html"><span class="i i-sliders-simple" aria-hidden="true"></span>Налаштування</a></li>
+              </ul>
+            </li>
             <li><a href="donate.html" aria-current="page"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
             <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
-          </ul>
-          <p class="menu-caption" id="menu-cabinet">Мій кабінет</p>
-          <ul aria-labelledby="menu-cabinet">
-            <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
-            <li><a href="my-subscriptions.html"><span class="i i-bell-heart" aria-hidden="true"></span>Мої підписки</a></li>
           </ul>
           <fieldset class="lang">
             <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
@@ -89,7 +90,7 @@
           <legend>Як часто</legend>
           <label class="choice"><input type="radio" name="mode" value="once" checked> Разово</label>
           <label class="choice"><input type="radio" name="mode" value="monthly" disabled aria-describedby="monthly-hint"> Щомісяця</label>
-          <p class="meta" id="monthly-hint">Щомісячна опіка вже є — її суму змінюють у «<a href="my-support.html">Моїй підтримці</a>».</p>
+          <p class="meta" id="monthly-hint">Щомісячна опіка вже є — її суму змінюють у «<a href="my-support.html">Моїй допомозі</a>».</p>
         </fieldset>
         <fieldset class="row">
           <legend>Сума, грн</legend>
@@ -148,7 +149,7 @@
 
     <h2>Зони і головна дія кожної</h2>
     <ul>
-      <li><span class="wf-zone">1</span> Шапка — меню зліва (розділи, «Мій кабінет», мова; поточний розділ у меню — «Підтримати»), «Прайд» по центру, праворуч серце → «Мої улюбленці» і лупа → «Пошук».</li>
+      <li><span class="wf-zone">1</span> Шапка — меню зліва (розділи, під «Моїми улюбленцями» — «Моя допомога» і «Налаштування», мова; поточний розділ у меню — «Підтримати»), «Прайд» по центру, праворуч серце → «Мої улюбленці» і лупа → «Пошук».</li>
       <li><span class="wf-zone">2</span> Кому — фото, ім'я, моя опіка зараз. Дія — «Змінити суму опіки» → <code>my-support.html</code> (R2, стан «ви вже опікуєтесь»).</li>
       <li><span class="wf-zone">3</span> Форма внеску — <b>«Оплатити 500 грн»</b>.</li>
     </ul>
@@ -180,7 +181,7 @@
     <h2>Розвилки перед формою (R2 · Опікун)</h2>
     <ul>
       <li><b>1 «Тварина ще потребує опіки?»</b> — ні (вибула [?]): стан «опіка недоступна, можна стежити чи обрати іншу». Його показує профіль, до форми людина не доходить; вихід — <a href="board.html">дошка</a>.</li>
-      <li><b>2 «Уже опікується цією твариною?»</b> — перевіряємо лише після входу. Так — стан «ви вже опікуєтесь — змінити суму чи додати разовий внесок»: «змінити суму» → <a href="my-support.html">Моя підтримка</a>, «разовий внесок» → ця сторінка, як у рамці. Ні — перша опіка, варіант вище.</li>
+      <li><b>2 «Уже опікується цією твариною?»</b> — перевіряємо лише після входу. Так — стан «ви вже опікуєтесь — змінити суму чи додати разовий внесок»: «змінити суму» → <a href="my-support.html">Моя допомога</a>, «разовий внесок» → ця сторінка, як у рамці. Ні — перша опіка, варіант вище.</li>
     </ul>
 
     <h2>Переходи flow</h2>

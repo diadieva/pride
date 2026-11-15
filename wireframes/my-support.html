@@ -1,13 +1,15 @@
 <!doctype html>
 <!--
-  Моя підтримка · my-support.html — базова сторінка (sitemap.md, «Екрани», група «Мої улюбленці»). Тип — глибокий.
+  Моя допомога · my-support.html — базова сторінка (sitemap.md, «Екрани», група «Мої улюбленці»).
+  Вкладка «Моя допомога» розділу «Мої улюбленці» (рішення 15.11.2026; колишня «Моя підтримка»). Ім'я файла — те саме.
+  Людину без тварин, але з регулярним донатом серце й меню ведуть одразу сюди.
 
   Крок flow — flows.md, flow R5 «Змінити чи зупинити регулярну допомогу, коли змінюються обставини»:
-  вузол SUP «Моя підтримка · my-support.html». Сюди — з L1, коли дані прийшли (розвилка 3), регулярна підтримка є (4) →
+  вузол SUP «Моя допомога · my-support.html». Сюди — з L1, коли дані прийшли (розвилка 3), регулярна підтримка є (4) →
   розвилка 5 «Що змінити?»: суму (6), пауза (7 [?]), скасувати (ST2 → 8), спосіб оплати (PAY → 9).
   Кожна дія → L2 «оновлюємо в провайдера» → 10 «Провайдер підтвердив зміну?».
-  Входи: «Керувати опікою» на картці й банер «не вдалося списати» (flow M, розвилка 11), блок «Моя підтримка центру»,
-  «Мій кабінет» у меню, підписане посилання в чеку (R5, розвилка 2 [?]; R2 донатора, OK1 → SUP).
+  Входи: «Керувати опікою» на картці й банер «не вдалося списати» (flow M, розвилка 11), рядок «Донат центру»,
+  «Моя допомога» в меню, підписане посилання в чеку (R5, розвилка 2 [?]; R2 донатора, OK1 → SUP).
 
   Job (sitemap.md): R5, E1, Г3 [?]. Правила — wireframes/_conventions.md.
 -->
@@ -15,7 +17,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Прайд · Вайрфрейм · Моя підтримка</title>
+  <title>Прайд · Вайрфрейм · Моя допомога</title>
   <script src="../_nav/theme.js"></script>
   <link rel="stylesheet" href="../_nav/theme.css">
   <link rel="stylesheet" href="../_nav/icons.css">
@@ -27,7 +29,7 @@
 <body>
 <div class="wf-page">
 
-  <nav class="wf-states" aria-label="Стани екрана «Моя підтримка»">
+  <nav class="wf-states" aria-label="Стани екрана «Моя допомога»">
     <a href="my-support.html" aria-current="page">Базова сторінка</a>
     <a href="my-support-empty.html">Порожній</a>
     <a href="my-support-error.html">Помилка</a>
@@ -43,14 +45,15 @@
         <nav aria-label="Меню">
           <ul>
             <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
-            <li><a href="my-animals.html" aria-current="page"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+            <li>
+              <a href="my-animals.html" aria-current="true"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a>
+              <ul class="menu-sub">
+                <li><a href="my-support.html" aria-current="page"><span class="i i-wallet" aria-hidden="true"></span>Моя допомога</a></li>
+                <li><a href="my-subscriptions.html"><span class="i i-sliders-simple" aria-hidden="true"></span>Налаштування</a></li>
+              </ul>
+            </li>
             <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
             <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
-          </ul>
-          <p class="menu-caption" id="menu-cabinet">Мій кабінет</p>
-          <ul aria-labelledby="menu-cabinet">
-            <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
-            <li><a href="my-subscriptions.html"><span class="i i-bell-heart" aria-hidden="true"></span>Мої підписки</a></li>
           </ul>
           <fieldset class="lang">
             <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
@@ -67,12 +70,18 @@
     </header>
 
     <main>
-      <a class="back" href="my-animals.html"><span class="i i-angle-left" aria-hidden="true"></span> Мої улюбленці</a>
-      <h1>Моя підтримка</h1>
+      <h1>Мої улюбленці</h1>
+
+      <!-- Вкладки розділу «Мої улюбленці» (рішення 15.11.2026): три сторінки одного розділу -->
+      <nav class="section-tabs" aria-label="Вкладки розділу «Мої улюбленці»" data-zone="2">
+        <a href="my-animals.html">Тварини</a>
+        <a href="my-support.html" aria-current="page">Моя допомога</a>
+        <a href="my-subscriptions.html">Налаштування</a>
+      </nav>
       <p class="meta">Регулярна підтримка з адреси kateryna@example.com</p>
 
       <!-- Опіка: прийшли сюди з «Керувати опікою» на картці — ця опіка перша, «Змінити суму» розкрито -->
-      <article aria-labelledby="care-1" data-zone="2">
+      <article aria-labelledby="care-1" data-zone="3">
         <span class="img avatar" role="img" aria-label="Фото: [ім'я тварини]">фото</span>
         <h2 id="care-1">Опіка над <span class="ph">[ім'я коня]</span></h2>
         <p class="meta">Кінь · у центрі</p>
@@ -141,7 +150,7 @@
       </article>
 
       <!-- Донат центру: ті самі дії, згорнуті, щоб список лишався коротким -->
-      <article aria-labelledby="center-1" data-zone="3">
+      <article aria-labelledby="center-1" data-zone="4">
         <h2 id="center-1">Донат центру</h2>
         <p class="meta">На все, що потрібно центру «Прайд»</p>
         <dl>
@@ -208,7 +217,7 @@
       </article>
 
       <!-- Історія платежів: кожне списання видно (Платіж, R5, E1) -->
-      <section aria-labelledby="history" data-zone="4">
+      <section aria-labelledby="history" data-zone="5">
         <h2 id="history">Історія платежів</h2>
         <table>
           <caption class="sr-only">Платежі за опікою і донатом центру, нові зверху</caption>
@@ -230,11 +239,12 @@
   </div>
 
   <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
-    <h2>Моя підтримка · базова сторінка</h2>
+    <h2>Моя допомога · базова сторінка</h2>
     <ul>
-      <li><code>my-support.html</code>. Група «Мої улюбленці». Тип — глибокий: назад — на «Мої улюбленці».</li>
+      <li><code>my-support.html</code> — вкладка «Моя допомога» розділу «Мої улюбленці» (рішення 15.11.2026). Назва «Моя допомога», а не «Моя підтримка»: «підтримка» читалась і як довідка, і як «Підтримати» поруч у меню, а скасування мусить знаходитися (DV4).</li>
+      <li>Терміновий донатор без тварин: серце й меню ведуть одразу сюди, а не на порожню вкладку «Тварини».</li>
       <li>Flow R5, вузол SUP → розвилка 5 «Що змінити?». Від картки на головному — 3 кліки: «Керувати опікою» → дія → «Зберегти» чи «Скасувати опіку» (sitemap.md, «Глибина до main job»).</li>
-      <li>Персона — Опікун: опіка над конем і донат центру. Донатор без тварин бачить лише зону 3.</li>
+      <li>Персона — Опікун: опіка над конем і донат центру. Донатор без тварин бачить лише зону 4.</li>
     </ul>
 
     <h2>Job</h2>
@@ -246,10 +256,11 @@
 
     <h2>Зони і головна дія кожної</h2>
     <ul>
-      <li><span class="wf-zone">1</span> Шапка — меню зліва (розділи, «Мій кабінет», мова; поточний розділ у меню — «Мої улюбленці»), «Прайд» по центру, праворуч серце → «Мої улюбленці» і лупа → «Пошук».</li>
-      <li><span class="wf-zone">2</span> Опіка над [ім'я коня] — усе для звірки: стан, сума, наступне списання, спосіб, куди чеки. <b>«Зберегти суму»</b>: поле вже з поточною сумою. Поруч, згорнуто, — «Призупинити» [?], «Скасувати опіку», «Змінити спосіб оплати». Прийшли з «Керувати опікою» — ця опіка перша, «Змінити суму» розкрито.</li>
-      <li><span class="wf-zone">3</span> Донат центру — ті самі дії, усі згорнуто. «Зберегти суму».</li>
-      <li><span class="wf-zone">4</span> Історія платежів — дата, кому й сума, статус, чек. Без головної дії: це звірка. Зона для читання.</li>
+      <li><span class="wf-zone">1</span> Шапка — меню зліва (розділи, під «Моїми улюбленцями» — «Моя допомога» і «Налаштування», мова; поточна — «Моя допомога»), «Прайд» по центру, праворуч серце → «Мої улюбленці» і лупа → «Пошук».</li>
+      <li><span class="wf-zone">2</span> Вкладки розділу «Мої улюбленці» — Тварини · Моя допомога · Налаштування; поточна — «Моя допомога». Працюють і в цьому стані.</li>
+      <li><span class="wf-zone">3</span> Опіка над [ім'я коня] — усе для звірки: стан, сума, наступне списання, спосіб, куди чеки. <b>«Зберегти суму»</b>: поле вже з поточною сумою. Поруч, згорнуто, — «Призупинити» [?], «Скасувати опіку», «Змінити спосіб оплати». Прийшли з «Керувати опікою» — ця опіка перша, «Змінити суму» розкрито.</li>
+      <li><span class="wf-zone">4</span> Донат центру — ті самі дії, усі згорнуто. «Зберегти суму».</li>
+      <li><span class="wf-zone">5</span> Історія платежів — дата, кому й сума, статус, чек. Без головної дії: це звірка. Зона для читання.</li>
     </ul>
 
     <h2>Без пастки й без тиску</h2>
@@ -277,7 +288,7 @@
 
     <h2>Переходи flow</h2>
     <ul class="wf-flow">
-      <li>Сюди — з <a href="my-support-loading.html">завантаження</a>: дані прийшли (розвилка 3 — так), регулярна підтримка є (4 — так). Входи — «Керувати опікою» і «Керувати» на <a href="my-animals.html">Моїх улюбленцях</a>, банер «не вдалося списати» (M, розвилка 11), «Мій кабінет» у меню, посилання в чеку (R2 донатора, OK1 → SUP).</li>
+      <li>Сюди — з <a href="my-support-loading.html">завантаження</a>: дані прийшли (розвилка 3 — так), регулярна підтримка є (4 — так). Входи — «Керувати опікою» і «Керувати» на <a href="my-animals.html">Моїх улюбленцях</a>, банер «не вдалося списати» (M, розвилка 11), «Моя допомога» в меню, посилання в чеку (R2 донатора, OK1 → SUP).</li>
       <li>Розвилка 4 — ні → <a href="my-support-empty.html">порожній стан</a>.</li>
       <li>Розвилка 6 «Нова сума правильна?»: ні — браузер не надішле форму (<code>required</code>, <code>type="number"</code>), варіант <a href="my-support-error.html">помилки</a> «хибна сума»; так → <a href="my-support-loading.html">оновлюємо в провайдера</a> (L2).</li>
       <li>Розвилка 7 «Провайдер підтримує паузу? [?]»: так → <a href="my-support-loading.html">L2</a>; ні → ST1, варіант цієї сторінки.</li>

@@ -1,12 +1,15 @@
 <!doctype html>
 <!--
-  Мої підписки · my-subscriptions.html — базова сторінка (sitemap.md, «Екрани», група «Мої улюбленці»). Тип — глибокий.
+  Налаштування · my-subscriptions.html — базова сторінка (sitemap.md, «Екрани», група «Мої улюбленці»).
+  Вкладка «Налаштування» розділу «Мої улюбленці» (рішення 15.11.2026; колишні «Мої підписки»).
+  Списку «За ким я стежу» тут більше немає: тварини — на вкладці «Тварини», «Не стежити» — на картці тварини
+  і «відписатися» в кожному листі.
 
   Крок flow — flows.md, flow Г2 «Отримувати новини там, де я буваю, і так часто, як зручно»:
-  вузол SUBS «Мої підписки · my-subscriptions.html». Сюди — з L2, коли дані прийшли (розвилка 4), підписки є (5) →
-  розвилка 6 «Що змінити?»: канал чи періодичність → L3 «зберігаємо» → 7; відписатися від тварини → L1 «відписуємо» → 3;
-  видалити всі дані (закон, не job) → 8 «Є регулярна підтримка?» — так → ST1 «спершу скасуйте» → Моя підтримка.
-  Входи: посилання «Мої підписки» на головному, «Мій кабінет» у меню, «відписатися» в кожному листі (розвилки 1–2).
+  вузол SUBS «Налаштування · my-subscriptions.html». Сюди — з L2, коли дані прийшли (розвилка 4) →
+  розвилка 6 «Що змінити?»: канал чи періодичність → L3 «зберігаємо» → 7;
+  видалити всі дані (закон, не job) → 8 «Є регулярна підтримка?» — так → ST1 «спершу скасуйте» → Моя допомога.
+  Входи: тизер «Як приходять новини» на вкладці «Тварини», вкладка, «Налаштування» в меню; з листа — «відписатися».
 
   Job (sitemap.md): R4, Г2 [?]. [ЗАКОН] — email і видалення даних (GDPR), колишній account.html.
   Правила — wireframes/_conventions.md.
@@ -15,7 +18,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Прайд · Вайрфрейм · Мої підписки</title>
+  <title>Прайд · Вайрфрейм · Налаштування</title>
   <script src="../_nav/theme.js"></script>
   <link rel="stylesheet" href="../_nav/theme.css">
   <link rel="stylesheet" href="../_nav/icons.css">
@@ -27,12 +30,12 @@
 <body>
 <div class="wf-page">
 
-  <nav class="wf-states" aria-label="Стани екрана «Мої підписки»">
+  <nav class="wf-states" aria-label="Стани екрана «Налаштування»">
     <a href="my-subscriptions.html" aria-current="page">Базова сторінка</a>
-    <a href="my-subscriptions-empty.html">Порожній</a>
     <a href="my-subscriptions-error.html">Помилка</a>
     <a href="my-subscriptions-loading.html">Завантаження</a>
     <a href="my-subscriptions-success.html">Успіх</a>
+    <span>Порожнього стану немає: акаунт і видалення даних є завжди; без жодної тварини — варіант базової сторінки «новин поки немає»</span>
   </nav>
 
   <div class="device">
@@ -43,14 +46,15 @@
         <nav aria-label="Меню">
           <ul>
             <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
-            <li><a href="my-animals.html" aria-current="page"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+            <li>
+              <a href="my-animals.html" aria-current="true"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a>
+              <ul class="menu-sub">
+                <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя допомога</a></li>
+                <li><a href="my-subscriptions.html" aria-current="page"><span class="i i-sliders-simple" aria-hidden="true"></span>Налаштування</a></li>
+              </ul>
+            </li>
             <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
             <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
-          </ul>
-          <p class="menu-caption" id="menu-cabinet">Мій кабінет</p>
-          <ul aria-labelledby="menu-cabinet">
-            <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
-            <li><a href="my-subscriptions.html"><span class="i i-bell-heart" aria-hidden="true"></span>Мої підписки</a></li>
           </ul>
           <fieldset class="lang">
             <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
@@ -67,45 +71,19 @@
     </header>
 
     <main>
-      <a class="back" href="my-animals.html"><span class="i i-angle-left" aria-hidden="true"></span> Мої улюбленці</a>
-      <h1>Мої підписки</h1>
+      <h1>Мої улюбленці</h1>
 
-      <!-- За ким я стежу: кожна Підписка з даними і відпискою -->
-      <section aria-labelledby="following" data-zone="2">
-        <h2 id="following">За ким я стежу</h2>
-
-        <article aria-labelledby="sub-1">
-          <span class="img avatar" role="img" aria-label="Фото: [ім'я тварини]">фото</span>
-          <h3 id="sub-1"><span class="ph">[ім'я коня]</span></h3>
-          <dl>
-            <dt>Підписка</dt>
-            <dd><span class="i i-check-circle" aria-hidden="true"></span> активна · з опіки</dd>
-          </dl>
-          <form aria-label="Відписатися від новин про [ім'я коня]" action="my-subscriptions-loading.html" method="get">
-            <input type="hidden" name="unsubscribe" value="sub-1">
-            <p class="meta">Опіка від цього не зміниться: чеки приходитимуть і далі.</p>
-            <button type="submit">Відписатися від новин</button>
-          </form>
-        </article>
-
-        <article aria-labelledby="sub-2">
-          <span class="img avatar" role="img" aria-label="Фото: [ім'я тварини]">фото</span>
-          <h3 id="sub-2"><span class="ph">[ім'я собаки]</span></h3>
-          <dl>
-            <dt>Підписка</dt>
-            <dd><span class="i i-check-circle" aria-hidden="true"></span> активна</dd>
-          </dl>
-          <form aria-label="Відписатися від новин про [ім'я собаки]" action="my-subscriptions-loading.html" method="get">
-            <input type="hidden" name="unsubscribe" value="sub-2">
-            <button type="submit">Відписатися від новин</button>
-          </form>
-        </article>
-      </section>
+      <!-- Вкладки розділу «Мої улюбленці» (рішення 15.11.2026): три сторінки одного розділу -->
+      <nav class="section-tabs" aria-label="Вкладки розділу «Мої улюбленці»" data-zone="2">
+        <a href="my-animals.html">Тварини</a>
+        <a href="my-support.html">Моя допомога</a>
+        <a href="my-subscriptions.html" aria-current="page">Налаштування</a>
+      </nav>
 
       <!-- Канал, періодичність і мова — для всіх тварин одразу -->
       <form aria-labelledby="how-title" data-zone="3" action="my-subscriptions-loading.html" method="get">
         <h2 id="how-title">Як приходять новини</h2>
-        <p class="meta">Для всіх тварин, за якими ви стежите.</p>
+        <p class="meta">Для всіх тварин у «Моїх улюбленцях». Не стежити за однією твариною — «Ще» на її картці у вкладці <a href="my-animals.html">«Тварини»</a> чи «відписатися» в будь-якому листі.</p>
         <fieldset>
           <legend>Канал</legend>
           <label class="choice"><input type="checkbox" name="channel" value="email" checked> Email · kateryna@example.com</label>
@@ -145,14 +123,14 @@
       <section aria-labelledby="delete-title" data-zone="5">
         <h2 id="delete-title">Видалити всі мої дані</h2>
         <p>Спершу скасуйте регулярну підтримку: опіку над <span class="ph">[ім'я коня]</span> (1 000 грн щомісяця) і донат центру (200 грн щомісяця). Без акаунта зупинити ці списання було б ніде.</p>
-        <a class="btn" href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span> Скасувати в «Моїй підтримці»</a>
+        <a class="btn" href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span> Скасувати в «Моїй допомозі»</a>
         <details>
           <summary>Що зникне, а що лишиться</summary>
           <h3>Зникне</h3>
           <ul>
             <li>адреса kateryna@example.com і вхід за нею;</li>
             <li>усі підписки й налаштування новин;</li>
-            <li>«Мої улюбленці» й «Моя підтримка»;</li>
+            <li>«Мої улюбленці» й «Моя допомога»;</li>
             <li>прив'язка Telegram-бота <span class="meta">[?]</span>.</li>
           </ul>
           <h3>Лишиться</h3>
@@ -171,34 +149,36 @@
   </div>
 
   <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
-    <h2>Мої підписки · базова сторінка</h2>
+    <h2>Налаштування · базова сторінка</h2>
     <ul>
-      <li><code>my-subscriptions.html</code>. Група «Мої улюбленці». Тип — глибокий: назад — на «Мої улюбленці».</li>
+      <li><code>my-subscriptions.html</code> — вкладка «Налаштування» розділу «Мої улюбленці» (рішення 15.11.2026; колишні «Мої підписки»). Ім'я файла не змінюємо.</li>
       <li>Flow Г2, вузол SUBS → розвилка 6 «Що змінити?».</li>
-      <li>Персона — Опікун: опіка над конем (підписка з опіки) і підписка на собаку. Спостерігач бачить те саме без рядка «з опіки» і без зони 5 «спершу скасуйте».</li>
+      <li>Персона — Опікун: опіка над конем і донат центру, тож у зоні 5 — «спершу скасуйте». Спостерігач бачить те саме без зони «спершу скасуйте».</li>
+      <li><b>Списку «За ким я стежу» більше немає</b>: він дублював вкладку «Тварини». Не стежити за твариною — «Ще» на її картці; відписка в один клік — у кожному листі, вона й далі приходить сюди.</li>
     </ul>
 
     <h2>Job</h2>
     <ul>
       <li>R4 · Знати, як живе підопічний після підтримки</li>
       <li>Г2 [?] · Отримувати новини там, де я буваю, і так часто, як зручно</li>
-      <li><b>[ЗАКОН]</b> — email і видалення даних (GDPR). Не job, а вимога (sitemap.md, «Трасування»).</li>
+      <li><b>[ЗАКОН]</b> — email, відписка в один клік і видалення даних (GDPR). Не job, а вимога (sitemap.md, «Трасування»).</li>
     </ul>
 
     <h2>Зони і головна дія кожної</h2>
     <ul>
-      <li><span class="wf-zone">1</span> Шапка — меню зліва (розділи, «Мій кабінет», мова; поточний розділ у меню — «Мої улюбленці»), «Прайд» по центру, праворуч серце → «Мої улюбленці» і лупа → «Пошук».</li>
-      <li><span class="wf-zone">2</span> За ким я стежу — кожна підписка: стан і звідки вона (сама чи з опіки). «Відписатися від новин» — світла: відписка доступна, але не підштовхуємо. Для підписки з опіки — що опіка лишиться.</li>
-      <li><span class="wf-zone">3</span> Як приходять новини — канал, періодичність, мова. <b>«Зберегти»</b>.</li>
+      <li><span class="wf-zone">1</span> Шапка — меню зліва (розділи, під «Моїми улюбленцями» — «Моя допомога» і «Налаштування», мова; поточна — «Налаштування»), «Прайд» по центру, праворуч серце → «Мої улюбленці» і лупа → «Пошук».</li>
+      <li><span class="wf-zone">2</span> Вкладки розділу «Мої улюбленці» — Тварини · Моя допомога · <b>Налаштування</b> (поточна).</li>
+      <li><span class="wf-zone">3</span> Як приходять новини — канал, періодичність, мова; одні на всіх тварин. <b>«Зберегти»</b>.</li>
       <li><span class="wf-zone">4</span> Акаунт — email і як входити. «Адреса не та? Увійти з іншою» → <code>login.html</code> (Г2, рішення 14.11.2026). Дані й підписки попередньої адреси не переносимо й не видаляємо.</li>
-      <li><span class="wf-zone">5</span> <b>[ЗАКОН]</b> Видалити всі дані — є регулярна підтримка, тож спершу «Скасувати в „Моїй підтримці“». Що зникне, а що лишиться — до підтвердження. Кнопка видалення неактивна.</li>
+      <li><span class="wf-zone">5</span> <b>[ЗАКОН]</b> Видалити всі дані — є регулярна підтримка, тож спершу «Скасувати в „Моїй допомозі“». Що зникне, а що лишиться — до підтвердження. Кнопка видалення неактивна.</li>
     </ul>
 
     <h2>Варіанти — та сама сторінка</h2>
     <ul>
       <li><b>Регулярної підтримки немає</b> (Г2, розвилка 8 — ні, ST2) — у зоні 5 немає абзацу «спершу скасуйте», «Що зникне, а що лишиться» розкрито, кнопка активна. Одне підтвердження, без «ви впевнені?» удруге.</li>
+      <li><b>Ще немає жодної тварини</b> (ST3) — у зоні 3 замість форми: «Новин поки немає. Коли почнете стежити за твариною, вони приходитимуть на kateryna@example.com раз на тиждень [?]» і «Знайти свою тварину» → <code>board.html</code>. Зони 4 і 5 — як тут. Тому порожнього стану в «Налаштувань» немає: акаунт і видалення даних є завжди.</li>
       <li><b>Telegram [?]</b> — якщо позначено, під прапорцем «Підключити бота»: Г2 і питання про бота відкриті.</li>
-      <li>Канал, періодичність і мова — одні на всі підписки: рішення 14.11.2026 для MVP. Окремих налаштувань для кожної тварини немає; Г2 лишається непідтвердженою. Тому картки в зоні 2 показують лише стан підписки.</li>
+      <li>Канал, періодичність і мова — одні на всіх тварин: рішення 14.11.2026 для MVP. Окремих налаштувань для кожної тварини немає; Г2 лишається непідтвердженою.</li>
     </ul>
 
     <h2>Дані</h2>
@@ -209,11 +189,10 @@
 
     <h2>Переходи flow</h2>
     <ul class="wf-flow">
-      <li>Сюди — з <a href="my-subscriptions-loading.html">завантаження</a>: дані прийшли (розвилка 4 — так), підписки є (5 — так). Входи — «Змінити в „Моїх підписках“» на <a href="my-animals.html">Моїх улюбленцях</a> і «Мій кабінет» у меню; з <a href="login.html">входу</a>, коли посилання відписки пошкоджене (розвилка 2 — ні).</li>
-      <li>Розвилка 5 — ні → <a href="my-subscriptions-empty.html">порожній стан</a>.</li>
+      <li>Сюди — з <a href="my-subscriptions-loading.html">завантаження</a>: дані прийшли (розвилка 4 — так). Входи — «Змінити в „Налаштуваннях“» і вкладка на <a href="my-animals.html">Моїх улюбленцях</a>, «Налаштування» в меню; з <a href="login.html">входу</a>, коли посилання відписки пошкоджене (розвилка 2 — ні).</li>
       <li>Канал чи періодичність → «Зберегти» → <a href="my-subscriptions-loading.html">зберігаємо</a> (L3) → розвилка 7.</li>
-      <li>«Відписатися від новин» → <a href="my-subscriptions-loading.html">відписуємо</a> (L1) → розвилка 3.</li>
-      <li>Видалити дані → розвилка 8: так → ST1 → «Скасувати в „Моїй підтримці“» → <a href="my-support.html">Моя підтримка</a>; ні → ST2 → розвилка 9 «Підтверджує?»: так → <a href="my-subscriptions-loading.html">видаляємо дані</a> (L4); ні → лишається тут.</li>
+      <li>Видалити дані → розвилка 8: так → ST1 → «Скасувати в „Моїй допомозі“» → <a href="my-support.html">Моя допомога</a>; ні → ST2 → розвилка 9 «Підтверджує?»: так → <a href="my-subscriptions-loading.html">видаляємо дані</a> (L4); ні → лишається тут.</li>
+      <li>Вкладки → <a href="my-animals.html">Тварини</a>, <a href="my-support.html">Моя допомога</a>.</li>
     </ul>
   </aside>
 

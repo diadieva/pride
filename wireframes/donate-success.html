@@ -6,7 +6,7 @@
   Крок flow — flows.md, flow «R2 · … — Терміновий донатор»: L2 «перевіряємо оплату» →
   розвилка 10 «Підтвердження прийшло за хвилину?» — так (чи 11 «протягом доби» — так) →
   OK1 «успіх: дякуємо, чек на email, без акаунта». Регулярний донат: OK1 ⇢ «керування з посилання в чеку» →
-  Моя підтримка · my-support.html. Monobank-банка (розвилка 6) — свій успіх OKB у Банці, не тут.
+  Моя допомога · my-support.html. Monobank-банка (розвилка 6) — свій успіх OKB у Банці, не тут.
 
   Job (sitemap.md): R2, E1, E3. Екран дії: людина сплачує.
   Правила — wireframes/_conventions.md.
@@ -43,14 +43,15 @@
         <nav aria-label="Меню">
           <ul>
             <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
-            <li><a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+            <li>
+              <a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a>
+              <ul class="menu-sub">
+                <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя допомога</a></li>
+                <li><a href="my-subscriptions.html"><span class="i i-sliders-simple" aria-hidden="true"></span>Налаштування</a></li>
+              </ul>
+            </li>
             <li><a href="donate.html" aria-current="page"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
             <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
-          </ul>
-          <p class="menu-caption" id="menu-cabinet">Мій кабінет</p>
-          <ul aria-labelledby="menu-cabinet">
-            <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
-            <li><a href="my-subscriptions.html"><span class="i i-bell-heart" aria-hidden="true"></span>Мої підписки</a></li>
           </ul>
           <fieldset class="lang">
             <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
@@ -132,7 +133,7 @@
 
     <h2>Інші варіанти успіху</h2>
     <ul>
-      <li><b>Регулярний донат</b> (режим «Щомісяця») — «Дякуємо! Щомісячний донат оформлено», рядки «Наступне списання: <time datetime="2026-12-13">13 грудня</time>» і «Змінити суму, призупинити чи скасувати — за посиланням у чеку». Посилання — у листі, не на цій сторінці: акаунта немає (OK1 ⇢ <a href="my-support.html">Моя підтримка</a>).</li>
+      <li><b>Регулярний донат</b> (режим «Щомісяця») — «Дякуємо! Щомісячний донат оформлено», рядки «Наступне списання: <time datetime="2026-12-13">13 грудня</time>» і «Змінити суму, призупинити чи скасувати — за посиланням у чеку». Посилання — у листі, не на цій сторінці: акаунта немає (OK1 ⇢ <a href="my-support.html">Моя допомога</a>).</li>
       <li><b>Monobank-банка</b> (розвилка 6, OKB) — успіх і чек показує Monobank у себе [?]. До нас людина не повертається, і платежу ми не бачимо [?], тож сторінки в продукті немає.</li>
       <li><b>Без збору</b> (після <a href="donate-empty.html">порожнього стану</a>) — «Кому: центр „Прайд“, щоденна робота», рядка «Зібрано / Ціль» немає.</li>
     </ul>
@@ -140,7 +141,7 @@
     <h2>Переходи flow</h2>
     <ul class="wf-flow">
       <li>Сюди — з <a href="donate-loading.html">завантаження</a>: розвилка 10 «за хвилину» — так чи 11 «протягом доби [?]» — так.</li>
-      <li>Регулярний донат: керування — з посилання в чеку → <a href="my-support.html">Моя підтримка</a> (OK1 → SUP, flow R5).</li>
+      <li>Регулярний донат: керування — з посилання в чеку → <a href="my-support.html">Моя допомога</a> (OK1 → SUP, flow R5).</li>
       <li>Далі за бажанням — «або візьміть опіку над твариною» → <a href="board.html">Дошка</a>; «Хто ми» → <a href="center.html">Про центр</a>.</li>
     </ul>
   </aside>

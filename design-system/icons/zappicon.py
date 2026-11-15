@@ -34,13 +34,13 @@ ICONS = [
     "user-circle", "user-heart",  # джерела даних: власний акаунт, донори «Прайду»
     "tablet", "desktop",          # перемикач ширини над рамкою вайрфрейма (телефон — "mobile")
     "file-text", "search-text", "users", "sitemap",  # пункти навігатора
-    "bell-heart",     # «Мої підписки»: новини про тварин (конверт лишається за листами й email)
     "signal", "wifi", "battery-full", "text-size", "arrow-rotate-right",  # смуга браузера в рамці вайрфрейма
     "house",          # екран «Заявка на прилаштування»
     "angles-left", "angles-right",               # згорнути / розгорнути навігатор
     # вайрфрейми продукту (wireframes/)
     "paw", "heart", "wallet-heart", "building",  # меню: Тварини, Мої улюбленці (і серце в шапці), Підтримати, Про центр
-    "search", "wallet", "envelope",              # шапка: лупа пошуку; меню: Моя підтримка; листи
+    "search", "wallet", "envelope",              # шапка: лупа пошуку; меню: Моя допомога; листи
+    "sliders-simple", "more-horizontal", "bell-slash",  # «Налаштування»; «Ще» на картці тварини; «Не стежити за новинами»
     "angle-right", "calendar",                   # перехід у профіль; дата списання
     "mobile", "folder-heart",                    # навігатор: гілка «Екрани», розділ групи «Мої улюбленці»
     "inbox", "exclamation-circle", "hourglass",  # стани: порожній, помилка, завантаження

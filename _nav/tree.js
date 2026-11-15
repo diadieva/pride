@@ -74,14 +74,13 @@ window.NAV_TREE = [
         { title: "Помилка", href: "wireframes/my-animals-error.html", icon: "exclamation-circle" },
         { title: "Завантаження", href: "wireframes/my-animals-loading.html", icon: "hourglass" }
       ] },
-      { title: "Моя підтримка", href: "wireframes/my-support.html", icon: "wallet", children: [
+      { title: "Моя допомога", href: "wireframes/my-support.html", icon: "wallet", children: [
         { title: "Порожній стан", href: "wireframes/my-support-empty.html", icon: "inbox" },
         { title: "Помилка", href: "wireframes/my-support-error.html", icon: "exclamation-circle" },
         { title: "Завантаження", href: "wireframes/my-support-loading.html", icon: "hourglass" },
         { title: "Успіх", href: "wireframes/my-support-success.html", icon: "check-circle" }
       ] },
-      { title: "Мої підписки", href: "wireframes/my-subscriptions.html", icon: "bell-heart", children: [
-        { title: "Порожній стан", href: "wireframes/my-subscriptions-empty.html", icon: "inbox" },
+      { title: "Налаштування", href: "wireframes/my-subscriptions.html", icon: "sliders-simple", children: [
         { title: "Помилка", href: "wireframes/my-subscriptions-error.html", icon: "exclamation-circle" },
         { title: "Завантаження", href: "wireframes/my-subscriptions-loading.html", icon: "hourglass" },
         { title: "Успіх", href: "wireframes/my-subscriptions-success.html", icon: "check-circle" }

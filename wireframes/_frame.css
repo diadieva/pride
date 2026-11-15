@@ -183,11 +183,38 @@ body {
 .menu ul { list-style: none; padding: 0; display: grid; gap: 2px; }
 .menu a { display: flex; align-items: center; gap: 10px; padding: 8px; min-height: 44px; border-radius: 8px; text-decoration: none; }
 .menu a[aria-current="page"] { font-weight: 700; background: var(--wf-fill); }
-.menu-caption { margin: 8px 0 0; padding: 8px 8px 0; border-top: 1px solid var(--wf-line); color: var(--wf-muted); font-size: 13px; }
-/* Перемикач мови — радіокнопки, а не посилання */
-.menu ul[aria-labelledby] { padding-bottom: 8px; border-bottom: 1px solid var(--wf-line); }
+.menu a[aria-current="true"] { font-weight: 700; }
+/* Вкладки розділу «Мої улюбленці» — підпункти з відступом під ним (рішення 15.11.2026) */
+.menu .menu-sub { padding: 0 0 0 30px; }
+.menu .menu-sub a { min-height: 40px; font-size: 14px; }
+/* Перемикач мови — радіокнопки, а не посилання; внизу меню, під рискою */
+.menu > nav > ul { padding-bottom: 8px; border-bottom: 1px solid var(--wf-line); }
 .menu .lang { margin-top: 4px; padding: 0 8px; gap: 4px; }
 .menu .lang legend { display: flex; align-items: center; gap: 8px; padding: 4px 0; color: var(--wf-muted); font-size: 13px; }
+
+/* Вкладки розділу «Мої улюбленці»: Тварини · Моя допомога · Налаштування — посилання на три сторінки,
+   поточна — aria-current, темна риска знизу. Не таббар: стоять угорі main, лише в цьому розділі */
+.device main nav.section-tabs { flex-direction: row; gap: 0; padding: 0; border: 0; border-bottom: 1px solid var(--wf-line); border-radius: 0; }
+.section-tabs a {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  min-height: 44px;
+  padding: 6px 4px;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+}
+.section-tabs a[aria-current="page"] { font-weight: 700; border-bottom-color: var(--wf-ink); }
+
+/* «Ще» на картці тварини: рідкісні дії (не стежити) — у розгортці, а не поруч із головними */
+.card-more { align-self: flex-end; }
+.card-more > summary { list-style: none; min-width: 44px; justify-content: center; border: 1px solid var(--wf-line); border-radius: 10px; }
+.card-more > summary::-webkit-details-marker { display: none; }
+.card-more[open] { align-self: stretch; display: grid; gap: 8px; padding: 12px; border: 1px solid var(--wf-line); border-radius: 10px; }
+.card-more[open] > summary { justify-self: end; }
+.device .card-more form { padding: 0; border: 0; }
 
 /* Робоча зона */
 .device > main {

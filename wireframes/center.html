@@ -46,14 +46,15 @@
         <nav aria-label="Меню">
           <ul>
             <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
-            <li><a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a></li>
+            <li>
+              <a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a>
+              <ul class="menu-sub">
+                <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя допомога</a></li>
+                <li><a href="my-subscriptions.html"><span class="i i-sliders-simple" aria-hidden="true"></span>Налаштування</a></li>
+              </ul>
+            </li>
             <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
             <li><a href="center.html" aria-current="page"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
-          </ul>
-          <p class="menu-caption" id="menu-cabinet">Мій кабінет</p>
-          <ul aria-labelledby="menu-cabinet">
-            <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя підтримка</a></li>
-            <li><a href="my-subscriptions.html"><span class="i i-bell-heart" aria-hidden="true"></span>Мої підписки</a></li>
           </ul>
           <fieldset class="lang">
             <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
@@ -204,7 +205,7 @@
 
     <h2>Зони і головна дія кожної</h2>
     <ul>
-      <li><span class="wf-zone">1</span> Шапка — меню зліва (розділи, «Мій кабінет», мова; поточний розділ у меню — «Про центр»), «Прайд» по центру, праворуч серце → «Мої улюбленці» і лупа → «Пошук».</li>
+      <li><span class="wf-zone">1</span> Шапка — меню зліва (розділи, під «Моїми улюбленцями» — «Моя допомога» і «Налаштування», мова; поточний розділ у меню — «Про центр»), «Прайд» по центру, праворуч серце → «Мої улюбленці» і лупа → «Пошук».</li>
       <li><span class="wf-zone">2</span> Хто ми і де ми — назва, село, два напрями роботи, місія з поточного сайту. Дії немає: це відповідь на «хто це». Зона для читання.</li>
       <li><span class="wf-zone">3</span> Контакти — <b>«Зателефонувати»</b> (<code>tel:</code>); поруч «Написати листом» (<code>mailto:</code>), години, Instagram і Facebook. Стоять другими: більшість входів сюди — вихід «контакти центру» з помилок.</li>
       <li><span class="wf-zone">4</span> Що ми робимо — тварини й терапія з дітьми, послуги списком із брифу. Без дії. Зона для читання.</li>
@@ -227,7 +228,7 @@
       <li>Сюди — з пункту меню «Про центр» і з <a href="search-results.html">результатів Пошуку</a>: розділ про центр — «Що ми робимо», «Команда», «Часті питання», «Документи» (R3, розвилка 2б, вихід з R3).</li>
       <li>R2 · Терміновий донатор, розвилка 3 «Хоче перевірити, хто такі „Прайд“?»: так — з <a href="donate.html">Донату центру</a> («хто ми») сюди і назад «назад, введене збережено» → <a href="donate.html">Донат центру</a> (розвилка 4); ні — донатор лишається на донаті. Посилання «Повернутися до донату» в рамці немає: воно доречне не для всіх входів, тож повернення — кнопкою «назад» браузера чи пунктом меню «Підтримати».</li>
       <li>Г9, розвилка 1 «Звідки?»: сторінка центру — «Хочу забрати додому» → <a href="adopt.html">Заявка на прилаштування</a> (заявка загалом); тихе посилання на профілі — з <a href="animal.html">Профілю тварини</a>, повз цю сторінку.</li>
-      <li>Вихід «контакти центру» — сюди з <a href="login-success.html">Входу</a> (після двох листів), з <a href="my-animals-error.html">помилки «Моїх улюбленців»</a>, з <a href="animal-error.html">помилки профілю</a> (M); з <a href="care-error.html">помилки опіки</a> (R2 · Опікун, E3); з <a href="donate-error.html">помилки донату</a> (R2 · донатор, E4); з <a href="my-support-empty.html">порожньої «Моєї підтримки»</a> (R5, «не знайшов»); з <a href="animal-success.html">«перевірте пошту» на профілі</a> (R3, розвилка 12 — ні); з <a href="my-subscriptions-error.html">помилки відписки</a> (Г2); з <a href="adopt-error.html">помилки заявки</a> (Г9).</li>
+      <li>Вихід «контакти центру» — сюди з <a href="login-success.html">Входу</a> (після двох листів), з <a href="my-animals-error.html">помилки «Моїх улюбленців»</a>, з <a href="animal-error.html">помилки профілю</a> (M); з <a href="care-error.html">помилки опіки</a> (R2 · Опікун, E3); з <a href="donate-error.html">помилки донату</a> (R2 · донатор, E4); з <a href="my-support-empty.html">порожньої «Моєї допомоги»</a> (R5, «не знайшов»); з <a href="animal-success.html">«перевірте пошту» на профілі</a> (R3, розвилка 12 — ні); з <a href="my-subscriptions-error.html">помилки відписки</a> (Г2); з <a href="adopt-error.html">помилки заявки</a> (Г9).</li>
       <li>«Документи» — шторкою з <a href="care.html">Опіки над твариною</a> і <a href="donate.html">Донату центру</a> (розвилка 5 «Згода з умовами позначена?»), без окремого кроку.</li>
       <li>Сторінка вантажиться: <a href="center-loading.html">завантаження</a>; не вдалося — <a href="center-error.html">помилка</a>. Порожнього й успіху немає.</li>
     </ul>
