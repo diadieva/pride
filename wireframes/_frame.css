@@ -434,3 +434,6 @@ body {
 
 /* Переходи flow у нотатках */
 .wf-notes .wf-flow a { color: var(--text); }
+
+/* Підзаголовок усередині списку: «Уже покрито» в «Усіх тваринах» */
+.list-sub { margin: 16px 0 4px; color: var(--wf-muted); font-size: 13px; font-weight: 600; }
