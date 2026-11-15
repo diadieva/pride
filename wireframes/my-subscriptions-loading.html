@@ -1,7 +1,7 @@
 <!doctype html>
 <!--
   Налаштування · my-subscriptions-loading.html — стан завантаження (sitemap.md, колонка «Стани»).
-  Базова сторінка — my-subscriptions.html; шапка й зони ті самі, змінюється лише зона 3.
+  Базова сторінка — my-subscriptions.html; шапка й зони ті самі, змінюється лише зона 2.
 
   Крок flow — flows.md, flow Г2: розвилка 6 «Що змінити?» — канал чи періодичність → L3 «loading: зберігаємо» →
   7 «Збережено?». Решта завантажень — у нотатках: L1 «відписуємо» (з листа), L2 «налаштування», L4 «видаляємо дані».
@@ -41,14 +41,16 @@
           <ul>
             <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
             <li>
-              <a href="my-animals.html" aria-current="true"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a>
+              <a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a>
               <ul class="menu-sub">
                 <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя допомога</a></li>
-                <li><a href="my-subscriptions.html" aria-current="page"><span class="i i-sliders-simple" aria-hidden="true"></span>Налаштування</a></li>
               </ul>
             </li>
             <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
             <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+          </ul>
+          <ul>
+            <li><a href="my-subscriptions.html" aria-current="page"><span class="i i-sliders-simple" aria-hidden="true"></span>Налаштування</a></li>
           </ul>
           <fieldset class="lang">
             <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
@@ -65,17 +67,10 @@
     </header>
 
     <main>
-      <h1>Мої улюбленці</h1>
-
-      <!-- Вкладки розділу «Мої улюбленці» (рішення 15.11.2026): три сторінки одного розділу -->
-      <nav class="section-tabs" aria-label="Вкладки розділу «Мої улюбленці»" data-zone="2">
-        <a href="my-animals.html">Тварини</a>
-        <a href="my-support.html">Моя допомога</a>
-        <a href="my-subscriptions.html" aria-current="page">Налаштування</a>
-      </nav>
+      <h1>Налаштування</h1>
 
       <!-- Канал, періодичність і мова — для всіх тварин одразу -->
-      <form aria-labelledby="how-title" data-zone="3" aria-busy="true" action="my-subscriptions-loading.html" method="get">
+      <form aria-labelledby="how-title" data-zone="2" aria-busy="true" action="my-subscriptions-loading.html" method="get">
         <h2 id="how-title">Як приходять новини</h2>
         <p class="meta">Для всіх тварин у «Моїх улюбленцях». Не стежити за однією твариною — «Ще» на її картці у вкладці <a href="my-animals.html">«Тварини»</a> чи «відписатися» в будь-якому листі.</p>
         <fieldset>
@@ -101,7 +96,7 @@
       </form>
 
       <!-- Акаунт: email — це і канал новин, і вхід -->
-      <section aria-labelledby="account" data-zone="4">
+      <section aria-labelledby="account" data-zone="3">
         <h2 id="account">Акаунт</h2>
         <dl>
           <dt>Email</dt>
@@ -115,7 +110,7 @@
       </section>
 
       <!-- [ЗАКОН] Видалення даних (GDPR): є регулярна підтримка → спершу скасувати її (Г2, розвилка 8 — так, ST1) -->
-      <section aria-labelledby="delete-title" data-zone="5">
+      <section aria-labelledby="delete-title" data-zone="4">
         <h2 id="delete-title">Видалити всі мої дані</h2>
         <p>Спершу скасуйте регулярну підтримку: опіку над <span class="ph">[ім'я коня]</span> (1 000 грн щомісяця) і донат центру (200 грн щомісяця). Без акаунта зупинити ці списання було б ніде.</p>
         <a class="btn" href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span> Скасувати в «Моїй допомозі»</a>
@@ -159,17 +154,16 @@
 
     <h2>Зони в цьому стані</h2>
     <ul>
-      <li><span class="wf-zone">1</span> Шапка — меню зліва (розділи, під «Моїми улюбленцями» — «Моя допомога» і «Налаштування», мова; поточна — «Налаштування»), «Прайд» по центру, праворуч серце → «Мої улюбленці» і лупа → «Пошук».</li>
-      <li><span class="wf-zone">2</span> Вкладки розділу «Мої улюбленці» — Тварини · Моя допомога · <b>Налаштування</b> (поточна).</li>
-      <li><span class="wf-zone">3</span> Як приходять новини — <code>aria-busy</code>; обране видно, «Зберігаємо…», кнопка — заглушка.</li>
-      <li><span class="wf-zone">4</span>, <span class="wf-zone">5</span> — як на базовій сторінці.</li>
+      <li><span class="wf-zone">1</span> Шапка — меню зліва (розділи, під «Моїми улюбленцями» — «Моя допомога»; окремий пункт «Налаштування» — поточний; мова), «Прайд» по центру, праворуч серце → «Мої улюбленці» і лупа → «Пошук».</li>
+      <li><span class="wf-zone">2</span> Як приходять новини — <code>aria-busy</code>; обране видно, «Зберігаємо…», кнопка — заглушка.</li>
+      <li><span class="wf-zone">3</span>, <span class="wf-zone">4</span> — як на базовій сторінці.</li>
     </ul>
 
     <h2>Інші варіанти завантаження</h2>
     <ul>
-      <li><b>Відписуємо з листа</b> (розвилки 1–2, L1) — «відписатися» в листі веде сюди: над зоною 3 «Відписуємо від новин про [ім'я собаки]…». Без входу — лише цей рядок, інших зон немає: сесії немає, і чужих даних не показуємо.</li>
-      <li><b>Налаштування</b> (L2) — заглушки на місці зон 3–5, «Завантажуємо налаштування…».</li>
-      <li><b>Видаляємо дані</b> (L4) — зона 5: «Видаляємо всі ваші дані…». Інші зони без дій.</li>
+      <li><b>Відписуємо з листа</b> (розвилки 1–2, L1) — «відписатися» в листі веде сюди: над зоною 2 «Відписуємо від новин про [ім'я собаки]…». Без входу — лише цей рядок, інших зон немає: сесії немає, і чужих даних не показуємо.</li>
+      <li><b>Налаштування</b> (L2) — заглушки на місці зон 2–4, «Завантажуємо налаштування…».</li>
+      <li><b>Видаляємо дані</b> (L4) — зона 4: «Видаляємо всі ваші дані…». Інші зони без дій.</li>
       <li><b>Не стежити з картки</b> — не тут: відписуємо на самій картці у вкладці <a href="my-animals.html">«Тварини»</a>.</li>
     </ul>
 
