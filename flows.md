@@ -239,6 +239,7 @@ flowchart TD
     classDef ok fill:#DDF5E3,stroke:#1E8E3E,color:#1a1a1a,stroke-width:2px
     classDef exit fill:#F2F2F2,stroke:#888888,color:#1a1a1a
     classDef ext fill:#FFFFFF,stroke:#555555,color:#1a1a1a
+    %% сторінка PROF animal-guest.html
     class PROF,BOARD,SUP,CARE,CONTACT,LOGIN,MAIN screen
     class L0,L1,ST2B,ST4 loading
     class E1,E2,E3,ST3 error
@@ -567,6 +568,7 @@ flowchart TD
     classDef success fill:#DDF5E3,stroke:#1E8E3E,color:#1a1a1a
     classDef ok fill:#DDF5E3,stroke:#1E8E3E,color:#1a1a1a,stroke-width:2px
     classDef exit fill:#F2F2F2,stroke:#888888,color:#1a1a1a
+    %% сторінка PROF animal-guest.html
     class BOARD,SEARCH,ALL,PROF,CONTACT,LOGIN,MAIN screen
     class L1,L2,L3,L4,L5 loading
     class EM1,EM2,EM3,EM4,NF empty
@@ -744,6 +746,7 @@ flowchart TD
     classDef error fill:#FDE2E1,stroke:#C5221F,color:#1a1a1a
     classDef state fill:#E6F0FF,stroke:#3367D6,color:#1a1a1a
     classDef ok fill:#DDF5E3,stroke:#1E8E3E,color:#1a1a1a,stroke-width:2px
+    %% сторінка PROF animal-guest.html
     class PROF,CENTER,ADOPT,CONTACT screen
     class L1 loading
     class E1,E2,ST1 error

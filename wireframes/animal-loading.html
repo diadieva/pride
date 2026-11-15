@@ -28,6 +28,7 @@
   <nav class="wf-states" aria-label="Стани екрана «Профіль тварини»">
     <a href="animal.html">Базова сторінка</a>
     <a href="animal-following.html">Ви стежите</a>
+    <a href="animal-guest.html">Відвідувач</a>
     <a href="animal-empty.html">Порожній</a>
     <a href="animal-error.html">Помилка</a>
     <a href="animal-loading.html" aria-current="page">Завантаження</a>
@@ -52,6 +53,8 @@
         <span class="skeleton photo"></span>
         <h1 id="pet" class="meta" role="status"><span class="i i-hourglass" aria-hidden="true"></span> Відкриваємо профіль…</h1>
         <span class="skeleton short"></span>
+        <!-- Рядок «ваш зв'язок» — заглушки двох чипів: статуси приходять разом із профілем -->
+        <div class="relation" aria-hidden="true"><span class="skeleton"></span><span class="skeleton"></span></div>
       </section>
 
       <section aria-labelledby="my-care" data-zone="3" aria-busy="true">
@@ -102,7 +105,7 @@
 
     <h2>Зони в цьому стані</h2>
     <ul>
-      <li><span class="wf-zone">2</span>–<span class="wf-zone">6</span> — заголовки зон уже на місці, дані — сірими заглушками тих самих розмірів. Текст процесу — «Відкриваємо профіль…».</li>
+      <li><span class="wf-zone">2</span>–<span class="wf-zone">6</span> — заголовки зон уже на місці, дані — сірими заглушками тих самих розмірів; у зоні 2 — і два чипи рядка «ваш зв'язок». Текст процесу — «Відкриваємо профіль…».</li>
       <li>Вихід — «Мої улюбленці» вгорі, шапка працює.</li>
     </ul>
 

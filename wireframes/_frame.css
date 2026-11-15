@@ -210,6 +210,17 @@ body {
 .section-tabs a[aria-current="page"] { font-weight: 700; border-bottom-color: var(--wf-ink); }
 
 /* «Ви стежите» у профілі тварини: світла кнопка з галочкою; натиск відкриває одне підтвердження на місці */
+/* Профіль тварини: «ваш зв'язок» під ім'ям — на першому екрані видно, чи людина опікується й чи стежить
+   (рішення 15.11.2026). Статуси — світлі чипи; гостю — дві світлі кнопки «Стежити за історією» і «Взяти опіку» */
+.relation { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 8px; }
+.relation .follow[open] { flex-basis: 100%; }
+.relation .skeleton { width: 130px; min-height: 44px; border-radius: 10px; }
+.device .rel-chip { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 14px; background: var(--wf-fill-2); border: 1px solid var(--wf-line); border-radius: 10px; text-decoration: none; }
+.rel-chip .i-angle-right { width: 14px; height: 14px; }
+/* «Усі фото» — лічильник у куті фото, а не окремий рядок */
+.hero-photo { position: relative; }
+.device button.photo-count { position: absolute; right: 8px; bottom: 8px; min-height: 32px; padding: 0 10px; border: 1px solid var(--wf-line); border-radius: 999px; background: var(--wf-bg); font-size: 13px; }
+.photo-count .ph { padding: 0 2px; }
 .follow { align-self: flex-start; }
 .follow > summary { list-style: none; gap: 6px; padding: 10px 14px; background: var(--wf-fill-2); border: 1px solid var(--wf-line); border-radius: 10px; }
 .follow > summary::-webkit-details-marker { display: none; }

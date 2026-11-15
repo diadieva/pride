@@ -29,6 +29,7 @@
   <nav class="wf-states" aria-label="Стани екрана «Профіль тварини»">
     <a href="animal.html">Базова сторінка</a>
     <a href="animal-following.html">Ви стежите</a>
+    <a href="animal-guest.html">Відвідувач</a>
     <a href="animal-empty.html" aria-current="page">Порожній</a>
     <a href="animal-error.html">Помилка</a>
     <a href="animal-loading.html">Завантаження</a>
@@ -50,21 +51,24 @@
       <a class="back" href="my-animals.html"><span class="i i-angle-left" aria-hidden="true"></span> Мої улюбленці</a>
 
       <section aria-labelledby="pet" data-zone="2">
-        <div class="img wide" role="img" aria-label="Фото: [ім'я тварини]">фото</div>
+        <!-- «Усі фото» — лічильник на самому фото, а не окремий рядок: відкриває галерею [?]. Лише реальні фото центру -->
+        <div class="hero-photo">
+          <div class="img wide" role="img" aria-label="Фото: [ім'я тварини]">фото</div>
+          <button class="photo-count" type="button" aria-label="Усі фото: [кількість] [?]"><span class="ph">[кількість]</span> фото</button>
+        </div>
         <h1 id="pet"><span class="ph">[ім'я коня]</span></h1>
         <p class="meta">Кінь · у центрі · <span class="ph">[вік]</span> [?]</p>
         <p class="meta"><span class="ph">[позначка «Працює з дітьми» — лише для коней, які справді працюють з дітьми]</span> [?]</p>
-        <details>
-          <summary>Усі фото · <span class="ph">[кількість]</span> [?]</summary>
-          <div class="img" role="img" aria-label="Фото: [ім'я тварини]">фото</div>
-          <div class="img" role="img" aria-label="Фото: [ім'я тварини]">фото</div>
-          <div class="img" role="img" aria-label="Фото: [ім'я тварини]">фото</div>
-        </details>
+        <!-- Ваш зв'язок — одразу під ім'ям, на першому екрані (рішення 15.11.2026). Опіка й стеження незалежні, тож статусів два:
+             «Ви опікуєтесь» веде до «Моєї опіки» нижче, «Ви стежите» розгортає «Перестати стежити?» на місці -->
+        <div class="relation" role="group" aria-label="Ваш зв'язок з [ім'я коня]">
+          <a class="rel-chip" href="#my-care"><span class="i i-heart" aria-hidden="true"></span> Ви опікуєтесь <span class="i i-angle-right" aria-hidden="true"></span></a>
+          <a class="rel-chip" href="animal-following.html"><span class="i i-check-circle" aria-hidden="true"></span> Ви стежите</a>
+        </div>
       </section>
 
       <section aria-labelledby="my-care" data-zone="3">
-        <h2 id="my-care">Моя опіка</h2>
-        <p class="meta">Хто вже опікується: <span class="ph">[кількість]</span> людей [?]. Імена — лише тих, хто сам дозволив їх показувати [?].</p>
+        <h2 id="my-care" tabindex="-1">Моя опіка</h2>
         <dl>
           <dt>Опіка</dt>
           <dd><span class="i i-check-circle" aria-hidden="true"></span> активна · 1 000 грн щомісяця</dd>
@@ -73,11 +77,11 @@
         </dl>
         <a class="btn primary" href="care.html">Підтримати ще</a>
         <a class="btn" href="manage.html">Керувати опікою</a>
-        <p class="meta">Ви стежите за історією: новини приходять на kateryna@example.com. <a href="my-subscriptions-loading.html">Змінити</a></p>
       </section>
 
       <section aria-labelledby="updates" data-zone="4">
         <h2 id="updates" tabindex="-1">Новини</h2>
+        <p class="meta">Новини приходять на kateryna@example.com раз на тиждень <span class="meta">[?]</span> · <a href="my-subscriptions-loading.html">Змінити в «Налаштуваннях»</a></p>
         <article aria-labelledby="u1">
           <h3 id="u1">Момент · <time datetime="2026-11-11">11 листопада</time></h3>
           <div class="img wide" role="img" aria-label="Фото до новини">фото</div>
@@ -94,6 +98,7 @@
         <h2 id="done"><span class="i i-inbox" aria-hidden="true"></span> Звіт за листопад ще готується</h2>
         <p>Команда центру збирає, що купили й зробили для <span class="ph">[ім'я коня]</span> цього місяця. Звіт з'явиться тут на початку грудня [?].</p>
         <p>А новини вже є — вони вище.</p>
+        <p class="meta">Хто вже опікується: <span class="ph">[кількість]</span> людей [?]. Імена — лише тих, хто сам дозволив їх показувати [?].</p>
         <a class="btn primary" href="#updates">До новин</a>
       </section>
 

@@ -3,8 +3,8 @@
   Профіль тварини · animal-success.html — успіх форми «Стежити за історією» (sitemap.md, колонка «Стани»:
   «перевірте пошту на вказаній адресі — однаково для нових і вже підписаних → виправити адресу, надіслати ще раз;
   після двох спроб — контакти»).
-  Базова сторінка — animal.html; зони ті самі. Тут — відвідувач без входу: у зоні 3 замість «Моєї опіки»
-  «Взяти опіку» і форма «Стежити за історією», після надсилання на її місці — підтвердження.
+  Базова сторінка — animal.html. Тут — відвідувач без входу (варіант animal-guest.html): у рядку «ваш зв'язок»
+  під ім'ям форма «Стежити за історією», після надсилання на її місці — підтвердження; поруч «Взяти опіку».
 
   Крок flow — flows.md, flow R3: PROF → розвилка 8 «Хоче стати частиною історії?» — так →
   9 «Адреса в правильному форматі, канал і згода обрані?» — так → ST1 «стан: перевірте пошту на вказаній адресі —
@@ -34,6 +34,7 @@
   <nav class="wf-states" aria-label="Стани екрана «Профіль тварини»">
     <a href="animal.html">Базова сторінка</a>
     <a href="animal-following.html">Ви стежите</a>
+    <a href="animal-guest.html">Відвідувач</a>
     <a href="animal-empty.html">Порожній</a>
     <a href="animal-error.html">Помилка</a>
     <a href="animal-loading.html">Завантаження</a>
@@ -55,49 +56,45 @@
       <a class="back" href="board.html"><span class="i i-angle-left" aria-hidden="true"></span> На головну</a>
 
       <section aria-labelledby="pet" data-zone="2">
-        <div class="img wide" role="img" aria-label="Фото: [ім'я тварини]">фото</div>
+        <!-- «Усі фото» — лічильник на самому фото, а не окремий рядок: відкриває галерею [?]. Лише реальні фото центру -->
+        <div class="hero-photo">
+          <div class="img wide" role="img" aria-label="Фото: [ім'я тварини]">фото</div>
+          <button class="photo-count" type="button" aria-label="Усі фото: [кількість] [?]"><span class="ph">[кількість]</span> фото</button>
+        </div>
         <h1 id="pet"><span class="ph">[ім'я коня]</span></h1>
         <p class="meta">Кінь · у центрі · <span class="ph">[вік]</span> [?]</p>
         <p class="meta"><span class="ph">[позначка «Працює з дітьми» — лише для коней, які справді працюють з дітьми]</span> [?]</p>
-        <details>
-          <summary>Усі фото · <span class="ph">[кількість]</span> [?]</summary>
-          <div class="img" role="img" aria-label="Фото: [ім'я тварини]">фото</div>
-          <div class="img" role="img" aria-label="Фото: [ім'я тварини]">фото</div>
-          <div class="img" role="img" aria-label="Фото: [ім'я тварини]">фото</div>
-        </details>
-      </section>
-
-      <!-- Відвідувач без входу: замість «Моєї опіки» — «Взяти опіку» і «Стежити за історією».
-           Форму стеження вже надіслано, на її місці — підтвердження з адресою для звірки -->
-      <section aria-labelledby="be-part" data-zone="3">
-        <h2 id="be-part">Стати частиною історії</h2>
-        <p class="meta">Хто вже опікується: <span class="ph">[кількість]</span> людей [?]. Імена — лише тих, хто сам дозволив їх показувати [?].</p>
-
-        <section aria-labelledby="sent-title">
-          <h3 id="sent-title" role="status"><span class="i i-envelope-check" aria-hidden="true"></span> Перевірте пошту</h3>
-          <p>Лист надіслали <time datetime="2026-11-13T14:32">о 14:32</time> на</p>
-          <p><b>kateryna@example.com</b></p>
-          <p>Натисніть у ньому посилання — і новини про <span class="ph">[ім'я коня]</span> приходитимуть на email. Якщо ви вже стежите за цією історією, лист так і скаже.</p>
-          <p class="meta">Новини приходитимуть раз на тиждень [?], а важливі зміни — одразу. Змінити частоту можна в «Налаштуваннях».</p>
-          <p class="meta">Листа немає кілька хвилин? Перевірте «Спам» і «Промоакції».</p>
-          <details>
-            <summary>Це не та адреса? Виправити</summary>
-            <form action="animal-loading.html" method="get" aria-label="Виправити адресу">
-              <label>Email для новин
-                <input type="email" name="email" value="kateryna@example.com" autocomplete="email" required>
-              </label>
-              <button type="submit">Надіслати на цю адресу</button>
-            </form>
+        <!-- Ваш зв'язок для відвідувача: форму «Стежити за історією» вже надіслано — на її місці підтвердження з адресою
+             для звірки (рішення 15.11.2026: рядок «ваш зв'язок» — під ім'ям, на першому екрані) -->
+        <div class="relation" role="group" aria-label="Ваш зв'язок з [ім'я коня]">
+          <details class="follow" open>
+            <summary><span class="i i-envelope-check" aria-hidden="true"></span> Лист надіслано</summary>
+            <section aria-labelledby="sent-title">
+              <h3 id="sent-title" role="status"><span class="i i-envelope-check" aria-hidden="true"></span> Перевірте пошту</h3>
+              <p>Лист надіслали <time datetime="2026-11-13T14:32">о 14:32</time> на</p>
+              <p><b>kateryna@example.com</b></p>
+              <p>Натисніть у ньому посилання — і новини про <span class="ph">[ім'я коня]</span> приходитимуть на email. Якщо ви вже стежите за цією історією, лист так і скаже.</p>
+              <p class="meta">Новини приходитимуть раз на тиждень [?], а важливі зміни — одразу. Змінити частоту можна в «Налаштуваннях».</p>
+              <p class="meta">Листа немає кілька хвилин? Перевірте «Спам» і «Промоакції».</p>
+              <details>
+                <summary>Це не та адреса? Виправити</summary>
+                <form action="animal-loading.html" method="get" aria-label="Виправити адресу">
+                  <label>Email для новин
+                    <input type="email" name="email" value="kateryna@example.com" autocomplete="email" required>
+                  </label>
+                  <button type="submit">Надіслати на цю адресу</button>
+                </form>
+              </details>
+              <a class="btn" href="animal-loading.html"><span class="i i-arrows-rotate" aria-hidden="true"></span> Надіслати ще раз</a>
+              <p class="meta">Надіслали двічі, а листа все немає — напишіть чи зателефонуйте нам, пн–пт 09:00–19:00: <a href="mailto:info@bestofthepride.info">info@bestofthepride.info</a>, <a href="tel:+380665826817">+380 66 582 68 17</a>. Усі контакти — <a href="center.html">Про центр</a>.</p>
+            </section>
           </details>
-          <a class="btn" href="animal-loading.html"><span class="i i-arrows-rotate" aria-hidden="true"></span> Надіслати ще раз</a>
-          <p class="meta">Надіслали двічі, а листа все немає — напишіть чи зателефонуйте нам, пн–пт 09:00–19:00: <a href="mailto:info@bestofthepride.info">info@bestofthepride.info</a>, <a href="tel:+380665826817">+380 66 582 68 17</a>. Усі контакти — <a href="center.html">Про центр</a>.</p>
-        </section>
-
-        <a class="btn" href="care.html">Взяти опіку</a>
-        <p class="meta">Разово чи щомісяця — на корм, лікування, утримання <span class="ph">[ім'я коня]</span> [?]. Стежити можна й без опіки.</p>
+          <a class="btn" href="care.html">Взяти опіку</a>
+        </div>
       </section>
 
-      <section aria-labelledby="updates" data-zone="4">
+
+      <section aria-labelledby="updates" data-zone="3">
         <h2 id="updates">Новини</h2>
         <article aria-labelledby="u1">
           <h3 id="u1">Момент · <time datetime="2026-11-11">11 листопада</time></h3>
@@ -111,7 +108,7 @@
         <button type="button">Показати старіші</button>
       </section>
 
-      <section aria-labelledby="done" data-zone="5">
+      <section aria-labelledby="done" data-zone="4">
         <h2 id="done">Що зроблено завдяки підтримці</h2>
         <table>
           <caption>Жовтень 2026</caption>
@@ -123,9 +120,10 @@
           </tbody>
         </table>
         <p class="meta">Потреба на місяць — <span class="ph">[сума]</span> грн: корм, лікування, утримання. Покрито — [?].</p>
+        <p class="meta">Хто вже опікується: <span class="ph">[кількість]</span> людей [?]. Імена — лише тих, хто сам дозволив їх показувати [?].</p>
       </section>
 
-      <section aria-labelledby="story" data-zone="6">
+      <section aria-labelledby="story" data-zone="5">
         <h2 id="story">Історія і характер</h2>
         <p>Характер: <span class="ph">[риса]</span>, <span class="ph">[риса]</span>, <span class="ph">[риса]</span></p>
         <p><span class="ph">[історія порятунку — перші рядки]</span></p>
@@ -155,10 +153,9 @@
 
     <h2>Зони в цьому стані</h2>
     <ul>
-      <li><span class="wf-zone">3</span> Стати частиною історії — підтвердження на місці форми: <b>адреса, з якою людина звіряє</b>, час, що буде після посилання, спам. «Виправити» розгортає поле з тією самою адресою (розвилка 11 — ні), «Надіслати ще раз» (11 — так, W1), контакти після двох спроб (12 — ні). Темної кнопки немає: головна дія — відкрити лист. «Взяти опіку» лишається світлою, без тиску.</li>
-      <li><span class="wf-zone">2</span>, <span class="wf-zone">4</span>–<span class="wf-zone">6</span> — як на базовій сторінці: профіль публічний. «Хочу забрати додому» тут немає: коней не прилаштовують (від замовниці, 15.11.2026).</li>
+      <li><span class="wf-zone">2</span> Хто це і ваш зв'язок — під ім'ям, де була кнопка «Стежити за історією», розгорнуто «Лист надіслано»: підтвердження на місці форми — <b>адреса, з якою людина звіряє</b>, час, що буде після посилання, спам. «Виправити» розгортає поле з тією самою адресою (розвилка 11 — ні), «Надіслати ще раз» (11 — так, W1), контакти після двох спроб (12 — ні). Темної кнопки немає: головна дія — відкрити лист. «Взяти опіку» лишається світлою, без тиску.</li>
+      <li><span class="wf-zone">3</span>–<span class="wf-zone">5</span> — як на <a href="animal-guest.html">варіанті «Відвідувач»</a>: новини, звіт з «Хто вже опікується», історія. Профіль публічний. «Хочу забрати додому» тут немає: коней не прилаштовують (від замовниці, 15.11.2026).</li>
       <li><span class="wf-zone">1</span> — шапка.</li>
-      <li><span class="wf-zone">5</span> — зона для читання.</li>
     </ul>
 
     <h2>Чому однаково для нових і вже підписаних</h2>
@@ -174,7 +171,7 @@
 
     <h2>Переходи flow</h2>
     <ul class="wf-flow">
-      <li>Сюди — з профілю для відвідувача: форма «Стежити за історією», розвилка 9 — так (ST1). Хибна адреса (9 — ні) — <a href="animal-error.html">помилка</a>, варіант біля поля.</li>
+      <li>Сюди — з <a href="animal-guest.html">профілю для відвідувача</a>: форма «Стежити за історією», розвилка 9 — так (ST1). Хибна адреса (9 — ні) — <a href="animal-error.html">помилка</a>, варіант біля поля.</li>
       <li>Розвилка 10 «Лист дійшов?»: так → 13 «Посилання дійсне?»: так — посилання з листа → <a href="my-animals-loading.html">Мої улюбленці · завантаження</a>, тварина серед моїх (успіх R3); ні — <a href="login.html">Вхід</a>, підflow як у M.</li>
       <li>Розвилка 11 «Адреса правильна?»: ні — «Виправити» → нова адреса → <a href="animal-loading.html">надсилаємо лист</a> → сюди ж; так — «Надіслати ще раз» → <a href="animal-success.html">сюди ж</a> (W1).</li>
       <li>Розвилка 12 «Дійшов після повтору?»: ні — контакти й <a href="center.html">Про центр</a>.</li>

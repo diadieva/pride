@@ -50,6 +50,7 @@ window.NAV_TREE = [
       ] },
       { title: "Профіль тварини", href: "wireframes/animal.html", icon: "paw", children: [
         { title: "Ви стежите", href: "wireframes/animal-following.html", icon: "check-circle" },
+        { title: "Відвідувач", href: "wireframes/animal-guest.html", icon: "user-circle" },
         { title: "Порожній стан", href: "wireframes/animal-empty.html", icon: "inbox" },
         { title: "Помилка", href: "wireframes/animal-error.html", icon: "exclamation-circle" },
         { title: "Завантаження", href: "wireframes/animal-loading.html", icon: "hourglass" },
