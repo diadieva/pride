@@ -99,6 +99,7 @@ body {
   pointer-events: none;
 }
 .device *, .device *::before, .device *::after { box-sizing: border-box; }
+.device .fixed-actions > * { white-space: nowrap; }
 .device :is(h1, h2, h3, h4, p, ul, ol, dl, dd, figure, fieldset) { margin: 0; }
 .device :is(ul, ol) { padding-left: 18px; }
 .device h1 { font-size: 24px; line-height: 1.2; }
@@ -438,3 +439,9 @@ body {
 
 /* Підзаголовок усередині списку: «Уже покрито» в «Усіх тваринах» */
 .list-sub { margin: 16px 0 4px; color: var(--wf-muted); font-size: 13px; font-weight: 600; }
+
+/* Окрема сторінка «Фільтри»: шапка з «назад» і заголовком; кнопки закріплені внизу екрана.
+   У рамці «низ екрана» — межа першого екрана (762 px від верху рамки), тож панель стоїть просто над нею */
+.sheet-head { display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; gap: 8px; padding: 8px 16px; border-bottom: 1px solid var(--wf-line); }
+.sheet-head h1 { margin: 0; text-align: center; font-size: 18px; }
+.device .fixed-actions { position: absolute; left: 0; right: 0; top: calc(762px - 76px); z-index: 3; height: 76px; padding: 14px 16px; background: var(--wf-bg); border-top: 1px solid var(--wf-line); box-sizing: border-box; }
