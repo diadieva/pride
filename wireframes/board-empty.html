@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-  Дошка · board-empty.html — порожній стан (sitemap.md, колонка «Стани»: «нових моментів давно немає → „Усі тварини“;
+  Стрічка · board-empty.html — порожній стан (sitemap.md, колонка «Стани»: «нових моментів давно немає → „Усі тварини“;
   стрічка скінчилася → „Усі тварини“»).
   Базова сторінка — board.html; шапка й зони ті самі.
 
@@ -15,7 +15,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Прайд · Вайрфрейм · Дошка · порожній стан</title>
+  <title>Прайд · Вайрфрейм · Стрічка · порожній стан</title>
   <script src="../_nav/theme.js"></script>
   <link rel="stylesheet" href="../_nav/theme.css">
   <link rel="stylesheet" href="../_nav/icons.css">
@@ -27,7 +27,7 @@
 <body>
 <div class="wf-page">
 
-  <nav class="wf-states" aria-label="Стани екрана «Дошка»">
+  <nav class="wf-states" aria-label="Стани екрана «Стрічка»">
     <a href="board.html">Базова сторінка</a>
     <a href="board-menu.html">Меню відкрите</a>
     <a href="board-empty.html" aria-current="page">Порожній</a>
@@ -43,7 +43,12 @@
         <summary><span class="i i-menu-bars" aria-hidden="true"></span><span class="sr-only">Меню</span></summary>
         <nav aria-label="Меню">
           <ul>
-            <li><a href="board.html" aria-current="page"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+            <li>
+              <a href="board.html" aria-current="page"><span class="i i-newspaper" aria-hidden="true"></span>Стрічка</a>
+              <ul class="menu-sub">
+                <li><a href="animals.html"><span class="i i-paw" aria-hidden="true"></span>Усі тварини</a></li>
+              </ul>
+            </li>
             <li>
               <a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a>
               <ul class="menu-sub">
@@ -73,12 +78,12 @@
     <main>
       <a class="skip" href="#all-animals">Пропустити стрічку</a>
 
-      <h1>Дошка</h1>
+      <h1>Стрічка</h1>
 
       <!-- На місці стрічки — пояснення і вихід з flows.md: EM1 → «Усі тварини» -->
       <section aria-labelledby="feed" data-zone="2">
         <h2 id="feed"><span class="i i-inbox" aria-hidden="true"></span> Нових моментів поки немає</h2>
-        <p>Останній момент на дошці — від <time datetime="2026-10-28">28 жовтня</time>. Команда центру пише, коли з тваринами щось стається, і нові моменти з'являться тут.</p>
+        <p>Останній момент у стрічці — від <time datetime="2026-10-28">28 жовтня</time>. Команда центру пише, коли з тваринами щось стається, і нові моменти з'являться тут.</p>
         <p>А поки — познайомтеся з тваринами: у кожної є історія, характер і всі попередні новини.</p>
         <a class="btn primary" href="animals-loading.html">Усі тварини <span class="i i-angle-right" aria-hidden="true"></span></a>
       </section>
@@ -93,7 +98,7 @@
   </div>
 
   <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
-    <h2>Дошка · порожній стан</h2>
+    <h2>Стрічка · порожній стан</h2>
     <ul>
       <li>Моменти завантажились, але свіжих немає: команда давно не публікувала оновлень.</li>
       <li>Flow R3, розвилка 3 «Є свіжі моменти?» — ні → EM1 → «Усі тварини».</li>

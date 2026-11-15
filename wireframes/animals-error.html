@@ -1,11 +1,11 @@
 <!doctype html>
 <!--
   Усі тварини · animals-error.html — стан помилки (sitemap.md, колонка «Стани»: «не вдалося завантажити →
-  спробувати ще чи назад на дошку»).
+  спробувати ще чи назад до стрічки»).
   Базова сторінка — animals.html; шапка й зони ті самі.
 
   Крок flow — flows.md, flow R3: L3 «loading: список» → розвилка 4а «Список прийшов?» — ні →
-  E4 «error: не вдалося завантажити». Виходи: «спробувати ще» → L3; «назад» → Дошка.
+  E4 «error: не вдалося завантажити». Виходи: «спробувати ще» → L3; «назад» → Стрічка.
   Контакти центру — за правилом _conventions.md.
 
   Job (sitemap.md): R1, R3.
@@ -42,7 +42,12 @@
         <summary><span class="i i-menu-bars" aria-hidden="true"></span><span class="sr-only">Меню</span></summary>
         <nav aria-label="Меню">
           <ul>
-            <li><a href="board.html" aria-current="page"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+            <li>
+              <a href="board.html" aria-current="true"><span class="i i-newspaper" aria-hidden="true"></span>Стрічка</a>
+              <ul class="menu-sub">
+                <li><a href="animals.html" aria-current="page"><span class="i i-paw" aria-hidden="true"></span>Усі тварини</a></li>
+              </ul>
+            </li>
             <li>
               <a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a>
               <ul class="menu-sub">
@@ -70,7 +75,7 @@
     </header>
 
     <main>
-      <a class="back" href="board.html"><span class="i i-angle-left" aria-hidden="true"></span> Дошка</a>
+      <a class="back" href="board.html"><span class="i i-angle-left" aria-hidden="true"></span> Стрічка</a>
 
       <h1>Усі тварини</h1>
 
@@ -103,7 +108,7 @@
         <h2 id="list"><span class="i i-exclamation-circle" aria-hidden="true"></span> Не вдалося завантажити тварин</h2>
         <p role="alert">Список не відкрився — схоже, зв'язок перервався. Обрані фільтри збережено.</p>
         <a class="btn primary" href="animals-loading.html"><span class="i i-arrows-rotate" aria-hidden="true"></span> Спробувати ще</a>
-        <a class="btn" href="board.html">Назад на дошку</a>
+        <a class="btn" href="board.html">Назад до стрічки</a>
         <p class="meta">Не виходить? Команда центру на зв'язку пн–пт, 09:00–19:00:</p>
         <ul>
           <li><a href="tel:+380665826817"><span class="i i-phone" aria-hidden="true"></span> +380 66 582 68 17</a></li>
@@ -119,7 +124,7 @@
     <h2>Усі тварини · помилка</h2>
     <ul>
       <li>Список не завантажився: збій зв'язку чи сервера.</li>
-      <li>Розвилка 4а «Список прийшов?» — ні → E4: «спробувати ще» → L3, «назад» → Дошка. Є і в sitemap.md, і у flow R3.</li>
+      <li>Розвилка 4а «Список прийшов?» — ні → E4: «спробувати ще» → L3, «назад» → Стрічка. Є і в sitemap.md, і у flow R3.</li>
     </ul>
 
     <h2>Job</h2>
@@ -130,7 +135,7 @@
 
     <h2>Зони в цьому стані</h2>
     <ul>
-      <li><span class="wf-zone">3</span> Що сталося — <b>«Спробувати ще»</b> з тими самими фільтрами, «Назад на дошку» і контакти центру: телефон, email, години, «Про центр».</li>
+      <li><span class="wf-zone">3</span> Що сталося — <b>«Спробувати ще»</b> з тими самими фільтрами, «Назад до стрічки» і контакти центру: телефон, email, години, «Про центр».</li>
       <li><span class="wf-zone">2</span> Фільтри списку — введене збережено (тут — «кому ще бракує допомоги»).</li>
       <li><span class="wf-zone">1</span> — шапка працює.</li>
     </ul>
@@ -139,7 +144,7 @@
     <ul class="wf-flow">
       <li>Сюди — з <a href="animals-loading.html">завантаження</a>: список не прийшов.</li>
       <li>«Спробувати ще» і «Показати» → <a href="animals-loading.html">завантаження</a>.</li>
-      <li>«Назад на дошку» і «Дошка» вгорі → <a href="board.html">Дошка</a>.</li>
+      <li>«Назад до стрічки» і «Стрічка» вгорі → <a href="board.html">Стрічка</a>.</li>
       <li>Не виходить — контакти й <a href="center.html">Про центр</a>.</li>
     </ul>
   </aside>

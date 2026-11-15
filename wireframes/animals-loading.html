@@ -3,7 +3,7 @@
   Усі тварини · animals-loading.html — стан завантаження (sitemap.md, колонка «Стани»: «список; список за ім'ям і фільтрами»).
   Базова сторінка — animals.html; шапка й зони ті самі, на місці рядків — сірі заглушки.
 
-  Крок flow — flows.md, flow R3: вхід у ALL з дошки (розвилки 3, 4) чи з «Пошуку» («Усі тварини» в результатах, EM4) →
+  Крок flow — flows.md, flow R3: вхід у ALL зі стрічки (розвилки 3, 4) чи з «Пошуку» («Усі тварини» в результатах, EM4) →
   завантаження списку → розвилка 5 «Хтось знайшовся за ім'ям чи фільтром?».
   У flow R3 це L3 «loading: список» → розвилка 4а «Список прийшов?».
 
@@ -41,7 +41,12 @@
         <summary><span class="i i-menu-bars" aria-hidden="true"></span><span class="sr-only">Меню</span></summary>
         <nav aria-label="Меню">
           <ul>
-            <li><a href="board.html" aria-current="page"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+            <li>
+              <a href="board.html" aria-current="true"><span class="i i-newspaper" aria-hidden="true"></span>Стрічка</a>
+              <ul class="menu-sub">
+                <li><a href="animals.html" aria-current="page"><span class="i i-paw" aria-hidden="true"></span>Усі тварини</a></li>
+              </ul>
+            </li>
             <li>
               <a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a>
               <ul class="menu-sub">
@@ -69,7 +74,7 @@
     </header>
 
     <main>
-      <a class="back" href="board.html"><span class="i i-angle-left" aria-hidden="true"></span> Дошка</a>
+      <a class="back" href="board.html"><span class="i i-angle-left" aria-hidden="true"></span> Стрічка</a>
 
       <h1>Усі тварини</h1>
 
@@ -131,7 +136,7 @@
     <ul>
       <li><span class="wf-zone">3</span> Тварини центру — заголовок на місці, рядки — сірими заглушками: фото, ім'я, рядок даних. Текст процесу — «Завантажуємо тварин…».</li>
       <li><span class="wf-zone">2</span> Фільтри списку — працюють: уточнити ім'я чи фільтри можна, не чекаючи.</li>
-      <li>Вихід — «Дошка» вгорі, шапка.</li>
+      <li>Вихід — «Стрічка» вгорі, шапка.</li>
     </ul>
 
     <h2>Інший варіант — та сама сторінка</h2>
@@ -141,7 +146,7 @@
 
     <h2>Переходи flow</h2>
     <ul class="wf-flow">
-      <li>Сюди — з <a href="board.html">дошки</a> («Усі тварини» в кінці стрічки), з <a href="board-empty.html">порожньої дошки</a>, з <a href="board-error.html">помилки дошки</a> — «Відкрити список», з <a href="search.html">Пошуку</a> — «Усі тварини» до введення, в <a href="search-results.html">результатах</a> і в <a href="search-empty.html">порожньому стані</a>, з <a href="animals-empty.html">порожнього стану</a> — «Скинути фільтри», з <a href="animals-error.html">помилки</a> — «Спробувати ще», і з власної форми — «Показати».</li>
+      <li>Сюди — з <a href="board.html">стрічки</a> («Усі тварини» в кінці стрічки), з <a href="board-empty.html">порожньої стрічки</a>, з <a href="board-error.html">помилки стрічки</a> — «Відкрити список», з <a href="search.html">Пошуку</a> — «Усі тварини» до введення, в <a href="search-results.html">результатах</a> і в <a href="search-empty.html">порожньому стані</a>, з <a href="animals-empty.html">порожнього стану</a> — «Скинути фільтри», з <a href="animals-error.html">помилки</a> — «Спробувати ще», і з власної форми — «Показати».</li>
       <li>Розвилка 5 «Хтось знайшовся?»: так — <a href="animals.html">базова сторінка</a>; ні — <a href="animals-empty.html">порожній стан</a>; збій — <a href="animals-error.html">помилка</a>.</li>
     </ul>
   </aside>
