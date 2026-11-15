@@ -12,7 +12,7 @@
 // вкладки станів). Окремої посадкової сторінки немає: «Екрани» відкриває останній переглянутий екран
 // (його пам'ятає nav.js), уперше — href розділу, тобто головну сторінку. Назви станів починаються з «Порожній», «Помилка»,
 // «Завантаження», «Успіх» — за ними шапка ставить стан на його місце у вкладках. Дитина екрана з іншою назвою —
-// варіант базової сторінки (наприклад, «Результати» в «Пошуку», «Меню відкрите» на головній сторінці): своя вкладка одразу після «Базова»,
+// варіант базової сторінки (наприклад, «Результати» в «Пошуку», «Фільтри» в «Усіх тваринах»): своя вкладка одразу після «Базова»,
 // з назвою з tree.js, у порядку tree.js. Варіанти ставимо в children першими, перед станами.
 //
 // Будова гілки «Екрани»:
@@ -32,7 +32,6 @@ window.NAV_TREE = [
   { title: "Екрани", href: "wireframes/board.html", icon: "mobile", children: [
     { title: "Знайти свою тварину", icon: "folder-search", children: [
       { title: "Головна сторінка", href: "wireframes/board.html", icon: "newspaper", children: [
-        { title: "Меню відкрите", href: "wireframes/board-menu.html", icon: "menu-bars" },
         { title: "Порожній стан", href: "wireframes/board-empty.html", icon: "inbox" },
         { title: "Помилка", href: "wireframes/board-error.html", icon: "exclamation-circle" },
         { title: "Завантаження", href: "wireframes/board-loading.html", icon: "hourglass" }
@@ -115,6 +114,9 @@ window.NAV_TREE = [
         { title: "Завантаження", href: "wireframes/adopt-loading.html", icon: "hourglass" },
         { title: "Успіх", href: "wireframes/adopt-success.html", icon: "check-circle" }
       ] }
+    ] },
+    { title: "Навігація сайту", icon: "folders", children: [
+      { title: "Меню", href: "wireframes/menu.html", icon: "menu-bars" }
     ] },
     { title: "Команда центру", icon: "folder-gear", children: [
       { title: "Нове оновлення", href: "wireframes/post.html", icon: "newspaper", children: [

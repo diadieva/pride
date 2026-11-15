@@ -1,0 +1,120 @@
+<!doctype html>
+<!--
+  Меню · menu.html — базова сторінка (sitemap.md, «Екрани», група «Навігація сайту»).
+  Тип — глобальний: кнопка меню ліворуч у шапці кожного екрана донора. Окремий екран на весь екран, а не шторка
+  під шапкою (рішення 15.11.2026): своя верхня смуга з «✕» на місці кнопки меню, під нею — лише розділи сайту.
+  Тут показано меню, відкрите з головної сторінки: поточна — «Головна».
+
+  Не крок job: через меню переходять у розділ, де job продовжується (sitemap.md, «Навігація»). У flows — підписи
+  на стрілках («пункт меню «Підтримати»», «меню → «Моя допомога»»), а не вузол.
+
+  Станів немає: меню однакове для всіх і не вантажить даних.
+  Правила — wireframes/_conventions.md.
+-->
+<html lang="uk" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Вайрфрейм · Меню</title>
+  <script src="../_nav/theme.js"></script>
+  <link rel="stylesheet" href="../_nav/theme.css">
+  <link rel="stylesheet" href="../_nav/icons.css">
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script defer src="../_nav/tree.js"></script>
+  <script defer src="../_nav/nav.js"></script>
+  <link rel="stylesheet" href="_frame.css">
+</head>
+<body>
+<div class="wf-page">
+
+  <nav class="wf-states" aria-label="Стани екрана «Меню»">
+    <a href="menu.html" aria-current="page">Базова сторінка</a>
+    <span>Порожнього, помилки й завантаження немає: меню однакове для всіх і не вантажить даних. Успіху немає: тут нічого не вносять</span>
+  </nav>
+
+  <div class="device">
+
+    <!-- Окремий екран на весь екран (рішення 15.11.2026): шапки сайту з серцем і лупою тут немає.
+         «✕» стоїть там, де була кнопка меню, — закрити можна тим самим рухом, що й відкрити -->
+    <header class="app-header menu-head" data-zone="1">
+      <a class="menu-close" href="board.html"><span class="i i-xmark" aria-hidden="true"></span><span class="sr-only">Закрити меню</span></a>
+      <a class="brand" href="board.html">Прайд</a>
+      <span aria-hidden="true"></span>
+    </header>
+
+    <main class="menu-screen">
+      <h1 class="sr-only">Меню</h1>
+
+      <!-- Розділи — великим шрифтом: на весь екран меню — сам собою «зміст» сайту -->
+      <nav aria-label="Розділи" data-zone="2">
+        <ul class="menu-sections">
+          <li><a href="board.html" aria-current="page"><span class="i i-house" aria-hidden="true"></span>Головна</a></li>
+          <li><a href="animals.html"><span class="i i-paw" aria-hidden="true"></span>Усі тварини</a></li>
+          <li>
+            <a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a>
+            <ul class="menu-sub">
+              <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя допомога</a></li>
+            </ul>
+          </li>
+          <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+          <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+        </ul>
+      </nav>
+
+      <div class="menu-more" data-zone="3">
+        <ul class="menu-list">
+          <li><a href="my-subscriptions.html"><span class="i i-sliders-simple" aria-hidden="true"></span>Налаштування</a></li>
+        </ul>
+        <fieldset class="lang">
+          <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
+          <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
+          <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
+        </fieldset>
+      </div>
+    </main>
+
+  </div>
+
+  <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
+    <h2>Меню</h2>
+    <ul>
+      <li><code>menu.html</code> — окремий екран «Меню» на весь екран (рішення 15.11.2026). Раніше меню було панеллю під шапкою поверх сторінки (варіант головної <code>board-menu.html</code>): зі стрічкою під ним воно читалося як шторка, а не як місце, куди перейшли.</li>
+      <li>Меню однакове на кожному екрані донора; людина без входу й після входу бачить те саме. Поточний пункт — розділ, з якого відкрили меню; тут — «Головна».</li>
+    </ul>
+
+    <h2>Job</h2>
+    <ul>
+      <li>Не крок job: глобальна навігація. Через меню переходять у розділ, де job продовжується, — тому в матриці трасування колонки немає (sitemap.md, «Трасування»).</li>
+    </ul>
+
+    <h2>Зони і головна дія кожної</h2>
+    <ul>
+      <li><span class="wf-zone">1</span> Верхня смуга — «✕» на місці кнопки меню, «Прайд» по центру. Серця й лупи немає: тут обирають розділ, а «Мої улюбленці» — пункт меню.</li>
+      <li><span class="wf-zone">2</span> Розділи — головна дія: великим шрифтом, один стовпчик.
+        <ul>
+          <li><b>«Головна»</b> — перший пункт; на головну веде й лого «Прайд».</li>
+          <li><b>«Усі тварини»</b> — каталог видно одразу, щоб знайти «свою» тварину (R1) не лише через стрічку моментів.</li>
+          <li><b>Під «Моїми улюбленцями»</b>, з відступом, — «Моя допомога»: друга вкладка цього розділу.</li>
+        </ul>
+      </li>
+      <li><span class="wf-zone">3</span> Під рискою, дрібніше — «Налаштування» (на весь акаунт і рідкісні) і мова: Українська / English, радіокнопки, без переходу.</li>
+    </ul>
+
+    <h2>Поведінка</h2>
+    <ul>
+      <li>У продукті — шар на весь екран поверх поточної сторінки, а не перехід: «✕», Esc чи «Назад» у браузері повертають на ту саму сторінку й те саме місце прокрутки. Фокус — усередині меню, перший — «✕»; сторінка під ним не прокручується. У вайрфреймі «✕» веде на <a href="board.html">головну</a>.</li>
+      <li>Відкривається без анімації чи з короткою [?] — вирішимо з дизайн-системою; з <code>prefers-reduced-motion</code> — без руху.</li>
+      <li>На десктопі — [?]: імовірно, розділи рядком у шапці, без кнопки меню; вирішимо з десктопною шириною.</li>
+    </ul>
+
+    <h2>Переходи</h2>
+    <ul class="wf-flow">
+      <li>Сюди — кнопка меню в шапці будь-якого екрана донора, наприклад <a href="board.html">головної сторінки</a>. Закрити — «✕» → той самий екран.</li>
+      <li>Розділи → <a href="board.html">Головна</a>, <a href="animals.html">Усі тварини</a>, <a href="my-animals.html">Мої улюбленці</a> (без входу — <a href="login.html">Вхід</a>), <a href="donate.html">Донат центру</a>, <a href="center.html">Про центр</a>.</li>
+      <li>Підпункт → <a href="my-support.html">Моя допомога</a> (flow R5); пункт → <a href="my-subscriptions.html">Налаштування</a> (flow Г2).</li>
+    </ul>
+  </aside>
+
+</div>
+</body>
+</html>

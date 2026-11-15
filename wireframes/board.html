@@ -31,7 +31,6 @@
 
   <nav class="wf-states" aria-label="Стани екрана «Головна сторінка»">
     <a href="board.html" aria-current="page">Базова сторінка</a>
-    <a href="board-menu.html">Меню відкрите</a>
     <a href="board-empty.html">Порожній</a>
     <a href="board-error.html">Помилка</a>
     <a href="board-loading.html">Завантаження</a>
@@ -41,31 +40,7 @@
   <div class="device">
 
     <header class="app-header" data-zone="1">
-      <details class="menu">
-        <summary><span class="i i-menu-bars" aria-hidden="true"></span><span class="sr-only">Меню</span></summary>
-        <nav aria-label="Меню">
-          <ul>
-            <li><a href="board.html" aria-current="page"><span class="i i-house" aria-hidden="true"></span>Головна</a></li>
-            <li><a href="animals.html"><span class="i i-paw" aria-hidden="true"></span>Усі тварини</a></li>
-            <li>
-              <a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a>
-              <ul class="menu-sub">
-                <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя допомога</a></li>
-              </ul>
-            </li>
-            <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
-            <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
-          </ul>
-          <ul>
-            <li><a href="my-subscriptions.html"><span class="i i-sliders-simple" aria-hidden="true"></span>Налаштування</a></li>
-          </ul>
-          <fieldset class="lang">
-            <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
-            <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
-            <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
-          </fieldset>
-        </nav>
-      </details>
+      <a class="menu-link" href="menu.html"><span class="i i-menu-bars" aria-hidden="true"></span><span class="sr-only">Меню</span></a>
       <a class="brand" href="board.html">Прайд</a>
       <nav class="quick" aria-label="Швидкий доступ">
         <a class="fav-link" href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span><span class="sr-only">Мої улюбленці</span></a>
@@ -150,7 +125,7 @@
     <ul>
       <li>Рішення 15.11.2026: це сайт, а не застосунок — таббару внизу немає. На мобільному сайті він став би над нижньою панеллю Safari і з'їв би перший екран. Розділи — у меню; швидкий доступ — серце («Мої улюбленці», головний, main job — 1 торкання) і лупа.</li>
       <li><b>Без назви</b> (рішення 15.11.2026): це перша сторінка сайту з останніми новинами всіх тварин. Видимого заголовка немає — лише прихований <code>h1</code> «Прайд — останні новини» для скрінрідерів; пункту меню теж немає — сюди веде лого, і на цій сторінці воно поточне (<code>aria-current</code>). У реєстрі — внутрішня назва «Головна сторінка».</li>
-      <li>Меню відкрите — <a href="board-menu.html">варіант «Меню відкрите»</a>. Серце без входу веде на <code>login.html</code>; у вайрфреймі — на <code>my-animals.html</code>.</li>
+      <li>Кнопка меню → окремий екран <a href="menu.html">«Меню»</a> на весь екран. Серце без входу веде на <code>login.html</code>; у вайрфреймі — на <code>my-animals.html</code>.</li>
     </ul>
 
     <h2>Доступність</h2>

@@ -120,13 +120,12 @@ body {
   padding: 12px 16px;
   border-bottom: 1px solid var(--wf-line);
 }
-.menu { justify-self: start; }
+.menu-link, .menu-close { justify-self: start; }
 .brand { justify-self: center; font-weight: 700; text-decoration: none; }
-/* На головній сторінці поточне — лого: окремого пункту меню в неї немає (рішення 15.11.2026) */
-.brand[aria-current="page"] { text-decoration: underline; text-underline-offset: 4px; }
 .quick { justify-self: end; display: flex; gap: 8px; }
-/* Кнопка меню, серце і лупа — однакові квадрати 44 px з іконкою по центру */
-.menu > summary,
+/* Кнопка меню, «✕» на екрані «Меню», серце і лупа — однакові квадрати 44 px з іконкою по центру */
+.menu-link,
+.menu-close,
 .fav-link,
 .search-link {
   list-style: none;
@@ -141,9 +140,8 @@ body {
   color: inherit;
   text-decoration: none;
 }
-/* Серце поточне на «Моїх улюбленцях»; кнопка відкритого меню — так само темніша рамка */
-.fav-link[aria-current="page"],
-.menu[open] > summary { background: var(--wf-fill); border-color: var(--wf-ink); }
+/* Серце поточне на «Моїх улюбленцях» — темніша рамка */
+.fav-link[aria-current="page"] { background: var(--wf-fill); border-color: var(--wf-ink); }
 
 /* Сторінки «Пошуку» — окрема сторінка під пошук, без шапки сайту: згори рамки рядок пошуку.
    «‹ Назад» і «× Очистити» — квадрати 44 px, поле займає решту рядка. Кнопки «Знайти» немає — шукає Enter */
@@ -169,31 +167,22 @@ body {
 .device .searchbar-field { flex: 1; display: block; min-width: 0; }
 .device .searchbar-field input { width: 100%; }
 .searchbar[data-zone]::before { top: auto; bottom: -9px; left: 10px; }
-.menu > summary::-webkit-details-marker { display: none; }
-/* Меню — панель на всю ширину рамки під шапкою, поверх сторінки */
-.menu > nav {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 100%;
-  z-index: 3;
-  display: grid;
-  gap: 4px;
-  padding: 8px 16px 16px;
-  background: var(--wf-bg);
-  border-bottom: 1px solid var(--wf-line);
-}
-.menu ul { list-style: none; padding: 0; display: grid; gap: 2px; }
-.menu a { display: flex; align-items: center; gap: 10px; padding: 8px; min-height: 44px; border-radius: 8px; text-decoration: none; }
-.menu a[aria-current="page"] { font-weight: 700; background: var(--wf-fill); }
-.menu a[aria-current="true"] { font-weight: 700; }
-/* Вкладки розділу «Мої улюбленці» — підпункти з відступом під ним (рішення 15.11.2026) */
-.menu .menu-sub { padding: 0 0 0 30px; }
-.menu .menu-sub a { min-height: 40px; font-size: 14px; }
-/* Перемикач мови — радіокнопки, а не посилання; внизу меню, під рискою */
-.menu > nav > ul { padding-bottom: 8px; border-bottom: 1px solid var(--wf-line); }
-.menu .lang { margin-top: 4px; padding: 0 8px; gap: 4px; }
-.menu .lang legend { display: flex; align-items: center; gap: 8px; padding: 4px 0; color: var(--wf-muted); font-size: 13px; }
+/* Екран «Меню» (menu.html) — окремий, на весь екран, а не шторка під шапкою (рішення 15.11.2026).
+   Розділи — великим шрифтом; «Налаштування» й мова — під рискою, дрібніше */
+.menu-screen { display: grid; gap: 8px; padding: 12px 16px 24px; }
+/* Меню й так займає весь екран — пунктирна рамка зони навколо розділів тут зайва */
+.device .menu-screen nav { padding: 0; border: 0; }
+.menu-screen ul { list-style: none; padding: 0; display: grid; gap: 2px; }
+.menu-screen a { display: flex; align-items: center; gap: 12px; padding: 8px; min-height: 44px; border-radius: 8px; text-decoration: none; }
+.menu-sections > li > a { min-height: 56px; font-size: 22px; font-weight: 600; }
+.menu-sections > li > a .i { width: 26px; height: 26px; }
+.menu-screen a[aria-current="page"] { font-weight: 700; background: var(--wf-fill); }
+/* Вкладки розділу «Мої улюбленці» — підпункт з відступом під ним (рішення 15.11.2026) */
+.menu-screen .menu-sub { padding: 0 0 0 38px; }
+.menu-screen .menu-sub a { font-size: 16px; }
+.menu-more { display: grid; gap: 8px; padding-top: 12px; border-top: 1px solid var(--wf-line); }
+.menu-screen .lang { padding: 0 8px; gap: 4px; }
+.menu-screen .lang legend { display: flex; align-items: center; gap: 8px; padding: 4px 0; color: var(--wf-muted); font-size: 13px; }
 
 /* Вкладки розділу «Мої улюбленці»: Тварини · Моя допомога · Налаштування — посилання на три сторінки,
    поточна — aria-current, темна риска знизу. Не таббар: стоять угорі main, лише в цьому розділі */
@@ -431,7 +420,7 @@ body {
 /* Посилання на екран, якого ще немає у wireframes/: <a> без href.
    Видно, куди поведе, але не клікається; href з'явиться разом зі сторінкою */
 .device a:not([href]) { cursor: not-allowed; text-decoration: underline dashed; }
-.device .btn:not([href]), .menu a:not([href]) { opacity: .5; text-decoration: none; }
+.device .btn:not([href]), .menu-screen a:not([href]) { opacity: .5; text-decoration: none; }
 .device .brand:not([href]) { cursor: default; opacity: 1; text-decoration: none; }
 
 /* «Оплата неактивна без згоди» без JS: кнопка тьмяна й не натискається, доки згоду не позначено;
