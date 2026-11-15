@@ -29,6 +29,7 @@
 
   <nav class="wf-states" aria-label="Стани екрана «Усі тварини»">
     <a href="animals.html">Базова сторінка</a>
+    <a href="animals-filters.html">Фільтри</a>
     <a href="animals-empty.html">Порожній</a>
     <a href="animals-error.html" aria-current="page">Помилка</a>
     <a href="animals-loading.html">Завантаження</a>
@@ -79,28 +80,24 @@
 
       <h1>Усі тварини</h1>
 
-      <!-- Введене збережено: повтор шукає те саме -->
-      <form role="search" aria-label="Фільтри списку" data-zone="2" action="animals-loading.html" method="get">
-        <label>Ім'я тварини
-          <input type="search" name="q" autocomplete="off">
-        </label>
-        <label class="choice"><input type="checkbox" name="need" value="lacking" checked> Лише ті, кому ще бракує допомоги</label>
-        <details>
-          <summary>Вид і характер · нічого не обрано</summary>
-          <fieldset class="row">
-            <legend>Вид</legend>
-            <label class="choice"><input type="checkbox" name="kind" value="horse"> Коні</label>
-            <label class="choice"><input type="checkbox" name="kind" value="dog"> Собаки</label>
-            <label class="choice"><input type="checkbox" name="kind" value="other"> Інші</label>
-          </fieldset>
-          <fieldset class="row">
-            <legend>Характер</legend>
-            <label class="choice"><input type="checkbox" name="trait" value="1"> <span class="ph">[риса]</span></label>
-            <label class="choice"><input type="checkbox" name="trait" value="2"> <span class="ph">[риса]</span></label>
-            <label class="choice"><input type="checkbox" name="trait" value="3"> <span class="ph">[риса]</span></label>
-          </fieldset>
-        </details>
-        <button class="primary" type="submit"><span class="i i-search-text" aria-hidden="true"></span> Показати</button>
+      <!-- Пошук і фільтри цього списку (рішення 15.11.2026): компактний рядок — ім'я й «Фільтри», під ним швидкі фільтри.
+           Це фільтр списку, а не пошук по сайту: пошук по сайту — лупа в шапці. Ім'я й чіпи застосовуються одразу, без кнопки «Показати» -->
+      <form class="list-filter" role="search" aria-label="Пошук і фільтри списку" data-zone="2" action="animals-loading.html" method="get">
+        <fieldset class="filter-row">
+          <legend class="sr-only">Ім'я і фільтри</legend>
+          <label class="filter-name"><span class="sr-only">Ім'я тварини</span><span class="i i-search" aria-hidden="true"></span>
+            <input type="search" name="q" placeholder="Ім'я тварини" autocomplete="off" enterkeyhint="search">
+          </label>
+          <a class="btn filter-btn" href="animals-filters.html"><span class="i i-sliders-simple" aria-hidden="true"></span> Фільтри · 1</a>
+        </fieldset>
+        <fieldset class="chips">
+          <legend class="sr-only">Швидкі фільтри</legend>
+          <button type="button" class="chip" aria-pressed="true">Бракує допомоги</button>
+          <button type="button" class="chip" aria-pressed="false">Коні</button>
+          <button type="button" class="chip" aria-pressed="false">Собаки</button>
+          <button type="button" class="chip" aria-pressed="false">Інші</button>
+          <button type="button" class="chip" aria-pressed="false">Працює з дітьми <span class="meta">[?]</span></button>
+        </fieldset>
       </form>
 
       <!-- На місці списку — що сталося, повтор, назад і куди звернутися -->
@@ -136,14 +133,14 @@
     <h2>Зони в цьому стані</h2>
     <ul>
       <li><span class="wf-zone">3</span> Що сталося — <b>«Спробувати ще»</b> з тими самими фільтрами, «Назад до стрічки» і контакти центру: телефон, email, години, «Про центр».</li>
-      <li><span class="wf-zone">2</span> Фільтри списку — введене збережено (тут — «кому ще бракує допомоги»).</li>
+      <li><span class="wf-zone">2</span> Пошук і фільтри — обране збережено: чіп «Бракує допомоги» натиснуто, «Фільтри · 1».</li>
       <li><span class="wf-zone">1</span> — шапка працює.</li>
     </ul>
 
     <h2>Переходи flow</h2>
     <ul class="wf-flow">
       <li>Сюди — з <a href="animals-loading.html">завантаження</a>: список не прийшов.</li>
-      <li>«Спробувати ще» і «Показати» → <a href="animals-loading.html">завантаження</a>.</li>
+      <li>«Спробувати ще», чіп чи ім'я → <a href="animals-loading.html">завантаження</a>.</li>
       <li>«Назад до стрічки» і «Стрічка» вгорі → <a href="board.html">Стрічка</a>.</li>
       <li>Не виходить — контакти й <a href="center.html">Про центр</a>.</li>
     </ul>

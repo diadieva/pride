@@ -38,6 +38,7 @@ window.NAV_TREE = [
         { title: "Завантаження", href: "wireframes/board-loading.html", icon: "hourglass" }
       ] },
       { title: "Усі тварини", href: "wireframes/animals.html", icon: "search-text", children: [
+        { title: "Фільтри", href: "wireframes/animals-filters.html", icon: "sliders-simple" },
         { title: "Порожній стан", href: "wireframes/animals-empty.html", icon: "inbox" },
         { title: "Помилка", href: "wireframes/animals-error.html", icon: "exclamation-circle" },
         { title: "Завантаження", href: "wireframes/animals-loading.html", icon: "hourglass" }

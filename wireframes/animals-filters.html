@@ -1,0 +1,170 @@
+<!doctype html>
+<!--
+  Усі тварини · animals-filters.html — варіант базової сторінки «Фільтри» (sitemap.md, «Стани, а не екрани»).
+  Людина натиснула «Фільтри» в рядку над списком: повний набір відкривається шторкою поверх списку (рішення 15.11.2026).
+  Не стан: дані ті самі, людина лише відкрила панель.
+
+  Крок flow — flows.md, flow R3: ALL «Усі тварини» → «Фільтри» → «Показати [кількість]» → L3 «loading: список» →
+  5 «Хтось знайшовся за ім'ям чи фільтром?».
+
+  Job (sitemap.md): R1, R3.
+-->
+<html lang="uk" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Вайрфрейм · Усі тварини · фільтри</title>
+  <script src="../_nav/theme.js"></script>
+  <link rel="stylesheet" href="../_nav/theme.css">
+  <link rel="stylesheet" href="../_nav/icons.css">
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script defer src="../_nav/tree.js"></script>
+  <script defer src="../_nav/nav.js"></script>
+  <link rel="stylesheet" href="_frame.css">
+</head>
+<body>
+<div class="wf-page">
+
+  <nav class="wf-states" aria-label="Стани екрана «Усі тварини»">
+    <a href="animals.html">Базова сторінка</a>
+    <a href="animals-filters.html" aria-current="page">Фільтри</a>
+    <a href="animals-empty.html">Порожній</a>
+    <a href="animals-error.html">Помилка</a>
+    <a href="animals-loading.html">Завантаження</a>
+    <span>Успіху немає: це не екран дії — тут шукають і фільтрують</span>
+  </nav>
+
+  <div class="device">
+
+    <header class="app-header" data-zone="1">
+      <details class="menu">
+        <summary><span class="i i-menu-bars" aria-hidden="true"></span><span class="sr-only">Меню</span></summary>
+        <nav aria-label="Меню">
+          <ul>
+            <li>
+              <a href="board.html" aria-current="true"><span class="i i-newspaper" aria-hidden="true"></span>Стрічка</a>
+              <ul class="menu-sub">
+                <li><a href="animals.html" aria-current="page"><span class="i i-paw" aria-hidden="true"></span>Усі тварини</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a>
+              <ul class="menu-sub">
+                <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя допомога</a></li>
+              </ul>
+            </li>
+            <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+            <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+          </ul>
+          <ul>
+            <li><a href="my-subscriptions.html"><span class="i i-sliders-simple" aria-hidden="true"></span>Налаштування</a></li>
+          </ul>
+          <fieldset class="lang">
+            <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
+            <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
+            <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
+          </fieldset>
+        </nav>
+      </details>
+      <a class="brand" href="board.html">Прайд</a>
+      <nav class="quick" aria-label="Швидкий доступ">
+        <a class="fav-link" href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span><span class="sr-only">Мої улюбленці</span></a>
+        <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
+      </nav>
+    </header>
+
+    <main>
+      <a class="back" href="board.html"><span class="i i-angle-left" aria-hidden="true"></span> Стрічка</a>
+
+      <h1>Усі тварини</h1>
+
+      <!-- Пошук і фільтри цього списку (рішення 15.11.2026): компактний рядок — ім'я й «Фільтри», під ним швидкі фільтри.
+           Це фільтр списку, а не пошук по сайту: пошук по сайту — лупа в шапці. Ім'я й чіпи застосовуються одразу, без кнопки «Показати» -->
+      <form class="list-filter" role="search" aria-label="Пошук і фільтри списку" data-zone="2" action="animals-loading.html" method="get">
+        <fieldset class="filter-row">
+          <legend class="sr-only">Ім'я і фільтри</legend>
+          <label class="filter-name"><span class="sr-only">Ім'я тварини</span><span class="i i-search" aria-hidden="true"></span>
+            <input type="search" name="q" placeholder="Ім'я тварини" autocomplete="off" enterkeyhint="search">
+          </label>
+          <a class="btn filter-btn" href="animals.html" aria-current="page"><span class="i i-sliders-simple" aria-hidden="true"></span> Фільтри · 1</a>
+        </fieldset>
+        <fieldset class="chips">
+          <legend class="sr-only">Швидкі фільтри</legend>
+          <button type="button" class="chip" aria-pressed="true">Бракує допомоги</button>
+          <button type="button" class="chip" aria-pressed="false">Коні</button>
+          <button type="button" class="chip" aria-pressed="false">Собаки</button>
+          <button type="button" class="chip" aria-pressed="false">Інші</button>
+          <button type="button" class="chip" aria-pressed="false">Працює з дітьми <span class="meta">[?]</span></button>
+        </fieldset>
+      </form>
+
+      <!-- Шторка «Фільтри» поверх списку: повний набір; застосовується кнопкою «Показати [кількість]» -->
+      <form aria-labelledby="filters-title" data-zone="3" action="animals-loading.html" method="get">
+        <h2 id="filters-title">Фільтри</h2>
+        <fieldset class="row">
+          <legend>Вид</legend>
+          <label class="choice"><input type="checkbox" name="kind" value="horse"> Кінь</label>
+          <label class="choice"><input type="checkbox" name="kind" value="dog"> Собака</label>
+          <label class="choice"><input type="checkbox" name="kind" value="other"> Інші</label>
+        </fieldset>
+        <fieldset>
+          <legend>Кому ще бракує допомоги</legend>
+          <label class="choice"><input type="checkbox" name="need" value="lacking" checked> Лише ті, кому ще бракує допомоги</label>
+        </fieldset>
+        <fieldset class="row">
+          <legend>Характер <span class="meta">[?]</span></legend>
+          <label class="choice"><input type="checkbox" name="trait" value="1"> <span class="ph">[риса]</span></label>
+          <label class="choice"><input type="checkbox" name="trait" value="2"> <span class="ph">[риса]</span></label>
+          <label class="choice"><input type="checkbox" name="trait" value="3"> <span class="ph">[риса]</span></label>
+        </fieldset>
+        <fieldset>
+          <legend>Працює з дітьми <span class="meta">[?]</span></legend>
+          <label class="choice"><input type="checkbox" name="kids" value="1"> Лише ті, хто працює з дітьми — це коні</label>
+        </fieldset>
+        <footer class="sheet-actions">
+          <a class="btn" href="animals-loading.html">Скинути</a>
+          <button class="primary" type="submit">Показати <span class="ph">[кількість]</span></button>
+        </footer>
+      </form>
+    </main>
+
+  </div>
+
+  <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
+    <h2>Усі тварини · варіант «Фільтри»</h2>
+    <ul>
+      <li><code>animals-filters.html</code> — варіант <a href="animals.html">базової сторінки</a>, не стан: відкрита шторка «Фільтри» (рішення 15.11.2026).</li>
+      <li>Швидкі фільтри-чіпи над списком покривають найчастіше; шторка — для повного набору й комбінацій.</li>
+    </ul>
+
+    <h2>Job</h2>
+    <ul>
+      <li>R1 · Зрозуміти, з ким із тварин виникне зв'язок</li>
+      <li>R3 · Познайомитися з твариною, перш ніж давати гроші</li>
+    </ul>
+
+    <h2>Зони і головна дія кожної</h2>
+    <ul>
+      <li><span class="wf-zone">1</span> Шапка — як на базовій сторінці.</li>
+      <li><span class="wf-zone">2</span> Пошук і фільтри — «Фільтри · 1» позначено: шторка відкрита; чіп «Бракує допомоги» натиснуто, бо цей фільтр уже діє.</li>
+      <li><span class="wf-zone">3</span> Шторка «Фільтри» поверх списку: Вид (кінь · собака · інші); Кому ще бракує допомоги; Характер [?] — набір рис дасть центр; Працює з дітьми [?] — лише коні (від замовниці, 15.11.2026). Унизу «Скинути» (світла) і <b>«Показати [кількість]»</b> — скільки тварин буде, видно до натискання.</li>
+    </ul>
+
+    <h2>Дані</h2>
+    <ul>
+      <li>Риси характеру — [?]: дасть центр разом із профілями.</li>
+      <li>«Працює з дітьми» — [?]: котрі саме коні, скаже центр (Г8).</li>
+      <li>«Бракує» чи «покрито» — [?]: правило рахунку «покрито» не визначено (sitemap.md, питання до центру 2).</li>
+    </ul>
+
+    <h2>Переходи flow</h2>
+    <ul class="wf-flow">
+      <li>Сюди — «Фільтри» на <a href="animals.html">базовій сторінці</a>.</li>
+      <li>«Показати [кількість]» → <a href="animals-loading.html">завантаження: список</a> (L3) → розвилка 5: так — <a href="animals.html">список</a>, ні — <a href="animals-empty.html">порожній стан</a>.</li>
+      <li>«Скинути» → <a href="animals-loading.html">завантаження</a> без фільтрів; «Фільтри» ще раз — закрити шторку без змін → <a href="animals.html">базова сторінка</a>.</li>
+    </ul>
+  </aside>
+
+</div>
+</body>
+</html>

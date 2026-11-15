@@ -30,6 +30,7 @@
 
   <nav class="wf-states" aria-label="Стани екрана «Усі тварини»">
     <a href="animals.html" aria-current="page">Базова сторінка</a>
+    <a href="animals-filters.html">Фільтри</a>
     <a href="animals-empty.html">Порожній</a>
     <a href="animals-error.html">Помилка</a>
     <a href="animals-loading.html">Завантаження</a>
@@ -80,33 +81,29 @@
 
       <h1>Усі тварини</h1>
 
-      <!-- Ім'я і фільтри — одна форма, фільтр цього списку; глобальний пошук — лупа в шапці. Результат приходить через «loading: список» -->
-      <form role="search" aria-label="Фільтри списку" data-zone="2" action="animals-loading.html" method="get">
-        <label>Ім'я тварини
-          <input type="search" name="q" autocomplete="off">
-        </label>
-        <label class="choice"><input type="checkbox" name="need" value="lacking"> Лише ті, кому ще бракує допомоги</label>
-        <details>
-          <summary>Вид і характер · нічого не обрано</summary>
-          <fieldset class="row">
-            <legend>Вид</legend>
-            <label class="choice"><input type="checkbox" name="kind" value="horse"> Коні</label>
-            <label class="choice"><input type="checkbox" name="kind" value="dog"> Собаки</label>
-            <label class="choice"><input type="checkbox" name="kind" value="other"> Інші</label>
-          </fieldset>
-          <fieldset class="row">
-            <legend>Характер</legend>
-            <label class="choice"><input type="checkbox" name="trait" value="1"> <span class="ph">[риса]</span></label>
-            <label class="choice"><input type="checkbox" name="trait" value="2"> <span class="ph">[риса]</span></label>
-            <label class="choice"><input type="checkbox" name="trait" value="3"> <span class="ph">[риса]</span></label>
-          </fieldset>
-        </details>
-        <button class="primary" type="submit"><span class="i i-search-text" aria-hidden="true"></span> Показати</button>
+      <!-- Пошук і фільтри цього списку (рішення 15.11.2026): компактний рядок — ім'я й «Фільтри», під ним швидкі фільтри.
+           Це фільтр списку, а не пошук по сайту: пошук по сайту — лупа в шапці. Ім'я й чіпи застосовуються одразу, без кнопки «Показати» -->
+      <form class="list-filter" role="search" aria-label="Пошук і фільтри списку" data-zone="2" action="animals-loading.html" method="get">
+        <fieldset class="filter-row">
+          <legend class="sr-only">Ім'я і фільтри</legend>
+          <label class="filter-name"><span class="sr-only">Ім'я тварини</span><span class="i i-search" aria-hidden="true"></span>
+            <input type="search" name="q" placeholder="Ім'я тварини" autocomplete="off" enterkeyhint="search">
+          </label>
+          <a class="btn filter-btn" href="animals-filters.html"><span class="i i-sliders-simple" aria-hidden="true"></span> Фільтри</a>
+        </fieldset>
+        <fieldset class="chips">
+          <legend class="sr-only">Швидкі фільтри</legend>
+          <button type="button" class="chip" aria-pressed="false">Бракує допомоги</button>
+          <button type="button" class="chip" aria-pressed="false">Коні</button>
+          <button type="button" class="chip" aria-pressed="false">Собаки</button>
+          <button type="button" class="chip" aria-pressed="false">Інші</button>
+          <button type="button" class="chip" aria-pressed="false">Працює з дітьми <span class="meta">[?]</span></button>
+        </fieldset>
       </form>
 
       <!-- Рядки для порівняння: те, за чим обирають (R1) — фото, ім'я, вид, характер, бракує чи покрито -->
       <section aria-labelledby="list" data-zone="3">
-        <h2 id="list">Тварини центру</h2>
+        <h2 id="list" class="sr-only">Тварини центру</h2>
         <p class="meta"><span class="ph">[кількість]</span> тварин · порядок — [?]</p>
         <ul class="rows">
           <li>
@@ -192,8 +189,8 @@
     <h2>Зони і головна дія кожної</h2>
     <ul>
       <li><span class="wf-zone">1</span> Шапка — меню зліва (розділи з підпунктами: «Стрічка» — «Усі тварини», «Мої улюбленці» — «Моя допомога»; «Налаштування»; мова; поточний — підпункт «Усі тварини» розділу «Стрічка»), «Прайд» по центру, праворуч серце → «Мої улюбленці» і лупа → «Пошук».</li>
-      <li><span class="wf-zone">2</span> Фільтри списку — <b>«Показати»</b>. Не глобальний пошук (він — лупа в шапці), а фільтр цього списку. Справжня форма: ім'я, «кому ще бракує допомоги» на виду, вид і характер — у розгортці, щоб список було видно без прокрутки. Коли фільтр обрано, в розгортці з'являється «Скинути фільтри».</li>
-      <li><span class="wf-zone">3</span> Тварини центру — рядок на тварину; торкання рядка → профіль (R3, розвилка 5 — так). Рядок показує те, за чим порівнюють: фото, ім'я, вид і перебування, риси характеру, «бракує» чи «покрито». Темної кнопки немає: рядки рівноправні.</li>
+      <li><span class="wf-zone">2</span> Пошук і фільтри — компактно (рішення 15.11.2026): один рядок — поле «Ім'я тварини» з лупою всередині (підпис прихований, «×» з'являється, коли поле заповнене) і кнопка «Фільтри» (з лічильником, коли фільтри діють: «Фільтри · 2») → <a href="animals-filters.html">шторка «Фільтри»</a>. Під ним — швидкі фільтри-чіпи, гортаються вбік: «Бракує допомоги» першим (найпотрібніший, DV4), «Коні», «Собаки», «Інші», «Працює з дітьми» [?] — лише коні. Це фільтр списку, а не пошук по сайту (той — лупа в шапці): ім'я фільтрує під час введення, чіп — одним торканням, кнопки «Показати» немає. Темної кнопки в зоні немає. У вайрфреймі чіпи не перемикаються — без JS.</li>
+      <li><span class="wf-zone">3</span> Тварини центру — над списком рядок «[кількість] тварин»; далі рядок на тварину; торкання рядка → профіль (R3, розвилка 5 — так). Рядок показує те, за чим порівнюють: фото, ім'я, вид і перебування, риси характеру, «бракує» чи «покрито». Темної кнопки немає: рядки рівноправні.</li>
     </ul>
 
     <h2>Без тиску</h2>
@@ -213,7 +210,7 @@
     <ul class="wf-flow">
       <li>Сюди — з <a href="animals-loading.html">завантаження</a>: розвилка 5 «Хтось знайшовся за ім'ям чи фільтром?» — так.</li>
       <li>Розвилка 5: ні — <a href="animals-empty.html">порожній стан</a> «нікого за фільтром»; збій — <a href="animals-error.html">помилка</a> (розвилка 4а, E4).</li>
-      <li>«Показати» → <a href="animals-loading.html">завантаження: список за ім'ям і фільтрами</a>.</li>
+      <li>Ім'я, чіп чи «Показати [кількість]» у шторці → <a href="animals-loading.html">завантаження: список за ім'ям і фільтрами</a>. «Фільтри» → <a href="animals-filters.html">шторка «Фільтри»</a> (варіант).</li>
       <li>Рядок → <a href="animal-loading.html">Профіль тварини · завантаження</a> (L2).</li>
       <li>«Стрічка» вгорі → <a href="board.html">Стрічка</a>.</li>
       <li>Сюди ж — з <a href="search-results.html">результатів Пошуку</a> («Усі тварини»), з <a href="search.html">Пошуку</a> до введення і з <a href="search-empty.html">порожньому стані</a>, щоб переглядати з фільтрами. Поля пошуку у стрічці більше немає (рішення 14.11.2026).</li>

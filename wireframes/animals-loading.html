@@ -28,6 +28,7 @@
 
   <nav class="wf-states" aria-label="Стани екрана «Усі тварини»">
     <a href="animals.html">Базова сторінка</a>
+    <a href="animals-filters.html">Фільтри</a>
     <a href="animals-empty.html">Порожній</a>
     <a href="animals-error.html">Помилка</a>
     <a href="animals-loading.html" aria-current="page">Завантаження</a>
@@ -78,32 +79,21 @@
 
       <h1>Усі тварини</h1>
 
-      <!-- Форма на місці: можна уточнити фільтри, не чекаючи списку -->
-      <form role="search" aria-label="Фільтри списку" data-zone="2" action="animals-loading.html" method="get">
-        <label>Ім'я тварини
-          <input type="search" name="q" autocomplete="off">
-        </label>
-        <label class="choice"><input type="checkbox" name="need" value="lacking"> Лише ті, кому ще бракує допомоги</label>
-        <details>
-          <summary>Вид і характер · нічого не обрано</summary>
-          <fieldset class="row">
-            <legend>Вид</legend>
-            <label class="choice"><input type="checkbox" name="kind" value="horse"> Коні</label>
-            <label class="choice"><input type="checkbox" name="kind" value="dog"> Собаки</label>
-            <label class="choice"><input type="checkbox" name="kind" value="other"> Інші</label>
-          </fieldset>
-          <fieldset class="row">
-            <legend>Характер</legend>
-            <label class="choice"><input type="checkbox" name="trait" value="1"> <span class="ph">[риса]</span></label>
-            <label class="choice"><input type="checkbox" name="trait" value="2"> <span class="ph">[риса]</span></label>
-            <label class="choice"><input type="checkbox" name="trait" value="3"> <span class="ph">[риса]</span></label>
-          </fieldset>
-        </details>
-        <button class="primary" type="submit"><span class="i i-search-text" aria-hidden="true"></span> Показати</button>
+      <!-- Пошук і фільтри цього списку (рішення 15.11.2026): компактний рядок — ім'я й «Фільтри», під ним швидкі фільтри.
+           Це фільтр списку, а не пошук по сайту: пошук по сайту — лупа в шапці. Ім'я й чіпи застосовуються одразу, без кнопки «Показати» -->
+      <form class="list-filter" role="search" aria-label="Пошук і фільтри списку" data-zone="2" action="animals-loading.html" method="get">
+        <fieldset class="filter-row">
+          <legend class="sr-only">Ім'я і фільтри</legend>
+          <label class="filter-name"><span class="sr-only">Ім'я тварини</span><span class="i i-search" aria-hidden="true"></span>
+            <input type="search" name="q" placeholder="Ім'я тварини" autocomplete="off" enterkeyhint="search">
+          </label>
+          <a class="btn filter-btn" href="animals-filters.html"><span class="i i-sliders-simple" aria-hidden="true"></span> Фільтри</a>
+        </fieldset>
+        <p class="chips" aria-hidden="true"><span class="skeleton chip"></span><span class="skeleton chip"></span><span class="skeleton chip"></span><span class="skeleton chip"></span></p>
       </form>
 
       <section aria-labelledby="list" data-zone="3" aria-busy="true">
-        <h2 id="list">Тварини центру</h2>
+        <h2 id="list" class="sr-only">Тварини центру</h2>
         <p class="meta" role="status"><span class="i i-hourglass" aria-hidden="true"></span> Завантажуємо тварин…</p>
         <span class="skeleton avatar"></span>
         <span class="skeleton title short"></span>
@@ -135,13 +125,13 @@
     <h2>Зони в цьому стані</h2>
     <ul>
       <li><span class="wf-zone">3</span> Тварини центру — заголовок на місці, рядки — сірими заглушками: фото, ім'я, рядок даних. Текст процесу — «Завантажуємо тварин…».</li>
-      <li><span class="wf-zone">2</span> Фільтри списку — працюють: уточнити ім'я чи фільтри можна, не чекаючи.</li>
+      <li><span class="wf-zone">2</span> Пошук і фільтри — поле й «Фільтри» працюють; чіпи — заглушками, поки не прийшов набір фільтрів.</li>
       <li>Вихід — «Стрічка» вгорі, шапка.</li>
     </ul>
 
     <h2>Інший варіант — та сама сторінка</h2>
     <ul>
-      <li><b>Список за ім'ям і фільтрами</b> — після «Показати»: у полі — ім'я, обрані фільтри позначено, текст процесу — «Шукаємо „<span class="ph">[запит]</span>“…».</li>
+      <li><b>Список за ім'ям і фільтрами</b> — після введення імені, чіпа чи «Показати [кількість]» у шторці: у полі — ім'я, обрані фільтри позначено, текст процесу — «Шукаємо „<span class="ph">[запит]</span>“…».</li>
     </ul>
 
     <h2>Переходи flow</h2>

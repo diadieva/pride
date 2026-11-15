@@ -375,6 +375,23 @@ body {
   text-decoration: none;
 }
 .device .rows a > span:not(.img):not(.i) { display: grid; gap: 2px; }
+/* «Усі тварини»: компактний фільтр списку (рішення 15.11.2026) — рядок «ім'я + Фільтри» і швидкі фільтри-чіпи.
+   Не схоже на пошук по сайту: без підпису над полем, без темної кнопки */
+.device main form.list-filter { gap: 10px; }
+.device .filter-row { display: flex; gap: 8px; align-items: center; }
+.device .filter-name { position: relative; flex: 1; display: block; min-width: 0; }
+.device .filter-name > .i { position: absolute; left: 12px; top: 12px; color: var(--wf-muted); }
+.device .filter-name input { width: 100%; min-height: 44px; padding-left: 40px; }
+.filter-clear { flex: none; min-width: 44px; min-height: 44px; display: grid; place-items: center; color: inherit; }
+.device .filter-btn { flex: none; display: inline-flex; align-items: center; gap: 6px; padding: 0 12px; white-space: nowrap; }
+.device .chips { display: flex; flex-wrap: nowrap; gap: 8px; overflow-x: auto; min-width: 0; padding: 0 0 2px; margin: 0; }
+.device .chip { flex: none; display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 14px; border-radius: 999px; background: var(--wf-bg); border: 1px solid var(--wf-line); white-space: nowrap; text-decoration: none; color: inherit; font-size: 14px; }
+.device .chip[aria-pressed="true"] { background: var(--wf-ink); color: var(--wf-bg); border-color: var(--wf-ink); }
+.skeleton.chip { display: inline-block; width: 90px; min-height: 44px; border-radius: 999px; padding: 0; border: 0; }
+/* Шторка «Фільтри»: розділи один під одним, внизу «Скинути» і «Показати [кількість]» */
+.device .sheet-actions { display: flex; gap: 8px; }
+.device .sheet-actions > * { flex: 1 1 0; }
+
 /* Компактна картка регулярної підтримки на «Моїй допомозі»: фото чи іконка ліворуч, текст і «Керувати ›» праворуч */
 .device main article.support-card { display: grid; grid-template-columns: 48px 1fr; align-items: start; gap: 2px 12px; }
 .support-card > .img { grid-row: span 4; }
