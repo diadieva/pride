@@ -352,6 +352,8 @@ body {
 .skeleton.short { width: 45%; }
 .skeleton.button { min-height: 44px; border-radius: 10px; }
 .notice { padding: 12px; border: 2px solid var(--wf-ink); border-radius: 12px; display: grid; gap: 8px; }
+/* Важливе в стрічці «Моїх улюбленців» — article з .notice: суцільна темна рамка замість пунктиру зони */
+.device main article.notice { border: 2px solid var(--wf-ink); }
 .field-error { font-size: 13px; font-weight: 600; }
 
 /* «Пропустити стрічку»: на екрані видно лише у фокусі (sitemap.md, «Навігація») */
