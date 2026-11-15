@@ -1,0 +1,157 @@
+<!doctype html>
+<!--
+  Керування допомогою · manage.html — базова сторінка (sitemap.md, «Екрани», група «Мої улюбленці»). Тип — глибокий.
+  Новий екран (рішення 15.11.2026): одна регулярна підтримка — опіка чи донат центру — і список дій,
+  по одному рішенню на екран (варіанти manage-amount, -pause, -method, -cancel). Без вкладок «Мої улюбленці».
+
+  Крок flow — flows.md, flow R5: SUP «Керувати ›» чи MAIN «Керувати опікою» → MANAGE → розвилка 5 «Що змінити?»:
+  суму (manage-amount, 6), пауза (manage-pause, 7 [?]), спосіб оплати (manage-method, PAY → 9), скасувати (manage-cancel, ST2 → 8).
+  Кожна дія → L2 «оновлюємо в провайдера» (manage-loading) → 10 «Провайдер підтвердив зміну?».
+  Сюди ж — підписане посилання в чеку (розвилка 2 [?]): лише ця підтримка, без входу.
+  Job (sitemap.md): R5, E1, Г3 [?].
+  Правила — wireframes/_conventions.md.
+-->
+<html lang="uk" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Вайрфрейм · Керування допомогою</title>
+  <script src="../_nav/theme.js"></script>
+  <link rel="stylesheet" href="../_nav/theme.css">
+  <link rel="stylesheet" href="../_nav/icons.css">
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script defer src="../_nav/tree.js"></script>
+  <script defer src="../_nav/nav.js"></script>
+  <link rel="stylesheet" href="_frame.css">
+</head>
+<body>
+<div class="wf-page">
+
+  <nav class="wf-states" aria-label="Стани екрана «Керування допомогою»">
+    <a href="manage.html" aria-current="page">Базова сторінка</a>
+    <a href="manage-amount.html">Змінити суму</a>
+    <a href="manage-pause.html">Призупинити</a>
+    <a href="manage-method.html">Спосіб оплати</a>
+    <a href="manage-cancel.html">Скасувати</a>
+    <a href="manage-error.html">Помилка</a>
+    <a href="manage-loading.html">Завантаження</a>
+    <a href="manage-success.html">Успіх</a>
+    <span>Порожнього стану немає: екран завжди про одну конкретну опіку чи донат</span>
+  </nav>
+
+  <div class="device">
+
+    <header class="app-header" data-zone="1">
+      <details class="menu">
+        <summary><span class="i i-menu-bars" aria-hidden="true"></span><span class="sr-only">Меню</span></summary>
+        <nav aria-label="Меню">
+          <ul>
+            <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+            <li>
+              <a href="my-animals.html" aria-current="true"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a>
+              <ul class="menu-sub">
+                <li><a href="my-support.html" aria-current="true"><span class="i i-wallet" aria-hidden="true"></span>Моя допомога</a></li>
+              </ul>
+            </li>
+            <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+            <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+          </ul>
+          <ul>
+            <li><a href="my-subscriptions.html"><span class="i i-sliders-simple" aria-hidden="true"></span>Налаштування</a></li>
+          </ul>
+          <fieldset class="lang">
+            <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
+            <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
+            <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
+          </fieldset>
+        </nav>
+      </details>
+      <a class="brand" href="board.html">Прайд</a>
+      <nav class="quick" aria-label="Швидкий доступ">
+        <a class="fav-link" href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span><span class="sr-only">Мої улюбленці</span></a>
+        <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
+      </nav>
+    </header>
+
+    <main>
+      <a class="back" href="my-support.html"><span class="i i-angle-left" aria-hidden="true"></span> Моя допомога</a>
+      <header class="manage-title">
+        <span class="img avatar" role="img" aria-label="Фото: [ім'я коня]">фото</span>
+        <h1>Опіка над <span class="ph">[ім'я коня]</span></h1>
+      </header>
+
+      <!-- Звірка: що зараз діє. Зона для читання -->
+      <section aria-labelledby="now" data-zone="2">
+        <h2 id="now">Зараз</h2>
+        <dl>
+          <dt>Стан</dt>
+          <dd><span class="i i-check-circle" aria-hidden="true"></span> активна</dd>
+          <dt>Сума</dt>
+          <dd><b>1 000 грн щомісяця</b></dd>
+          <dt>Наступне списання</dt>
+          <dd><time datetime="2026-12-01">1 грудня</time></dd>
+          <dt>Спосіб оплати</dt>
+          <dd>картка в гривні · WayForPay <span class="meta">[?]</span></dd>
+          <dt>Чеки</dt>
+          <dd>kateryna@example.com</dd>
+        </dl>
+      </section>
+
+      <!-- Що змінити: по одному рішенню на екран. Рядки на всю ширину, «Скасувати опіку» — останнім, видно одразу -->
+      <nav aria-labelledby="change" data-zone="3">
+        <h2 id="change">Що змінити</h2>
+        <ul class="rows compact">
+          <li><a href="manage-amount.html"><span class="i i-coin" aria-hidden="true"></span><span>Змінити суму</span><span class="i i-angle-right" aria-hidden="true"></span></a></li>
+          <li><a href="manage-pause.html"><span class="i i-pause-circle" aria-hidden="true"></span><span>Призупинити <span class="meta">[?]</span></span><span class="i i-angle-right" aria-hidden="true"></span></a></li>
+          <li><a href="manage-method.html"><span class="i i-card-exchange" aria-hidden="true"></span><span>Змінити спосіб оплати</span><span class="i i-angle-right" aria-hidden="true"></span></a></li>
+        </ul>
+        <ul class="rows compact">
+          <li><a href="manage-cancel.html"><span class="i i-xmark-circle" aria-hidden="true"></span><span>Скасувати опіку</span><span class="i i-angle-right" aria-hidden="true"></span></a></li>
+        </ul>
+      </nav>
+    </main>
+
+  </div>
+
+  <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
+    <h2>Керування допомогою · базова сторінка</h2>
+    <ul>
+      <li><code>manage.html</code>. Група «Мої улюбленці». Тип — глибокий: назад — «‹ Моя допомога».</li>
+      <li>Рішення 15.11.2026: одна підтримка — один екран, одна дія — один вигляд. Замість чотирьох вкладених розкриттів на «Моїй допомозі».</li>
+      <li>Той самий екран керує <b>донатом центру</b>: заголовок «Донат центру», іконка центру замість фото, дії ті самі, останній рядок — «Скасувати донат».</li>
+      <li>Flow R5, вузол MANAGE → розвилка 5 «Що змінити?». Від картки тварини — 3 кліки: «Керувати опікою» → «Змінити суму» чи «Скасувати опіку» → «Зберегти суму» чи «Скасувати опіку».</li>
+    </ul>
+
+    <h2>Job</h2>
+    <ul>
+      <li>R5 · Змінити чи зупинити регулярну допомогу, коли змінюються обставини</li>
+      <li>E1 · Спокій замість тривоги очікування</li>
+      <li>Г3 [?] · Коли я зупиняю допомогу, не відчувати провини, щоб могти повернутися згодом</li>
+    </ul>
+
+    <h2>Зони і головна дія кожної</h2>
+    <ul>
+      <li><span class="wf-zone">1</span> Шапка — як на інших екранах донора; у меню поточна «Моя допомога». Вкладок «Мої улюбленці» тут немає: це глибокий екран, назад — «‹ Моя допомога».</li>
+      <li><span class="wf-zone">2</span> Зараз — стан, сума на місяць, наступне списання, спосіб оплати, куди приходять чеки. Зона для читання: з цим звіряють будь-яку зміну.</li>
+      <li><span class="wf-zone">3</span> Що змінити — рядки на всю ширину з іконкою, назвою й стрілкою, від 44 px: «Змінити суму», «Призупинити» [?], «Змінити спосіб оплати»; під рискою — <b>«Скасувати опіку»</b>, останнім. Скасування назване прямо, не сховане і не червоне: без тиску ні туди, ні туди. Темної кнопки немає: рядки — переходи.</li>
+    </ul>
+
+    <h2>Варіанти — та сама сторінка</h2>
+    <ul>
+      <li><b>Опіка призупинена</b> [?] — у зоні 2 «на паузі до [дата]», у зоні 3 «Відновити» замість «Призупинити».</li>
+      <li><b>Не вдалося списати</b> (flow M, розвилка 11) — над зоною 2 рядок «Не вдалося списати 1 000 грн 1 листопада. [ім'я коня] лишається з вами»; стан «не вдалося списати»; з банера на картці людина приходить одразу на <a href="manage-method.html">спосіб оплати</a>.</li>
+      <li><b>Картку не змінено</b> (розвилка 9 — ні, ST3) — людина повернулася від провайдера без нової картки: над зоною 2 «Картку не змінено, діє попередня».</li>
+      <li><b>З підписаного посилання в чеку</b> (розвилка 2 [?]) — лише ця підтримка; «‹ Моя допомога» веде на вхід, бо сесії немає.</li>
+    </ul>
+
+    <h2>Переходи flow</h2>
+    <ul class="wf-flow">
+      <li>Сюди — «Керувати ›» на <a href="my-support.html">Моїй допомозі</a> (R5: SUP → MANAGE); «Керувати опікою» на картці у вкладці <a href="my-animals.html">«Тварини»</a> — одразу ця опіка (MAIN → MANAGE); підписане посилання в чеку.</li>
+      <li>Розвилка 5 «Що змінити?» → <a href="manage-amount.html">Змінити суму</a>, <a href="manage-pause.html">Призупинити</a> [?], <a href="manage-method.html">Спосіб оплати</a>, <a href="manage-cancel.html">Скасувати</a>.</li>
+      <li>«‹ Моя допомога» → <a href="my-support.html">Моя допомога</a>.</li>
+    </ul>
+  </aside>
+
+</div>
+</body>
+</html>

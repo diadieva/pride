@@ -1,0 +1,125 @@
+<!doctype html>
+<!--
+  Керування допомогою · manage-cancel.html — варіант базової сторінки «Скасувати» (sitemap.md, «Стани, а не екрани»).
+  Одне рішення й одне підтвердження: що станеться і дві однаково світлі кнопки. Без опитування «чому» і без «ви впевнені?» удруге.
+
+  Крок flow — flows.md, flow R5: MANAGE → розвилка 5 — скасувати → ST2 «одне підтвердження без тиску» →
+  8 «Підтверджує?»: так → L2 (manage-loading); ні — «Залишити як є» → MANAGE.
+  Job (sitemap.md): R5, E1, Г3 [?].
+  Правила — wireframes/_conventions.md.
+-->
+<html lang="uk" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Вайрфрейм · Керування допомогою · скасувати</title>
+  <script src="../_nav/theme.js"></script>
+  <link rel="stylesheet" href="../_nav/theme.css">
+  <link rel="stylesheet" href="../_nav/icons.css">
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script defer src="../_nav/tree.js"></script>
+  <script defer src="../_nav/nav.js"></script>
+  <link rel="stylesheet" href="_frame.css">
+</head>
+<body>
+<div class="wf-page">
+
+  <nav class="wf-states" aria-label="Стани екрана «Керування допомогою»">
+    <a href="manage.html">Базова сторінка</a>
+    <a href="manage-amount.html">Змінити суму</a>
+    <a href="manage-pause.html">Призупинити</a>
+    <a href="manage-method.html">Спосіб оплати</a>
+    <a href="manage-cancel.html" aria-current="page">Скасувати</a>
+    <a href="manage-error.html">Помилка</a>
+    <a href="manage-loading.html">Завантаження</a>
+    <a href="manage-success.html">Успіх</a>
+    <span>Порожнього стану немає: екран завжди про одну конкретну опіку чи донат</span>
+  </nav>
+
+  <div class="device">
+
+    <header class="app-header" data-zone="1">
+      <details class="menu">
+        <summary><span class="i i-menu-bars" aria-hidden="true"></span><span class="sr-only">Меню</span></summary>
+        <nav aria-label="Меню">
+          <ul>
+            <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+            <li>
+              <a href="my-animals.html" aria-current="true"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a>
+              <ul class="menu-sub">
+                <li><a href="my-support.html" aria-current="true"><span class="i i-wallet" aria-hidden="true"></span>Моя допомога</a></li>
+              </ul>
+            </li>
+            <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+            <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+          </ul>
+          <ul>
+            <li><a href="my-subscriptions.html"><span class="i i-sliders-simple" aria-hidden="true"></span>Налаштування</a></li>
+          </ul>
+          <fieldset class="lang">
+            <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
+            <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
+            <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
+          </fieldset>
+        </nav>
+      </details>
+      <a class="brand" href="board.html">Прайд</a>
+      <nav class="quick" aria-label="Швидкий доступ">
+        <a class="fav-link" href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span><span class="sr-only">Мої улюбленці</span></a>
+        <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
+      </nav>
+    </header>
+
+    <main>
+      <a class="back" href="manage.html"><span class="i i-angle-left" aria-hidden="true"></span> Опіка над <span class="ph">[ім'я коня]</span></a>
+      <h1>Скасувати опіку над <span class="ph">[ім'я коня]</span></h1>
+
+      <form aria-labelledby="cancel-title" data-zone="2" action="manage-loading.html" method="get">
+        <h2 id="cancel-title">Що станеться</h2>
+        <input type="hidden" name="support" value="care-1">
+        <ul>
+          <li>щомісячні списання по 1 000 грн припиняться — <time datetime="2026-12-01">1 грудня</time> нічого не спишеться;</li>
+          <li><span class="ph">[ім'я коня]</span> лишається у ваших «Моїх улюбленцях», новини приходять як і раніше <span class="meta">[?]</span>;</li>
+          <li>повернутися до опіки можна будь-коли.</li>
+        </ul>
+        <footer class="actions">
+          <button type="submit">Скасувати опіку</button>
+          <a class="btn" href="manage.html">Залишити як є</a>
+        </footer>
+      </form>
+    </main>
+
+  </div>
+
+  <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
+    <h2>Керування допомогою · варіант «Скасувати»</h2>
+    <ul>
+      <li><code>manage-cancel.html</code> — варіант базової сторінки <a href="manage.html">Керування допомогою</a>, не стан: одне рішення на екрані (рішення 15.11.2026). Назад — «‹ Опіка над [ім'я коня]».</li>
+      <li>Одне підтвердження — це воно. Без опитування «чому», без «ви впевнені?» удруге (R5, DV4).</li>
+      <li>Чи лишається Підписка після скасування Опіки — [?] (sitemap.md, «Сутності»).</li>
+      <li><b>Донат центру</b> — «Скасувати донат»: «Щомісячні списання по 200 грн припиняться — 5 грудня нічого не спишеться. Разово підтримати центр можна будь-коли».</li>
+    </ul>
+
+    <h2>Job</h2>
+    <ul>
+      <li>R5 · Змінити чи зупинити регулярну допомогу, коли змінюються обставини</li>
+      <li>E1 · Спокій замість тривоги очікування</li>
+      <li>Г3 [?] · Коли я зупиняю допомогу, не відчувати провини, щоб могти повернутися згодом</li>
+    </ul>
+
+    <h2>Зони і головна дія кожної</h2>
+    <ul>
+      <li><span class="wf-zone">1</span> Шапка — як на інших екранах донора; у меню поточна «Моя допомога». Вкладок «Мої улюбленці» тут немає: це глибокий екран, назад — «‹ Опіка над [ім'я коня]».</li>
+      <li><span class="wf-zone">2</span> Що станеться — гроші, тварина, новини, повернення. Дві однаково світлі кнопки: «Скасувати опіку» і «Залишити як є» — продукт не підштовхує ні туди, ні туди. Темної кнопки немає навмисно.</li>
+    </ul>
+
+    <h2>Переходи flow</h2>
+    <ul class="wf-flow">
+      <li>«Скасувати опіку» → <a href="manage-loading.html">оновлюємо в провайдера</a> (розвилка 8 — так, L2); «Залишити як є» → <a href="manage.html">базова сторінка</a> (8 — ні).</li>
+      <li>«‹ Опіка над [ім'я коня]» → <a href="manage.html">Керування допомогою</a>.</li>
+    </ul>
+  </aside>
+
+</div>
+</body>
+</html>

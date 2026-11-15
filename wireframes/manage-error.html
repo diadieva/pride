@@ -1,0 +1,163 @@
+<!doctype html>
+<!--
+  Керування допомогою · manage-error.html — стан помилки (sitemap.md, колонка «Стани»).
+  Базова сторінка — manage.html; шапка й зони ті самі, у зоні 3 — що сталося, повтор і контакти.
+
+  Крок flow — flows.md, flow R5: L2 «оновлюємо в провайдера» → розвилка 10 «Провайдер підтвердив зміну?» — ні →
+  E3 «error: не вдалося, наступне списання ще не змінено» → 11 «Спробувати ще?»: так → L2;
+  «ні чи знову збій» → D1 «тупик [?]: заявка на ручне скасування» → Про центр · center.html.
+  Job (sitemap.md): R5, E1, Г3 [?].
+  Правила — wireframes/_conventions.md.
+-->
+<html lang="uk" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Вайрфрейм · Керування допомогою · помилка</title>
+  <script src="../_nav/theme.js"></script>
+  <link rel="stylesheet" href="../_nav/theme.css">
+  <link rel="stylesheet" href="../_nav/icons.css">
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script defer src="../_nav/tree.js"></script>
+  <script defer src="../_nav/nav.js"></script>
+  <link rel="stylesheet" href="_frame.css">
+</head>
+<body>
+<div class="wf-page">
+
+  <nav class="wf-states" aria-label="Стани екрана «Керування допомогою»">
+    <a href="manage.html">Базова сторінка</a>
+    <a href="manage-amount.html">Змінити суму</a>
+    <a href="manage-pause.html">Призупинити</a>
+    <a href="manage-method.html">Спосіб оплати</a>
+    <a href="manage-cancel.html">Скасувати</a>
+    <a href="manage-error.html" aria-current="page">Помилка</a>
+    <a href="manage-loading.html">Завантаження</a>
+    <a href="manage-success.html">Успіх</a>
+    <span>Порожнього стану немає: екран завжди про одну конкретну опіку чи донат</span>
+  </nav>
+
+  <div class="device">
+
+    <header class="app-header" data-zone="1">
+      <details class="menu">
+        <summary><span class="i i-menu-bars" aria-hidden="true"></span><span class="sr-only">Меню</span></summary>
+        <nav aria-label="Меню">
+          <ul>
+            <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+            <li>
+              <a href="my-animals.html" aria-current="true"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a>
+              <ul class="menu-sub">
+                <li><a href="my-support.html" aria-current="true"><span class="i i-wallet" aria-hidden="true"></span>Моя допомога</a></li>
+              </ul>
+            </li>
+            <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+            <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+          </ul>
+          <ul>
+            <li><a href="my-subscriptions.html"><span class="i i-sliders-simple" aria-hidden="true"></span>Налаштування</a></li>
+          </ul>
+          <fieldset class="lang">
+            <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
+            <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
+            <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
+          </fieldset>
+        </nav>
+      </details>
+      <a class="brand" href="board.html">Прайд</a>
+      <nav class="quick" aria-label="Швидкий доступ">
+        <a class="fav-link" href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span><span class="sr-only">Мої улюбленці</span></a>
+        <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
+      </nav>
+    </header>
+
+    <main>
+      <a class="back" href="my-support.html"><span class="i i-angle-left" aria-hidden="true"></span> Моя допомога</a>
+      <header class="manage-title">
+        <span class="img avatar" role="img" aria-label="Фото: [ім'я коня]">фото</span>
+        <h1>Опіка над <span class="ph">[ім'я коня]</span></h1>
+      </header>
+
+      <!-- Звірка: що зараз діє. Зона для читання -->
+      <section aria-labelledby="now" data-zone="2">
+        <h2 id="now">Зараз</h2>
+        <dl>
+          <dt>Стан</dt>
+          <dd><span class="i i-check-circle" aria-hidden="true"></span> активна</dd>
+          <dt>Сума</dt>
+          <dd><b>1 000 грн щомісяця</b></dd>
+          <dt>Наступне списання</dt>
+          <dd><time datetime="2026-12-01">1 грудня</time></dd>
+          <dt>Спосіб оплати</dt>
+          <dd>картка в гривні · WayForPay <span class="meta">[?]</span></dd>
+          <dt>Чеки</dt>
+          <dd>kateryna@example.com</dd>
+        </dl>
+      </section>
+
+      <!-- Провайдер не підтвердив скасування — опіка поки активна -->
+      <section aria-labelledby="fail" data-zone="3">
+        <h2 id="fail"><span class="i i-exclamation-circle" aria-hidden="true"></span> Не вдалося скасувати опіку</h2>
+        <p class="notice" role="alert"><span>WayForPay <span class="meta">[?]</span> не підтвердив скасування. Опіка поки активна, і наступне списання 1 000 грн <time datetime="2026-12-01">1 грудня</time> ще не змінено.</span></p>
+        <form aria-label="Скасувати опіку ще раз" action="manage-loading.html" method="get">
+          <input type="hidden" name="support" value="care-1">
+          <button class="primary" type="submit"><span class="i i-arrows-rotate" aria-hidden="true"></span> Спробувати ще раз</button>
+        </form>
+        <h3>Не виходить? Скасуємо вручну</h3>
+        <p>Напишіть чи зателефонуйте нам — команда центру скасує опіку вручну <span class="meta">[?]</span>. Якщо до того <time datetime="2026-12-01">1 грудня</time> гроші все ж спишуться — повернемо <span class="meta">[?] за скільки днів</span>.</p>
+        <ul>
+          <li><a href="tel:+380665826817"><span class="i i-phone" aria-hidden="true"></span> +380 66 582 68 17</a></li>
+          <li><a href="mailto:info@bestofthepride.info"><span class="i i-envelope" aria-hidden="true"></span> info@bestofthepride.info</a></li>
+        </ul>
+        <p class="meta">Команда центру на зв'язку пн–пт, 09:00–19:00.</p>
+        <a class="btn" href="center.html">Усі контакти — «Про центр»</a>
+      </section>
+    </main>
+
+  </div>
+
+  <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
+    <h2>Керування допомогою · помилка</h2>
+    <ul>
+      <li>Людина підтвердила скасування, а провайдер його не прийняв. Гроші можуть списатися 1 грудня.</li>
+      <li>R5, розвилка 10 — ні → E3 → 11 «Спробувати ще?». Перенесено з колишнього <code>my-support-error.html</code>.</li>
+      <li>У рамці — цей варіант: лише він залишає людину з регулярним списанням, яке вона хотіла зупинити. Тут же живе єдиний тупик flow.</li>
+    </ul>
+
+    <h2>Job</h2>
+    <ul>
+      <li>R5 · Змінити чи зупинити регулярну допомогу, коли змінюються обставини</li>
+      <li>E1 · Спокій замість тривоги очікування</li>
+      <li>Г3 [?] · Коли я зупиняю допомогу, не відчувати провини, щоб могти повернутися згодом</li>
+    </ul>
+
+    <h2>Зони в цьому стані</h2>
+    <ul>
+      <li><span class="wf-zone">1</span> Шапка — як на інших екранах донора; у меню поточна «Моя допомога». Вкладок «Мої улюбленці» тут немає: це глибокий екран, назад — «‹ Моя допомога».</li>
+      <li><span class="wf-zone">2</span> Зараз — стан «активна», бо скасування не пройшло. Зона для читання.</li>
+      <li><span class="wf-zone">3</span> Що сталося і що це означає для грошей: «наступне списання ще не змінено». <b>«Спробувати ще раз»</b> (розвилка 11 — так). Нижче — ручне скасування й контакти: телефон, email, години, «Про центр».</li>
+    </ul>
+
+    <h2>Тупик [?] — чесно</h2>
+    <ul>
+      <li>D1 у flows.md — чорний вузол: заявка на ручне скасування і повернення списаного <b>ще не погоджені з центром</b> (питання до центру 6). Тому «скасує вручну» і «повернемо» позначено [?], строку немає.</li>
+    </ul>
+
+    <h2>Інші помилки — та сама сторінка, інший текст</h2>
+    <ul>
+      <li><b>Не вдалося зберегти суму</b> — у зоні 3: «Не вдалося змінити суму. Ваш вибір — 500 грн — не загубився, діє поки 1 000 грн». «Спробувати ще» → L2.</li>
+      <li><b>Провайдер недоступний</b> — «WayForPay [?] зараз не відповідає. Нічого не змінено». «Спробувати ще», контакти.</li>
+      <li><b>Не вдалося завантажити опіку</b> — з картки тварини чи чека: зони 2–3 без даних, «Спробувати ще», «‹ Моя допомога», контакти.</li>
+      <li><b>Хибна сума</b> — не тут: підказка біля поля на <a href="manage-amount.html">Змінити суму</a> (розвилка 6 — ні, E2).</li>
+    </ul>
+
+    <h2>Переходи flow</h2>
+    <ul class="wf-flow">
+      <li>Сюди — з <a href="manage-loading.html">завантаження</a>: розвилка 10 — ні (E3).</li>
+      <li>Розвилка 11 «Спробувати ще?»: так → <a href="manage-loading.html">завантаження</a> (L2); «ні чи знову збій» → D1 → <a href="center.html">Про центр</a>.</li>
+    </ul>
+  </aside>
+
+</div>
+</body>
+</html>

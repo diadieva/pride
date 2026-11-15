@@ -41,6 +41,7 @@ ICONS = [
     "paw", "heart", "wallet-heart", "building",  # меню: Тварини, Мої улюбленці (і серце в шапці), Підтримати, Про центр
     "search", "wallet", "envelope",              # шапка: лупа пошуку; меню: Моя допомога; листи
     "sliders-simple", "more-horizontal", "bell-slash",  # «Налаштування»; «Ще» на картці тварини; «Не стежити за новинами»
+    "wallet-gear", "coin", "pause-circle", "card-exchange",  # «Керування допомогою»: екран, змінити суму, призупинити, спосіб оплати
     "angle-right", "calendar",                   # перехід у профіль; дата списання
     "mobile", "folder-heart",                    # навігатор: гілка «Екрани», розділ групи «Мої улюбленці»
     "inbox", "exclamation-circle", "hourglass",  # стани: порожній, помилка, завантаження

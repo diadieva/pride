@@ -1,14 +1,14 @@
 <!doctype html>
 <!--
   Моя допомога · my-support-error.html — стан помилки (sitemap.md, колонка «Стани»).
-  Базова сторінка — my-support.html; шапка й зони ті самі, змінюється лише вміст зони 3.
+  Базова сторінка — my-support.html; шапка й вкладки ті самі, на місці підсумку й карток — що сталося.
 
-  Крок flow — flows.md, flow R5: L2 «оновлюємо в провайдера» → розвилка 10 «Провайдер підтвердив зміну?» — ні →
-  E3 «error: не вдалося, наступне списання ще не змінено» → 11 «Спробувати ще?»: так → L2;
-  «ні чи знову збій» → D1 «тупик [?]: заявка на ручне скасування» → Про центр · center.html.
-  Інші помилки (E1 «не вдалося завантажити», E2 «хибна сума», банер «не вдалося списати» з flow M) — у нотатках.
+  Крок flow — flows.md, flow R5: L1 → розвилка 3 «Дані прийшли?» — ні → E1 «error: не вдалося завантажити» →
+  «спробувати ще» → L1; «назад» → Мої улюбленці. Контакти центру — за правилом _conventions.md.
+  Помилка провайдера після зміни — уже не тут, а на manage-error.html.
 
-  Job (sitemap.md): R5, E1, Г3 [?]. Правила — wireframes/_conventions.md.
+  Job (sitemap.md): R5, E1.
+  Правила — wireframes/_conventions.md.
 -->
 <html lang="uk" data-root="../">
 <head>
@@ -31,7 +31,7 @@
     <a href="my-support-empty.html">Порожній</a>
     <a href="my-support-error.html" aria-current="page">Помилка</a>
     <a href="my-support-loading.html">Завантаження</a>
-    <a href="my-support-success.html">Успіх</a>
+    <span>Успіху тут немає: зміни робляться на екрані «Керування допомогою» (manage.html), там і успіх</span>
   </nav>
 
   <div class="device">
@@ -76,124 +76,29 @@
         <a href="my-animals.html">Тварини</a>
         <a href="my-support.html" aria-current="page">Моя допомога</a>
       </nav>
-      <p class="meta">Регулярна підтримка з адреси kateryna@example.com</p>
 
-      <!-- Опіка: провайдер не підтвердив скасування — опіка поки активна -->
-      <article aria-labelledby="care-1" data-zone="3">
-        <span class="img avatar" role="img" aria-label="Фото: [ім'я тварини]">фото</span>
-        <h2 id="care-1">Опіка над <span class="ph">[ім'я коня]</span></h2>
-        <p class="meta">Кінь · у центрі</p>
-        <h3><span class="i i-exclamation-circle" aria-hidden="true"></span> Не вдалося скасувати опіку</h3>
-        <p class="notice" role="alert"><span>WayForPay <span class="meta">[?]</span> не підтвердив скасування. Опіка поки активна, і наступне списання 1 000 грн <time datetime="2026-12-01">1 грудня</time> ще не змінено.</span></p>
-        <dl>
-          <dt>Стан</dt>
-          <dd><span class="i i-check-circle" aria-hidden="true"></span> активна</dd>
-          <dt>Сума</dt>
-          <dd><b>1 000 грн щомісяця</b></dd>
-          <dt>Наступне списання</dt>
-          <dd><time datetime="2026-12-01">1 грудня</time></dd>
-          <dt>Спосіб оплати</dt>
-          <dd>картка в гривні · WayForPay <span class="meta">[?]</span></dd>
-        </dl>
-        <form aria-label="Скасувати опіку ще раз" action="my-support-loading.html" method="get">
-          <input type="hidden" name="support" value="care-1">
-          <button class="primary" type="submit"><span class="i i-arrows-rotate" aria-hidden="true"></span> Спробувати ще раз</button>
-        </form>
+      <!-- На місці підсумку й карток — що сталося, повтор і куди звернутися -->
+      <section aria-labelledby="error-title" data-zone="3">
+        <h2 id="error-title"><span class="i i-exclamation-circle" aria-hidden="true"></span> Не вдалося завантажити вашу допомогу</h2>
+        <p role="alert">Ваші опіки й донати на місці, і списання йдуть, як і раніше, — ми просто не змогли їх зараз показати.</p>
+        <a class="btn primary" href="my-support-loading.html"><span class="i i-arrows-rotate" aria-hidden="true"></span> Спробувати ще</a>
+        <a class="btn" href="my-animals.html">До вкладки «Тварини»</a>
+      </section>
 
-        <h3>Не виходить? Скасуємо вручну</h3>
-        <p>Напишіть чи зателефонуйте нам — команда центру скасує опіку вручну <span class="meta">[?]</span>. Якщо до того <time datetime="2026-12-01">1 грудня</time> гроші все ж спишуться — повернемо <span class="meta">[?] за скільки днів</span>.</p>
+      <section aria-labelledby="help-title" data-zone="4">
+        <h2 id="help-title">Не виходить? Напишіть чи зателефонуйте нам</h2>
+        <p>Якщо треба терміново змінити чи зупинити списання — скажіть, і команда центру допоможе.</p>
         <ul>
           <li><a href="tel:+380665826817"><span class="i i-phone" aria-hidden="true"></span> +380 66 582 68 17</a></li>
           <li><a href="mailto:info@bestofthepride.info"><span class="i i-envelope" aria-hidden="true"></span> info@bestofthepride.info</a></li>
         </ul>
         <p class="meta">Команда центру на зв'язку пн–пт, 09:00–19:00.</p>
         <a class="btn" href="center.html">Усі контакти — «Про центр»</a>
-      </article>
+      </section>
 
-      <!-- Донат центру: ті самі дії, згорнуті, щоб список лишався коротким -->
-      <article aria-labelledby="center-1" data-zone="4">
-        <h2 id="center-1">Донат центру</h2>
-        <p class="meta">На все, що потрібно центру «Прайд»</p>
-        <dl>
-          <dt>Стан</dt>
-          <dd><span class="i i-check-circle" aria-hidden="true"></span> активний</dd>
-          <dt>Сума</dt>
-          <dd><b>200 грн щомісяця</b></dd>
-          <dt>Наступне списання</dt>
-          <dd><time datetime="2026-12-05">5 грудня</time></dd>
-          <dt>Спосіб оплати</dt>
-          <dd>картка в гривні · WayForPay <span class="meta">[?]</span></dd>
-          <dt>Чеки</dt>
-          <dd>kateryna@example.com</dd>
-        </dl>
-
-        <details>
-          <summary>Змінити суму</summary>
-          <form aria-label="Змінити суму донату центру" action="my-support-loading.html" method="get">
-            <input type="hidden" name="support" value="center-1">
-            <label>Нова сума на місяць, грн
-              <input type="number" name="amount" value="200" min="1" required aria-describedby="amount-2-hint">
-            </label>
-            <p class="meta" id="amount-2-hint">Зараз — 200 грн. Нова сума спишеться вже <time datetime="2026-12-05">5 грудня</time>.</p>
-            <button class="primary" type="submit">Зберегти суму</button>
-          </form>
-        </details>
-
-        <details>
-          <summary>Призупинити <span class="meta">[?]</span></summary>
-          <form aria-label="Призупинити донат центру" action="my-support-loading.html" method="get">
-            <input type="hidden" name="support" value="center-1">
-            <fieldset class="row">
-              <legend>На скільки <span class="meta">[?]</span></legend>
-              <label class="choice"><input type="radio" name="pause" value="1" checked> 1 міс.</label>
-              <label class="choice"><input type="radio" name="pause" value="3"> 3 міс.</label>
-              <label class="choice"><input type="radio" name="pause" value="open"> Без строку</label>
-            </fieldset>
-            <p>Поки триває пауза, нічого не списується.</p>
-            <button type="submit">Призупинити донат</button>
-          </form>
-        </details>
-
-        <details>
-          <summary>Скасувати донат</summary>
-          <form aria-label="Скасувати донат центру" action="my-support-loading.html" method="get">
-            <input type="hidden" name="support" value="center-1">
-            <p>Щомісячні списання по 200 грн припиняться — <time datetime="2026-12-05">5 грудня</time> нічого не спишеться. Разово підтримати центр можна будь-коли.</p>
-            <footer class="actions">
-              <button type="submit">Скасувати донат</button>
-              <a class="btn" href="my-support.html">Залишити як є</a>
-            </footer>
-          </form>
-        </details>
-
-        <details>
-          <summary>Змінити спосіб оплати</summary>
-          <form aria-label="Змінити спосіб оплати донату" action="my-support-loading.html" method="get">
-            <input type="hidden" name="support" value="center-1">
-            <p>Нову картку ви додасте на сторінці WayForPay <span class="meta">[?]</span>. Даних картки ми не бачимо й не зберігаємо.</p>
-            <p class="meta">Якщо не завершите там — діятиме теперішня картка.</p>
-            <button type="submit">Перейти до WayForPay</button>
-          </form>
-        </details>
-      </article>
-
-      <!-- Історія платежів: кожне списання видно (Платіж, R5, E1) -->
       <section aria-labelledby="history" data-zone="5">
         <h2 id="history">Історія платежів</h2>
-        <table>
-          <caption class="sr-only">Платежі за опікою і донатом центру, нові зверху</caption>
-          <thead>
-            <tr><th scope="col">Дата</th><th scope="col">Кому, сума</th><th scope="col">Статус</th><th scope="col">Чек</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><time datetime="2026-11-13">13 листопада</time></td><td><span class="ph">[ім'я коня]</span> · 500 грн разово</td><td>успішний</td><td><span class="ph">[як отримати чек повторно]</span> [?]</td></tr>
-            <tr><td><time datetime="2026-11-05">5 листопада</time></td><td>Центр · 200 грн</td><td>успішний</td><td><span class="ph">[як отримати чек повторно]</span> [?]</td></tr>
-            <tr><td><time datetime="2026-11-01">1 листопада</time></td><td><span class="ph">[ім'я коня]</span> · 1 000 грн</td><td>успішний</td><td><span class="ph">[як отримати чек повторно]</span> [?]</td></tr>
-            <tr><td><time datetime="2026-10-05">5 жовтня</time></td><td>Центр · 200 грн</td><td>успішний</td><td><span class="ph">[як отримати чек повторно]</span> [?]</td></tr>
-            <tr><td><time datetime="2026-10-01">1 жовтня</time></td><td><span class="ph">[ім'я коня]</span> · 1 000 грн</td><td>успішний</td><td><span class="ph">[як отримати чек повторно]</span> [?]</td></tr>
-          </tbody>
-        </table>
-        <p class="meta">Кожен чек також приходить листом на kateryna@example.com.</p>
+        <p class="meta">Не завантажилася разом з рештою.</p>
       </section>
     </main>
 
@@ -202,9 +107,8 @@
   <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
     <h2>Моя допомога · помилка</h2>
     <ul>
-      <li>Людина підтвердила скасування, а провайдер його не прийняв. Гроші можуть списатися 1 грудня.</li>
-      <li>R5, розвилка 10 — ні → E3 → 11 «Спробувати ще?».</li>
-      <li>У рамці — цей варіант: лише він залишає людину з регулярним списанням, яке вона хотіла зупинити, — це і є «пастка», від якої береже R5. Тут же живе єдиний тупик flow.</li>
+      <li>Список регулярної підтримки не завантажився: збій зв'язку чи сервера.</li>
+      <li>R5, розвилка 3 — ні → E1. Помилку провайдера після зміни (E3, тупик D1 [?]) перенесено на <a href="manage-error.html">Керування допомогою · помилка</a> (рішення 15.11.2026).</li>
     </ul>
 
     <h2>Job</h2>
@@ -215,31 +119,18 @@
 
     <h2>Зони в цьому стані</h2>
     <ul>
-      <li><span class="wf-zone">3</span> Опіка — що сталося і що це означає для грошей: «наступне списання ще не змінено». <b>«Спробувати ще раз»</b> (розвилка 11 — так). Нижче — ручне скасування й контакти: телефон, email, години, «Про центр».</li>
-      <li><span class="wf-zone">1</span>, <span class="wf-zone">4</span>, <span class="wf-zone">5</span> — як на базовій сторінці.</li>
-      <li><span class="wf-zone">2</span> Вкладки розділу «Мої улюбленці» — Тварини · Моя допомога; поточна — «Моя допомога». Працюють і в цьому стані.</li>
-      <li><span class="wf-zone">5</span> — зона для читання — історія платежів, звірка.</li>
-    </ul>
-
-    <h2>Тупик [?] — чесно</h2>
-    <ul>
-      <li>D1 у flows.md — чорний вузол: заявка на ручне скасування і повернення списаного <b>ще не погоджені з центром</b> (питання до центру 6). Тому «скасує вручну» і «повернемо» позначено [?], строку немає.</li>
-      <li>Поки відповіді немає, вихід — лише контакти центру. Окремої форми заявки на сайті немає: у flow D1 веде на «Про центр».</li>
-    </ul>
-
-    <h2>Інші помилки — та сама сторінка, інший текст</h2>
-    <ul>
-      <li><b>Не вдалося завантажити</b> (R5, розвилка 3 — ні, E1) — зони 3–5 без даних: «Не вдалося завантажити вашу підтримку. Списання йдуть, як і раніше». «Спробувати ще» → <code>my-support-loading.html</code>, «Назад» → <code>my-animals.html</code>, контакти центру.</li>
-      <li><b>Хибна сума</b> (розвилка 6 — ні, E2) — під полем «Нова сума на місяць» <code>.field-error</code>, пов'язаний через <code>aria-describedby</code>: «Вкажіть суму цифрами, наприклад 700». Введене збережено.</li>
-      <li><b>Не вдалося списати</b> (flow M, розвилка 11, банер → R5) — над опікою: «Не вдалося списати 1 000 грн 1 листопада. [ім'я коня] лишається з вами». Дія — «Змінити спосіб оплати» розкрито. Стан опіки — «не вдалося списати».</li>
+      <li><span class="wf-zone">1</span> Шапка — меню зліва (розділи, під «Моїми улюбленцями» — «Моя допомога»; «Налаштування»; мова; поточна — «Моя допомога»), «Прайд» по центру, праворуч серце → «Мої улюбленці» і лупа → «Пошук».</li>
+      <li><span class="wf-zone">2</span> Вкладки розділу «Мої улюбленці» — Тварини · <b>Моя допомога</b>.</li>
+      <li><span class="wf-zone">3</span> Що сталося — і що це означає для грошей: «списання йдуть, як і раніше». <b>«Спробувати ще»</b> (E1 → L1), «До вкладки „Тварини“» (E1 → назад).</li>
+      <li><span class="wf-zone">4</span> Контакти центру — за правилом помилки: телефон, email, години, «Про центр».</li>
+      <li><span class="wf-zone">5</span> Історія платежів — без даних. Зона для читання.</li>
     </ul>
 
     <h2>Переходи flow</h2>
     <ul class="wf-flow">
-      <li>Сюди — з <a href="my-support-loading.html">завантаження</a>: розвилка 10 — ні (E3); варіант E1 — розвилка 3 — ні.</li>
-      <li>Розвилка 11 «Спробувати ще?»: так → <a href="my-support-loading.html">завантаження</a> (L2); «ні чи знову збій» → D1 → <a href="center.html">Про центр</a>.</li>
-      <li>Варіант E1: «спробувати ще» → <a href="my-support-loading.html">завантаження</a> (L1); «назад» → <a href="my-animals.html">Мої улюбленці</a>.</li>
-      <li>Варіант E2 → знову розвилка 6 на <a href="my-support.html">базовій сторінці</a>.</li>
+      <li>Сюди — з <a href="my-support-loading.html">завантаження</a>: розвилка 3 — ні (E1).</li>
+      <li>«Спробувати ще» → <a href="my-support-loading.html">завантаження</a> (E1 → L1); «назад» → <a href="my-animals.html">Мої улюбленці</a>.</li>
+      <li>Не виходить — контакти й <a href="center.html">Про центр</a>.</li>
     </ul>
   </aside>
 

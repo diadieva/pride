@@ -1,0 +1,123 @@
+<!doctype html>
+<!--
+  Керування допомогою · manage-pause.html — варіант базової сторінки «Призупинити» [?] (sitemap.md, «Стани, а не екрани»).
+  Одне рішення: на скільки призупинити. Чи вміє провайдер паузу — [?].
+
+  Крок flow — flows.md, flow R5: MANAGE → розвилка 5 — пауза → 7 «Провайдер підтримує паузу? [?]»:
+  так → L2 (manage-loading); ні → ST1 «паузи немає — можна зменшити суму чи скасувати» → розвилка 5.
+  Job (sitemap.md): R5, E1, Г3 [?].
+  Правила — wireframes/_conventions.md.
+-->
+<html lang="uk" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Вайрфрейм · Керування допомогою · призупинити</title>
+  <script src="../_nav/theme.js"></script>
+  <link rel="stylesheet" href="../_nav/theme.css">
+  <link rel="stylesheet" href="../_nav/icons.css">
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script defer src="../_nav/tree.js"></script>
+  <script defer src="../_nav/nav.js"></script>
+  <link rel="stylesheet" href="_frame.css">
+</head>
+<body>
+<div class="wf-page">
+
+  <nav class="wf-states" aria-label="Стани екрана «Керування допомогою»">
+    <a href="manage.html">Базова сторінка</a>
+    <a href="manage-amount.html">Змінити суму</a>
+    <a href="manage-pause.html" aria-current="page">Призупинити</a>
+    <a href="manage-method.html">Спосіб оплати</a>
+    <a href="manage-cancel.html">Скасувати</a>
+    <a href="manage-error.html">Помилка</a>
+    <a href="manage-loading.html">Завантаження</a>
+    <a href="manage-success.html">Успіх</a>
+    <span>Порожнього стану немає: екран завжди про одну конкретну опіку чи донат</span>
+  </nav>
+
+  <div class="device">
+
+    <header class="app-header" data-zone="1">
+      <details class="menu">
+        <summary><span class="i i-menu-bars" aria-hidden="true"></span><span class="sr-only">Меню</span></summary>
+        <nav aria-label="Меню">
+          <ul>
+            <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+            <li>
+              <a href="my-animals.html" aria-current="true"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a>
+              <ul class="menu-sub">
+                <li><a href="my-support.html" aria-current="true"><span class="i i-wallet" aria-hidden="true"></span>Моя допомога</a></li>
+              </ul>
+            </li>
+            <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+            <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+          </ul>
+          <ul>
+            <li><a href="my-subscriptions.html"><span class="i i-sliders-simple" aria-hidden="true"></span>Налаштування</a></li>
+          </ul>
+          <fieldset class="lang">
+            <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
+            <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
+            <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
+          </fieldset>
+        </nav>
+      </details>
+      <a class="brand" href="board.html">Прайд</a>
+      <nav class="quick" aria-label="Швидкий доступ">
+        <a class="fav-link" href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span><span class="sr-only">Мої улюбленці</span></a>
+        <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
+      </nav>
+    </header>
+
+    <main>
+      <a class="back" href="manage.html"><span class="i i-angle-left" aria-hidden="true"></span> Опіка над <span class="ph">[ім'я коня]</span></a>
+      <h1>Призупинити опіку <span class="meta">[?]</span></h1>
+
+      <form aria-labelledby="pause-title" data-zone="2" action="manage-loading.html" method="get">
+        <h2 id="pause-title" class="sr-only">На скільки призупинити опіку</h2>
+        <input type="hidden" name="support" value="care-1">
+        <fieldset class="row">
+          <legend>На скільки <span class="meta">[?]</span></legend>
+          <label class="choice"><input type="radio" name="pause" value="1" checked> 1 міс.</label>
+          <label class="choice"><input type="radio" name="pause" value="3"> 3 міс.</label>
+          <label class="choice"><input type="radio" name="pause" value="open"> Без строку</label>
+        </fieldset>
+        <p>Поки триває пауза, нічого не списується: <time datetime="2026-12-01">1 грудня</time> списання не буде. <span class="ph">[ім'я коня]</span> лишається у ваших «Моїх улюбленцях», новини приходять як і раніше.</p>
+        <button class="primary" type="submit">Призупинити опіку</button>
+      </form>
+    </main>
+
+  </div>
+
+  <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
+    <h2>Керування допомогою · варіант «Призупинити»</h2>
+    <ul>
+      <li><code>manage-pause.html</code> — варіант базової сторінки <a href="manage.html">Керування допомогою</a>, не стан: одне рішення на екрані (рішення 15.11.2026). Назад — «‹ Опіка над [ім'я коня]».</li>
+      <li><b>Паузи немає</b> (розвилка 7 [?] — ні, ST1) — та сама сторінка: замість вибору строку «WayForPay [?] не вміє ставити опіку на паузу. Можна зменшити суму чи скасувати — повернутися можна будь-коли» і два рядки: «Змінити суму» → <code>manage-amount.html</code>, «Скасувати опіку» → <code>manage-cancel.html</code> (ST1 → розвилка 5).</li>
+    </ul>
+
+    <h2>Job</h2>
+    <ul>
+      <li>R5 · Змінити чи зупинити регулярну допомогу, коли змінюються обставини</li>
+      <li>E1 · Спокій замість тривоги очікування</li>
+      <li>Г3 [?] · Коли я зупиняю допомогу, не відчувати провини, щоб могти повернутися згодом</li>
+    </ul>
+
+    <h2>Зони і головна дія кожної</h2>
+    <ul>
+      <li><span class="wf-zone">1</span> Шапка — як на інших екранах донора; у меню поточна «Моя допомога». Вкладок «Мої улюбленці» тут немає: це глибокий екран, назад — «‹ Опіка над [ім'я коня]».</li>
+      <li><span class="wf-zone">2</span> На скільки — 1 міс. / 3 міс. / без строку [?]; що станеться — нічого не списується, тварина й новини лишаються. <b>«Призупинити опіку»</b>.</li>
+    </ul>
+
+    <h2>Переходи flow</h2>
+    <ul class="wf-flow">
+      <li>«Призупинити опіку» → <a href="manage-loading.html">оновлюємо в провайдера</a> (розвилка 7 — так, L2).</li>
+      <li>Паузи немає → <a href="manage-amount.html">Змінити суму</a> чи <a href="manage-cancel.html">Скасувати</a>.</li>
+      <li>«‹ Опіка над [ім'я коня]» → <a href="manage.html">Керування допомогою</a>.</li>
+    </ul>
+  </aside>
+
+</div>
+</body>
+</html>

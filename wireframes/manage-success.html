@@ -1,0 +1,141 @@
+<!doctype html>
+<!--
+  Керування допомогою · manage-success.html — успіх після дії (sitemap.md, колонка «Стани»).
+  Базова сторінка — manage.html; шапка й заголовок ті самі, на місці зон 2–3 — що змінилося.
+
+  Крок flow — flows.md, flow R5: L2 → розвилка 10 «Провайдер підтвердив зміну?» — так →
+  OK1 «успіх: змінено, на паузі, скасовано чи нова картка; лист-підтвердження» →
+  ST4 «стан: новини про тварину лишаються, повернутися можна будь-коли, Г3 [?]». У рамці — скасування.
+  Job (sitemap.md): R5, E1, Г3 [?].
+  Екран дії: людина змінює регулярний платіж.
+  Правила — wireframes/_conventions.md.
+-->
+<html lang="uk" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Вайрфрейм · Керування допомогою · успіх</title>
+  <script src="../_nav/theme.js"></script>
+  <link rel="stylesheet" href="../_nav/theme.css">
+  <link rel="stylesheet" href="../_nav/icons.css">
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script defer src="../_nav/tree.js"></script>
+  <script defer src="../_nav/nav.js"></script>
+  <link rel="stylesheet" href="_frame.css">
+</head>
+<body>
+<div class="wf-page">
+
+  <nav class="wf-states" aria-label="Стани екрана «Керування допомогою»">
+    <a href="manage.html">Базова сторінка</a>
+    <a href="manage-amount.html">Змінити суму</a>
+    <a href="manage-pause.html">Призупинити</a>
+    <a href="manage-method.html">Спосіб оплати</a>
+    <a href="manage-cancel.html">Скасувати</a>
+    <a href="manage-error.html">Помилка</a>
+    <a href="manage-loading.html">Завантаження</a>
+    <a href="manage-success.html" aria-current="page">Успіх</a>
+    <span>Порожнього стану немає: екран завжди про одну конкретну опіку чи донат</span>
+  </nav>
+
+  <div class="device">
+
+    <header class="app-header" data-zone="1">
+      <details class="menu">
+        <summary><span class="i i-menu-bars" aria-hidden="true"></span><span class="sr-only">Меню</span></summary>
+        <nav aria-label="Меню">
+          <ul>
+            <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+            <li>
+              <a href="my-animals.html" aria-current="true"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a>
+              <ul class="menu-sub">
+                <li><a href="my-support.html" aria-current="true"><span class="i i-wallet" aria-hidden="true"></span>Моя допомога</a></li>
+              </ul>
+            </li>
+            <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+            <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+          </ul>
+          <ul>
+            <li><a href="my-subscriptions.html"><span class="i i-sliders-simple" aria-hidden="true"></span>Налаштування</a></li>
+          </ul>
+          <fieldset class="lang">
+            <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
+            <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
+            <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
+          </fieldset>
+        </nav>
+      </details>
+      <a class="brand" href="board.html">Прайд</a>
+      <nav class="quick" aria-label="Швидкий доступ">
+        <a class="fav-link" href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span><span class="sr-only">Мої улюбленці</span></a>
+        <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
+      </nav>
+    </header>
+
+    <main>
+      <a class="back" href="my-support.html"><span class="i i-angle-left" aria-hidden="true"></span> Моя допомога</a>
+      <header class="manage-title">
+        <span class="img avatar" role="img" aria-label="Фото: [ім'я коня]">фото</span>
+        <h1>Опіка над <span class="ph">[ім'я коня]</span></h1>
+      </header>
+
+      <!-- Опіка скасована: що змінилося, коли, куди пішов лист; тварина лишається -->
+      <section aria-labelledby="done" data-zone="2">
+        <h2 id="done" role="status"><span class="i i-check-circle" aria-hidden="true"></span> Опіку скасовано</h2>
+        <dl>
+          <dt>Що змінилося</dt>
+          <dd>щомісячні списання по 1 000 грн припинено</dd>
+          <dt>Коли</dt>
+          <dd><time datetime="2026-11-15T15:10">15 листопада 2026, 15:10</time></dd>
+          <dt>Наступне списання</dt>
+          <dd>не буде — <time datetime="2026-12-01">1 грудня</time> нічого не спишеться</dd>
+          <dt>Підтвердження</dt>
+          <dd>лист на kateryna@example.com</dd>
+        </dl>
+        <p><span class="ph">[ім'я коня]</span> лишається у ваших «Моїх улюбленцях», новини приходять як і раніше <span class="meta">[?]</span>. Дякуємо за кожен місяць поруч. Повернутися до опіки можна будь-коли.</p>
+        <a class="btn primary" href="my-support.html">Повернутися до «Моєї допомоги»</a>
+        <a class="btn" href="my-animals.html">До вкладки «Тварини»</a>
+      </section>
+    </main>
+
+  </div>
+
+  <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
+    <h2>Керування допомогою · успіх</h2>
+    <ul>
+      <li>Провайдер підтвердив скасування. Списань більше не буде, лист-підтвердження надіслано.</li>
+      <li>R5, розвилка 10 — так → OK1 → ST4. Від картки тварини — 3 кліки: «Керувати опікою» → «Скасувати опіку» → «Скасувати опіку». Перенесено з колишнього <code>my-support-success.html</code>.</li>
+      <li>У рамці — скасування: після нього найважливіше сказати, що тварина й новини лишаються (ST4, Г3 [?]).</li>
+    </ul>
+
+    <h2>Job</h2>
+    <ul>
+      <li>R5 · Змінити чи зупинити регулярну допомогу, коли змінюються обставини</li>
+      <li>E1 · Спокій замість тривоги очікування</li>
+      <li>Г3 [?] · Коли я зупиняю допомогу, не відчувати провини, щоб могти повернутися згодом</li>
+    </ul>
+
+    <h2>Зони в цьому стані</h2>
+    <ul>
+      <li><span class="wf-zone">1</span> Шапка — як на інших екранах донора; у меню поточна «Моя допомога». Вкладок «Мої улюбленці» тут немає: це глибокий екран, назад — «‹ Моя допомога».</li>
+      <li><span class="wf-zone">2</span> «Опіку скасовано» — що, коли, що з наступним списанням, куди пішов лист. Тварина й новини лишаються, подяка без докору. <b>«Повернутися до „Моєї допомоги“»</b>; «До вкладки „Тварини“» — там [ім'я коня] і далі. Зони 3 (дії) немає: рішення ухвалено.</li>
+    </ul>
+
+    <h2>Інші варіанти успіху — та сама сторінка</h2>
+    <ul>
+      <li><b>Суму збережено</b> — «Тепер 500 грн щомісяця. Наступне списання — 500 грн, 1 грудня». Лист-підтвердження.</li>
+      <li><b>Опіку призупинено</b> [?] — «Опіка на паузі до 15 грудня [?]. Списань до того не буде. [ім'я коня] і новини лишаються». Дія — «Відновити».</li>
+      <li><b>Нова картка</b> — «Картку змінено. 1 грудня 1 000 грн спишуться з нової картки».</li>
+      <li><b>Донат центру скасовано</b> — те саме без рядка про тварину: «Разово підтримати центр можна будь-коли».</li>
+    </ul>
+
+    <h2>Переходи flow</h2>
+    <ul class="wf-flow">
+      <li>Сюди — з <a href="manage-loading.html">завантаження</a>: розвилка 10 — так (OK1).</li>
+      <li>Далі — ST4: «Повернутися до „Моєї допомоги“» → <a href="my-support.html">Моя допомога</a>; «До вкладки „Тварини“» → <a href="my-animals.html">Мої улюбленці</a>.</li>
+    </ul>
+  </aside>
+
+</div>
+</body>
+</html>

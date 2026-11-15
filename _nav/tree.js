@@ -77,8 +77,16 @@ window.NAV_TREE = [
       { title: "Моя допомога", href: "wireframes/my-support.html", icon: "wallet", children: [
         { title: "Порожній стан", href: "wireframes/my-support-empty.html", icon: "inbox" },
         { title: "Помилка", href: "wireframes/my-support-error.html", icon: "exclamation-circle" },
-        { title: "Завантаження", href: "wireframes/my-support-loading.html", icon: "hourglass" },
-        { title: "Успіх", href: "wireframes/my-support-success.html", icon: "check-circle" }
+        { title: "Завантаження", href: "wireframes/my-support-loading.html", icon: "hourglass" }
+      ] },
+      { title: "Керування допомогою", href: "wireframes/manage.html", icon: "wallet-gear", children: [
+        { title: "Змінити суму", href: "wireframes/manage-amount.html", icon: "coin" },
+        { title: "Призупинити", href: "wireframes/manage-pause.html", icon: "pause-circle" },
+        { title: "Спосіб оплати", href: "wireframes/manage-method.html", icon: "card-exchange" },
+        { title: "Скасувати", href: "wireframes/manage-cancel.html", icon: "xmark-circle" },
+        { title: "Помилка", href: "wireframes/manage-error.html", icon: "exclamation-circle" },
+        { title: "Завантаження", href: "wireframes/manage-loading.html", icon: "hourglass" },
+        { title: "Успіх", href: "wireframes/manage-success.html", icon: "check-circle" }
       ] },
       { title: "Налаштування", href: "wireframes/my-subscriptions.html", icon: "sliders-simple", children: [
         { title: "Помилка", href: "wireframes/my-subscriptions-error.html", icon: "exclamation-circle" },

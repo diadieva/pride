@@ -1,0 +1,128 @@
+<!doctype html>
+<!--
+  Керування допомогою · manage-amount.html — варіант базової сторінки «Змінити суму» (sitemap.md, «Стани, а не екрани»).
+  Одне рішення: нова сума. Готові суми — ті самі, що на care.html (300 / 500 / 1 000 [?]), поточна позначена;
+  «Інша сума» — текстове поле з цифровою клавіатурою, без стрілок-лічильника.
+
+  Крок flow — flows.md, flow R5: MANAGE → розвилка 5 «Що змінити?» — суму → 6 «Нова сума правильна?»:
+  ні — E2, підказка біля поля; так → L2 «оновлюємо в провайдера» (manage-loading).
+  Job (sitemap.md): R5, E1, Г3 [?].
+  Правила — wireframes/_conventions.md.
+-->
+<html lang="uk" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Вайрфрейм · Керування допомогою · змінити суму</title>
+  <script src="../_nav/theme.js"></script>
+  <link rel="stylesheet" href="../_nav/theme.css">
+  <link rel="stylesheet" href="../_nav/icons.css">
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script defer src="../_nav/tree.js"></script>
+  <script defer src="../_nav/nav.js"></script>
+  <link rel="stylesheet" href="_frame.css">
+</head>
+<body>
+<div class="wf-page">
+
+  <nav class="wf-states" aria-label="Стани екрана «Керування допомогою»">
+    <a href="manage.html">Базова сторінка</a>
+    <a href="manage-amount.html" aria-current="page">Змінити суму</a>
+    <a href="manage-pause.html">Призупинити</a>
+    <a href="manage-method.html">Спосіб оплати</a>
+    <a href="manage-cancel.html">Скасувати</a>
+    <a href="manage-error.html">Помилка</a>
+    <a href="manage-loading.html">Завантаження</a>
+    <a href="manage-success.html">Успіх</a>
+    <span>Порожнього стану немає: екран завжди про одну конкретну опіку чи донат</span>
+  </nav>
+
+  <div class="device">
+
+    <header class="app-header" data-zone="1">
+      <details class="menu">
+        <summary><span class="i i-menu-bars" aria-hidden="true"></span><span class="sr-only">Меню</span></summary>
+        <nav aria-label="Меню">
+          <ul>
+            <li><a href="board.html"><span class="i i-paw" aria-hidden="true"></span>Тварини</a></li>
+            <li>
+              <a href="my-animals.html" aria-current="true"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a>
+              <ul class="menu-sub">
+                <li><a href="my-support.html" aria-current="true"><span class="i i-wallet" aria-hidden="true"></span>Моя допомога</a></li>
+              </ul>
+            </li>
+            <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+            <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+          </ul>
+          <ul>
+            <li><a href="my-subscriptions.html"><span class="i i-sliders-simple" aria-hidden="true"></span>Налаштування</a></li>
+          </ul>
+          <fieldset class="lang">
+            <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
+            <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
+            <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
+          </fieldset>
+        </nav>
+      </details>
+      <a class="brand" href="board.html">Прайд</a>
+      <nav class="quick" aria-label="Швидкий доступ">
+        <a class="fav-link" href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span><span class="sr-only">Мої улюбленці</span></a>
+        <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
+      </nav>
+    </header>
+
+    <main>
+      <a class="back" href="manage.html"><span class="i i-angle-left" aria-hidden="true"></span> Опіка над <span class="ph">[ім'я коня]</span></a>
+      <h1>Змінити суму</h1>
+
+      <form aria-labelledby="amount-title" data-zone="2" action="manage-loading.html" method="get">
+        <h2 id="amount-title" class="sr-only">Нова сума опіки на місяць</h2>
+        <input type="hidden" name="support" value="care-1">
+        <p class="meta">Зараз — <b>1 000 грн щомісяця</b>, опіка над <span class="ph">[ім'я коня]</span>.</p>
+        <fieldset class="row">
+          <legend>Нова сума на місяць, грн</legend>
+          <label class="choice"><input type="radio" name="amount" value="300"> 300</label>
+          <label class="choice"><input type="radio" name="amount" value="500"> 500</label>
+          <label class="choice"><input type="radio" name="amount" value="1000" checked> 1 000 · зараз</label>
+        </fieldset>
+        <label>Інша сума, грн
+          <input type="text" inputmode="numeric" name="amount-other" placeholder="Наприклад, 750" aria-describedby="amount-hint">
+        </label>
+        <p class="meta" id="amount-hint">Нова сума спишеться вже <time datetime="2026-12-01">1 грудня</time>. Чек — на kateryna@example.com.</p>
+        <button class="primary" type="submit">Зберегти суму</button>
+      </form>
+    </main>
+
+  </div>
+
+  <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
+    <h2>Керування допомогою · варіант «Змінити суму»</h2>
+    <ul>
+      <li><code>manage-amount.html</code> — варіант базової сторінки <a href="manage.html">Керування допомогою</a>, не стан: одне рішення на екрані (рішення 15.11.2026). Назад — «‹ Опіка над [ім'я коня]».</li>
+      <li>Готові суми 300 / 500 / 1 000 грн — ті самі, що на <code>care.html</code>; дефолти має дати центр [?].</li>
+      <li><b>Хибна сума</b> (розвилка 6 — ні, E2) — біля поля <code>.field-error</code> через <code>aria-describedby</code>: «Вкажіть суму цифрами, наприклад 750». Введене збережено. Це помилка поля на цій же сторінці, не <code>manage-error.html</code>.</li>
+    </ul>
+
+    <h2>Job</h2>
+    <ul>
+      <li>R5 · Змінити чи зупинити регулярну допомогу, коли змінюються обставини</li>
+      <li>E1 · Спокій замість тривоги очікування</li>
+      <li>Г3 [?] · Коли я зупиняю допомогу, не відчувати провини, щоб могти повернутися згодом</li>
+    </ul>
+
+    <h2>Зони і головна дія кожної</h2>
+    <ul>
+      <li><span class="wf-zone">1</span> Шапка — як на інших екранах донора; у меню поточна «Моя допомога». Вкладок «Мої улюбленці» тут немає: це глибокий екран, назад — «‹ Опіка над [ім'я коня]».</li>
+      <li><span class="wf-zone">2</span> Нова сума — готові суми кнопками, поточна позначена «зараз»; «Інша сума» — поле з цифровою клавіатурою (<code>inputmode="numeric"</code>), без лічильника. Коли спишеться нова сума — під полем. <b>«Зберегти суму»</b>.</li>
+    </ul>
+
+    <h2>Переходи flow</h2>
+    <ul class="wf-flow">
+      <li>«Зберегти суму» → <a href="manage-loading.html">оновлюємо в провайдера</a> (L2) → розвилка 10.</li>
+      <li>«‹ Опіка над [ім'я коня]» → <a href="manage.html">Керування допомогою</a>.</li>
+    </ul>
+  </aside>
+
+</div>
+</body>
+</html>
