@@ -196,6 +196,22 @@
     .diagram svg.is-tracing g.edgeLabel.on :is(p, span) { color: var(--text) !important; font-weight: 600; }
     .diagram svg.is-tracing .node.is-target :is(rect, polygon, path, circle, ellipse) { stroke: var(--accent) !important; stroke-width: 3px !important; }
     @media (prefers-reduced-motion: reduce) { .diagram svg :is(g.node, g.edgeLabel, path.flowchart-link) { transition: none; } }
+    /* Вузол зі сторінкою вайрфрейма: наведення — прев'ю, клік — відкрити */
+    .diagram .node.has-page { cursor: pointer; }
+    .diagram .node.has-page:focus { outline: none; }
+    .diagram .node.has-page:focus-visible :is(rect, polygon, path, circle, ellipse) { stroke: var(--accent) !important; stroke-width: 3px !important; }
+    .pv { position: fixed; z-index: 60; display: grid; gap: 6px; width: 213px; padding: 8px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface-raised); color: var(--text); text-decoration: none; box-shadow: 0 12px 32px rgba(0, 0, 0, .18); opacity: 0; pointer-events: none; transition: opacity .12s ease; }
+    .pv.on { opacity: 1; pointer-events: auto; }
+    .pv-frame { position: relative; width: 195px; height: 381px; overflow: hidden; border-radius: 9px; background: var(--surface-2); }
+    .pv-frame iframe { width: 390px; height: 762px; border: 0; transform: scale(.5); transform-origin: 0 0; pointer-events: none; opacity: 0; transition: opacity .12s ease; }
+    .pv-frame.ready iframe { opacity: 1; }
+    .pv-cap { display: grid; gap: 1px; padding: 0 2px; font-size: 13px; line-height: 1.3; }
+    .pv-cap b { font-weight: 600; }
+    .pv-cap span { display: flex; justify-content: space-between; gap: 8px; color: var(--muted); font-size: 12px; }
+    .pv:hover .pv-cap span em { color: var(--text); }
+    .pv-cap em { font-style: normal; white-space: nowrap; }
+    .pv-cap code { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 11px; line-height: 16px; }
+    @media (prefers-reduced-motion: reduce) { .pv, .pv-frame iframe { transition: none; } }
     .nl { display: inline-block; padding: 0 8px; border-radius: 6px; font-size: 12px; border: 1px solid var(--line); background: var(--surface-2); color: var(--text); }
     .nl.screen { background: var(--surface-raised); border: 2px solid var(--accent); }
     .nl.loading { background: var(--surface); border: 1px dashed var(--muted); }
@@ -304,6 +320,7 @@
     mermaid.run({ querySelector: ".diagram .mermaid" }).then(function () {
       document.querySelectorAll(".viewer").forEach(setupViewer);
       document.querySelectorAll(".diagram svg").forEach(setupTrace);
+      document.querySelectorAll(".viewer").forEach(setupPages);
     }).catch(function (e) { console.error(e); });
   }
 
@@ -458,6 +475,97 @@
       if (!e.target.closest("g.node")) { clear(); svg.querySelectorAll(".is-target").forEach(function (el) { el.classList.remove("is-target"); }); }
     });
   }
+
+  // Вузол зі сторінкою вайрфрейма (data-pages збирає build_ia.py): наведення чи фокус — прев'ю першого екрана,
+  // клік чи Enter — відкрити сторінку (⌘/Ctrl — у новій вкладці). На сенсорному екрані дотик показує прев'ю,
+  // відкриває — дотик до прев'ю. Після перетягування схеми клік сторінку не відкриває.
+  var pv = null, pvFrame, pvIframe, pvName, pvFile, pvShow = 0, pvHide = 0, pvNode = null;
+  function preview() {
+    if (pv) return pv;
+    pv = document.createElement("a");
+    pv.className = "pv";
+    pv.tabIndex = -1;
+    pv.setAttribute("aria-hidden", "true");
+    pv.innerHTML = '<span class="pv-frame"><iframe title="" loading="eager" tabindex="-1"></iframe></span>' +
+      '<span class="pv-cap"><b></b><span><code></code><em>Відкрити ›</em></span></span>';
+    pvFrame = pv.querySelector(".pv-frame");
+    pvIframe = pv.querySelector("iframe");
+    pvName = pv.querySelector("b");
+    pvFile = pv.querySelector("code");
+    pvIframe.addEventListener("load", function () { pvFrame.classList.add("ready"); });
+    pv.addEventListener("pointerenter", function () { clearTimeout(pvHide); });
+    pv.addEventListener("pointerleave", function (e) { if (e.pointerType !== "touch") hidePreview(200); });
+    return pv;
+  }
+  function placePreview(g) {
+    var r = g.getBoundingClientRect(), w = pv.offsetWidth, h = pv.offsetHeight, gap = 12;
+    var left = r.right + gap;
+    if (left + w > innerWidth - 8) left = r.left - w - gap;
+    if (left < 8) left = Math.max(8, Math.min(innerWidth - w - 8, r.left + r.width / 2 - w / 2));
+    var top = Math.max(8, Math.min(innerHeight - h - 8, r.top + r.height / 2 - h / 2));
+    pv.style.left = left + "px";
+    pv.style.top = top + "px";
+  }
+  function showPreview(g, page, delay) {
+    clearTimeout(pvHide);
+    clearTimeout(pvShow);
+    pvShow = setTimeout(function () {
+      var p = preview();
+      var host = document.fullscreenElement || document.webkitFullscreenElement || document.body;
+      if (p.parentNode !== host) host.appendChild(p);
+      if (p.getAttribute("href") !== page[0]) {
+        pvFrame.classList.remove("ready");
+        pvIframe.src = page[0] + "?preview";
+        p.setAttribute("href", page[0]);
+      }
+      pvName.textContent = page[1];
+      pvFile.textContent = page[2];
+      pvNode = g;
+      placePreview(g);
+      p.classList.add("on");
+    }, delay);
+  }
+  function hidePreview(delay) {
+    clearTimeout(pvShow);
+    clearTimeout(pvHide);
+    pvHide = setTimeout(function () { if (pv) pv.classList.remove("on"); pvNode = null; }, delay);
+  }
+  function setupPages(v) {
+    var pages = {};
+    try { pages = JSON.parse(v.getAttribute("data-pages") || "{}"); } catch (e) {}
+    var d = v.querySelector(".diagram"), svg = d && d.querySelector("svg");
+    if (!svg) return;
+    var down = null;
+    svg.addEventListener("pointerdown", function (e) { down = { x: e.clientX, y: e.clientY, type: e.pointerType }; });
+    d.addEventListener("scroll", function () { if (pvNode && d.contains(pvNode)) hidePreview(0); });
+    svg.querySelectorAll("g.node").forEach(function (g) {
+      var m = /^flowchart-(.+)-\d+$/.exec(g.id), page = m && pages[m[1]];
+      if (!page) return;
+      g.classList.add("has-page");
+      g.setAttribute("tabindex", "0");
+      g.setAttribute("role", "link");
+      g.setAttribute("aria-label", page[1] + " — відкрити вайрфрейм " + page[2]);
+      function open(newTab) { if (newTab) window.open(page[0], "_blank"); else location.href = page[0]; }
+      g.addEventListener("pointerenter", function (e) { if (e.pointerType !== "touch") showPreview(g, page, 150); });
+      g.addEventListener("pointerleave", function (e) { if (e.pointerType !== "touch") hidePreview(200); });
+      g.addEventListener("focus", function () { showPreview(g, page, 0); });
+      g.addEventListener("blur", function () { hidePreview(150); });
+      g.addEventListener("click", function (e) {
+        var moved = down && Math.abs(e.clientX - down.x) + Math.abs(e.clientY - down.y) > 6;
+        if (moved) return;
+        if (down && down.type === "touch") { showPreview(g, page, 0); return; }
+        open(e.metaKey || e.ctrlKey);
+      });
+      g.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") { e.preventDefault(); open(e.metaKey || e.ctrlKey); }
+        else if (e.key === "Escape") hidePreview(0);
+      });
+    });
+  }
+  window.addEventListener("scroll", function () { if (pvNode) hidePreview(0); }, { passive: true });
+  document.addEventListener("pointerdown", function (e) {
+    if (pv && pv.classList.contains("on") && !pv.contains(e.target) && !e.target.closest(".node.has-page")) hidePreview(0);
+  });
 </script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 # Збирає ia.html — знімок sitemap.md і flows.md для перегляду.
 # Запуск з кореня репо: python3 tools/build_ia.py
 # Джерело правди — markdown; ia.html руками не редагується.
-import re, html, os
+import re, html, os, json
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE = os.path.join(ROOT, 'tools', 'ia.tpl.html')
 S = open(ROOT + '/sitemap.md', encoding='utf-8').read()
@@ -188,6 +188,83 @@ def fid(t):
     extra = '-team' if 'команди' in t else ('-donor' if 'донатор' in t else ('-guardian' if t.endswith('Опікун') else ''))
     return 'flow-' + j + extra
 
+# ---------- вузли flows → сторінки вайрфреймів ----------
+# Наведення на вузол показує прев'ю його сторінки, клік — відкриває її.
+# Екран — файл з підпису («Вхід · login.html»). Стан — сторінка стану екрана, якому він належить:
+# завантаження сторінки веде до свого екрана через одну розвилку («Дані прийшли?» → екран), завантаження
+# після відправки (оплата, лист) — екрана, з якого відправили; помилка, порожній стан, успіх і «стан:» —
+# екрана найближчого попереднього завантаження чи екрана (стрілки «назад…» не рахуються).
+# Сторінки немає — вузол без прев'ю. Виняток задає рядок у mermaid-коді: %% сторінка ВУЗОЛ файл.html (чи «—»).
+WF = os.path.join(ROOT, 'wireframes')
+TREE_TITLES = dict((f, t) for t, f in re.findall(r'title: "([^"]+)", href: "wireframes/([a-z-]+\.html)"', open(os.path.join(ROOT, '_nav', 'tree.js'), encoding='utf-8').read()))
+SUFFIX = {'loading': '-loading', 'error': '-error', 'empty': '-empty', 'success': '-success', 'state': ''}
+
+def node_pages(code):
+    labels, cls, dec, edges, over = {}, {}, set(), [], {}
+    for line in code.split('\n'):
+        t = line.strip()
+        m = re.match(r'%%\s*сторінка\s+(\w+)\s+(\S+)', t)
+        if m: over[m.group(1)] = m.group(2); continue
+        m = re.match(r'class\s+([\w,]+)\s+(\w+)$', t)
+        if m:
+            for n in m.group(1).split(','): cls[n] = m.group(2)
+            continue
+        for m in re.finditer(r'(\w+)\s*(\(\[|\[\[|\(\(|\(|\[|\{)"([^"]*)"', t):
+            labels[m.group(1)] = m.group(3)
+            if m.group(2) == '{': dec.add(m.group(1))
+        bare = re.sub(r'(\(\[|\[\[|\(\(|\(|\[|\{)"[^"]*"(\]\)|\]\]|\)\)|\)|\]|\})', '', t)
+        m = re.fullmatch(r'(\w+)\s*(?:-->|-\.->|==>)\s*(?:\|"?([^|]*?)"?\|\s*)?(\w+)', bare)
+        if m: edges.append((m.group(1), m.group(3), m.group(2) or ''))
+    exists = lambda f: os.path.exists(os.path.join(WF, f))
+    screen = {}
+    for n, l in labels.items():
+        m = re.search(r'([a-z][a-z-]*)\.html', l)
+        if m and cls.get(n) == 'screen': screen[n] = m.group(1)
+
+    def back(start, stop):
+        seen, q = {start}, [start]
+        while q:
+            nq = []
+            for c in q:
+                for a, b, lab in edges:
+                    if b == c and a not in seen and not lab.startswith('назад'):
+                        if stop(a): return a
+                        seen.add(a); nq.append(a)
+            q = nq
+
+    def loading_base(n):
+        for a, b, _ in edges:
+            if a == n and b in dec:
+                for c, d, _ in edges:
+                    if c == b and d in screen: return screen[d]
+        return screen.get(back(n, lambda y: y in screen))
+
+    out = {}
+    for n, l in labels.items():
+        named = [f for f in re.findall(r'([a-z][a-z-]*\.html)', l) if exists(f)]
+        base, c = None, cls.get(n)
+        if named: out[n] = named[0]; continue
+        if c == 'loading': base = loading_base(n)
+        elif c in SUFFIX:
+            o = back(n, lambda y: y in screen or cls.get(y) == 'loading')
+            if o: base = screen[o] if o in screen else loading_base(o)
+        if base and exists(base + SUFFIX[c] + '.html'): out[n] = base + SUFFIX[c] + '.html'
+    for n, f in over.items():
+        if f in ('—', '-'): out.pop(n, None)
+        else: out[n] = f
+    return out
+
+def pages_attr(code):
+    names = {s['file'][:-5]: s['name'] for g in groups for s in g['screens']}
+    data = {n: ['wireframes/' + f, page_caption(f, names), f] for n, f in node_pages(code).items()}
+    return html.escape(json.dumps(data, ensure_ascii=False), quote=True)
+
+def page_caption(f, names):
+    stem = f[:-5]
+    base = next((b for b in sorted(names, key=len, reverse=True) if stem == b or stem.startswith(b + '-')), stem)
+    name = names.get(base, base)
+    return name if stem == base else f'{name} · {TREE_TITLES.get(f, stem[len(base) + 1:])}'
+
 def flow_html(fl):
     num, name = fl['title'].split(' · ', 1)
     tail = fl['tail']
@@ -202,7 +279,7 @@ def flow_html(fl):
     return (f'<article class="flow" id="{fid(fl["title"])}"><div class="fhead"><h3><span class="fnum">{esc(num)}</span> {esc(name)}</h3>'
             '<a class="tolist" href="#flow-list"><span class="i i-arrow-up" aria-hidden="true"></span>Усі flows</a></div>'
             f'<div class="fmeta">{meta}</div>'
-            f'<div class="viewer"><div class="dtools" hidden><div class="dpanel" role="toolbar" aria-label="Керування схемою flow {esc(num)}">'
+            f'<div class="viewer" data-pages="{pages_attr(fl["code"])}"><div class="dtools" hidden><div class="dpanel" role="toolbar" aria-label="Керування схемою flow {esc(num)}">'
             '<button type="button" class="tb" data-act="out" aria-label="Зменшити" title="Зменшити (−)"><span class="i i-minus" aria-hidden="true"></span></button>'
             '<button type="button" class="tb zval" data-act="real" title="Справжній розмір, 100% (1)">100%</button>'
             '<button type="button" class="tb" data-act="in" aria-label="Збільшити" title="Збільшити (+)"><span class="i i-plus" aria-hidden="true"></span></button>'

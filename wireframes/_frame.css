@@ -122,13 +122,10 @@ body {
 }
 .menu-link, .menu-close { justify-self: start; }
 .brand { justify-self: center; font-weight: 700; text-decoration: none; }
-.menu-settings { justify-self: end; }
-.menu-settings[aria-current="page"] { background: var(--wf-fill); border-color: var(--wf-ink); }
 .quick { justify-self: end; display: flex; gap: 8px; }
-/* Кнопка меню, «✕» і шестерня на екрані «Меню», серце і лупа — однакові квадрати 44 px з іконкою по центру */
+/* Кнопка меню, «✕» на екрані «Меню», серце і лупа — однакові квадрати 44 px з іконкою по центру */
 .menu-link,
 .menu-close,
-.menu-settings,
 .fav-link,
 .search-link {
   list-style: none;
@@ -421,6 +418,15 @@ body {
   clip: rect(0 0 0 0);
   white-space: nowrap;
 }
+
+/* Прев'ю у вузлі flow (ia.html, сторінка з ?preview — клас ставить nav.js): лише перший екран рамки,
+   без нотаток, вкладок станів, номерів зон і лінії першого екрана */
+.wf-preview body { margin: 0; overflow: hidden; background: var(--surface-raised); }
+.wf-preview .wf-page { display: block; padding: 0; }
+.wf-preview :is(.wf-states, .wf-notes) { display: none; }
+.wf-preview .device { width: 390px; border: 0; border-radius: 0; }
+.wf-preview .device::after,
+.wf-preview [data-zone]::before { display: none; }
 
 /* Навігатор репо — зліва від рамки, поза нею. На вузькому вікні його кнопка
    стоїть над рамкою, а не внизу поверх сторінки продукту (nav.css ставить її fixed унизу) */

@@ -13,6 +13,11 @@
 
   var here = normalize(location.href);
 
+  // ?preview — сторінку показано як прев'ю у вузлі flow (ia.html): лише рамка вайрфрейма, без навігатора,
+  // шапки сцени й нотаток. Стилі — wireframes/_frame.css (.wf-preview). Останній екран не запам'ятовуємо
+  var preview = /[?&]preview(&|=|$)/.test(location.search);
+  if (preview) document.documentElement.classList.add("wf-preview");
+
   // Іконка з _nav/icons.css; поруч завжди є текст, тож для скрінрідера вона декоративна
   function icon(name) {
     var i = document.createElement("span");
@@ -381,6 +386,7 @@
   function hideTip() { if (tip) tip.hidden = true; }
 
   function build() {
+    if (preview) { renderBrowserChrome(); return; }
     var nav = document.createElement("nav");
     nav.className = "pn";
     nav.id = "pn";
@@ -494,5 +500,5 @@
     }).catch(function () {});
   }
 
-  watchDeploys();
+  if (!preview) watchDeploys();
 })();
