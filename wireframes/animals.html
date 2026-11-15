@@ -93,7 +93,7 @@
         </fieldset>
         <fieldset class="chips">
           <legend class="sr-only">Швидкі фільтри</legend>
-          <button type="button" class="chip" aria-pressed="false">Бракує допомоги</button>
+          <button type="button" class="chip" aria-pressed="false">Шукають опікунів</button>
           <button type="button" class="chip" aria-pressed="false">Коні</button>
           <button type="button" class="chip" aria-pressed="false">Собаки</button>
           <button type="button" class="chip" aria-pressed="false">Інші</button>
@@ -104,7 +104,7 @@
       <!-- Рядки для порівняння: те, за чим обирають (R1) — фото, ім'я, вид, характер, бракує чи покрито -->
       <section aria-labelledby="list" data-zone="3">
         <h2 id="list" class="sr-only">Тварини центру</h2>
-        <p class="meta"><span class="ph">[кількість]</span> тварин · спершу ті, кому ще бракує допомоги</p>
+        <p class="meta"><span class="ph">[кількість]</span> тварин · спершу ті, хто шукає опікунів</p>
         <ul class="rows">
           <li>
             <a href="animal-loading.html">
@@ -113,7 +113,7 @@
                 <b><span class="ph">[ім'я коня]</span></b>
                 <span class="meta">Кінь · у центрі</span>
                 <span class="meta"><span class="ph">[риса]</span> · <span class="ph">[риса]</span> · <span class="ph">[риса]</span></span>
-                <span>Бракує допомоги <span class="meta">[?]</span></span>
+                <span>Шукає опікунів <span class="meta">[?]</span></span>
               </span>
               <span class="i i-angle-right" aria-hidden="true"></span>
             </a>
@@ -125,7 +125,7 @@
                 <b><span class="ph">[ім'я собаки]</span></b>
                 <span class="meta">Собака · у центрі</span>
                 <span class="meta"><span class="ph">[риса]</span> · <span class="ph">[риса]</span> · <span class="ph">[риса]</span></span>
-                <span>Бракує допомоги <span class="meta">[?]</span></span>
+                <span>Шукає опікунів <span class="meta">[?]</span></span>
               </span>
               <span class="i i-angle-right" aria-hidden="true"></span>
             </a>
@@ -137,13 +137,13 @@
                 <b><span class="ph">[ім'я тварини]</span></b>
                 <span class="meta"><span class="ph">[вид]</span> · у центрі</span>
                 <span class="meta"><span class="ph">[риса]</span></span>
-                <span>Бракує допомоги <span class="meta">[?]</span></span>
+                <span>Шукає опікунів <span class="meta">[?]</span></span>
               </span>
               <span class="i i-angle-right" aria-hidden="true"></span>
             </a>
           </li>
         </ul>
-        <h3 class="list-sub">Уже покрито</h3>
+        <h3 class="list-sub">Опіку вже покрито</h3>
         <ul class="rows" aria-label="Тварини, чию опіку вже покрито">
           <li>
             <a href="animal-loading.html">
@@ -152,7 +152,7 @@
                 <b><span class="ph">[ім'я собаки]</span></b>
                 <span class="meta">Собака · у центрі</span>
                 <span class="meta"><span class="ph">[риса]</span> · <span class="ph">[риса]</span></span>
-                <span><span class="i i-check-circle" aria-hidden="true"></span> Покрито <span class="meta">[?]</span></span>
+                <span><span class="i i-check-circle" aria-hidden="true"></span> Опіку покрито <span class="meta">[?]</span></span>
               </span>
               <span class="i i-angle-right" aria-hidden="true"></span>
             </a>
@@ -164,7 +164,7 @@
                 <b><span class="ph">[ім'я коня]</span></b>
                 <span class="meta">Кінь · у центрі</span>
                 <span class="meta"><span class="ph">[риса]</span> · <span class="ph">[риса]</span></span>
-                <span><span class="i i-check-circle" aria-hidden="true"></span> Покрито <span class="meta">[?]</span></span>
+                <span><span class="i i-check-circle" aria-hidden="true"></span> Опіку покрито <span class="meta">[?]</span></span>
               </span>
               <span class="i i-angle-right" aria-hidden="true"></span>
             </a>
@@ -192,19 +192,19 @@
     <h2>Зони і головна дія кожної</h2>
     <ul>
       <li><span class="wf-zone">1</span> Шапка — меню зліва (розділи з підпунктами: «Стрічка» — «Усі тварини», «Мої улюбленці» — «Моя допомога»; «Налаштування»; мова; поточний — підпункт «Усі тварини» розділу «Стрічка»), «Прайд» по центру, праворуч серце → «Мої улюбленці» і лупа → «Пошук».</li>
-      <li><span class="wf-zone">2</span> Пошук і фільтри — компактно (рішення 15.11.2026): один рядок — поле «Ім'я тварини» з лупою всередині (підпис прихований, «×» з'являється, коли поле заповнене) і кнопка «Фільтри» (з лічильником, коли фільтри діють: «Фільтри · 2») → <a href="animals-filters.html">шторка «Фільтри»</a>. Під ним — швидкі фільтри-чіпи, гортаються вбік: «Бракує допомоги» першим (найпотрібніший, DV4), «Коні», «Собаки», «Інші», «Працює з дітьми» [?] — лише коні. Це фільтр списку, а не пошук по сайту (той — лупа в шапці): ім'я фільтрує під час введення, чіп — одним торканням, кнопки «Показати» немає. Темної кнопки в зоні немає. У вайрфреймі чіпи не перемикаються — без JS.</li>
+      <li><span class="wf-zone">2</span> Пошук і фільтри — компактно (рішення 15.11.2026): один рядок — поле «Ім'я тварини» з лупою всередині (підпис прихований, «×» з'являється, коли поле заповнене) і кнопка «Фільтри» (з лічильником, коли фільтри діють: «Фільтри · 2») → <a href="animals-filters.html">шторка «Фільтри»</a>. Під ним — швидкі фільтри-чіпи, гортаються вбік: «Шукають опікунів» першим (найпотрібніший, DV4), «Коні», «Собаки», «Інші», «Працює з дітьми» [?] — лише коні. Це фільтр списку, а не пошук по сайту (той — лупа в шапці): ім'я фільтрує під час введення, чіп — одним торканням, кнопки «Показати» немає. Темної кнопки в зоні немає. У вайрфреймі чіпи не перемикаються — без JS.</li>
       <li><span class="wf-zone">3</span> Тварини центру — над списком рядок «[кількість] тварин»; далі рядок на тварину; торкання рядка → профіль (R3, розвилка 5 — так). Рядок показує те, за чим порівнюють: фото, ім'я, вид і перебування, риси характеру, «бракує» чи «покрито». Темної кнопки немає: рядки рівноправні.</li>
     </ul>
 
     <h2>Без тиску</h2>
     <ul>
-      <li>«Бракує допомоги» — фільтр і факт у рядку, без лічильників, відсотків і закликів. Кнопки оплати в списку немає: опіка починається в профілі (sitemap.md, «Компроміс»).</li>
+      <li>«Шукають опікунів» — фільтр і факт у рядку, без лічильників, відсотків і закликів. Кнопки оплати в списку немає: опіка починається в профілі (sitemap.md, «Компроміс»).</li>
     </ul>
 
     <h2>Дані</h2>
     <ul>
       <li>Імена, риси характеру, кількість тварин — плейсхолдери. На старті тварин 20–50 (бриф), тож список без сторінок.</li>
-      <li>«Бракує» чи «покрито» — [?]: правило рахунку «покрито» не визначено (sitemap.md, питання до центру 2). Порядок: спершу «Бракує допомоги», «Покрито» — у кінці під підзаголовком «Уже покрито» (рішення 15.11.2026); порядок усередині груп — [?].</li>
+      <li>«Шукає опікунів» чи «Опіку покрито» — [?]: правило рахунку «покрито» не визначено (sitemap.md, питання до центру 2). Порядок: спершу «Шукають опікунів», «Опіку покрито» — у кінці під підзаголовком «Опіку вже покрито» (рішення 15.11.2026); порядок усередині груп — [?].</li>
       <li>Набір рис для фільтра «Характер» — [?]: його дасть центр разом із профілями.</li>
       <li>«Працює з дітьми» — лише в коней (від замовниці, 15.11.2026); котрі саме — [?] (Г8).</li>
     </ul>
