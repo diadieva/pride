@@ -1,0 +1,204 @@
+<!doctype html>
+<!--
+  Профіль тварини · animal-following.html — варіант базової сторінки «Ви стежите» (sitemap.md, «Стани, а не екрани»).
+  Той самий профіль, що й animal.html, але людина натиснула «Ви стежите»: на місці — одне підтвердження
+  «Перестати стежити за [ім'я коня]?» з наслідками і двома однаково світлими кнопками «Не стежити» / «Залишити».
+  Рішення 15.11.2026: де підписався — там і відписуєшся; на картках «Моїх улюбленців» кнопки «Ще» більше немає.
+
+  Крок flow — flows.md, flow Г2: MAIN «Відкрити історію» → PROF → «Ви стежите» → 11 «Є опіка над цією твариною?» —
+  так → ST4 «новини зупиняться, опіка лишиться» → L5 «відписуємо» → 12 «Відписка пройшла?».
+
+  Job (sitemap.md): Г2 [?], R4, M. Правила — wireframes/_conventions.md.
+-->
+<html lang="uk" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Прайд · Вайрфрейм · Профіль тварини · ви стежите</title>
+  <script src="../_nav/theme.js"></script>
+  <link rel="stylesheet" href="../_nav/theme.css">
+  <link rel="stylesheet" href="../_nav/icons.css">
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script defer src="../_nav/tree.js"></script>
+  <script defer src="../_nav/nav.js"></script>
+  <link rel="stylesheet" href="_frame.css">
+</head>
+<body>
+<div class="wf-page">
+
+  <nav class="wf-states" aria-label="Стани екрана «Профіль тварини»">
+    <a href="animal.html">Базова сторінка</a>
+    <a href="animal-following.html" aria-current="page">Ви стежите</a>
+    <a href="animal-empty.html">Порожній</a>
+    <a href="animal-error.html">Помилка</a>
+    <a href="animal-loading.html">Завантаження</a>
+    <a href="animal-success.html">Успіх</a>
+  </nav>
+
+  <div class="device">
+
+    <header class="app-header" data-zone="1">
+      <details class="menu">
+        <summary><span class="i i-menu-bars" aria-hidden="true"></span><span class="sr-only">Меню</span></summary>
+        <nav aria-label="Меню">
+          <ul>
+            <li>
+              <a href="board.html" aria-current="true"><span class="i i-newspaper" aria-hidden="true"></span>Стрічка</a>
+              <ul class="menu-sub">
+                <li><a href="animals.html"><span class="i i-paw" aria-hidden="true"></span>Усі тварини</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span>Мої улюбленці</a>
+              <ul class="menu-sub">
+                <li><a href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span>Моя допомога</a></li>
+              </ul>
+            </li>
+            <li><a href="donate.html"><span class="i i-wallet-heart" aria-hidden="true"></span>Підтримати</a></li>
+            <li><a href="center.html"><span class="i i-building" aria-hidden="true"></span>Про центр</a></li>
+          </ul>
+          <ul>
+            <li><a href="my-subscriptions.html"><span class="i i-sliders-simple" aria-hidden="true"></span>Налаштування</a></li>
+          </ul>
+          <fieldset class="lang">
+            <legend><span class="i i-globe" aria-hidden="true"></span>Мова</legend>
+            <label class="choice"><input type="radio" name="ui-lang" value="uk" checked> Українська</label>
+            <label class="choice"><input type="radio" name="ui-lang" value="en"> English</label>
+          </fieldset>
+        </nav>
+      </details>
+      <a class="brand" href="board.html">Прайд</a>
+      <nav class="quick" aria-label="Швидкий доступ">
+        <a class="fav-link" href="my-animals.html"><span class="i i-heart" aria-hidden="true"></span><span class="sr-only">Мої улюбленці</span></a>
+        <a class="search-link" href="search.html"><span class="i i-search" aria-hidden="true"></span><span class="sr-only">Пошук</span></a>
+      </nav>
+    </header>
+
+    <main>
+      <a class="back" href="my-animals.html"><span class="i i-angle-left" aria-hidden="true"></span> Мої улюбленці</a>
+
+      <section aria-labelledby="pet" data-zone="2">
+        <div class="img wide" role="img" aria-label="Фото: [ім'я тварини]">фото</div>
+        <h1 id="pet"><span class="ph">[ім'я коня]</span></h1>
+        <p class="meta">Кінь · у центрі · <span class="ph">[вік]</span> [?]</p>
+        <p class="meta"><span class="ph">[позначка «Працює з дітьми» — лише для коней, які справді працюють з дітьми]</span> [?]</p>
+        <details>
+          <summary>Усі фото · <span class="ph">[кількість]</span> [?]</summary>
+          <div class="img" role="img" aria-label="Фото: [ім'я тварини]">фото</div>
+          <div class="img" role="img" aria-label="Фото: [ім'я тварини]">фото</div>
+          <div class="img" role="img" aria-label="Фото: [ім'я тварини]">фото</div>
+        </details>
+      </section>
+
+      <section aria-labelledby="my-care" data-zone="3">
+        <h2 id="my-care">Моя опіка</h2>
+        <p class="meta">Хто вже опікується: <span class="ph">[кількість]</span> людей [?]. Імена — лише тих, хто сам дозволив їх показувати [?].</p>
+        <dl>
+          <dt>Опіка</dt>
+          <dd><span class="i i-check-circle" aria-hidden="true"></span> активна · 1 000 грн щомісяця</dd>
+          <dt>Наступне списання</dt>
+          <dd><time datetime="2026-12-01">1 грудня</time></dd>
+        </dl>
+        <a class="btn primary" href="care.html">Підтримати ще</a>
+        <a class="btn" href="manage.html">Керувати опікою</a>
+      </section>
+
+      <section aria-labelledby="updates" data-zone="4">
+        <h2 id="updates">Новини</h2>
+        <!-- Підписка окремо від опіки: де підписався — там і відписуєшся (рішення 15.11.2026). «Ви стежите» відкриває одне підтвердження -->
+        <details class="follow" open>
+          <summary><span class="i i-check-circle" aria-hidden="true"></span> Ви стежите</summary>
+          <form aria-labelledby="unfollow-q" action="animal.html" method="get">
+            <input type="hidden" name="unfollow" value="pet-1">
+            <p id="unfollow-q"><b>Перестати стежити за <span class="ph">[ім'я коня]</span>?</b></p>
+            <ul>
+              <li>новини про цю тварину більше не приходитимуть на kateryna@example.com;</li>
+              <li>опіка й чеки лишаються — підписка окремо від опіки;</li>
+              <li>повернутися — знову «Стежити за історією» тут же.</li>
+            </ul>
+            <footer class="actions">
+              <button type="submit"><span class="i i-bell-slash" aria-hidden="true"></span> Не стежити</button>
+              <a class="btn" href="animal.html">Залишити</a>
+            </footer>
+          </form>
+        </details>
+        <p class="meta">Новини приходять на kateryna@example.com раз на тиждень <span class="meta">[?]</span> · <a href="my-subscriptions-loading.html">Змінити в «Налаштуваннях»</a></p>
+        <article aria-labelledby="u1">
+          <h3 id="u1">Момент · <time datetime="2026-11-11">11 листопада</time></h3>
+          <div class="img wide" role="img" aria-label="Фото до новини">фото</div>
+          <p><span class="ph">[текст оновлення від команди центру]</span></p>
+        </article>
+        <article aria-labelledby="u2">
+          <h3 id="u2">Момент · <time datetime="2026-11-02">2 листопада</time></h3>
+          <p><span class="ph">[текст оновлення від команди центру]</span></p>
+        </article>
+        <button type="button">Показати старіші</button>
+      </section>
+
+      <section aria-labelledby="done" data-zone="5">
+        <h2 id="done">Що зроблено завдяки підтримці</h2>
+        <table>
+          <caption>Жовтень 2026</caption>
+          <thead><tr><th scope="col">На що</th><th scope="col">Сума</th></tr></thead>
+          <tbody>
+            <tr><td>Корм</td><td><span class="ph">[сума]</span> грн</td></tr>
+            <tr><td>Лікування</td><td><span class="ph">[сума]</span> грн</td></tr>
+            <tr><td>Утримання</td><td><span class="ph">[сума]</span> грн</td></tr>
+          </tbody>
+        </table>
+        <p class="meta">Потреба на місяць — <span class="ph">[сума]</span> грн: корм, лікування, утримання. Покрито — [?].</p>
+      </section>
+
+      <section aria-labelledby="story" data-zone="6">
+        <h2 id="story">Історія і характер</h2>
+        <p>Характер: <span class="ph">[риса]</span>, <span class="ph">[риса]</span>, <span class="ph">[риса]</span></p>
+        <p><span class="ph">[історія порятунку — перші рядки]</span></p>
+        <details>
+          <summary>Читати історію повністю</summary>
+          <p><span class="ph">[історія порятунку — повністю]</span></p>
+        </details>
+      </section>
+    </main>
+
+  </div>
+
+  <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
+    <h2>Профіль тварини · варіант «Ви стежите»</h2>
+    <ul>
+      <li><code>animal-following.html</code> — варіант <a href="animal.html">базової сторінки</a>, не стан: людина натиснула «Ви стежите» в зоні «Новини».</li>
+      <li>Рішення 15.11.2026: <b>де підписався — там і відписуєшся.</b> «Стежити за історією» живе в профілі, тож і «Не стежити» — тут, а не в кнопці «Ще» на кожній картці «Моїх улюбленців».</li>
+      <li>Персона — Опікун: опікується конем і стежить за ним. Підписка окремо від опіки.</li>
+    </ul>
+
+    <h2>Job</h2>
+    <ul>
+      <li>Г2 [?] · Отримувати новини там, де я буваю, і так часто, як зручно</li>
+      <li>R4 · Знати, як живе підопічний після підтримки</li>
+    </ul>
+
+    <h2>Зони і головна дія кожної</h2>
+    <ul>
+      <li><span class="wf-zone">4</span> Новини — «Ви стежите» розгорнуто: «Перестати стежити за [ім'я коня]?» і що станеться — новини про цю тварину більше не приходитимуть; опіка й чеки лишаються, бо підписка окремо від опіки; повернутися — «Стежити за історією» тут же. Дві однаково світлі кнопки «Не стежити» і «Залишити»: одне підтвердження, без тиску, без опитування «чому».</li>
+      <li><span class="wf-zone">1</span>–<span class="wf-zone">3</span>, <span class="wf-zone">5</span>, <span class="wf-zone">6</span> — як на базовій сторінці.</li>
+    </ul>
+
+    <h2>Інші варіанти — та сама сторінка</h2>
+    <ul>
+      <li><b>Без опіки</b> (розвилка 11 — ні, ST5) — без рядка про опіку; натомість «[ім'я собаки] зникне з „Моїх улюбленців“».</li>
+      <li><b>Відписуємо</b> (L5) — кнопка «Не стежити» заблокована з «Відписуємо…».</li>
+      <li><b>Після «Не стежити»</b> (розвилка 12 — так, OK4) — на місці «Ви стежите» знову «Стежити за історією» і рядок «Новини про [ім'я коня] більше не приходять».</li>
+      <li><b>Не вдалося</b> (розвилка 12 — ні, E5) — під кнопками «Не вдалося відписати, спробуйте ще»; не виходить — контакти центру.</li>
+      <li><b>З листа</b> — «відписатися» в будь-якому листі лишається відпискою в один клік без входу; вона веде на <a href="my-subscriptions-success.html">«Налаштування» · успіх</a>.</li>
+    </ul>
+
+    <h2>Переходи flow</h2>
+    <ul class="wf-flow">
+      <li>Сюди — «Ви стежите» на <a href="animal.html">базовій сторінці</a>; у профіль — «Відкрити історію» на картці <a href="my-animals.html">«Моїх улюбленців»</a>.</li>
+      <li>«Не стежити» → відписуємо в профілі (L5) → розвилка 12 → <a href="animal.html">профіль</a> зі «Стежити за історією» (OK4).</li>
+      <li>«Залишити» → <a href="animal.html">базова сторінка</a>: нічого не змінилось.</li>
+    </ul>
+  </aside>
+
+</div>
+</body>
+</html>

@@ -208,13 +208,13 @@ body {
 }
 .section-tabs a[aria-current="page"] { font-weight: 700; border-bottom-color: var(--wf-ink); }
 
-/* «Ще» на картці тварини: рідкісні дії (не стежити) — у розгортці, а не поруч із головними */
-.card-more { align-self: flex-end; }
-.card-more > summary { list-style: none; min-width: 44px; justify-content: center; border: 1px solid var(--wf-line); border-radius: 10px; }
-.card-more > summary::-webkit-details-marker { display: none; }
-.card-more[open] { align-self: stretch; display: grid; gap: 8px; padding: 12px; border: 1px solid var(--wf-line); border-radius: 10px; }
-.card-more[open] > summary { justify-self: end; }
-.device .card-more form { padding: 0; border: 0; }
+/* «Ви стежите» у профілі тварини: світла кнопка з галочкою; натиск відкриває одне підтвердження на місці */
+.follow { align-self: flex-start; }
+.follow > summary { list-style: none; gap: 6px; padding: 10px 14px; background: var(--wf-fill-2); border: 1px solid var(--wf-line); border-radius: 10px; }
+.follow > summary::-webkit-details-marker { display: none; }
+.follow[open] { align-self: stretch; display: grid; gap: 8px; }
+.follow[open] > summary { justify-self: start; }
+.device .follow form { padding: 12px; border: 1px solid var(--wf-line); border-radius: 10px; border-style: solid; }
 
 /* Робоча зона */
 .device > main {
