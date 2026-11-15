@@ -122,10 +122,13 @@ body {
 }
 .menu-link, .menu-close { justify-self: start; }
 .brand { justify-self: center; font-weight: 700; text-decoration: none; }
+.menu-settings { justify-self: end; }
+.menu-settings[aria-current="page"] { background: var(--wf-fill); border-color: var(--wf-ink); }
 .quick { justify-self: end; display: flex; gap: 8px; }
-/* Кнопка меню, «✕» на екрані «Меню», серце і лупа — однакові квадрати 44 px з іконкою по центру */
+/* Кнопка меню, «✕» і шестерня на екрані «Меню», серце і лупа — однакові квадрати 44 px з іконкою по центру */
 .menu-link,
 .menu-close,
+.menu-settings,
 .fav-link,
 .search-link {
   list-style: none;
@@ -180,22 +183,18 @@ body {
 /* Поточний — лише підкладка; іконка кольору тексту. Без жирного: місце, де людина вже є, не має бути найгучнішим */
 .menu-list a[aria-current="page"] { background: var(--wf-fill); }
 .menu-list a[aria-current="page"] .i { color: var(--wf-ink); }
-/* Мова — перемикач з двох половин, закріплений унизу першого екрана (як .fixed-actions).
-   Обрана половина — світла «піднята» з рамкою й галочкою, друга — на сірій доріжці без галочки */
+/* Мова — «Українська · English» текстом в один рядок, закріплений унизу першого екрана (як .fixed-actions).
+   Поточна — кольору тексту, підкреслена; друга — приглушене посилання. Без рамок і підкладок: мову міняють раз */
 .device .lang-switch {
-  position: absolute; left: 0; right: 0; top: calc(762px - 72px); height: 72px; z-index: 3;
-  display: flex; align-items: center; gap: 12px; padding: 0 16px;
-  background: var(--wf-bg); border-top: 1px solid var(--wf-line);
+  position: absolute; left: 0; right: 0; top: calc(762px - 64px); height: 64px; z-index: 3;
+  display: flex; align-items: center; gap: 8px; padding: 0 16px;
+  background: var(--wf-bg); font-size: 15px;
 }
-.lang-label { display: flex; align-items: center; gap: 8px; color: var(--wf-muted); font-size: 13px; }
-.lang-label .i { width: 20px; height: 20px; }
-.segmented { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 2px; padding: 2px; background: var(--wf-fill-2); border-radius: 12px; }
-.device .segmented label { position: relative; display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; padding: 0 8px; border: 1px solid transparent; border-radius: 10px; font-size: 15px; cursor: pointer; }
-.device .segmented input { position: absolute; inset: 0; width: 100%; height: 100%; min-height: 0; margin: 0; opacity: 0; cursor: pointer; }
-.segmented .i { width: 16px; height: 16px; display: none; }
-.device .segmented label:has(:checked) { background: var(--wf-bg); border-color: var(--wf-line); font-weight: 500; }
-.segmented label:has(:checked) .i { display: inline-block; }
-.segmented label:has(:focus-visible) { outline: 2px solid var(--wf-ink); outline-offset: 2px; }
+.lang-switch .i { width: 20px; height: 20px; margin-right: 4px; color: var(--wf-muted); }
+.lang-current { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 5px; }
+.lang-sep { color: var(--wf-muted); }
+.device .lang-switch a { display: inline-flex; align-items: center; min-height: 44px; color: var(--wf-muted); text-decoration: none; }
+.device .lang-switch a:hover { color: var(--wf-ink); text-decoration: underline; text-underline-offset: 5px; }
 
 /* Вкладки розділу «Мої улюбленці»: Тварини · Моя допомога · Налаштування — посилання на три сторінки,
    поточна — aria-current, темна риска знизу. Не таббар: стоять угорі main, лише в цьому розділі */
