@@ -383,7 +383,8 @@ body {
 .device .filter-name > .i { position: absolute; left: 12px; top: 12px; color: var(--wf-muted); }
 .device .filter-name input { width: 100%; min-height: 44px; padding-left: 40px; }
 .filter-clear { flex: none; min-width: 44px; min-height: 44px; display: grid; place-items: center; color: inherit; }
-.device .filter-btn { flex: none; display: inline-flex; align-items: center; gap: 6px; padding: 0 12px; white-space: nowrap; }
+.device .filter-btn { position: relative; flex: none; display: grid; place-items: center; width: 44px; min-height: 44px; padding: 0; }
+.device .filter-count { position: absolute; top: -6px; right: -6px; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 9px; background: var(--wf-ink); color: var(--wf-bg); font: 600 11px/18px system-ui, sans-serif; text-align: center; }
 .device .chips { display: flex; flex-wrap: nowrap; gap: 8px; overflow-x: auto; min-width: 0; padding: 0 0 2px; margin: 0; }
 .device .chip { flex: none; display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 14px; border-radius: 999px; background: var(--wf-bg); border: 1px solid var(--wf-line); white-space: nowrap; text-decoration: none; color: inherit; font-size: 14px; }
 .device .chip[aria-pressed="true"] { background: var(--wf-ink); color: var(--wf-bg); border-color: var(--wf-ink); }
