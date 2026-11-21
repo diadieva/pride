@@ -54,11 +54,11 @@
 
       <!-- На місці стрічки — що сталося, повтор і куди звернутися -->
       <section aria-labelledby="feed" data-zone="2">
-        <h2 id="feed"><span class="i i-exclamation-circle" aria-hidden="true"></span> Не вдалося завантажити моменти</h2>
-        <p role="alert">Головна сторінка не відкрилася — схоже, зв'язок перервався. Тварини й новини на місці: це збій показу.</p>
+        <h2 id="feed"><span class="i i-exclamation-circle" aria-hidden="true"></span> Не вдалося завантажити новини</h2>
+        <p role="alert">Тварини й новини на місці: нічого не зникло, сторінка просто не завантажилася. Спробуйте ще.</p>
         <a class="btn primary" href="board-loading.html"><span class="i i-arrows-rotate" aria-hidden="true"></span> Спробувати ще</a>
-        <a class="btn" href="search.html"><span class="i i-search" aria-hidden="true"></span> Шукати за ім'ям</a>
-        <p class="meta">Не виходить? Команда центру на зв'язку пн–пт, 09:00–19:00:</p>
+        <a class="btn" href="search.html"><span class="i i-search" aria-hidden="true"></span> Пошук</a>
+        <p class="meta">Не виходить? Напишіть чи зателефонуйте нам, пн–пт, 09:00–19:00:</p>
         <ul>
           <li><a href="tel:+380665826817"><span class="i i-phone" aria-hidden="true"></span> +380 66 582 68 17</a></li>
           <li><a href="mailto:info@bestofthepride.info"><span class="i i-envelope" aria-hidden="true"></span> info@bestofthepride.info</a></li>
@@ -67,9 +67,9 @@
       </section>
 
       <section aria-labelledby="all-animals" data-zone="3">
-        <h2 id="all-animals" tabindex="-1">Усі тварини центру</h2>
+        <h2 id="all-animals" tabindex="-1">Усі тварини</h2>
         <p>Списком, з фільтрами: за ім'ям, характером, видом і тим, чи шукає тварина опікунів.</p>
-        <a class="btn" href="animals-loading.html">Відкрити список <span class="i i-angle-right" aria-hidden="true"></span></a>
+        <a class="btn" href="animals-loading.html">Усі тварини <span class="i i-angle-right" aria-hidden="true"></span></a>
       </section>
     </main>
 
@@ -90,9 +90,9 @@
 
     <h2>Зони в цьому стані</h2>
     <ul>
-      <li><span class="wf-zone">2</span> Що сталося — <b>«Спробувати ще»</b> (E1 → L1), «Шукати за ім'ям» → «Пошук» (E1 → SEARCH) і контакти центру: телефон, email, години, «Про центр».</li>
-      <li><span class="wf-zone">3</span> Усі тварини центру — світлою кнопкою, головна дія вже в зоні 2.</li>
-      <li><span class="wf-zone">1</span> — шапка працює; лупа в шапці — той самий «Пошук», що й «Шукати за ім'ям».</li>
+      <li><span class="wf-zone">2</span> Що сталося — <b>«Спробувати ще»</b> (E1 → L1), «Пошук» (E1 → SEARCH) і контакти центру: телефон, email, години, «Про центр».</li>
+      <li><span class="wf-zone">3</span> Усі тварини — світлою кнопкою, головна дія вже в зоні 2.</li>
+      <li><span class="wf-zone">1</span> — шапка працює; лупа в шапці — той самий «Пошук», що й кнопка в зоні 2.</li>
     </ul>
 
     <h2>Звірка з flows.md</h2>
@@ -105,8 +105,8 @@
     <ul class="wf-flow">
       <li>Сюди — з <a href="board-loading.html">завантаження</a>, розвилка 1 — ні (E1).</li>
       <li>«Спробувати ще» → <a href="board-loading.html">завантаження</a> (E1 → L1).</li>
-      <li>«Шукати за ім'ям» і лупа в шапці → <a href="search.html">Пошук</a> (E1 → SEARCH).</li>
-      <li>«Відкрити список» → <a href="animals-loading.html">Усі тварини · завантаження</a>.</li>
+      <li>«Пошук» і лупа в шапці → <a href="search.html">Пошук</a> (E1 → SEARCH).</li>
+      <li>«Усі тварини» → <a href="animals-loading.html">Усі тварини · завантаження</a>.</li>
       <li>Не виходить — контакти й <a href="center.html">Про центр</a>.</li>
     </ul>
   </aside>

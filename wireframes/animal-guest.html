@@ -51,7 +51,7 @@
     </header>
 
     <main>
-      <a class="back" href="board.html"><span class="i i-angle-left" aria-hidden="true"></span> На головну</a>
+      <a class="back" href="board.html"><span class="i i-angle-left" aria-hidden="true"></span> Головна</a>
 
       <section aria-labelledby="pet" data-zone="2">
         <!-- «Усі фото» — лічильник на самому фото, а не окремий рядок: відкриває галерею [?]. Лише реальні фото центру -->
@@ -66,15 +66,14 @@
              «Стежити за історією» розгортає коротку форму на місці, «Взяти опіку» веде на care.html -->
         <div class="relation" role="group" aria-label="Ваш зв'язок з [ім'я коня]">
           <details class="follow">
-            <summary><span class="i i-envelope" aria-hidden="true"></span> Стежити за історією</summary>
+            <summary><span class="i i-envelope" aria-hidden="true"></span> Стежити</summary>
             <form aria-labelledby="follow-q" action="animal-loading.html" method="get">
-              <p id="follow-q"><b>Новини про <span class="ph">[ім'я коня]</span> — на email</b></p>
-              <label>Email
-                <input type="email" name="email" autocomplete="email" placeholder="ваша@адреса" required>
+              <p id="follow-q"><b>Новини про <span class="ph">[ім'я коня]</span> — тут і в «Моїх улюбленцях»</b></p>
+              <label>Пошта
+                <input type="email" name="email" autocomplete="email" placeholder="Наприклад, kateryna@example.com" required>
               </label>
-              <label class="choice"><input type="checkbox" name="channel" value="telegram"> Ще й у Telegram-бот <span class="meta">[?]</span></label>
-              <label class="choice"><input type="checkbox" name="consent" required> Погоджуюся отримувати новини</label>
-              <p class="meta">Раз на тиждень [?], важливі зміни — одразу. Змінити — в «Налаштуваннях». Стежити можна й без опіки.</p>
+              <label class="choice"><input type="checkbox" name="consent" required> Погоджуюся отримувати листи про важливі зміни</label>
+              <p class="meta">Новини — у профілі й у «Моїх улюбленцях», без листів. На пошту — лише важливі зміни, одразу. Стежити можна й без опіки.</p>
               <button type="submit">Стежити</button>
             </form>
           </details>
@@ -88,17 +87,17 @@
         <article aria-labelledby="u1">
           <h3 id="u1">Момент · <time datetime="2026-11-11">11 листопада</time></h3>
           <div class="img wide" role="img" aria-label="Фото до новини">фото</div>
-          <p><span class="ph">[текст оновлення від команди центру]</span></p>
+          <p><span class="ph">[текст новини від команди центру]</span></p>
         </article>
         <article aria-labelledby="u2">
           <h3 id="u2">Момент · <time datetime="2026-11-02">2 листопада</time></h3>
-          <p><span class="ph">[текст оновлення від команди центру]</span></p>
+          <p><span class="ph">[текст новини від команди центру]</span></p>
         </article>
         <button type="button">Показати старіші</button>
       </section>
 
       <section aria-labelledby="done" data-zone="4">
-        <h2 id="done">Що зроблено завдяки підтримці</h2>
+        <h2 id="done">На що пішли гроші</h2>
         <table>
           <caption>Жовтень 2026</caption>
           <thead><tr><th scope="col">На що</th><th scope="col">Сума</th></tr></thead>
@@ -108,7 +107,7 @@
             <tr><td>Утримання</td><td><span class="ph">[сума]</span> грн</td></tr>
           </tbody>
         </table>
-        <p class="meta">Потреба на місяць — <span class="ph">[сума]</span> грн: корм, лікування, утримання. Покрито — [?].</p>
+        <p class="meta">На місяць потрібно <span class="ph">[сума]</span> грн: корм, лікування, утримання. Покрито — [?].</p>
         <p class="meta">Хто вже опікується: <span class="ph">[кількість]</span> людей [?]. Імена — лише тих, хто сам дозволив їх показувати [?].</p>
       </section>
 
@@ -143,10 +142,10 @@
 
     <h2>Зони і головна дія кожної</h2>
     <ul>
-      <li><span class="wf-zone">1</span> Шапка — як на інших екранах донора. Назад — туди, звідки прийшов: тут «На головну»; з «Усіх тварин» — «‹ Усі тварини».</li>
+      <li><span class="wf-zone">1</span> Шапка — як на інших екранах донора. Назад — туди, звідки прийшов: тут «‹ Головна»; з «Усіх тварин» — «‹ Усі тварини».</li>
       <li><span class="wf-zone">2</span> Хто це і ваш зв'язок: фото з лічильником «[кількість] фото», ім'я, вид. Під ними — дві світлі кнопки однієї ваги:
         <ul>
-          <li><b>«Стежити за історією»</b> — розгортає коротку форму на місці: email, Telegram-бот [?] (Г2), згода на новини, «Стежити». Періодичності у формі немає — раз на тиждень [?], змінити в «Налаштуваннях» (рішення 14.11.2026). Після надсилання — <a href="animal-loading.html">«Надсилаємо лист…»</a> → <a href="animal-success.html">«Перевірте пошту»</a> на місці форми. Після входу — та сама кнопка без поля email.</li>
+          <li><b>«Стежити»</b> — розгортає коротку форму на місці: пошта, згода на листи про важливі зміни, «Стежити». Новини — без листів, у профілі й у «Моїх улюбленцях»; листом — лише важливі зміни (модель «Новин», 15.11.2026). Після надсилання — <a href="animal-loading.html">«Надсилаємо лист…»</a> → <a href="animal-success.html">«Перевірте пошту»</a> на місці форми. Після входу — та сама кнопка без поля email.</li>
           <li><b>«Взяти опіку»</b> → <code>care.html</code> (R2 Опікуна). Темної кнопки немає: платити Спостерігач не мусить, стеження безкоштовне.</li>
         </ul>
       </li>
@@ -158,7 +157,7 @@
     <h2>Інші сполучення в рядку «ваш зв'язок»</h2>
     <ul>
       <li>Опіка й стеження незалежні, тож рядок має чотири вигляди: опікується й стежить — «Ви опікуєтесь ›» і «Ви стежите» (<a href="animal.html">базова сторінка</a>); опікується, не стежить — «Ви опікуєтесь ›» і кнопка «Стежити»; стежить без опіки — «Ви стежите» і кнопка «Взяти опіку»; ні те, ні інше — ця сторінка.</li>
-      <li><b>Опіка недоступна</b> (R2, розвилка 1 — ні: вибула [?]) — замість «Взяти опіку» пояснення без тиску й «Інші тварини» → <a href="board.html">головна сторінка</a>; «Стежити за історією» лишається.</li>
+      <li><b>Опіка недоступна</b> (R2, розвилка 1 — ні: вибула [?]) — замість «Взяти опіку» пояснення без тиску й «Усі тварини» → <a href="animals.html">Усі тварини</a>; «Стежити» лишається.</li>
     </ul>
 
     <h2>Переходи flow</h2>

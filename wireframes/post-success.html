@@ -40,7 +40,7 @@
     </header>
 
     <main>
-      <h1>Нове оновлення</h1>
+      <h1>Новина про тварину</h1>
       <p class="meta"><span class="i i-users" aria-hidden="true"></span> Команда центру · <span class="ph">[ім'я волонтера]</span></p>
 
       <section aria-labelledby="animal-title" data-zone="2">
@@ -56,7 +56,7 @@
 
       <section aria-labelledby="text-title" data-zone="4">
         <h2 id="text-title">3. Що сталося</h2>
-        <p><span class="ph">[текст оновлення, як його побачать підписники]</span></p>
+        <p><span class="ph">[текст новини, як його побачать ті, хто стежить]</span></p>
       </section>
 
       <section aria-labelledby="type-title" data-zone="5">
@@ -65,19 +65,19 @@
       </section>
 
       <section aria-labelledby="ok-title" data-zone="6">
-        <h2 id="ok-title" role="status"><span class="i i-check-circle" aria-hidden="true"></span> Опубліковано — дякуємо!</h2>
+        <h2 id="ok-title" role="status"><span class="i i-check-circle" aria-hidden="true"></span> Новину опубліковано</h2>
         <dl>
           <dt>Коли</dt>
           <dd><time datetime="2026-11-13T14:36">13 листопада 2026, 14:36</time></dd>
           <dt>Лист</dt>
-          <dd>37 підписників [?] отримають його так часто, як обрали</dd>
+          <dd>не надсилали: момент іде без листа</dd>
         </dl>
-        <a class="btn primary" href="post.html"><span class="i i-plus" aria-hidden="true"></span> Ще одне оновлення</a>
+        <a class="btn primary" href="post.html"><span class="i i-plus" aria-hidden="true"></span> Написати ще одну новину</a>
         <p class="meta">Наступна в списку — <span class="ph">[ім'я собаки]</span>, <time datetime="2026-11-01">12 днів без новин</time>.</p>
-        <p>Де його вже видно:</p>
+        <p>Де її вже видно:</p>
         <footer class="actions">
-          <a class="btn" href="animal-loading.html"><span class="i i-paw" aria-hidden="true"></span> У профілі</a>
-          <a class="btn" href="board.html"><span class="i i-newspaper" aria-hidden="true"></span> На головній</a>
+          <a class="btn" href="animal-loading.html"><span class="i i-paw" aria-hidden="true"></span> Відкрити профіль</a>
+          <a class="btn" href="board.html"><span class="i i-newspaper" aria-hidden="true"></span> До «Головної»</a>
         </footer>
       </section>
     </main>
@@ -101,21 +101,21 @@
     <h2>Зони в цьому стані</h2>
     <ul>
       <li><span class="wf-zone">2</span>–<span class="wf-zone">5</span> — ті самі кроки, що у формі, але вже опубліковані: про кого, 3 файли, текст, тип.</li>
-      <li><span class="wf-zone">6</span> «Опубліковано» — коли і скільки людей отримає лист. <b>«Ще одне оновлення»</b> → <code>post.html</code>: волонтер часто пише кілька поспіль, а зверху вже наступна тварина без новин. Поруч — де видно: «У профілі» (<code>animal-loading.html</code>) і «На головній» (<code>board.html</code>).</li>
+      <li><span class="wf-zone">6</span> «Новину опубліковано» — коли і скільки людей отримає лист. <b>«Написати ще одну новину»</b> → <code>post.html</code>: волонтер часто пише кілька поспіль, а зверху вже наступна тварина без новин. Поруч — де видно: «Відкрити профіль» (<code>animal-loading.html</code>) і «До „Головної“» (<code>board.html</code>).</li>
       <li><span class="wf-zone">1</span> — як на базовій сторінці.</li>
       <li><span class="wf-zone">2</span>, <span class="wf-zone">3</span>, <span class="wf-zone">4</span>, <span class="wf-zone">5</span> — зони для читання: що саме опубліковано.</li>
     </ul>
 
     <h2>Варіант успіху — та сама сторінка</h2>
     <ul>
-      <li><b>Важлива зміна</b> (розвилка 6 — так, після ST3): рядок «Лист» — «пішов усім 37 підписникам [?] одразу, хоч яку періодичність вони обрали»; у профілі вона стоїть зверху стрічки.</li>
-      <li><b>Нова тварина чернеткою</b> (розвилка 3 — ні): «Профіль <span class="ph">[ім'я тварини]</span> — чернетка: донори побачать його, коли команда допише історію [?]». Тоді «У профілі» і «На головній» ще не ведуть до донорського вигляду [?].</li>
+      <li><b>Важлива зміна</b> (розвилка 6 — так, після ST3): рядок «Лист» — «пішов одразу 37 людям [?], які стежать чи опікуються»; у профілі вона стоїть зверху стрічки.</li>
+      <li><b>Нова тварина чернеткою</b> (розвилка 3 — ні): «Профіль <span class="ph">[ім'я тварини]</span> — чернетка: донори побачать його, коли команда допише історію [?].». Тоді «Відкрити профіль» і «До „Головної“» ще не ведуть до донорського вигляду [?].</li>
     </ul>
 
     <h2>Переходи flow</h2>
     <ul class="wf-flow">
       <li>Сюди — із <a href="post-loading.html">публікуємо</a> (L3): розвилка 7 «Опубліковано?» — так (OK1).</li>
-      <li>Далі — «Ще одне оновлення» → <a href="post.html">форма</a>; «У профілі» → <a href="animal-loading.html">Профіль тварини · завантаження</a>; «На головній» → <a href="board.html">стрічка</a>.</li>
+      <li>Далі — «Написати ще одну новину» → <a href="post.html">форма</a>; «Відкрити профіль» → <a href="animal-loading.html">Профіль тварини · завантаження</a>; «До „Головної“» → <a href="board.html">стрічка</a>.</li>
     </ul>
   </aside>
 

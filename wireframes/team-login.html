@@ -42,13 +42,13 @@
       <h1>Вхід для команди</h1>
 
       <form aria-labelledby="login-title" data-zone="2" action="team-login-loading.html" method="get">
-        <h2 id="login-title">Увійти, щоб публікувати оновлення</h2>
+        <h2 id="login-title">Увійти, щоб публікувати новини</h2>
         <p>Без пароля: надішлемо на пошту посилання для входу.</p>
-        <label>Email
+        <label>Пошта
           <input type="email" name="email" autocomplete="email" required aria-describedby="email-hint">
         </label>
-        <p class="meta" id="email-hint">Адреса, з якою центр додав вас до команди. Посилання прийде лише на адресу зі списку команди.</p>
-        <button class="primary" type="submit">Надіслати посилання</button>
+        <p class="meta" id="email-hint">Пошта, з якою центр додав вас до команди. Посилання прийде лише на пошту зі списку команди.</p>
+        <button class="primary" type="submit">Надіслати посилання на пошту</button>
       </form>
     </main>
 
@@ -69,12 +69,12 @@
     <h2>Зони і головна дія кожної</h2>
     <ul>
       <li><span class="wf-zone">1</span> Шапка — лише «Прайд», без меню, серця й лупи донора.</li>
-      <li><span class="wf-zone">2</span> Форма — <b>«Надіслати посилання»</b>. Біля поля — з чим звірити адресу: та, з якою центр додав волонтера до команди.</li>
+      <li><span class="wf-zone">2</span> Форма — <b>«Надіслати посилання на пошту»</b>. Біля поля — з чим звірити адресу: та, з якою центр додав волонтера до команди.</li>
     </ul>
 
     <h2>Переходи flow</h2>
     <ul class="wf-flow">
-      <li>Сюди — з <a href="post.html">Нового оновлення</a>, коли вхід прострочено (R4, розвилка 1 — ні), з <a href="team-login-success.html">успіху</a> — «Виправити» і з <a href="team-login-loading.html">завантаження</a> — «Змінити адресу».</li>
+      <li>Сюди — з <a href="post.html">Нового оновлення</a>, коли вхід прострочено (R4, розвилка 1 — ні), з <a href="team-login-success.html">успіху</a> і з <a href="team-login-loading.html">завантаження</a> — «Змінити пошту».</li>
       <li>Розвилка 3 M «Адреса в правильному форматі?»: ні — браузер не надішле форму й покаже підказку біля поля, варіант <a href="team-login-error.html">помилки</a>; так — <a href="team-login-loading.html">завантаження</a>.</li>
     </ul>
   </aside>

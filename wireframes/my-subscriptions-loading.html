@@ -48,21 +48,15 @@
 
       <!-- Канал, періодичність і мова — для всіх тварин одразу -->
       <form aria-labelledby="how-title" data-zone="2" aria-busy="true" action="my-subscriptions-loading.html" method="get">
-        <h2 id="how-title">Як приходять новини</h2>
-        <p class="meta">Для всіх тварин у «Моїх улюбленцях». Не стежити за однією твариною — «Ви стежите» у профілі тварини чи «відписатися» в будь-якому листі.</p>
-        <fieldset>
-          <legend>Канал</legend>
-          <label class="choice"><input type="checkbox" name="channel" value="email" checked> Email · kateryna@example.com</label>
-          <label class="choice"><input type="checkbox" name="channel" value="telegram"> Telegram-бот <span class="meta">[?]</span></label>
-        </fieldset>
-        <fieldset>
-          <legend>Як часто <span class="meta">[?]</span></legend>
-          <label class="choice"><input type="radio" name="frequency" value="each"> Щойно з'являється новина</label>
-          <label class="choice"><input type="radio" name="frequency" value="week" checked> Раз на тиждень</label>
-          <label class="choice"><input type="radio" name="frequency" value="month"> Раз на місяць</label>
-        </fieldset>
-        <p class="meta">Важливі зміни приходять одразу, хоч яку періодичність обрано.</p>
-        <label>Мова новин
+        <h2 id="how-title">Листи на пошту</h2>
+        <p class="meta">Новини тварин — без листів: у «Моїх улюбленцях» і в профілях. Листом на kateryna@example.com приходить лише це:</p>
+        <ul>
+          <li>важливі зміни — одразу, про тварин, за якими ви стежите чи опікуєтесь;</li>
+          <li>звіт опікуна — раз на місяць <span class="meta">[?]</span>, про тварин під вашою опікою.</li>
+        </ul>
+        <p class="meta">Не стежити за однією твариною — «Ви стежите» в її профілі чи «Не стежити» в листі про неї.</p>
+        <label class="choice"><input type="checkbox" name="center-news"> Ще й новини центру <span class="meta">[?]</span></label>
+        <label>Мова листів
           <select name="lang">
             <option selected>Українська</option>
             <option>English</option>
@@ -76,39 +70,38 @@
       <section aria-labelledby="account" data-zone="3">
         <h2 id="account">Акаунт</h2>
         <dl>
-          <dt>Email</dt>
+          <dt>Пошта</dt>
           <dd>kateryna@example.com</dd>
           <dt>Вхід</dt>
           <dd>без пароля, за посиланням у листі</dd>
         </dl>
-        <p class="meta">Сюди приходять новини, чеки й посилання для входу.</p>
-        <a href="login.html">Адреса не та? Увійти з іншою</a>
-        <p class="meta">Підписки й дані цієї адреси лишаться як є: нічого не перенесемо й не видалимо.</p>
+        <p class="meta">Сюди приходять листи про важливі зміни, звіт опікуна, чеки й посилання для входу.</p>
+        <a href="login.html">Увійти з іншою поштою</a>
+        <p class="meta">Опіки, тварини, за якими ви стежите, та інші дані лишаться на цій пошті як є: нічого не перенесемо й не видалимо.</p>
       </section>
 
       <!-- [ЗАКОН] Видалення даних (GDPR): є регулярна підтримка → спершу скасувати її (Г2, розвилка 8 — так, ST1) -->
       <section aria-labelledby="delete-title" data-zone="4">
         <h2 id="delete-title">Видалити всі мої дані</h2>
-        <p>Спершу скасуйте регулярну підтримку: опіку над <span class="ph">[ім'я коня]</span> (1 000 грн щомісяця) і донат центру (200 грн щомісяця). Без акаунта зупинити ці списання було б ніде.</p>
-        <a class="btn" href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span> Скасувати в «Моїй допомозі»</a>
+        <p>Спершу скасуйте щомісячну допомогу: опіку над <span class="ph">[ім'я коня]</span> (1 000 грн щомісяця) і донат центру (200 грн щомісяця). Видалення акаунта не зупиняє списань.</p>
+        <a class="btn" href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span> До «Моєї допомоги»</a>
         <details>
           <summary>Що зникне, а що лишиться</summary>
           <h3>Зникне</h3>
           <ul>
-            <li>адреса kateryna@example.com і вхід за нею;</li>
-            <li>усі підписки й налаштування новин;</li>
-            <li>«Мої улюбленці» й «Моя допомога»;</li>
-            <li>прив'язка Telegram-бота <span class="meta">[?]</span>.</li>
+            <li>пошта kateryna@example.com і вхід з нею;</li>
+            <li>новини всіх тварин, за якими ви стежите;</li>
+            <li>«Мої улюбленці» й «Моя допомога».</li>
           </ul>
           <h3>Лишиться</h3>
           <ul>
-            <li>записи про платежі — дата, сума, провайдер — у журналі транзакцій, бо їх вимагає закон <span class="meta">[?] скільки років і чи без вашої адреси</span>.</li>
+            <li>записи про внески — дата й сума — бо їх вимагає закон <span class="meta">[?] скільки років і чи без вашої пошти</span>.</li>
           </ul>
         </details>
-        <form aria-label="Підтвердити видалення всіх даних" action="my-subscriptions-loading.html" method="get">
+        <form aria-label="Видалити всі мої дані" action="my-subscriptions-loading.html" method="get">
           <input type="hidden" name="delete" value="all">
           <button type="submit" disabled aria-describedby="delete-hint">Видалити всі мої дані</button>
-          <p class="meta" id="delete-hint">Кнопка стане активною, коли регулярної підтримки не буде.</p>
+          <p class="meta" id="delete-hint">Видалити можна буде, щойно скасуєте щомісячну допомогу.</p>
         </form>
       </section>
     </main>
@@ -118,7 +111,7 @@
   <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
     <h2>Налаштування · завантаження</h2>
     <ul>
-      <li>Людина змінила, як приходять новини, і натиснула «Зберегти». Продукт зберігає.</li>
+      <li>Людина змінила налаштування листів і натиснула «Зберегти налаштування». Продукт зберігає.</li>
       <li>Г2, L3 «зберігаємо» → розвилка 7. У рамці — цей варіант: зміна каналу й частоти — серцевина Г2 на цій сторінці. Відписка від тварини переїхала на картку у вкладці «Стрічка» (рішення 15.11.2026).</li>
     </ul>
 
@@ -131,14 +124,14 @@
 
     <h2>Зони в цьому стані</h2>
     <ul>
-      <li><span class="wf-zone">1</span> Шапка — меню зліва (Головна, Усі тварини, Підтримати, Про центр; під рискою — Мої улюбленці, Моя допомога, Налаштування — поточне; мова), «Прайд» по центру, праворуч серце → «Мої улюбленці» і лупа → «Пошук».</li>
-      <li><span class="wf-zone">2</span> Як приходять новини — <code>aria-busy</code>; обране видно, «Зберігаємо…», кнопка — заглушка.</li>
+      <li><span class="wf-zone">1</span> Шапка — меню зліва (Головна, Усі тварини, Донат центру, Про центр; під рискою — Мої улюбленці, Моя допомога, Налаштування — поточне; мова), «Прайд» по центру, праворуч серце → «Мої улюбленці» і лупа → «Пошук».</li>
+      <li><span class="wf-zone">2</span> Листи на пошту — <code>aria-busy</code>; обране видно, «Зберігаємо…», кнопка — заглушка.</li>
       <li><span class="wf-zone">3</span>, <span class="wf-zone">4</span> — як на базовій сторінці.</li>
     </ul>
 
     <h2>Інші варіанти завантаження</h2>
     <ul>
-      <li><b>Відписуємо з листа</b> (розвилки 1–2, L1) — «відписатися» в листі веде сюди: над зоною 2 «Відписуємо від новин про [ім'я собаки]…». Без входу — лише цей рядок, інших зон немає: сесії немає, і чужих даних не показуємо.</li>
+      <li><b>Відписуємо з листа</b> (розвилки 1–2, L1) — «Не стежити за [ім'я собаки]» в листі веде сюди: над зоною 2 «Не стежити за [ім'я собаки]. Зберігаємо…». Без входу — лише цей рядок, інших зон немає: сесії немає, і чужих даних не показуємо.</li>
       <li><b>Налаштування</b> (L2) — заглушки на місці зон 2–4, «Завантажуємо налаштування…».</li>
       <li><b>Видаляємо дані</b> (L4) — зона 4: «Видаляємо всі ваші дані…». Інші зони без дій.</li>
       <li><b>Не стежити з профілю</b> — не тут: відписуємо в самому профілі тварини (<a href="animal-following.html">«Ви стежите»</a>).</li>
@@ -146,7 +139,7 @@
 
     <h2>Переходи flow</h2>
     <ul class="wf-flow">
-      <li>Сюди — з <a href="my-subscriptions.html">базової сторінки</a> («Зберегти» — L3; видалення — L4); з листа, якщо посилання ціле (розвилка 2 — так, L1); з <a href="my-subscriptions-error.html">помилки</a> — «Спробувати ще».</li>
+      <li>Сюди — з <a href="my-subscriptions.html">базової сторінки</a> («Зберегти налаштування» — L3; видалення — L4); з листа, якщо посилання ціле (розвилка 2 — так, L1); з <a href="my-subscriptions-error.html">помилки</a> — «Спробувати ще».</li>
       <li>L3 → розвилка 7 «Збережено?»: так → <a href="my-subscriptions-success.html">успіх</a> (OK2); ні → <a href="my-subscriptions-error.html">помилка</a> (E3).</li>
       <li>L1 → розвилка 3 «Відписка пройшла?»: так → <a href="my-subscriptions-success.html">успіх</a> (OK1); ні → <a href="my-subscriptions-error.html">помилка</a> (E1).</li>
       <li>L2 → розвилка 4 «Дані прийшли?»: так → <a href="my-subscriptions.html">базова сторінка</a>; ні → <a href="my-subscriptions-error.html">помилка</a> (E2).</li>

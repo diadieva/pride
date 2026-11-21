@@ -48,35 +48,35 @@
       <h1>Мої улюбленці</h1>
 
       <!-- Вкладки розділу «Мої улюбленці» (рішення 15.11.2026): «Стрічка» і «Моя допомога» -->
-      <nav class="section-tabs" aria-label="Вкладки розділу «Мої улюбленці»" data-zone="2">
+      <nav class="section-tabs" aria-label="Розділи «Моїх улюбленців»" data-zone="2">
         <a href="my-animals.html">Стрічка</a>
         <a href="my-support.html" aria-current="page">Моя допомога</a>
       </nav>
-      <p class="meta">Регулярна підтримка з адреси kateryna@example.com</p>
+      <p class="meta">Ви увійшли з поштою kateryna@example.com</p>
 
       <!-- Головна зона: чому порожньо і два виходи з flows.md -->
       <article aria-labelledby="empty-title" data-zone="3">
-        <h2 id="empty-title"><span class="i i-inbox" aria-hidden="true"></span> За цією адресою регулярної підтримки немає</h2>
-        <p>Ми шукали опіки й донати центру для kateryna@example.com і не знайшли жодного щомісячного.</p>
-        <p class="meta">Можливо, ви підтримуєте з іншої адреси — наприклад, робочої. Або підтримку вже скасовано: тоді нічого не списується.</p>
-        <a class="btn primary" href="login.html"><span class="i i-envelope" aria-hidden="true"></span> Увійти з іншою адресою</a>
+        <h2 id="empty-title"><span class="i i-inbox" aria-hidden="true"></span> З цією поштою щомісячної допомоги немає</h2>
+        <p>Ми шукали опіки й донати центру з поштою kateryna@example.com і щомісячних не знайшли.</p>
+        <p class="meta">Якщо ви допомагаєте з іншої пошти, наприклад робочої, — увійдіть з нею. Якщо опіку чи донат уже скасовано, нічого не списується.</p>
+        <a class="btn primary" href="login.html"><span class="i i-envelope" aria-hidden="true"></span> Увійти з іншою поштою</a>
       </article>
 
       <!-- Друга картка: не знайшов — контакти центру -->
       <article aria-labelledby="help-title" data-zone="4">
-        <h2 id="help-title">Не знайшли свою підтримку?</h2>
+        <h2 id="help-title">Не знайшли свою допомогу?</h2>
         <p>Якщо гроші списуються, а тут їх не видно, — напишіть чи зателефонуйте нам. Знайдемо за датою і сумою списання.</p>
         <ul>
           <li><a href="tel:+380665826817"><span class="i i-phone" aria-hidden="true"></span> +380 66 582 68 17</a></li>
           <li><a href="mailto:info@bestofthepride.info"><span class="i i-envelope" aria-hidden="true"></span> info@bestofthepride.info</a></li>
         </ul>
-        <p class="meta">Команда центру на зв'язку пн–пт, 09:00–19:00.</p>
-        <a class="btn" href="center.html">Усі контакти — «Про центр»</a>
+        <p class="meta">Пишіть і телефонуйте пн–пт, 09:00–19:00.</p>
+        <a class="btn" href="center.html">Про центр</a>
       </article>
 
       <section aria-labelledby="history" data-zone="5">
-        <h2 id="history">Історія платежів</h2>
-        <p class="meta">Платежів з адреси kateryna@example.com немає.</p>
+        <h2 id="history">Історія внесків</h2>
+        <p class="meta">Внесків з поштою kateryna@example.com немає.</p>
       </section>
     </main>
 
@@ -97,16 +97,16 @@
 
     <h2>Зони в цьому стані</h2>
     <ul>
-      <li><span class="wf-zone">3</span> «Регулярної підтримки немає» — на місці підсумку «Щомісяця ви даєте» і карток: адреса, з якою звіряти, і дві причини. <b>«Увійти з іншою адресою»</b> → <code>login.html</code>.</li>
-      <li><span class="wf-zone">4</span> «Не знайшли?» — на місці списку карток: телефон, email, години, «Про центр» → <code>center.html</code>. Вихід «не знайшов» з flows.md.</li>
-      <li><span class="wf-zone">5</span> Історія платежів — порожня. Зона для читання.</li>
+      <li><span class="wf-zone">3</span> «З цією поштою щомісячної допомоги немає» — на місці підсумку «Щомісяця ви даєте» і карток: адреса, з якою звіряти, і дві причини. <b>«Увійти з іншою поштою»</b> → <code>login.html</code>.</li>
+      <li><span class="wf-zone">4</span> «Не знайшли свою допомогу?» — на місці списку карток: телефон, email, години, «Про центр» → <code>center.html</code>. Вихід «не знайшов» з flows.md.</li>
+      <li><span class="wf-zone">5</span> Історія внесків — порожня. Зона для читання.</li>
       <li><span class="wf-zone">1</span> — як на базовій сторінці.</li>
       <li><span class="wf-zone">2</span> Вкладки розділу «Мої улюбленці» — Стрічка · Моя допомога; поточна — «Моя допомога». Працюють і в цьому стані.</li>
     </ul>
 
     <h2>Інший варіант порожнього стану</h2>
     <ul>
-      <li><b>Підтримку вже скасовано</b> — зони 3 і 4 ті самі, але в зоні 5 видно минулі платежі з чеками, а в зоні 3 — «Регулярної підтримки зараз немає. Остання — опіка над [ім'я коня], скасована 13 листопада». Списань немає — це і є відповідь на тривогу (E1).</li>
+      <li><b>Підтримку вже скасовано</b> — зони 3 і 4 ті самі, але в зоні 5 видно минулі платежі з чеками, а в зоні 3 — «Щомісячної допомоги зараз немає. Остання — опіка над [ім'я коня], скасована 13 листопада». Списань немає — це і є відповідь на тривогу (E1).</li>
       <li>Донатор із разовим донатом і без акаунта сюди не потрапляє: <code>my-support.html</code> лише для регулярної підтримки (sitemap.md, «Кому потрібні екрани»: донатору — лише з регулярним донатом [?]).</li>
     </ul>
 

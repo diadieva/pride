@@ -51,7 +51,7 @@
 
       <section aria-labelledby="pet" data-zone="2" aria-busy="true">
         <span class="skeleton photo"></span>
-        <h1 id="pet" class="meta" role="status"><span class="i i-hourglass" aria-hidden="true"></span> Відкриваємо профіль…</h1>
+        <h1 id="pet" class="meta sr-only" role="status"><span class="i i-hourglass" aria-hidden="true"></span> Відкриваємо профіль…</h1>
         <span class="skeleton short"></span>
         <!-- Рядок «ваш зв'язок» — заглушки двох чипів: статуси приходять разом із профілем -->
         <div class="relation" aria-hidden="true"><span class="skeleton"></span><span class="skeleton"></span></div>
@@ -74,7 +74,7 @@
       </section>
 
       <section aria-labelledby="done" data-zone="5" aria-busy="true">
-        <h2 id="done">Що зроблено завдяки підтримці</h2>
+        <h2 id="done">На що пішли гроші</h2>
         <span class="skeleton"></span>
         <span class="skeleton"></span>
         <span class="skeleton"></span>
@@ -105,7 +105,7 @@
 
     <h2>Зони в цьому стані</h2>
     <ul>
-      <li><span class="wf-zone">2</span>–<span class="wf-zone">6</span> — заголовки зон уже на місці, дані — сірими заглушками тих самих розмірів; у зоні 2 — і два чипи рядка «ваш зв'язок». Текст процесу — «Відкриваємо профіль…».</li>
+      <li><span class="wf-zone">2</span>–<span class="wf-zone">6</span> — заголовки зон уже на місці, дані — сірими заглушками тих самих розмірів; у зоні 2 — і два чипи рядка «ваш зв'язок». Текст процесу (лише для скрінрідера, на екрані — заглушки) — «Відкриваємо профіль…».</li>
       <li>Вихід — «Мої улюбленці» вгорі, шапка працює.</li>
     </ul>
 
@@ -117,8 +117,8 @@
 
     <h2>Інший варіант завантаження — «Надсилаємо лист…»</h2>
     <ul>
-      <li>Після «Стежити за історією» (flow R3, розвилка 9 — так → L4). У зоні 3 на місці форми: «<span class="i i-hourglass" aria-hidden="true"></span> Надсилаємо лист на kateryna@example.com…», поле адреси заблоковане, кнопка «Стежити» — сіра заглушка: <b>повторне надсилання заблоковано</b>, поки лист іде. Решта профілю — на місці, без заглушок.</li>
-      <li>Розвилка 9а «Лист відправлено?»: так — <a href="animal-success.html">успіх «Перевірте пошту»</a>; ні — <a href="animal-error.html">помилка «не вдалося надіслати, спробуйте за хвилину»</a>.</li>
+      <li>Після «Стежити» (flow R3, розвилка 9 — так → L4). У зоні 3 на місці форми: «<span class="i i-hourglass" aria-hidden="true"></span> Надсилаємо лист на kateryna@example.com…», поле адреси заблоковане, кнопка «Стежити» — сіра заглушка: <b>повторне надсилання заблоковано</b>, поки лист іде. Решта профілю — на місці, без заглушок.</li>
+      <li>Розвилка 9а «Лист відправлено?»: так — <a href="animal-success.html">успіх «Перевірте пошту»</a>; ні — <a href="animal-error.html">помилка «Не вдалося надіслати лист»</a>.</li>
       <li>Як у вході (<a href="login-loading.html">Вхід · завантаження</a>). У рамці цієї сторінки — завантаження профілю, бо воно в головному flow M (рішення 14.11.2026).</li>
     </ul>
 

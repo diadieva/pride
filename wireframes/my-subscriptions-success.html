@@ -50,28 +50,22 @@
 
       <!-- Канал, періодичність і мова — для всіх тварин одразу -->
       <form aria-labelledby="how-title" data-zone="2" action="my-subscriptions-loading.html" method="get">
-        <h2 id="how-title">Як приходять новини</h2>
-        <p role="status"><span class="i i-check-circle" aria-hidden="true"></span> <b>Збережено.</b> Новини про <span class="ph">[ім'я коня]</span> і <span class="ph">[ім'я собаки]</span> приходять на kateryna@example.com раз на місяць, українською. Важливі зміни — одразу.</p>
-        <p class="meta">Для всіх тварин у «Моїх улюбленцях». Не стежити за однією твариною — «Ви стежите» у профілі тварини чи «відписатися» в будь-якому листі.</p>
-        <fieldset>
-          <legend>Канал</legend>
-          <label class="choice"><input type="checkbox" name="channel" value="email" checked> Email · kateryna@example.com</label>
-          <label class="choice"><input type="checkbox" name="channel" value="telegram"> Telegram-бот <span class="meta">[?]</span></label>
-        </fieldset>
-        <fieldset>
-          <legend>Як часто <span class="meta">[?]</span></legend>
-          <label class="choice"><input type="radio" name="frequency" value="each"> Щойно з'являється новина</label>
-          <label class="choice"><input type="radio" name="frequency" value="week"> Раз на тиждень</label>
-          <label class="choice"><input type="radio" name="frequency" value="month" checked> Раз на місяць</label>
-        </fieldset>
-        <p class="meta">Важливі зміни приходять одразу, хоч яку періодичність обрано.</p>
-        <label>Мова новин
+        <h2 id="how-title">Листи на пошту</h2>
+        <p role="status"><span class="i i-check-circle" aria-hidden="true"></span> <b>Збережено.</b> Листи приходять на kateryna@example.com українською, тепер і новини центру <span class="meta">[?]</span>.</p>
+        <p class="meta">Новини тварин — без листів: у «Моїх улюбленцях» і в профілях. Листом на kateryna@example.com приходить лише це:</p>
+        <ul>
+          <li>важливі зміни — одразу, про тварин, за якими ви стежите чи опікуєтесь;</li>
+          <li>звіт опікуна — раз на місяць <span class="meta">[?]</span>, про тварин під вашою опікою.</li>
+        </ul>
+        <p class="meta">Не стежити за однією твариною — «Ви стежите» в її профілі чи «Не стежити» в листі про неї.</p>
+        <label class="choice"><input type="checkbox" name="center-news" checked> Ще й новини центру <span class="meta">[?]</span></label>
+        <label>Мова листів
           <select name="lang">
             <option selected>Українська</option>
             <option>English</option>
           </select>
         </label>
-        <button type="submit">Зберегти</button>
+        <button type="submit">Зберегти налаштування</button>
         <a class="btn" href="my-animals.html">До «Моїх улюбленців»</a>
       </form>
 
@@ -79,39 +73,38 @@
       <section aria-labelledby="account" data-zone="3">
         <h2 id="account">Акаунт</h2>
         <dl>
-          <dt>Email</dt>
+          <dt>Пошта</dt>
           <dd>kateryna@example.com</dd>
           <dt>Вхід</dt>
           <dd>без пароля, за посиланням у листі</dd>
         </dl>
-        <p class="meta">Сюди приходять новини, чеки й посилання для входу.</p>
-        <a href="login.html">Адреса не та? Увійти з іншою</a>
-        <p class="meta">Підписки й дані цієї адреси лишаться як є: нічого не перенесемо й не видалимо.</p>
+        <p class="meta">Сюди приходять листи про важливі зміни, звіт опікуна, чеки й посилання для входу.</p>
+        <a href="login.html">Увійти з іншою поштою</a>
+        <p class="meta">Опіки, тварини, за якими ви стежите, та інші дані лишаться на цій пошті як є: нічого не перенесемо й не видалимо.</p>
       </section>
 
       <!-- [ЗАКОН] Видалення даних (GDPR): є регулярна підтримка → спершу скасувати її (Г2, розвилка 8 — так, ST1) -->
       <section aria-labelledby="delete-title" data-zone="4">
         <h2 id="delete-title">Видалити всі мої дані</h2>
-        <p>Спершу скасуйте регулярну підтримку: опіку над <span class="ph">[ім'я коня]</span> (1 000 грн щомісяця) і донат центру (200 грн щомісяця). Без акаунта зупинити ці списання було б ніде.</p>
-        <a class="btn" href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span> Скасувати в «Моїй допомозі»</a>
+        <p>Спершу скасуйте щомісячну допомогу: опіку над <span class="ph">[ім'я коня]</span> (1 000 грн щомісяця) і донат центру (200 грн щомісяця). Видалення акаунта не зупиняє списань.</p>
+        <a class="btn" href="my-support.html"><span class="i i-wallet" aria-hidden="true"></span> До «Моєї допомоги»</a>
         <details>
           <summary>Що зникне, а що лишиться</summary>
           <h3>Зникне</h3>
           <ul>
-            <li>адреса kateryna@example.com і вхід за нею;</li>
-            <li>усі підписки й налаштування новин;</li>
-            <li>«Мої улюбленці» й «Моя допомога»;</li>
-            <li>прив'язка Telegram-бота <span class="meta">[?]</span>.</li>
+            <li>пошта kateryna@example.com і вхід з нею;</li>
+            <li>новини всіх тварин, за якими ви стежите;</li>
+            <li>«Мої улюбленці» й «Моя допомога».</li>
           </ul>
           <h3>Лишиться</h3>
           <ul>
-            <li>записи про платежі — дата, сума, провайдер — у журналі транзакцій, бо їх вимагає закон <span class="meta">[?] скільки років і чи без вашої адреси</span>.</li>
+            <li>записи про внески — дата й сума — бо їх вимагає закон <span class="meta">[?] скільки років і чи без вашої пошти</span>.</li>
           </ul>
         </details>
-        <form aria-label="Підтвердити видалення всіх даних" action="my-subscriptions-loading.html" method="get">
+        <form aria-label="Видалити всі мої дані" action="my-subscriptions-loading.html" method="get">
           <input type="hidden" name="delete" value="all">
           <button type="submit" disabled aria-describedby="delete-hint">Видалити всі мої дані</button>
-          <p class="meta" id="delete-hint">Кнопка стане активною, коли регулярної підтримки не буде.</p>
+          <p class="meta" id="delete-hint">Видалити можна буде, щойно скасуєте щомісячну допомогу.</p>
         </form>
       </section>
     </main>
@@ -121,7 +114,7 @@
   <aside class="wf-notes" aria-label="Нотатки до вайрфрейма">
     <h2>Налаштування · успіх</h2>
     <ul>
-      <li>Нову частоту збережено: тепер раз на місяць.</li>
+      <li>Збережено: тепер приходять і новини центру [?].</li>
       <li>Г2, розвилка 7 — так → OK2. Підтвердження показує реальні значення: про кого, куди, як часто, якою мовою.</li>
     </ul>
 
@@ -134,22 +127,22 @@
 
     <h2>Зони в цьому стані</h2>
     <ul>
-      <li><span class="wf-zone">1</span> Шапка — меню зліва (Головна, Усі тварини, Підтримати, Про центр; під рискою — Мої улюбленці, Моя допомога, Налаштування — поточне; мова), «Прайд» по центру, праворуч серце → «Мої улюбленці» і лупа → «Пошук».</li>
-      <li><span class="wf-zone">2</span> Як приходять новини — над формою «Збережено» з тим, що тепер діє; поля показують новий вибір. «Зберегти» — світла: головна дія вже зроблена. «До „Моїх улюбленців“» — вихід.</li>
+      <li><span class="wf-zone">1</span> Шапка — меню зліва (Головна, Усі тварини, Донат центру, Про центр; під рискою — Мої улюбленці, Моя допомога, Налаштування — поточне; мова), «Прайд» по центру, праворуч серце → «Мої улюбленці» і лупа → «Пошук».</li>
+      <li><span class="wf-zone">2</span> Листи на пошту — над формою «Збережено» з тим, що тепер діє; поля показують новий вибір. «Зберегти налаштування» — світла: головна дія вже зроблена. «До „Моїх улюбленців“» — вихід.</li>
       <li><span class="wf-zone">3</span>, <span class="wf-zone">4</span> — як на базовій сторінці.</li>
     </ul>
 
     <h2>Інші варіанти успіху</h2>
     <ul>
-      <li><b>Відписано з листа</b> (розвилки 1–3, OK1) — над зоною 2: «Ви відписалися від новин про [ім'я собаки] · 13 листопада 2026, 15:20 · kateryna@example.com. Тварина зникне з „Моїх улюбленців“, якщо ви не опікуєтесь нею. Передумаєте — „Повернути підписку в профілі“» → <code>animal-loading.html</code>. Без входу — лише цей блок і «Керувати всім» → вхід: сесії немає.</li>
+      <li><b>Відписано з листа</b> (розвилки 1–3, OK1) — над зоною 2: «Ви не стежите за [ім'я собаки] · 13 листопада 2026, 15:20 · kateryna@example.com. Тварина зникне з „Моїх улюбленців“, якщо ви не опікуєтесь нею. Передумаєте — натисніть „Стежити“ в профілі.» і «Відкрити профіль» → <code>animal-loading.html</code>. Без входу — лише цей блок і «До „Налаштувань“» → вхід: сесії немає.</li>
       <li><b>Не стежити з профілю</b> — не тут: профіль тварини оновлюється на місці (<a href="animal-following.html">«Ви стежите»</a>).</li>
-      <li><b>Дані видалено</b> (розвилка 10 — так, OK3) — весь <code>main</code>: «Ваші дані видалено. Останній лист — підтвердження — надіслано на kateryna@example.com». Зон 2–4 більше немає: акаунта немає. Вихід — меню й бренд «Прайд» у шапці.</li>
+      <li><b>Дані видалено</b> (розвилка 10 — так, OK3) — весь <code>main</code>: «Ваші дані видалено. Про це ми надіслали останній лист на kateryna@example.com.» Зон 2–4 більше немає: акаунта немає. Вихід — меню й бренд «Прайд» у шапці.</li>
     </ul>
 
     <h2>Переходи flow</h2>
     <ul class="wf-flow">
       <li>Сюди — з <a href="my-subscriptions-loading.html">зберігаємо</a>: розвилка 7 — так (OK2). OK1 — з L1 (розвилка 3 — так), OK3 — з L4 (розвилка 10 — так).</li>
-      <li>OK2 → MAIN: «До „Моїх улюбленців“» → <a href="my-animals.html">Мої улюбленці</a>. OK1: «Повернути підписку в профілі» → <a href="animal-loading.html">Профіль тварини · завантаження</a>, далі «Стежити за історією» як у R3 (Г2: OK1 → PROF); без входу — до «Моїх улюбленців» через <a href="login.html">Вхід</a>.</li>
+      <li>OK2 → MAIN: «До „Моїх улюбленців“» → <a href="my-animals.html">Мої улюбленці</a>. OK1: «Відкрити профіль» → <a href="animal-loading.html">Профіль тварини · завантаження</a>, далі «Стежити» як у R3 (Г2: OK1 → PROF); без входу — до «Моїх улюбленців» через <a href="login.html">Вхід</a>.</li>
     </ul>
   </aside>
 

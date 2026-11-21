@@ -5,7 +5,7 @@
 
   Крок flow — flows.md, flow «R2 · … — Терміновий донатор»: провайдер → 7 «Повернувся з результатом?» — так →
   8 «Оплата пройшла?» — ні → E3 «error: відхилено, спробуйте інший спосіб» → 9 «Спробує ще?»:
-  так → DON (форма надсилається знову); ні → X1 «вихід: сума збережена, повернутися можна з пункту Підтримати».
+  так → DON (форма надсилається знову); ні → X1 «вихід: сума збережена, повернутися можна з пункту «Донат центру»».
 
   Job (sitemap.md): R2, E1, E3. Екран дії: людина сплачує.
   Правила — wireframes/_conventions.md.
@@ -56,15 +56,15 @@
           <dt>Ціль</dt>
           <dd><span class="ph">[сума] грн</span></dd>
         </dl>
-        <a href="center.html"><span class="i i-building" aria-hidden="true"></span> Хто ми — центр «Прайд», с. Кандибине</a>
+        <a href="center.html"><span class="i i-building" aria-hidden="true"></span> Про центр</a>
       </section>
 
       <!-- Форма з тим, що людина обрала: причина зверху, спробувати ще — іншим способом -->
       <form aria-labelledby="pay-title" data-zone="3" action="donate-loading.html" method="get">
-        <h2 id="pay-title"><span class="i i-exclamation-circle" aria-hidden="true"></span> Оплату відхилено</h2>
-        <p role="alert">WayForPay [?] не прийняв платіж, тож донат не оформлено. Спробуйте іншу картку чи спосіб оплати — сума й адреса збережені.</p>
+        <h2 id="pay-title"><span class="i i-exclamation-circle" aria-hidden="true"></span> Оплата не пройшла</h2>
+        <p role="alert">WayForPay [?] не прийняв оплату, тож внесок не пройшов. Спробуйте іншу картку чи спосіб оплати — усе, що ви обрали, збережено.</p>
         <fieldset>
-          <legend>Як часто</legend>
+          <legend>Разово чи щомісяця</legend>
           <label class="choice"><input type="radio" name="mode" value="once" checked> Разово</label>
           <label class="choice"><input type="radio" name="mode" value="monthly"> Щомісяця</label>
         </fieldset>
@@ -84,7 +84,7 @@
             <option>EUR — євро</option>
           </select>
         </label>
-        <label>Адреса для чека
+        <label>Пошта
           <input type="email" name="email" value="kateryna@example.com" required autocomplete="email">
         </label>
         <fieldset>
@@ -104,16 +104,16 @@
           <dt>Чек прийде на</dt>
           <dd>kateryna@example.com</dd>
         </dl>
-        <button class="primary" type="submit"><span class="i i-arrows-rotate" aria-hidden="true"></span> Спробувати ще — оплатити 500 грн</button>
+        <button class="primary" type="submit"><span class="i i-arrows-rotate" aria-hidden="true"></span> Оплатити 500 грн</button>
         <p>Або разово через <a>Monobank-банку</a> <span class="meta"><span class="ph">[посилання на Банку]</span> [?]</span> — чек надішле Monobank.</p>
-        <p class="meta">Не виходить? Команда центру на зв'язку пн–пт, 09:00–19:00: <a href="tel:+380665826817">+380 66 582 68 17</a>, <a href="mailto:info@bestofthepride.info">info@bestofthepride.info</a> чи «<a href="center.html">Про центр</a>».</p>
+        <p class="meta">Не виходить? Напишіть чи зателефонуйте нам, пн–пт, 09:00–19:00: <a href="tel:+380665826817">+380 66 582 68 17</a>, <a href="mailto:info@bestofthepride.info">info@bestofthepride.info</a> чи «<a href="center.html">Про центр</a>».</p>
       </form>
 
       <!-- Куди звернутися по допомогу -->
 
       <nav aria-label="Опіка над твариною" data-zone="4">
-        <p class="meta">Хочете допомагати комусь конкретному?</p>
-        <a href="board.html">або візьміть опіку над твариною <span class="i i-angle-right" aria-hidden="true"></span></a>
+        <p class="meta">Хочете допомагати одній тварині? Над нею можна взяти опіку.</p>
+        <a href="animals.html">Усі тварини <span class="i i-angle-right" aria-hidden="true"></span></a>
       </nav>
     </main>
 
@@ -135,23 +135,23 @@
 
     <h2>Зони в цьому стані</h2>
     <ul>
-      <li><span class="wf-zone">3</span> «Оплату відхилено» — <b>«Спробувати ще»</b>: форма заповнена, згода стоїть, можна змінити спосіб чи піти в Monobank-банку (разово). Під кнопками — куди звернутися: телефон, пошта, години, «Про центр».</li>
-      <li><span class="wf-zone">2</span> Збір — без опису, лише «Зібрано / Ціль» і «Хто ми», щоб форма з помилкою була ближче до верху.</li>
+      <li><span class="wf-zone">3</span> «Оплата не пройшла» — <b>«Оплатити 500 грн»</b>: форма заповнена, згода стоїть, можна змінити спосіб чи піти в Monobank-банку (разово). Під кнопками — куди звернутися: телефон, пошта, години, «Про центр».</li>
+      <li><span class="wf-zone">2</span> Збір — без опису, лише «Зібрано / Ціль» і «Про центр», щоб форма з помилкою була ближче до верху.</li>
       <li><span class="wf-zone">1</span>, <span class="wf-zone">4</span> — шапка, шлях для Опікуна — як на базовій сторінці.</li>
     </ul>
 
     <h2>Інші помилки — та сама сторінка, інший текст</h2>
     <ul>
-      <li><b>Прогрес не показано</b> (розвилка 1 — дані збору не прийшли) — у зоні <span class="wf-zone">2</span>: «Не вдалося показати, скільки вже зібрано. Донат усе одно можна дати — він дійде». Форма працює як на базовій сторінці; повтор прогресу — <a href="donate-loading.html">завантаження</a>.</li>
+      <li><b>Прогрес не показано</b> (розвилка 1 — дані збору не прийшли) — у зоні <span class="wf-zone">2</span>: «Не вдалося показати, скільки вже зібрано. Оплата працює як завжди — внесок дійде.» Форма працює як на базовій сторінці; повтор прогресу — <a href="donate-loading.html">завантаження</a>.</li>
       <li><b>Хибна сума</b> (розвилка 4) — підказка біля поля «Інша сума», <code>aria-describedby</code>: «Вкажіть суму цифрами, наприклад 750». Введене збережено.</li>
-      <li><b>Оплату не завершено</b> (розвилка 7 — людина закрила сторінку провайдера) — «Оплату не завершено. Сума збережена — можна продовжити». У sitemap.md це і помилка, і «інший стан».</li>
-      <li><b>Не підтверджено за добу [?]</b> (розвилка 11) — «Не вдалося підтвердити оплату. Якщо гроші списано — повернемо [?]». Форми немає, головна дія — контакти центру (зона <span class="wf-zone">4</span>) і <a href="center.html">Про центр</a>.</li>
+      <li><b>Оплату не завершено</b> (розвилка 7 — людина закрила сторінку провайдера) — «Оплату не завершено. Усе, що ви обрали, збережено.» У sitemap.md це і помилка, і «інший стан».</li>
+      <li><b>Не підтверджено за добу [?]</b> (розвилка 11) — «Не вдалося підтвердити оплату. Якщо гроші все ж списалися, повернемо їх за [N] днів [?].». Форми немає, головна дія — контакти центру (зона <span class="wf-zone">4</span>) і <a href="center.html">Про центр</a>.</li>
     </ul>
 
     <h2>Переходи flow</h2>
     <ul class="wf-flow">
       <li>Сюди — після провайдера: розвилка 7 чи 8 — ні; з <a href="donate-loading.html">завантаження</a> — розвилка 1 — ні (прогрес не показано) чи 11 — ні (не підтверджено).</li>
-      <li>Розвилка 9 «Спробує ще?»: так — форма надсилається знову → провайдер → <a href="donate-loading.html">завантаження «перевіряємо оплату»</a>; ні — X1: сума збережена, повернутися можна з пункту меню «Підтримати» → <a href="donate.html">Донат центру</a>.</li>
+      <li>Розвилка 9 «Спробує ще?»: так — форма надсилається знову → провайдер → <a href="donate-loading.html">завантаження «перевіряємо оплату»</a>; ні — X1: сума збережена, повернутися можна з пункту меню «Донат центру» → <a href="donate.html">Донат центру</a>.</li>
       <li>Не підтверджено за добу — E4 → <a href="center.html">Про центр</a>, контакти.</li>
     </ul>
   </aside>

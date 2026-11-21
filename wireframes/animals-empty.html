@@ -51,20 +51,20 @@
 
       <!-- Пошук і фільтри цього списку (рішення 15.11.2026): компактний рядок — ім'я й «Фільтри», під ним швидкі фільтри.
            Це фільтр списку, а не пошук по сайту: пошук по сайту — лупа в шапці. Ім'я й чіпи застосовуються одразу, без кнопки «Показати» -->
-      <form class="list-filter" role="search" aria-label="Пошук і фільтри списку" data-zone="2" action="animals-loading.html" method="get">
+      <form class="list-filter" role="search" aria-label="Фільтри «Усіх тварин»" data-zone="2" action="animals-loading.html" method="get">
         <fieldset class="filter-row">
           <legend class="sr-only">Ім'я і фільтри</legend>
           <label class="filter-name"><span class="sr-only">Ім'я тварини</span><span class="i i-search" aria-hidden="true"></span>
             <input type="search" name="q" placeholder="Ім'я тварини" autocomplete="off" enterkeyhint="search">
           </label>
-          <a class="btn filter-btn" href="animals-filters.html"><span class="i i-sliders-simple" aria-hidden="true"></span><span class="sr-only">Фільтри</span><span class="filter-count" aria-hidden="true">3</span><span class="sr-only">: діє 3</span></a>
+          <a class="btn filter-btn" href="animals-filters.html"><span class="i i-sliders-simple" aria-hidden="true"></span><span class="sr-only">Фільтри</span><span class="filter-count" aria-hidden="true">3</span><span class="sr-only">: обрано 3</span></a>
         </fieldset>
         <fieldset class="chips">
           <legend class="sr-only">Швидкі фільтри</legend>
           <button type="button" class="chip" aria-pressed="true">Шукають опікунів</button>
           <button type="button" class="chip" aria-pressed="false">Коні</button>
           <button type="button" class="chip" aria-pressed="false">Собаки</button>
-          <button type="button" class="chip" aria-pressed="true">Інші</button>
+          <button type="button" class="chip" aria-pressed="true">Інші тварини</button>
           <button type="button" class="chip" aria-pressed="false">Працюють з дітьми <span class="meta">[?]</span></button>
         </fieldset>
       </form>
@@ -75,10 +75,10 @@
         <p role="status">За цими фільтрами тварин немає:</p>
         <p class="chips">
           <a class="chip" href="animals-loading.html">Шукають опікунів <span class="i i-xmark-circle" aria-hidden="true"></span><span class="sr-only"> — прибрати фільтр</span></a>
-          <a class="chip" href="animals-loading.html">Інші <span class="i i-xmark-circle" aria-hidden="true"></span><span class="sr-only"> — прибрати фільтр</span></a>
+          <a class="chip" href="animals-loading.html">Інші тварини <span class="i i-xmark-circle" aria-hidden="true"></span><span class="sr-only"> — прибрати фільтр</span></a>
           <a class="chip" href="animals-loading.html"><span class="ph">[риса]</span> <span class="i i-xmark-circle" aria-hidden="true"></span><span class="sr-only"> — прибрати фільтр</span></a>
         </p>
-        <p>Приберіть один із фільтрів або скиньте всі — і побачите всіх тварин центру.</p>
+        <p>Приберіть один із фільтрів або скиньте всі, щоб побачити всіх тварин.</p>
         <a class="btn primary" href="animals-loading.html"><span class="i i-xmark-circle" aria-hidden="true"></span> Скинути фільтри</a>
       </section>
     </main>
@@ -101,13 +101,13 @@
     <h2>Зони в цьому стані</h2>
     <ul>
       <li><span class="wf-zone">3</span> «Нікого не знайшли» — діючі фільтри названо чіпами з «×» (торкнутися — прибрати один), і <b>«Скинути фільтри»</b>: вихід EM2 → повний список.</li>
-      <li><span class="wf-zone">2</span> Пошук і фільтри — обране збережено: чіпи «Шукають опікунів» й «Інші» натиснуто, цифра 3 на іконці фільтрів (ще одна риса з шторки). Прибрати фільтр — торкнутися чіпа.</li>
+      <li><span class="wf-zone">2</span> Пошук і фільтри — обране збережено: чіпи «Шукають опікунів» й «Інші тварини» натиснуто, цифра 3 на іконці фільтрів (ще одна риса з шторки). Прибрати фільтр — торкнутися чіпа.</li>
       <li><span class="wf-zone">1</span> — шапка; лого «Прайд» веде на головну сторінку.</li>
     </ul>
 
     <h2>Інший варіант — та сама сторінка</h2>
     <ul>
-      <li><b>Нікого за ім'ям</b> — ім'я в полі цього списку не дало результату: «Тварини з ім'ям „<span class="ph">[запит]</span>“ немає. Перевірте написання». Та сама дія — «Скинути фільтри» → повний список. Шукати ширше — моменти й «Про центр» — можна в «Пошуку», лупа в шапці.</li>
+      <li><b>Нікого за ім'ям</b> — ім'я в полі цього списку не дало результату: «Тварини з ім'ям „<span class="ph">[запит]</span>“ немає. Перевірте написання.». Та сама дія — «Скинути фільтри» → повний список. Шукати ширше — моменти й «Про центр» — можна в «Пошуку», лупа в шапці.</li>
     </ul>
 
     <h2>Переходи flow</h2>

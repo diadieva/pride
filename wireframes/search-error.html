@@ -38,23 +38,23 @@
   <div class="device">
 
     <!-- Запит збережено: повтор шукає те саме -->
-    <form class="searchbar" role="search" aria-label="Пошук по сайту" data-zone="1" action="search-loading.html" method="get">
+    <form class="searchbar" role="search" aria-label="Пошук на сайті" data-zone="1" action="search-loading.html" method="get">
       <a class="searchbar-back" href="board.html"><span class="i i-angle-left" aria-hidden="true"></span><span class="sr-only">Назад</span></a>
-      <label class="searchbar-field"><span class="sr-only">Що шукаємо</span>
-        <input type="search" name="q" value="кінь" autocomplete="off" enterkeyhint="search" placeholder="Тварина, момент чи «Про центр»">
+      <label class="searchbar-field"><span class="sr-only">Запит</span>
+        <input type="search" name="q" value="кінь" autocomplete="off" enterkeyhint="search" placeholder="Тварина, новина чи «Про центр»">
       </label>
-      <a class="searchbar-clear" href="search.html"><span class="i i-xmark-circle" aria-hidden="true"></span><span class="sr-only">Очистити</span></a>
+      <a class="searchbar-clear" href="search.html"><span class="i i-xmark-circle" aria-hidden="true"></span><span class="sr-only">Очистити запит</span></a>
     </form>
 
     <main>
-      <h1 class="sr-only">Пошук: помилка</h1>
+      <h1 class="sr-only">Пошук: результати не завантажилися</h1>
 
       <!-- На місці результатів — що сталося, повтор і куди звернутися -->
       <section aria-labelledby="results" data-zone="2">
-        <h2 id="results"><span class="i i-exclamation-circle" aria-hidden="true"></span> Не вдалося знайти</h2>
-        <p role="alert">Пошук не відповів — схоже, зв'язок перервався. Запит «кінь» збережено: спробуйте ще раз.</p>
+        <h2 id="results"><span class="i i-exclamation-circle" aria-hidden="true"></span> Результати не завантажилися</h2>
+        <p role="alert">Запит «кінь» збережено. Спробуйте ще.</p>
         <a class="btn primary" href="search-loading.html"><span class="i i-arrows-rotate" aria-hidden="true"></span> Спробувати ще</a>
-        <p class="meta">Не виходить? Команда центру на зв'язку пн–пт, 09:00–19:00:</p>
+        <p class="meta">Не виходить? Напишіть чи зателефонуйте нам, пн–пт, 09:00–19:00:</p>
         <ul>
           <li><a href="tel:+380665826817"><span class="i i-phone" aria-hidden="true"></span> +380 66 582 68 17</a></li>
           <li><a href="mailto:info@bestofthepride.info"><span class="i i-envelope" aria-hidden="true"></span> info@bestofthepride.info</a></li>
@@ -81,8 +81,8 @@
 
     <h2>Зони в цьому стані</h2>
     <ul>
-      <li><span class="wf-zone">1</span> Рядок пошуку — «‹ Назад» (у продукті — на попередній екран; у вайрфреймі — на <a href="board.html">Головну сторінку</a>, звідки в R3 приходять), поле із запитом і «× Очистити» → <a href="search.html">базова сторінка</a> з порожнім полем. Кнопки «Знайти» немає: шукає Enter чи кнопка пошуку на клавіатурі телефона (<code>enterkeyhint="search"</code>) → «шукаємо».</li>
-      <li><span class="wf-zone">2</span> «Не вдалося знайти» — на місці результатів: що сталося, <b>«Спробувати ще»</b> з тим самим запитом (E6 → L5) і контакти центру: телефон, email, години, «Про центр».</li>
+      <li><span class="wf-zone">1</span> Рядок пошуку — «‹ Назад» (у продукті — на попередній екран; у вайрфреймі — на <a href="board.html">Головну сторінку</a>, звідки в R3 приходять), поле із запитом і «× Очистити запит» → <a href="search.html">базова сторінка</a> з порожнім полем. Кнопки «Знайти» немає: шукає Enter чи кнопка пошуку на клавіатурі телефона (<code>enterkeyhint="search"</code>) → «шукаємо».</li>
+      <li><span class="wf-zone">2</span> «Результати не завантажилися» — на місці результатів: що сталося, <b>«Спробувати ще»</b> з тим самим запитом (E6 → L5) і контакти центру: телефон, email, години, «Про центр».</li>
     </ul>
 
     <h2>Звірка з flows.md</h2>

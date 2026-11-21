@@ -52,7 +52,7 @@
 
       <!-- Пошук і фільтри цього списку (рішення 15.11.2026): компактний рядок — ім'я й «Фільтри», під ним швидкі фільтри.
            Це фільтр списку, а не пошук по сайту: пошук по сайту — лупа в шапці. Ім'я й чіпи застосовуються одразу, без кнопки «Показати» -->
-      <form class="list-filter" role="search" aria-label="Пошук і фільтри списку" data-zone="2" action="animals-loading.html" method="get">
+      <form class="list-filter" role="search" aria-label="Фільтри «Усіх тварин»" data-zone="2" action="animals-loading.html" method="get">
         <fieldset class="filter-row">
           <legend class="sr-only">Ім'я і фільтри</legend>
           <label class="filter-name"><span class="sr-only">Ім'я тварини</span><span class="i i-search" aria-hidden="true"></span>
@@ -64,8 +64,8 @@
       </form>
 
       <section aria-labelledby="list" data-zone="3" aria-busy="true">
-        <h2 id="list" class="sr-only">Тварини центру</h2>
-        <p class="meta" role="status"><span class="i i-hourglass" aria-hidden="true"></span> Завантажуємо тварин…</p>
+        <h2 id="list" class="sr-only">Усі тварини</h2>
+        <p class="meta sr-only" role="status"><span class="i i-hourglass" aria-hidden="true"></span> Завантажуємо тварин…</p>
         <span class="skeleton avatar"></span>
         <span class="skeleton title short"></span>
         <span class="skeleton short"></span>
