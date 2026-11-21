@@ -4,7 +4,7 @@
   Людина натиснула іконку фільтрів над списком: повний набір відкривається окремою сторінкою, кнопки внизу видні завжди (рішення 15.11.2026).
   Не стан: дані ті самі, людина лише відкрила панель.
 
-  Крок flow — flows.md, flow R3: ALL «Усі тварини» → «Фільтри» → «Показати [кількість]» → L3 «loading: список» →
+  Крок flow — flows.md, flow R3: ALL «Усі тварини» → «Фільтри» → «Показати [кількість] тварин» → L3 «loading: список» →
   5 «Хтось знайшовся за ім'ям чи фільтром?».
 
   Job (sitemap.md): R1, R3.
@@ -39,18 +39,18 @@
     <!-- Окрема сторінка фільтрів (рішення 15.11.2026): без шапки сайту й меню — лише «назад», заголовок і сам вибір.
          Кнопки «Скинути» й «Показати» закріплені внизу екрана й видні завжди, хоч скільки фільтрів -->
     <header class="sheet-head" data-zone="1">
-      <a class="searchbar-back" href="animals.html"><span class="i i-angle-left" aria-hidden="true"></span><span class="sr-only">Назад до «Усіх тварин» без змін</span></a>
+      <a class="searchbar-back" href="animals.html"><span class="i i-angle-left" aria-hidden="true"></span><span class="sr-only">До «Усіх тварин» без змін</span></a>
       <h1>Фільтри</h1>
       <span class="sheet-head-spacer" aria-hidden="true"></span>
     </header>
 
     <main>
-      <form id="filters" aria-label="Фільтри списку тварин" data-zone="2" action="animals-loading.html" method="get">
+      <form id="filters" aria-label="Фільтри «Усіх тварин»" data-zone="2" action="animals-loading.html" method="get">
         <fieldset class="row">
           <legend>Вид</legend>
-          <label class="choice"><input type="checkbox" name="kind" value="horse"> Кінь</label>
-          <label class="choice"><input type="checkbox" name="kind" value="dog"> Собака</label>
-          <label class="choice"><input type="checkbox" name="kind" value="other"> Інші</label>
+          <label class="choice"><input type="checkbox" name="kind" value="horse"> Коні</label>
+          <label class="choice"><input type="checkbox" name="kind" value="dog"> Собаки</label>
+          <label class="choice"><input type="checkbox" name="kind" value="other"> Інші тварини</label>
         </fieldset>
         <fieldset class="row">
           <legend>Характер <span class="meta">[?]</span></legend>
@@ -68,8 +68,8 @@
 
     <!-- Закріплено внизу екрана: у рамці стоїть просто над межею першого екрана, зміст прокручується під ним -->
     <footer class="sheet-actions fixed-actions" data-zone="3">
-      <a class="btn" href="animals-loading.html">Скинути</a>
-      <button class="primary" type="submit" form="filters">Показати <span class="ph">[кількість]</span></button>
+      <a class="btn" href="animals-loading.html">Скинути фільтри</a>
+      <button class="primary" type="submit" form="filters">Показати <span class="ph">[кількість]</span> тварин</button>
     </footer>
 
   </div>
@@ -90,8 +90,8 @@
     <h2>Зони і головна дія кожної</h2>
     <ul>
       <li><span class="wf-zone">1</span> Окрема сторінка, без шапки сайту й меню: «‹» — назад до списку без змін, заголовок «Фільтри».</li>
-      <li><span class="wf-zone">2</span> Вибір: Вид (кінь · собака · інші); Характер [?] — набір рис дасть центр; «Показати лише»: «Шукають опікунів», «Працюють з дітьми» [?]. Підписи ті самі, що й на чіпах над списком; без повторів і пояснень у підписі (рішення 15.11.2026). Що з дітьми працюють лише коні — факт для нас (від замовниці), в інтерфейсі його не пишемо: після вибору людина й так побачить коней. Зона для вибору, без власної кнопки.</li>
-      <li><span class="wf-zone">3</span> Кнопки, <b>закріплені внизу екрана</b>: «Скинути» (світла) і <b>«Показати [кількість]»</b> — скільки тварин буде, видно до натискання. Видні завжди, навіть коли рис характеру багато й вибір прокручується під ними.</li>
+      <li><span class="wf-zone">2</span> Вибір: Вид (коні · собаки · інші тварини); Характер [?] — набір рис дасть центр; «Показати лише»: «Шукають опікунів», «Працюють з дітьми» [?]. Підписи ті самі, що й на чіпах над списком; без повторів і пояснень у підписі (рішення 15.11.2026). Що з дітьми працюють лише коні — факт для нас (від замовниці), в інтерфейсі його не пишемо: після вибору людина й так побачить коней. Зона для вибору, без власної кнопки.</li>
+      <li><span class="wf-zone">3</span> Кнопки, <b>закріплені внизу екрана</b>: «Скинути фільтри» (світла) і <b>«Показати [кількість] тварин»</b> — скільки тварин буде, видно до натискання. Видні завжди, навіть коли рис характеру багато й вибір прокручується під ними.</li>
     </ul>
 
     <h2>Дані</h2>
@@ -104,8 +104,8 @@
     <h2>Переходи flow</h2>
     <ul class="wf-flow">
       <li>Сюди — іконка фільтрів на <a href="animals.html">базовій сторінці</a>.</li>
-      <li>«Показати [кількість]» → <a href="animals-loading.html">завантаження: список</a> (L3) → розвилка 5: так — <a href="animals.html">список</a>, ні — <a href="animals-empty.html">порожній стан</a>.</li>
-      <li>«Скинути» → <a href="animals-loading.html">завантаження</a> без фільтрів; «‹» — назад без змін → <a href="animals.html">базова сторінка</a>.</li>
+      <li>«Показати [кількість] тварин» → <a href="animals-loading.html">завантаження: список</a> (L3) → розвилка 5: так — <a href="animals.html">список</a>, ні — <a href="animals-empty.html">порожній стан</a>.</li>
+      <li>«Скинути фільтри» → <a href="animals-loading.html">завантаження</a> без фільтрів; «‹» — назад без змін → <a href="animals.html">базова сторінка</a>.</li>
     </ul>
   </aside>
 

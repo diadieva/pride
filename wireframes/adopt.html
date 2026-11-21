@@ -47,19 +47,19 @@
 
     <main>
       <a class="back" href="animal.html"><span class="i i-angle-left" aria-hidden="true"></span> <span class="ph">[ім'я собаки]</span></a>
-      <h1>Заявка на прилаштування</h1>
+      <h1>Хочу забрати додому</h1>
 
       <section aria-labelledby="about-title" data-zone="2">
-        <h2 id="about-title"><span class="i i-house" aria-hidden="true"></span> Хочу забрати додому</h2>
+        <h2 id="about-title"><span class="i i-house" aria-hidden="true"></span> Про кого заявка</h2>
         <fieldset>
-          <legend>Про кого заявка</legend>
+          <legend>Тварина чи загалом</legend>
           <label class="choice"><input type="radio" name="about" value="animal" form="adopt-form" checked>
             <span class="img avatar" role="img" aria-label="Фото: [ім'я тварини]">фото</span>
             <span><b><span class="ph">[ім'я собаки]</span></b> · собака · у центрі</span>
           </label>
           <label class="choice"><input type="radio" name="about" value="general" form="adopt-form"> Загалом, без конкретної тварини</label>
         </fieldset>
-        <p class="meta">Ви прийшли з профілю <span class="ph">[ім'я собаки]</span>. Якщо думаєте про іншу тварину чи ще не обрали — позначте «загалом».</p>
+        <p class="meta">Ви прийшли з профілю <span class="ph">[ім'я собаки]</span>. Якщо думаєте про іншу тварину чи ще не обрали — позначте «Загалом».</p>
       </section>
 
       <form id="adopt-form" aria-labelledby="contacts-title" data-zone="3" action="adopt-loading.html" method="get">
@@ -67,7 +67,7 @@
         <label>Як до вас звертатися
           <input type="text" name="name" autocomplete="name" required>
         </label>
-        <label>Email
+        <label>Пошта
           <input type="email" name="email" autocomplete="email" required aria-describedby="email-hint">
         </label>
         <p class="meta" id="email-hint">Наприклад, kateryna@example.com. Сюди центр відповість на заявку [?].</p>
@@ -80,8 +80,8 @@
         </label>
         <p class="meta" id="comment-hint">Що хочете сказати центру: коли зручно говорити, що вже знаєте про тварину.</p>
         <p class="meta"><span class="ph">[інші питання заявки]</span> [?] — які ще дані потрібні (умови вдома, досвід із тваринами), вирішить центр.</p>
-        <label class="choice"><input type="checkbox" name="consent" required> Погоджуюся на обробку моїх персональних даних, щоб центр відповів на заявку [?]</label>
-        <p class="meta">Як ми їх обробляємо — у «<a href="center.html#documents">Політиці конфіденційності</a>» [?]. Ці дані побачить лише команда центру.</p>
+        <label class="choice"><input type="checkbox" name="consent" required> Погоджуюся, щоб команда центру бачила мої дані й відповіла на заявку [?]</label>
+        <p class="meta">Що ми робимо з даними — у «<a href="center.html#documents">Політиці конфіденційності</a>» [?]. Ці дані побачить лише команда центру.</p>
         <button class="primary" type="submit">Надіслати заявку</button>
       </form>
 
@@ -112,8 +112,8 @@
 
     <h2>Зони і головна дія кожної</h2>
     <ul>
-      <li><span class="wf-zone">1</span> Шапка — меню зліва (Головна, Усі тварини, Підтримати, Про центр; під рискою — Мої улюбленці, Моя допомога, Налаштування; мова; поточного розділу в меню немає), «Прайд» по центру, праворуч серце → «Мої улюбленці» і лупа → «Пошук».</li>
-      <li><span class="wf-zone">2</span> «Хочу забрати додому» — <b>дані для звірки</b>: про кого заявка, фото, ім'я, перебування. Вибір «[ім'я собаки]» чи «загалом» (поля належать формі зони 3 через <code>form="adopt-form"</code>).</li>
+      <li><span class="wf-zone">1</span> Шапка — меню зліва (Головна, Усі тварини, Донат центру, Про центр; під рискою — Мої улюбленці, Моя допомога, Налаштування; мова; поточного розділу в меню немає), «Прайд» по центру, праворуч серце → «Мої улюбленці» і лупа → «Пошук».</li>
+      <li><span class="wf-zone">2</span> «Тварина» — <b>дані для звірки</b>: про кого заявка, фото, ім'я, перебування. Вибір «[ім'я собаки]» чи «загалом» (поля належать формі зони 3 через <code>form="adopt-form"</code>).</li>
       <li><span class="wf-zone">3</span> Контакти — <b>«Надіслати заявку»</b>. Обов'язкові лише ім'я й email, решта — за бажанням. Поля, яких центр ще не визначив, — плейсхолдер [?].</li>
       <li><span class="wf-zone">4</span> «Що буде далі» — чесно: хто зв'яжеться, строк невідомий [?]. Дії немає. Зона для читання.</li>
     </ul>

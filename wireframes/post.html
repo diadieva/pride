@@ -45,7 +45,7 @@
     </header>
 
     <main>
-      <h1>Нове оновлення</h1>
+      <h1>Новина про тварину</h1>
       <p class="meta"><span class="i i-users" aria-hidden="true"></span> Команда центру · <span class="ph">[ім'я волонтера]</span></p>
 
       <!-- Крок 1. Тварина: хто довше без новин — зверху (flows.md, «„Тишу“ в M закриває команда») -->
@@ -83,7 +83,7 @@
           <summary><span class="i i-plus" aria-hidden="true"></span> Додати нову тварину чернеткою</summary>
           <fieldset>
             <legend>Нової тварини ще немає в списку</legend>
-            <label class="choice"><input type="radio" name="animal" value="new" form="post-form"> Оновлення про нову тварину</label>
+            <label class="choice"><input type="radio" name="animal" value="new" form="post-form"> Новина про нову тварину</label>
             <label>Ім'я
               <input type="text" name="new-name" form="post-form" autocomplete="off">
             </label>
@@ -97,7 +97,7 @@
             <label>Фото
               <input type="file" name="new-photo" form="post-form" accept="image/*" capture>
             </label>
-            <p class="meta">Донори побачать профіль, коли команда допише історію й характер. Де це робиться — питання до центру [?].</p>
+            <p class="meta">Донори побачать профіль, коли команда допише історію й характер. Де їх дописати — [?].</p>
           </fieldset>
         </details>
       </section>
@@ -108,22 +108,22 @@
         <label>Додати з камери чи галереї
           <input type="file" name="media" form="post-form" accept="image/*,video/*" multiple capture aria-describedby="media-hint">
         </label>
-        <p class="meta" id="media-hint">Можна кілька. Завантаження почнеться одразу, поки ви пишете текст. Слабкий зв'язок — не страшно: чернетка лишиться на телефоні, догрузимо, щойно зв'язок з'явиться.</p>
+        <p class="meta" id="media-hint">Можна кілька. Файли почнуть завантажуватися одразу, поки ви пишете текст. Якщо зв'язок слабкий, чернетка лишиться на телефоні, а файли довантажимо, щойно зв'язок з'явиться.</p>
       </section>
 
       <!-- Крок 3. Текст: українською обов'язково, англійською — [?] -->
       <section aria-labelledby="text-title" data-zone="4">
         <h2 id="text-title">3. Що сталося</h2>
         <label>Текст українською
-          <textarea name="text-uk" form="post-form" rows="5" required aria-describedby="text-hint" placeholder="Як минув день, що вийшло вперше, що змінилося"></textarea>
+          <textarea name="text-uk" form="post-form" rows="5" required aria-describedby="text-hint" placeholder="Наприклад: [ім'я коня] сьогодні вперше…"></textarea>
         </label>
-        <p class="meta" id="text-hint">Кількох речень досить.</p>
+        <p class="meta" id="text-hint">Як минув день, що вийшло вперше, що змінилося. Кількох речень досить.</p>
         <details>
           <summary>Англійською <span class="meta">[?]</span></summary>
           <label>Текст англійською
             <textarea name="text-en" form="post-form" rows="4" aria-describedby="text-en-hint"></textarea>
           </label>
-          <p class="meta" id="text-en-hint">Можна лишити порожнім — публікації це не заважає. Хто перекладає для англомовних донорів, — питання до центру [?].</p>
+          <p class="meta" id="text-en-hint">Можна лишити порожнім — публікації це не заважає. Хто перекладе для англомовних донорів, — [?].</p>
         </details>
       </section>
 
@@ -131,13 +131,13 @@
       <section aria-labelledby="type-title" data-zone="5">
         <h2 id="type-title">4. Яка це новина</h2>
         <fieldset>
-          <legend class="sr-only">Тип оновлення</legend>
+          <legend class="sr-only">Тип новини</legend>
           <label class="choice"><input type="radio" name="type" value="moment" form="post-form" required checked aria-describedby="type-moment-hint"> Момент</label>
-          <p class="meta" id="type-moment-hint">День, звичка, маленька перемога. Прийде підписникам так часто, як вони обрали.</p>
+          <p class="meta" id="type-moment-hint">День, звичка, маленька перемога. З'явиться в стрічці й у профілі, без листа.</p>
           <label class="choice"><input type="radio" name="type" value="important" form="post-form" aria-describedby="type-important-hint"> Важлива зміна</label>
-          <p id="type-important-hint"><span class="i i-exclamation-circle" aria-hidden="true"></span> <b>Піде всім підписникам одразу, хоч яку періодичність вони обрали.</b> <span class="meta">Те, що змінює життя тварини: переведення, прилаштування.</span></p>
+          <p id="type-important-hint"><span class="i i-exclamation-circle" aria-hidden="true"></span> <b>Піде листом одразу всім, хто стежить чи опікується.</b> <span class="meta">Те, що змінює життя тварини: її переводять чи забирають додому.</span></p>
           <label class="choice"><input type="radio" name="type" value="hard" form="post-form" aria-describedby="type-hard-hint"> Непроста новина <span class="meta">[?]</span></label>
-          <p class="meta" id="type-hard-hint">Чесно про складне: хвороба, погіршення. Іде одразу всім, як важлива зміна, — [?].</p>
+          <p class="meta" id="type-hard-hint">Чесно про складне: хвороба, погіршення. Чи йде листом, як важлива зміна, — [?].</p>
         </fieldset>
       </section>
 
@@ -154,9 +154,9 @@
           <dt>Де з'явиться</dt>
           <dd>у стрічці й у профілі — одразу</dd>
           <dt>Лист отримають</dt>
-          <dd>37 підписників [?] — так часто, як вони обрали</dd>
+          <dd>нікому: момент іде без листа</dd>
         </dl>
-        <button class="primary" type="submit">Опублікувати</button>
+        <button class="primary" type="submit">Опублікувати новину</button>
         <p class="meta" role="status">Чернетку збережено на телефоні · <time datetime="2026-11-13T14:32">14:32</time> [?]</p>
       </form>
     </main>
@@ -186,7 +186,7 @@
       <li><span class="wf-zone">3</span> Фото чи відео — одне поле, відкриває камеру. Кілька файлів.</li>
       <li><span class="wf-zone">4</span> Що сталося — текст українською, обов'язковий. Англійською — шторкою, [?].</li>
       <li><span class="wf-zone">5</span> Яка це новина — момент, важлива зміна, непроста новина [?]. Попередження про «всім одразу» стоїть під варіантом, а не після натискання.</li>
-      <li><span class="wf-zone">6</span> Перевірте й опублікуйте — <b>«Опублікувати»</b>. Звірка поруч: про кого, тип, скільки файлів, де з'явиться, скільки людей отримає лист.</li>
+      <li><span class="wf-zone">6</span> Перевірте й опублікуйте — <b>«Опублікувати новину»</b>. Звірка поруч: про кого, тип, скільки файлів, де з'явиться, скільки людей отримає лист.</li>
     </ul>
 
     <h2>Поведінка і дані</h2>
@@ -200,7 +200,7 @@
 
     <h2>Інші стани на цій сторінці</h2>
     <ul>
-      <li><b>ST3 · окреме підтвердження</b> (розвилка 6 — так): після «Опублікувати» з типом «важлива зміна» чи «непроста новина» — «Надіслати всім 37 підписникам [?] зараз?», кнопки «Так, опублікувати» і «Повернутися до тексту». Без JS у рамці його немає.</li>
+      <li><b>ST3 · окреме підтвердження</b> (розвилка 6 — так): після «Опублікувати новину» з типом «важлива зміна» чи «непроста новина» — «Надіслати лист 37 людям [?], які стежать чи опікуються, зараз?», під ним «Новина з'явиться в стрічці й у профілі, а лист піде одразу. Повернути лист не можна.», кнопки «Опублікувати й надіслати лист» і «Залишити як є». Без JS у рамці його немає.</li>
       <li><b>ST1 · нова тварина чернеткою</b> (розвилка 3 — ні) — відкрита шторка в зоні 2.</li>
     </ul>
 
@@ -211,7 +211,7 @@
       <li>Розвилка 3 «Тварина є в списку?»: так — обрати в зоні 2; ні — «Додати нову тварину чернеткою» (ST1) і далі той самий шлях.</li>
       <li>Розвилка 4 «Завантажилось?»: так — далі; ні — чернетку збережено на телефоні, догрузимо зі зв'язком (варіант <a href="post-loading.html">завантаження</a>).</li>
       <li>Розвилка 5 «Текст і тип заповнено?»: ні — браузер не надішле форму й покаже підказку біля поля (E2, варіант <a href="post-error.html">помилки</a>); так — розвилка 6.</li>
-      <li>Розвилка 6 «Важлива зміна чи непроста новина?»: так — ST3, окреме підтвердження, потім публікація; ні — одразу «Опублікувати» → <a href="post-loading.html">публікуємо</a> (L3).</li>
+      <li>Розвилка 6 «Важлива зміна чи непроста новина?»: так — ST3, окреме підтвердження, потім публікація; ні — одразу «Опублікувати новину» → <a href="post-loading.html">публікуємо</a> (L3).</li>
       <li>Розвилка 7 «Опубліковано?» — на <a href="post-loading.html">завантаженні</a>: так — <a href="post-success.html">успіх</a>; ні — <a href="post-error.html">помилка «не опубліковано, чернетку збережено»</a>.</li>
     </ul>
   </aside>

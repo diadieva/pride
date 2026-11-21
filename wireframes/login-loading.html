@@ -49,13 +49,13 @@
 
       <form aria-labelledby="login-title" data-zone="2" aria-busy="true">
         <h2 id="login-title" role="status"><span class="i i-hourglass" aria-hidden="true"></span> Надсилаємо лист…</h2>
-        <label>Email
+        <label>Пошта
           <input type="email" name="email" value="kateryna@example.com" disabled aria-describedby="email-hint">
         </label>
-        <p class="meta" id="email-hint">Та сама адреса, на яку ви оформили опіку чи підписку і куди приходять листи про тварин.</p>
+        <p class="meta" id="email-hint">Та сама пошта, з якою ви взяли опіку чи стежите за твариною і куди приходять листи про тварин.</p>
         <span class="skeleton button"></span>
-        <p class="meta">Повторне надсилання заблоковано, поки лист іде.</p>
-        <a class="btn" href="login.html">Змінити адресу</a>
+        <p class="meta">Поки лист іде, надіслати ще раз не можна.</p>
+        <a class="btn" href="login.html">Змінити пошту</a>
       </form>
     </main>
 
@@ -75,7 +75,7 @@
 
     <h2>Зони в цьому стані</h2>
     <ul>
-      <li><span class="wf-zone">2</span> «Надсилаємо лист…» — адресу видно, поле заблоковано, кнопка — заглушка. Вихід — «Змінити адресу».</li>
+      <li><span class="wf-zone">2</span> «Надсилаємо лист…» — адресу видно, поле заблоковано, кнопка — заглушка. Вихід — «Змінити пошту».</li>
       <li><span class="wf-zone">1</span> — як на базовій сторінці.</li>
     </ul>
 
@@ -83,7 +83,7 @@
     <ul class="wf-flow">
       <li>Сюди — з <a href="login.html">форми</a>, <a href="login-error.html">помилки</a> чи <a href="login-success.html">успіху</a> — «Надіслати ще раз».</li>
       <li>Розвилка 4 «Лист відправлено?»: так — <a href="login-success.html">успіх</a>; ні — <a href="login-error.html">помилка «не вдалося надіслати»</a>.</li>
-      <li>«Змінити адресу» → <a href="login.html">форма</a>.</li>
+      <li>«Змінити пошту» → <a href="login.html">форма</a>.</li>
     </ul>
   </aside>
 

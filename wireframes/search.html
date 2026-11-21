@@ -41,10 +41,10 @@
   <div class="device">
 
     <!-- Лупа відкриває сторінку з курсором у полі (autofocus) — людина прийшла, щоб одразу писати -->
-    <form class="searchbar" role="search" aria-label="Пошук по сайту" data-zone="1" action="search-loading.html" method="get">
+    <form class="searchbar" role="search" aria-label="Пошук на сайті" data-zone="1" action="search-loading.html" method="get">
       <a class="searchbar-back" href="board.html"><span class="i i-angle-left" aria-hidden="true"></span><span class="sr-only">Назад</span></a>
-      <label class="searchbar-field"><span class="sr-only">Що шукаємо</span>
-        <input type="search" name="q" autocomplete="off" enterkeyhint="search" placeholder="Тварина, момент чи «Про центр»" autofocus>
+      <label class="searchbar-field"><span class="sr-only">Запит</span>
+        <input type="search" name="q" autocomplete="off" enterkeyhint="search" placeholder="Тварина, новина чи «Про центр»" autofocus>
       </label>
     </form>
 
@@ -53,8 +53,8 @@
 
       <!-- Одна підказка, що можна знайти, і тихий шлях переглядати всіх. Більше нічого -->
       <section aria-label="Що можна знайти" data-zone="2">
-        <p class="meta">Шукайте тварин за ім'ям, видом чи рисою характеру, моменти — за текстом, а також розділи «Про центр».</p>
-        <a href="animals-loading.html">Усі тварини — з фільтрами</a>
+        <p class="meta">Шукайте тварин за ім'ям, видом чи рисою характеру, новини — за текстом, а також розділи «Про центр».</p>
+        <a href="animals-loading.html">Усі тварини</a>
       </section>
     </main>
 
@@ -77,16 +77,16 @@
 
     <h2>Зони і головна дія кожної</h2>
     <ul>
-      <li><span class="wf-zone">1</span> Рядок пошуку — «‹ Назад» (у продукті — на попередній екран; у вайрфреймі — на <a href="board.html">Головну сторінку</a>, звідки в R3 приходять), поле з курсором і підказкою «Тварина, момент чи „Про центр“». Кнопки «Знайти» немає: шукає Enter чи кнопка пошуку на клавіатурі телефона (<code>enterkeyhint="search"</code>) → «шукаємо».</li>
-      <li><span class="wf-zone">2</span> Що можна знайти — зона для читання: одна підказка. Тихе посилання «Усі тварини — з фільтрами» → <code>animals.html</code> — для того, хто хоче переглядати, а не шукати. Темної кнопки немає.</li>
+      <li><span class="wf-zone">1</span> Рядок пошуку — «‹ Назад» (у продукті — на попередній екран; у вайрфреймі — на <a href="board.html">Головну сторінку</a>, звідки в R3 приходять), поле з курсором і підказкою «Тварина, новина чи „Про центр“». Кнопки «Знайти» немає: шукає Enter чи кнопка пошуку на клавіатурі телефона (<code>enterkeyhint="search"</code>) → «шукаємо».</li>
+      <li><span class="wf-zone">2</span> Що можна знайти — зона для читання: одна підказка. Тихе посилання «Усі тварини» → <code>animals.html</code> — для того, хто хоче переглядати, а не шукати. Темної кнопки немає.</li>
       <li>Шапки сайту немає: сторінка лише для пошуку. Повернення — «‹ Назад».</li>
     </ul>
 
     <h2>Переходи flow</h2>
     <ul class="wf-flow">
-      <li>Сюди — лупою з шапки будь-якого екрана донора (R3, розвилка 2 — так), з <a href="board-error.html">помилки головної сторінки</a> — «Шукати за ім'ям» (E1), «× Очистити» з <a href="search-results.html">результатів</a>, <a href="search-empty.html">порожнього стану</a> й <a href="search-error.html">помилки</a>.</li>
+      <li>Сюди — лупою з шапки будь-якого екрана донора (R3, розвилка 2 — так), з <a href="board-error.html">помилки головної сторінки</a> — «Пошук» (E1), «× Очистити запит» з <a href="search-results.html">результатів</a>, <a href="search-empty.html">порожнього стану</a> й <a href="search-error.html">помилки</a>.</li>
       <li>Ввести запит і Enter → <a href="search-loading.html">завантаження: шукаємо</a> (L5).</li>
-      <li>«Усі тварини — з фільтрами» → <a href="animals-loading.html">Усі тварини · завантаження</a> (L3).</li>
+      <li>«Усі тварини» → <a href="animals-loading.html">Усі тварини · завантаження</a> (L3).</li>
       <li>«‹ Назад» → попередній екран; у вайрфреймі — <a href="board.html">Головна сторінка</a>.</li>
     </ul>
   </aside>

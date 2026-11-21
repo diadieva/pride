@@ -41,10 +41,10 @@
     </header>
 
     <main>
-      <h1>Нове оновлення</h1>
+      <h1>Новина про тварину</h1>
       <p class="meta"><span class="i i-users" aria-hidden="true"></span> Команда центру · <span class="ph">[ім'я волонтера]</span></p>
 
-      <p class="notice" role="alert"><span><span class="i i-exclamation-circle" aria-hidden="true"></span> <b>Не опубліковано.</b> Зв'язок обірвався під час публікації. Чернетку збережено на телефоні — тварина, текст, тип і всі 3 файли. Нічого вводити заново не треба.</span></p>
+      <p class="notice" role="alert"><span><span class="i i-exclamation-circle" aria-hidden="true"></span> <b>Новину не опубліковано.</b> Зв'язок обірвався під час публікації. Чернетку збережено на телефоні — тварина, текст, тип і всі 3 файли. Нічого вводити заново не треба.</span></p>
 
       <section aria-labelledby="animal-title" data-zone="2">
         <h2 id="animal-title">1. Про кого</h2>
@@ -81,7 +81,7 @@
       <section aria-labelledby="media-title" data-zone="3">
         <h2 id="media-title">2. Фото чи відео</h2>
         <p><span class="i i-check-circle" aria-hidden="true"></span> 3 файли вже завантажено — повторно не вантажимо.</p>
-        <label>Додати ще
+        <label>Додати ще фото чи відео
           <input type="file" name="media" form="post-form" accept="image/*,video/*" multiple capture>
         </label>
       </section>
@@ -89,7 +89,7 @@
       <section aria-labelledby="text-title" data-zone="4">
         <h2 id="text-title">3. Що сталося</h2>
         <label>Текст українською
-          <textarea name="text-uk" form="post-form" rows="5" required>[текст оновлення від команди центру]</textarea>
+          <textarea name="text-uk" form="post-form" rows="5" required>[текст новини від команди центру]</textarea>
         </label>
         <details>
           <summary>Англійською <span class="meta">[?]</span></summary>
@@ -102,10 +102,10 @@
       <section aria-labelledby="type-title" data-zone="5">
         <h2 id="type-title">4. Яка це новина</h2>
         <fieldset>
-          <legend class="sr-only">Тип оновлення</legend>
+          <legend class="sr-only">Тип новини</legend>
           <label class="choice"><input type="radio" name="type" value="moment" form="post-form" required checked> Момент</label>
           <label class="choice"><input type="radio" name="type" value="important" form="post-form" aria-describedby="type-important-hint"> Важлива зміна</label>
-          <p class="meta" id="type-important-hint">Піде всім підписникам одразу, хоч яку періодичність вони обрали.</p>
+          <p class="meta" id="type-important-hint">Піде листом одразу всім, хто стежить чи опікується.</p>
           <label class="choice"><input type="radio" name="type" value="hard" form="post-form"> Непроста новина <span class="meta">[?]</span></label>
         </fieldset>
       </section>
@@ -120,10 +120,10 @@
           <dt>Фото й відео</dt>
           <dd>3 файли, завантажено</dd>
           <dt>Лист отримають</dt>
-          <dd>37 підписників [?] — так часто, як вони обрали</dd>
+          <dd>нікому: момент іде без листа</dd>
         </dl>
         <button class="primary" type="submit"><span class="i i-arrows-rotate" aria-hidden="true"></span> Спробувати ще</button>
-        <p class="meta">Зв'язку немає зовсім? Закрийте сторінку — чернетка лишиться на телефоні. Не виходить кілька разів — напишіть <span class="ph">[хто в команді відповідає за сайт]</span> [?].</p>
+        <p class="meta">Зв'язку немає зовсім? Закрийте сторінку — чернетка лишиться на телефоні. Не виходить? Напишіть чи зателефонуйте <span class="ph">[хто в команді відповідає за сайт]</span> [?].</p>
       </form>
     </main>
 
@@ -152,8 +152,8 @@
 
     <h2>Інші помилки — та сама сторінка, інший текст</h2>
     <ul>
-      <li><b>E1 · немає зв'язку</b> (розвилка 2 «Список прийшов?» — ні): «Немає зв'язку — список тварин не завантажився. Можна писати чернетку: текст і фото збережемо на телефоні». У зоні 2 — останній збережений список з датою [?] чи порожньо; зони 3–5 працюють. Вихід — «Спробувати ще» → <code>post-loading.html</code> (L1).</li>
-      <li><b>E2 · хибне поле</b> (розвилка 5 «Текст і тип заповнено?» — ні): браузер не надішле форму, підказка біля поля через <code>required</code> — «Напишіть кілька слів про те, що сталося» біля тексту, «Оберіть, яка це новина» біля типу. Введене збережено.</li>
+      <li><b>E1 · немає зв'язку</b> (розвилка 2 «Список прийшов?» — ні): «Немає зв'язку — список тварин не завантажився. Можна писати чернетку: текст і фото збережемо на телефоні.». У зоні 2 — останній збережений список з датою [?] чи порожньо; зони 3–5 працюють. Вихід — «Спробувати ще» → <code>post-loading.html</code> (L1).</li>
+      <li><b>E2 · хибне поле</b> (розвилка 5 «Текст і тип заповнено?» — ні): браузер не надішле форму, підказка біля поля через <code>required</code> — «Напишіть кілька слів про те, що сталося.» біля тексту, «Оберіть, яка це новина» біля типу. Введене збережено.</li>
     </ul>
 
     <h2>Переходи flow</h2>

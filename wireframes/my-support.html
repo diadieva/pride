@@ -52,7 +52,7 @@
       <h1>Мої улюбленці</h1>
 
       <!-- Вкладки розділу «Мої улюбленці» (рішення 15.11.2026): «Стрічка» і «Моя допомога» -->
-      <nav class="section-tabs" aria-label="Вкладки розділу «Мої улюбленці»" data-zone="2">
+      <nav class="section-tabs" aria-label="Розділи «Моїх улюбленців»" data-zone="2">
         <a href="my-animals.html">Стрічка</a>
         <a href="my-support.html" aria-current="page">Моя допомога</a>
       </nav>
@@ -65,39 +65,39 @@
 
       <!-- Одна компактна картка на кожну регулярну підтримку; всі дії — на окремому екрані «Керування допомогою» -->
       <section aria-labelledby="regular" data-zone="4">
-        <h2 id="regular">Регулярна підтримка</h2>
+        <h2 id="regular">Щомісячна допомога</h2>
 
         <article class="support-card" aria-labelledby="sup-1">
           <span class="img avatar" role="img" aria-label="Фото: [ім'я коня]">фото</span>
           <h3 id="sup-1">Опіка над <span class="ph">[ім'я коня]</span></h3>
-          <p>1 000 грн/міс · <span class="i i-check-circle" aria-hidden="true"></span> активна</p>
+          <p>1 000 грн щомісяця <span class="i i-check-circle" aria-hidden="true"></span></p>
           <p class="meta">Наступне списання <time datetime="2026-12-01">1 грудня</time></p>
-          <a class="btn" href="manage.html">Керувати<span class="sr-only"> опікою над [ім'я коня]</span> <span class="i i-angle-right" aria-hidden="true"></span></a>
+          <a class="btn" href="manage.html">Керувати опікою<span class="sr-only"> над [ім'я коня]</span> <span class="i i-angle-right" aria-hidden="true"></span></a>
         </article>
 
         <article class="support-card" aria-labelledby="sup-2">
           <span class="img avatar" aria-hidden="true"><span class="i i-building"></span></span>
           <h3 id="sup-2">Донат центру</h3>
-          <p>200 грн/міс · <span class="i i-check-circle" aria-hidden="true"></span> активний</p>
+          <p>200 грн щомісяця <span class="i i-check-circle" aria-hidden="true"></span></p>
           <p class="meta">Наступне списання <time datetime="2026-12-05">5 грудня</time></p>
-          <a class="btn" href="manage.html">Керувати<span class="sr-only"> донатом центру</span> <span class="i i-angle-right" aria-hidden="true"></span></a>
+          <a class="btn" href="manage.html">Керувати донатом<span class="sr-only"> центру</span> <span class="i i-angle-right" aria-hidden="true"></span></a>
         </article>
       </section>
 
       <!-- Історія платежів: кожне списання видно (Платіж, R5, E1) -->
       <section aria-labelledby="history" data-zone="5">
-        <h2 id="history">Історія платежів</h2>
+        <h2 id="history">Історія внесків</h2>
         <table>
-          <caption class="sr-only">Платежі за опікою і донатом центру, нові зверху</caption>
+          <caption class="sr-only">Ваші внески — опіка й донат центру, нові зверху</caption>
           <thead>
-            <tr><th scope="col">Дата</th><th scope="col">Кому, сума</th><th scope="col">Статус</th><th scope="col">Чек</th></tr>
+            <tr><th scope="col">Дата</th><th scope="col">Кому</th><th scope="col">Сума</th><th scope="col">Чек</th></tr>
           </thead>
           <tbody>
-            <tr><td><time datetime="2026-11-13">13 листопада</time></td><td><span class="ph">[ім'я коня]</span> · 500 грн разово</td><td>успішний</td><td><span class="ph">[як отримати чек повторно]</span> [?]</td></tr>
-            <tr><td><time datetime="2026-11-05">5 листопада</time></td><td>Центр · 200 грн</td><td>успішний</td><td><span class="ph">[як отримати чек повторно]</span> [?]</td></tr>
-            <tr><td><time datetime="2026-11-01">1 листопада</time></td><td><span class="ph">[ім'я коня]</span> · 1 000 грн</td><td>успішний</td><td><span class="ph">[як отримати чек повторно]</span> [?]</td></tr>
-            <tr><td><time datetime="2026-10-05">5 жовтня</time></td><td>Центр · 200 грн</td><td>успішний</td><td><span class="ph">[як отримати чек повторно]</span> [?]</td></tr>
-            <tr><td><time datetime="2026-10-01">1 жовтня</time></td><td><span class="ph">[ім'я коня]</span> · 1 000 грн</td><td>успішний</td><td><span class="ph">[як отримати чек повторно]</span> [?]</td></tr>
+            <tr><td><time datetime="2026-11-13">13 листопада</time></td><td><span class="ph">[ім'я коня]</span></td><td>500 грн разово</td><td><span class="ph">[як отримати чек повторно]</span> [?]</td></tr>
+            <tr><td><time datetime="2026-11-05">5 листопада</time></td><td>Центр</td><td>200 грн</td><td><span class="ph">[як отримати чек повторно]</span> [?]</td></tr>
+            <tr><td><time datetime="2026-11-01">1 листопада</time></td><td><span class="ph">[ім'я коня]</span></td><td>1 000 грн</td><td><span class="ph">[як отримати чек повторно]</span> [?]</td></tr>
+            <tr><td><time datetime="2026-10-05">5 жовтня</time></td><td>Центр</td><td>200 грн</td><td><span class="ph">[як отримати чек повторно]</span> [?]</td></tr>
+            <tr><td><time datetime="2026-10-01">1 жовтня</time></td><td><span class="ph">[ім'я коня]</span></td><td>1 000 грн</td><td><span class="ph">[як отримати чек повторно]</span> [?]</td></tr>
           </tbody>
         </table>
         <p class="meta">Кожен чек також приходить листом на kateryna@example.com.</p>
@@ -111,7 +111,7 @@
     <ul>
       <li><code>my-support.html</code> — вкладка «Моя допомога» розділу «Мої улюбленці».</li>
       <li><b>Огляд, а не пульт</b> (рішення 15.11.2026). Раніше кожна підтримка несла чотири вкладені розкриття (сума, пауза, скасувати, спосіб оплати) — сторінка ставала стіною, дії виглядали як текст, скасування важко знайти (DV4), не було видно «скільки і на що я даю», кілька грошових рішень одразу. Тепер тут — огляд, а кожну підтримку змінюють на окремому екрані, по одному рішенню за раз.</li>
-      <li>Flow R5, вузол SUP → «Керувати ›» → MANAGE.</li>
+      <li>Flow R5, вузол SUP → «Керувати опікою ›» чи «Керувати донатом ›» → MANAGE.</li>
       <li>Персона — Опікун: опіка над конем і донат центру. Донатор без тварин бачить лише картку донату.</li>
     </ul>
 
@@ -123,16 +123,16 @@
 
     <h2>Зони і головна дія кожної</h2>
     <ul>
-      <li><span class="wf-zone">1</span> Шапка — меню зліва (Головна, Усі тварини, Підтримати, Про центр; під рискою — Мої улюбленці, Моя допомога, Налаштування; мова; поточна — «Моя допомога»), «Прайд» по центру, праворуч серце → «Мої улюбленці» і лупа → «Пошук».</li>
+      <li><span class="wf-zone">1</span> Шапка — меню зліва (Головна, Усі тварини, Донат центру, Про центр; під рискою — Мої улюбленці, Моя допомога, Налаштування; мова; поточна — «Моя допомога»), «Прайд» по центру, праворуч серце → «Мої улюбленці» і лупа → «Пошук».</li>
       <li><span class="wf-zone">2</span> Вкладки розділу «Мої улюбленці» — Стрічка · <b>Моя допомога</b>.</li>
       <li><span class="wf-zone">3</span> «Щомісяця ви даєте 1 200 грн» — сума активних регулярних підтримок і з чого вона складається. Зона для читання.</li>
-      <li><span class="wf-zone">4</span> Регулярна підтримка — по картці на кожну: фото чи іконка, «Опіка над [ім'я коня]» / «Донат центру», сума на місяць, наступне списання, стан. Одна світла кнопка «Керувати ›» → <code>manage.html</code>. Темної кнопки немає: картки рівноправні.</li>
-      <li><span class="wf-zone">5</span> Історія платежів — дата, кому й сума, статус, чек. Зона для читання.</li>
+      <li><span class="wf-zone">4</span> Щомісячна допомога — по картці на кожну: фото чи іконка, «Опіка над [ім'я коня]» / «Донат центру», сума на місяць, наступне списання, стан. Одна світла кнопка «Керувати опікою ›» чи «Керувати донатом ›» → <code>manage.html</code>. Темної кнопки немає: картки рівноправні.</li>
+      <li><span class="wf-zone">5</span> Історія внесків — дата, кому, сума, чек. Зона для читання.</li>
     </ul>
 
     <h2>Варіанти — та сама сторінка</h2>
     <ul>
-      <li><b>Не вдалося списати</b> (flow M, розвилка 11) — на картці стан «не вдалося списати 1 листопада» і рядок «[ім'я коня] лишається з вами»; «Керувати ›» веде одразу на <a href="manage-method.html">спосіб оплати</a>.</li>
+      <li><b>Не вдалося списати</b> (flow M, розвилка 11) — на картці стан «Не вдалося списати 1 000 грн 1 листопада.» і рядок «[ім'я коня] лишається з вами.»; замість «Керувати опікою ›» — «Змінити спосіб оплати ›», веде одразу на <a href="manage-method.html">спосіб оплати</a>.</li>
       <li><b>На паузі</b> [?] — на картці «на паузі до [дата]»; підсумок у зоні 3 рахує лише активні.</li>
       <li><b>Лише донат</b> (Терміновий донатор) — одна картка «Донат центру», підсумок — його сума.</li>
     </ul>
@@ -147,7 +147,7 @@
     <ul class="wf-flow">
       <li>Сюди — з <a href="my-support-loading.html">завантаження</a>: дані прийшли (розвилка 3 — так), регулярна підтримка є (4 — так).</li>
       <li>Розвилка 4 — ні → <a href="my-support-empty.html">порожній стан</a>.</li>
-      <li>«Керувати ›» → <a href="manage.html">Керування допомогою</a> цієї опіки чи донату (R5: SUP → MANAGE).</li>
+      <li>«Керувати опікою ›» чи «Керувати донатом ›» → <a href="manage.html">Керування допомогою</a> цієї опіки чи донату (R5: SUP → MANAGE).</li>
       <li>Вкладка → <a href="my-animals.html">Стрічка</a>.</li>
     </ul>
   </aside>

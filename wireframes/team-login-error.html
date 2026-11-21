@@ -40,13 +40,13 @@
 
       <form aria-labelledby="login-title" data-zone="2" action="team-login-loading.html" method="get">
         <h2 id="login-title"><span class="i i-exclamation-circle" aria-hidden="true"></span> Посилання вже не діє</h2>
-        <p role="alert">Посилання з листа від <time datetime="2026-11-13T08:05">13 листопада, 08:05</time> прострочене або ним уже скористалися. Надішлемо нове — це хвилина.</p>
-        <label>Email
+        <p role="alert">Посилання з листа від <time datetime="2026-11-13T08:05">13 листопада, 08:05</time> уже використали або його час минув. Надішлемо ще один лист — це хвилина.</p>
+        <label>Пошта
           <input type="email" name="email" autocomplete="email" value="maksym@example.com" required aria-describedby="email-hint">
         </label>
-        <p class="meta" id="email-hint">Адреса, з якою центр додав вас до команди. Посилання прийде лише на адресу зі списку команди.</p>
-        <button class="primary" type="submit">Надіслати нове посилання</button>
-        <p class="meta">Не виходить? Зверніться до <span class="ph">[хто в команді відповідає за сайт]</span> [?].</p>
+        <p class="meta" id="email-hint">Пошта, з якою центр додав вас до команди. Посилання прийде лише на пошту зі списку команди.</p>
+        <button class="primary" type="submit">Надіслати ще раз</button>
+        <p class="meta">Не виходить? Напишіть чи зателефонуйте тому, хто в команді відповідає за сайт: <span class="ph">[ім'я й телефон]</span> [?].</p>
       </form>
     </main>
 
@@ -66,14 +66,14 @@
 
     <h2>Зони і головна дія кожної</h2>
     <ul>
-      <li><span class="wf-zone">2</span> «Посилання вже не діє» — <b>«Надіслати нове посилання»</b>; адреса вже заповнена [?]. Куди звернутися — відповідальний за сайт у команді [?].</li>
+      <li><span class="wf-zone">2</span> «Посилання вже не діє» — <b>«Надіслати ще раз»</b>; адреса вже заповнена [?]. Куди звернутися — відповідальний за сайт у команді [?].</li>
       <li><span class="wf-zone">1</span> — як на базовій сторінці.</li>
     </ul>
 
     <h2>Переходи flow</h2>
     <ul class="wf-flow">
       <li>Сюди — з листа: розвилка 8 «Посилання ще дійсне?» — ні (E2); а також з <a href="team-login-loading.html">завантаження</a>, розвилка 4 — ні.</li>
-      <li>Вихід — «Надіслати нове посилання» → <a href="team-login-loading.html">завантаження</a>.</li>
+      <li>Вихід — «Надіслати ще раз» → <a href="team-login-loading.html">завантаження</a>.</li>
       <li>Інші помилки — як на <a href="login-error.html">Вході</a>: хибний формат адреси (розвилка 3), не вдалося надіслати (розвилка 4).</li>
     </ul>
   </aside>

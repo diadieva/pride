@@ -56,11 +56,11 @@
         <input type="hidden" name="support" value="care-1">
         <fieldset class="row">
           <legend>На скільки <span class="meta">[?]</span></legend>
-          <label class="choice"><input type="radio" name="pause" value="1" checked> 1 міс.</label>
-          <label class="choice"><input type="radio" name="pause" value="3"> 3 міс.</label>
+          <label class="choice"><input type="radio" name="pause" value="1" checked> 1 місяць</label>
+          <label class="choice"><input type="radio" name="pause" value="3"> 3 місяці</label>
           <label class="choice"><input type="radio" name="pause" value="open"> Без строку</label>
         </fieldset>
-        <p>Поки триває пауза, нічого не списується: <time datetime="2026-12-01">1 грудня</time> списання не буде. <span class="ph">[ім'я коня]</span> лишається у ваших «Моїх улюбленцях», новини приходять як і раніше.</p>
+        <p>Поки триває пауза, нічого не списується: <time datetime="2026-12-01">1 грудня</time> списання не буде. <span class="ph">[ім'я коня]</span> лишається у ваших «Моїх улюбленцях»: новини й важливі зміни — як і раніше.</p>
         <button class="primary" type="submit">Призупинити опіку</button>
       </form>
     </main>
@@ -71,7 +71,7 @@
     <h2>Керування допомогою · варіант «Призупинити»</h2>
     <ul>
       <li><code>manage-pause.html</code> — варіант базової сторінки <a href="manage.html">Керування допомогою</a>, не стан: одне рішення на екрані (рішення 15.11.2026). Назад — «‹ Опіка над [ім'я коня]».</li>
-      <li><b>Паузи немає</b> (розвилка 7 [?] — ні, ST1) — та сама сторінка: замість вибору строку «WayForPay [?] не вміє ставити опіку на паузу. Можна зменшити суму чи скасувати — повернутися можна будь-коли» і два рядки: «Змінити суму» → <code>manage-amount.html</code>, «Скасувати опіку» → <code>manage-cancel.html</code> (ST1 → розвилка 5).</li>
+      <li><b>Паузи немає</b> (розвилка 7 [?] — ні, ST1) — та сама сторінка: замість вибору строку «Поставити опіку на паузу через WayForPay [?] не можна. Можна зменшити суму чи скасувати опіку — повернутися до неї можна будь-коли.» і два рядки: «Змінити суму» → <code>manage-amount.html</code>, «Скасувати опіку» → <code>manage-cancel.html</code> (ST1 → розвилка 5).</li>
     </ul>
 
     <h2>Job</h2>
@@ -84,13 +84,13 @@
     <h2>Зони і головна дія кожної</h2>
     <ul>
       <li><span class="wf-zone">1</span> Шапка — як на інших екранах донора; у меню поточна «Моя допомога». Вкладок «Мої улюбленці» тут немає: це глибокий екран, назад — «‹ Опіка над [ім'я коня]».</li>
-      <li><span class="wf-zone">2</span> На скільки — 1 міс. / 3 міс. / без строку [?]; що станеться — нічого не списується, тварина й новини лишаються. <b>«Призупинити опіку»</b>.</li>
+      <li><span class="wf-zone">2</span> На скільки — 1 місяць / 3 місяці / без строку [?]; що станеться — нічого не списується, тварина й новини лишаються. <b>«Призупинити опіку»</b>.</li>
     </ul>
 
     <h2>Переходи flow</h2>
     <ul class="wf-flow">
       <li>«Призупинити опіку» → <a href="manage-loading.html">оновлюємо в провайдера</a> (розвилка 7 — так, L2).</li>
-      <li>Паузи немає → <a href="manage-amount.html">Змінити суму</a> чи <a href="manage-cancel.html">Скасувати</a>.</li>
+      <li>Паузи немає → <a href="manage-amount.html">Змінити суму опіки</a> чи <a href="manage-cancel.html">Скасувати</a>.</li>
       <li>«‹ Опіка над [ім'я коня]» → <a href="manage.html">Керування допомогою</a>.</li>
     </ul>
   </aside>
