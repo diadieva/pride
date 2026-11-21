@@ -111,13 +111,14 @@ html { --pn-space: 264px; }
 .pn-branch { color: var(--pn-muted); font-weight: 600; }
 
 /* Шапка сцени над рамкою вайрфрейма (поза .pn — кольори з ролей _nav/theme.css).
-   Ширина — як у сцени: рамка 390 + 32 + нотатки 360 */
+   Ширина — як у сцени: рамка 390 + 32 + нотатки 360 = 782 px. Кожна займає свій рядок .wf-page при будь-якій
+   ширині вікна: правий відступ добирає решту рядка. З max-width на ширших за ~1900 px вікнах поруч лишалося місце,
+   і рамка ставала праворуч від вкладок, а нотатки — під нею */
 html.pn-stage-on .wf-states { display: none; }
 .pn-stagehead, .pn-tabs {
   flex-basis: 100%;
-  max-width: 782px;
   margin-left: 0;
-  margin-right: 0;
+  margin-right: max(0px, 100% - 782px);
   font: 14px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 .pn-stagehead { margin-top: -6px; margin-bottom: -20px; }
